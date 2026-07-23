@@ -1,6 +1,7 @@
 """Executable modular-monolith dependency rules."""
 
 import ast
+from hashlib import sha256
 from pathlib import Path
 import re
 import sys
@@ -16,12 +17,15 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/__init__.py",
     "application/ports/__init__.py",
     "application/ports/legacy_prediction_source.py",
+    "application/ports/legacy_schedule_source.py",
     "application/use_cases/__init__.py",
     "application/use_cases/import_legacy_prediction_snapshot.py",
+    "application/use_cases/import_legacy_schedule_snapshot.py",
     "baseball/__init__.py",
     "baseball/domain/__init__.py",
     "baseball/domain/game.py",
     "baseball/domain/prediction.py",
+    "baseball/domain/schedule.py",
     "core/__init__.py",
     "core/identity.py",
     "core/provenance.py",
@@ -29,7 +33,44 @@ AUTHORIZED_SOURCE_PATHS = {
     "infrastructure/__init__.py",
     "infrastructure/legacy_betting_pool/__init__.py",
     "infrastructure/legacy_betting_pool/p83e_jsonl.py",
+    "infrastructure/legacy_betting_pool/p84b_schedule_jsonl.py",
     "interfaces/__init__.py",
+}
+
+P84B_RUNTIME_PATHS = (
+    PACKAGE_ROOT / "baseball" / "domain" / "schedule.py",
+    PACKAGE_ROOT / "application" / "ports" / "legacy_schedule_source.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "import_legacy_schedule_snapshot.py",
+    PACKAGE_ROOT
+    / "infrastructure"
+    / "legacy_betting_pool"
+    / "p84b_schedule_jsonl.py",
+)
+
+P83E_BASELINE_SHA256 = {
+    "src/match_analysis/baseball/domain/prediction.py": (
+        "6b41afc68bbe58fac48f68578edab353a64d0a33760f1811337ebb9d9bcb3735"
+    ),
+    "src/match_analysis/application/ports/legacy_prediction_source.py": (
+        "d1a707db18d1df6aa4b2445e254685988a274e51b9636215c070dae076957d77"
+    ),
+    (
+        "src/match_analysis/application/use_cases/"
+        "import_legacy_prediction_snapshot.py"
+    ): "18bf6cd1134b21ff523528409dee63494d0d90fc24e6e52af4f246fa955c07af",
+    (
+        "src/match_analysis/infrastructure/legacy_betting_pool/"
+        "p83e_jsonl.py"
+    ): "ac0a39a1132f4e9276811f051ce1bea97d041b2fa44db162ceebe9e372f35c04",
+    "tests/unit/test_prediction_contracts.py": (
+        "66da8fb31b3a5c7aeda1999e35bb79aea0179de76445b8a38c27fb43f9b20525"
+    ),
+    "tests/characterization/test_p83e_snapshot_adapter.py": (
+        "3e810b61d78744496dc778a1d5e66e6b375c1cd2294269bd8398e3346fd3e9b3"
+    ),
 }
 
 
@@ -186,6 +227,29 @@ class DependencyRuleTests(unittest.TestCase):
                     relative = path.relative_to(REPOSITORY_ROOT)
                     violations.append(f"{relative}:{line_number} -> {target}")
         self.assertEqual(violations, [])
+
+    def test_p84b_runtime_cannot_construct_promoted_domain_objects(
+        self,
+    ) -> None:
+        forbidden_constructors = ("MatchIdentity(", "BaseballGame(")
+        violations = [
+            f"{path.relative_to(REPOSITORY_ROOT)} -> {constructor}"
+            for path in P84B_RUNTIME_PATHS
+            for constructor in forbidden_constructors
+            if constructor in path.read_text(encoding="utf-8")
+        ]
+
+        self.assertEqual(violations, [])
+
+    def test_p83e_source_and_tests_remain_byte_identical(self) -> None:
+        actual = {
+            relative: sha256(
+                (REPOSITORY_ROOT / relative).read_bytes()
+            ).hexdigest()
+            for relative in P83E_BASELINE_SHA256
+        }
+
+        self.assertEqual(actual, P83E_BASELINE_SHA256)
 
 
 if __name__ == "__main__":
