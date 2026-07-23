@@ -15,14 +15,20 @@ AUTHORIZED_SOURCE_PATHS = {
     "__init__.py",
     "application/__init__.py",
     "application/ports/__init__.py",
+    "application/ports/legacy_prediction_source.py",
+    "application/use_cases/__init__.py",
+    "application/use_cases/import_legacy_prediction_snapshot.py",
     "baseball/__init__.py",
     "baseball/domain/__init__.py",
     "baseball/domain/game.py",
+    "baseball/domain/prediction.py",
     "core/__init__.py",
     "core/identity.py",
     "core/provenance.py",
     "core/time.py",
     "infrastructure/__init__.py",
+    "infrastructure/legacy_betting_pool/__init__.py",
+    "infrastructure/legacy_betting_pool/p83e_jsonl.py",
     "interfaces/__init__.py",
 }
 
@@ -136,6 +142,25 @@ class DependencyRuleTests(unittest.TestCase):
             str(path.relative_to(REPOSITORY_ROOT))
             for path in source_files()
             if LEGACY_ABSOLUTE_PATH in path.read_text(encoding="utf-8")
+        ]
+        self.assertEqual(violations, [])
+
+    def test_first_slice_has_no_persistence_or_runtime_integration(self) -> None:
+        forbidden_path_parts = {
+            "api",
+            "cli",
+            "database",
+            "db",
+            "provider",
+            "scheduler",
+            "scripts",
+        }
+        violations = [
+            path.relative_to(PACKAGE_ROOT).as_posix()
+            for path in source_files()
+            if forbidden_path_parts.intersection(
+                path.relative_to(PACKAGE_ROOT).parts
+            )
         ]
         self.assertEqual(violations, [])
 
