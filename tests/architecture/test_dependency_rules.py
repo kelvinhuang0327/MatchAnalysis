@@ -18,7 +18,9 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/ports/__init__.py",
     "application/ports/legacy_prediction_source.py",
     "application/ports/legacy_schedule_source.py",
+    "application/ports/schedule_observation_source.py",
     "application/use_cases/__init__.py",
+    "application/use_cases/capture_schedule_observation.py",
     "application/use_cases/import_legacy_prediction_snapshot.py",
     "application/use_cases/import_legacy_schedule_snapshot.py",
     "application/use_cases/link_legacy_quarantine_snapshots.py",
@@ -28,6 +30,7 @@ AUTHORIZED_SOURCE_PATHS = {
     "baseball/domain/prediction.py",
     "baseball/domain/quarantine_link.py",
     "baseball/domain/schedule.py",
+    "baseball/domain/schedule_observation.py",
     "core/__init__.py",
     "core/identity.py",
     "core/provenance.py",
@@ -58,6 +61,18 @@ QUARANTINE_LINK_RUNTIME_PATHS = (
     / "application"
     / "use_cases"
     / "link_legacy_quarantine_snapshots.py",
+)
+
+SCHEDULE_OBSERVATION_RUNTIME_PATHS = (
+    PACKAGE_ROOT / "baseball" / "domain" / "schedule_observation.py",
+    PACKAGE_ROOT
+    / "application"
+    / "ports"
+    / "schedule_observation_source.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "capture_schedule_observation.py",
 )
 
 P83E_BASELINE_SHA256 = {
@@ -103,6 +118,22 @@ P84B_BASELINE_SHA256 = {
     ),
     "tests/characterization/test_p84b_schedule_adapter.py": (
         "8228ebecd3d3c87bcceeb6183bfa3cbaa2cdd637892d0ce339e12bf00269b065"
+    ),
+}
+
+P3_QUARANTINE_LINK_BASELINE_SHA256 = {
+    "src/match_analysis/baseball/domain/quarantine_link.py": (
+        "9b5b6405c80a020237228e5c68d9ea7cf96edc243b00fc8cec162525723789fb"
+    ),
+    (
+        "src/match_analysis/application/use_cases/"
+        "link_legacy_quarantine_snapshots.py"
+    ): "734294dd77d95834934ac0eee53a6cc09059a1a2faad5925c1a3080a4308812e",
+    "tests/unit/test_quarantine_link_contracts.py": (
+        "7f07b9a9114885c39d2a82e13f698a86a63953796c2f673ac419a59b0cd4c944"
+    ),
+    "tests/characterization/test_p83e_p84b_quarantine_link.py": (
+        "296c53df8d6855215a15e296b2109f602e2b7cd14ad2a9dcd5fbff983744353d"
     ),
 }
 
@@ -261,6 +292,58 @@ class DependencyRuleTests(unittest.TestCase):
                     violations.append(f"{relative}:{line_number} -> {target}")
         self.assertEqual(violations, [])
 
+    def test_schedule_observation_runtime_has_no_forbidden_capabilities(
+        self,
+    ) -> None:
+        forbidden_import_roots = {
+            "aiohttp",
+            "http",
+            "os",
+            "pathlib",
+            "requests",
+            "shutil",
+            "socket",
+            "sqlite3",
+            "tempfile",
+            "urllib",
+        }
+        forbidden_constructs = (
+            "BaseballGame(",
+            "MatchIdentity(",
+            "datetime.now(",
+            "datetime.utcnow(",
+            "time.time(",
+            "Betting-pool",
+            "legacy_betting_pool",
+        )
+        violations: list[str] = []
+        for path in SCHEDULE_OBSERVATION_RUNTIME_PATHS:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            for target, line_number in imported_modules(path):
+                if target.split(".")[0] in forbidden_import_roots:
+                    violations.append(f"{relative}:{line_number} -> {target}")
+            source = path.read_text(encoding="utf-8")
+            for construct in forbidden_constructs:
+                if construct in source:
+                    violations.append(f"{relative} -> {construct}")
+        self.assertEqual(violations, [])
+
+    def test_schedule_observation_use_case_does_not_import_infrastructure(
+        self,
+    ) -> None:
+        use_case = (
+            PACKAGE_ROOT
+            / "application"
+            / "use_cases"
+            / "capture_schedule_observation.py"
+        )
+        violations = [
+            f"{use_case.relative_to(REPOSITORY_ROOT)}:{line_number} -> {target}"
+            for target, line_number in imported_modules(use_case)
+            if target.startswith("match_analysis.infrastructure")
+        ]
+        self.assertEqual(violations, [])
+
     def test_p84b_runtime_cannot_construct_promoted_domain_objects(
         self,
     ) -> None:
@@ -293,6 +376,18 @@ class DependencyRuleTests(unittest.TestCase):
         }
 
         self.assertEqual(actual, P84B_BASELINE_SHA256)
+
+    def test_p3_quarantine_link_source_and_tests_remain_byte_identical(
+        self,
+    ) -> None:
+        actual = {
+            relative: sha256(
+                (REPOSITORY_ROOT / relative).read_bytes()
+            ).hexdigest()
+            for relative in P3_QUARANTINE_LINK_BASELINE_SHA256
+        }
+
+        self.assertEqual(actual, P3_QUARANTINE_LINK_BASELINE_SHA256)
 
     def test_quarantine_link_runtime_cannot_construct_promoted_domain_objects(
         self,
