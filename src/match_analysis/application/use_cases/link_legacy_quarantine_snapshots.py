@@ -9,7 +9,6 @@ from hashlib import sha256
 import json
 
 from ...baseball.domain.quarantine_link import LegacyDiagnosticPredictionScheduleLink
-from ...baseball.domain.schedule import ScheduleQuarantineReason
 from ...core.provenance import ArtifactProvenance
 from .import_legacy_prediction_snapshot import LegacyPredictionImportResult
 from .import_legacy_schedule_snapshot import LegacyScheduleImportResult
