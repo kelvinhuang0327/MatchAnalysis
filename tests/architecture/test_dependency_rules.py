@@ -21,10 +21,12 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/use_cases/__init__.py",
     "application/use_cases/import_legacy_prediction_snapshot.py",
     "application/use_cases/import_legacy_schedule_snapshot.py",
+    "application/use_cases/link_legacy_quarantine_snapshots.py",
     "baseball/__init__.py",
     "baseball/domain/__init__.py",
     "baseball/domain/game.py",
     "baseball/domain/prediction.py",
+    "baseball/domain/quarantine_link.py",
     "baseball/domain/schedule.py",
     "core/__init__.py",
     "core/identity.py",
@@ -50,6 +52,14 @@ P84B_RUNTIME_PATHS = (
     / "p84b_schedule_jsonl.py",
 )
 
+QUARANTINE_LINK_RUNTIME_PATHS = (
+    PACKAGE_ROOT / "baseball" / "domain" / "quarantine_link.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "link_legacy_quarantine_snapshots.py",
+)
+
 P83E_BASELINE_SHA256 = {
     "src/match_analysis/baseball/domain/prediction.py": (
         "6b41afc68bbe58fac48f68578edab353a64d0a33760f1811337ebb9d9bcb3735"
@@ -70,6 +80,29 @@ P83E_BASELINE_SHA256 = {
     ),
     "tests/characterization/test_p83e_snapshot_adapter.py": (
         "3e810b61d78744496dc778a1d5e66e6b375c1cd2294269bd8398e3346fd3e9b3"
+    ),
+}
+
+P84B_BASELINE_SHA256 = {
+    "src/match_analysis/baseball/domain/schedule.py": (
+        "ba1e5e86a28a5cecf56e7b23a841d1e38ffb6bf84f708996ae3cc657418289da"
+    ),
+    "src/match_analysis/application/ports/legacy_schedule_source.py": (
+        "1b39b0ea1880c4c032dc185c732624f8952a06a518939b4a67caa61a0b74b837"
+    ),
+    (
+        "src/match_analysis/application/use_cases/"
+        "import_legacy_schedule_snapshot.py"
+    ): "c3b57ed312ac31e8f228d65767fa8e218f229a446d904b821719a1e86abfe80c",
+    (
+        "src/match_analysis/infrastructure/legacy_betting_pool/"
+        "p84b_schedule_jsonl.py"
+    ): "ad087db009dd7f0a4cd13d0a6536adf405f7dbbad5ab45f2a8cb5381220edb6a",
+    "tests/unit/test_schedule_contracts.py": (
+        "10dbe0257cf6917e04e4ad122d51df1d001ec3952e4fd7b4513e85d09fab1e39"
+    ),
+    "tests/characterization/test_p84b_schedule_adapter.py": (
+        "8228ebecd3d3c87bcceeb6183bfa3cbaa2cdd637892d0ce339e12bf00269b065"
     ),
 }
 
@@ -250,6 +283,29 @@ class DependencyRuleTests(unittest.TestCase):
         }
 
         self.assertEqual(actual, P83E_BASELINE_SHA256)
+
+    def test_p84b_source_and_tests_remain_byte_identical(self) -> None:
+        actual = {
+            relative: sha256(
+                (REPOSITORY_ROOT / relative).read_bytes()
+            ).hexdigest()
+            for relative in P84B_BASELINE_SHA256
+        }
+
+        self.assertEqual(actual, P84B_BASELINE_SHA256)
+
+    def test_quarantine_link_runtime_cannot_construct_promoted_domain_objects(
+        self,
+    ) -> None:
+        forbidden_constructors = ("MatchIdentity(", "BaseballGame(")
+        violations = [
+            f"{path.relative_to(REPOSITORY_ROOT)} -> {constructor}"
+            for path in QUARANTINE_LINK_RUNTIME_PATHS
+            for constructor in forbidden_constructors
+            if constructor in path.read_text(encoding="utf-8")
+        ]
+
+        self.assertEqual(violations, [])
 
 
 if __name__ == "__main__":
