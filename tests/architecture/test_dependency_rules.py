@@ -39,8 +39,17 @@ AUTHORIZED_SOURCE_PATHS = {
     "infrastructure/legacy_betting_pool/__init__.py",
     "infrastructure/legacy_betting_pool/p83e_jsonl.py",
     "infrastructure/legacy_betting_pool/p84b_schedule_jsonl.py",
+    "infrastructure/mlb_schedule/__init__.py",
+    "infrastructure/mlb_schedule/explicit_payload_source.py",
     "interfaces/__init__.py",
 }
+
+MLB_SCHEDULE_PAYLOAD_ADAPTER_RUNTIME_PATHS = (
+    PACKAGE_ROOT
+    / "infrastructure"
+    / "mlb_schedule"
+    / "explicit_payload_source.py",
+)
 
 P84B_RUNTIME_PATHS = (
     PACKAGE_ROOT / "baseball" / "domain" / "schedule.py",
@@ -118,6 +127,28 @@ P84B_BASELINE_SHA256 = {
     ),
     "tests/characterization/test_p84b_schedule_adapter.py": (
         "8228ebecd3d3c87bcceeb6183bfa3cbaa2cdd637892d0ce339e12bf00269b065"
+    ),
+}
+
+SCHEDULE_OBSERVATION_BASELINE_SHA256 = {
+    "src/match_analysis/baseball/domain/schedule_observation.py": (
+        "027d843f7c7a34582873c7ecfe366f941b936b1dd14b5b75a8d073ff6dfad7ad"
+    ),
+    "src/match_analysis/application/ports/schedule_observation_source.py": (
+        "1db186058ba80f0f752480e09275f680a39a286def63236b45da3e463734ce90"
+    ),
+    (
+        "src/match_analysis/application/use_cases/"
+        "capture_schedule_observation.py"
+    ): "7823b7aedd9e2bc4d96443b7b5265f0787596d035abb1023225b1d3ad244901e",
+    "tests/unit/test_schedule_observation_contracts.py": (
+        "6e653c0c269a863f1b7f8bba173cbf55e075ad06cd63dcfb6ac727ac72cf9e86"
+    ),
+    "tests/characterization/test_schedule_observation_fixture.py": (
+        "079fb5939c03d131bee1a6b4dfce28fb242b180be2a96831b71edc12f6c355e0"
+    ),
+    "tests/fixtures/mlb_schedule_observation_v1.json": (
+        "0ad8c16edebbc40d5592749beff04129e734f43110aed03376d3c43eeb64003c"
     ),
 }
 
@@ -400,6 +431,67 @@ class DependencyRuleTests(unittest.TestCase):
             if constructor in path.read_text(encoding="utf-8")
         ]
 
+        self.assertEqual(violations, [])
+
+    def test_schedule_observation_source_and_tests_remain_byte_identical(
+        self,
+    ) -> None:
+        actual = {
+            relative: sha256(
+                (REPOSITORY_ROOT / relative).read_bytes()
+            ).hexdigest()
+            for relative in SCHEDULE_OBSERVATION_BASELINE_SHA256
+        }
+
+        self.assertEqual(actual, SCHEDULE_OBSERVATION_BASELINE_SHA256)
+
+    def test_mlb_schedule_payload_adapter_has_no_forbidden_capabilities(
+        self,
+    ) -> None:
+        forbidden_import_roots = {
+            "aiohttp",
+            "http",
+            "os",
+            "pathlib",
+            "requests",
+            "shutil",
+            "socket",
+            "sqlite3",
+            "tempfile",
+            "urllib",
+        }
+        forbidden_constructs = (
+            "BaseballGame(",
+            "MatchIdentity(",
+            "datetime.now(",
+            "datetime.utcnow(",
+            "time.time(",
+            "Betting-pool",
+            "legacy_betting_pool",
+        )
+        violations: list[str] = []
+        for path in MLB_SCHEDULE_PAYLOAD_ADAPTER_RUNTIME_PATHS:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            for target, line_number in imported_modules(path):
+                if target.split(".")[0] in forbidden_import_roots:
+                    violations.append(f"{relative}:{line_number} -> {target}")
+            source = path.read_text(encoding="utf-8")
+            for construct in forbidden_constructs:
+                if construct in source:
+                    violations.append(f"{relative} -> {construct}")
+        self.assertEqual(violations, [])
+
+    def test_mlb_schedule_payload_adapter_does_not_import_other_infrastructure(
+        self,
+    ) -> None:
+        violations: list[str] = []
+        for path in MLB_SCHEDULE_PAYLOAD_ADAPTER_RUNTIME_PATHS:
+            for target, line_number in imported_modules(path):
+                if target.startswith(
+                    "match_analysis.infrastructure.legacy_betting_pool"
+                ):
+                    relative = path.relative_to(REPOSITORY_ROOT)
+                    violations.append(f"{relative}:{line_number} -> {target}")
         self.assertEqual(violations, [])
 
 

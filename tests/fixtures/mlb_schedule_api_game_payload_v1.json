@@ -1,0 +1,41 @@
+{
+  "fixture_schema": "mlb_schedule_api_game_payload_fixture_v1",
+  "cases": [
+    {
+      "fixture_key": "opening",
+      "raw_payload_utf8": "{\"gamePk\":777001,\"gameDate\":\"2026-04-04T18:10:00Z\",\"officialDate\":\"2026-04-04\",\"gameNumber\":1,\"status\":{\"statusCode\":\"S\",\"abstractGameState\":\"Preview\",\"detailedState\":\"Scheduled\"},\"teams\":{\"away\":{\"team\":{\"id\":109}},\"home\":{\"team\":{\"id\":118}}}}",
+      "response_received_at_utc": "2026-03-01T12:00:01.250Z",
+      "ingested_at_utc": "2026-03-01T12:00:01.500Z",
+      "endpoint_id": "mlb_schedule_v1",
+      "parser_version": "matchanalysis_mlb_game_payload_parser_v1",
+      "schema_version": "mlb_schedule_api_game_payload_v1",
+      "supersedes_fixture_key": null,
+      "expected_raw_payload_sha256": "8f7a7df62e17df8b2565c159ef0848fe3d880e670afebd80abe41ebdfe70d4a9",
+      "expected_observation_id": "877628202559b15953b79dfe18934a245caa1d1b6cf2eccdcf7a3cf7ab9d773b"
+    },
+    {
+      "fixture_key": "postponed_revision",
+      "raw_payload_utf8": "{\"gamePk\":777001,\"gameDate\":\"2026-04-05T20:10:00Z\",\"officialDate\":\"2026-04-05\",\"gameNumber\":1,\"status\":{\"statusCode\":\"P\",\"abstractGameState\":\"Preview\",\"detailedState\":\"Postponed\"},\"teams\":{\"away\":{\"team\":{\"id\":109}},\"home\":{\"team\":{\"id\":118}}}}",
+      "response_received_at_utc": "2026-04-04T16:30:00.125Z",
+      "ingested_at_utc": "2026-04-04T16:30:00.375Z",
+      "endpoint_id": "mlb_schedule_v1",
+      "parser_version": "matchanalysis_mlb_game_payload_parser_v1",
+      "schema_version": "mlb_schedule_api_game_payload_v1",
+      "supersedes_fixture_key": "opening",
+      "expected_raw_payload_sha256": "cab0963c174739518f00fa79536a1c1fd89efe01a6f7e87ffd17debf06a75f3e",
+      "expected_observation_id": "03074201bc93f4933f0dcfefeeb69f6dc5729f20abfa4757cc30881423e88b3a"
+    },
+    {
+      "fixture_key": "doubleheader_game_2",
+      "raw_payload_utf8": "{\"gamePk\":777002,\"gameDate\":\"2026-04-04T23:10:00Z\",\"officialDate\":\"2026-04-04\",\"gameNumber\":2,\"status\":{\"statusCode\":\"S\",\"abstractGameState\":\"Preview\",\"detailedState\":\"Scheduled\"},\"teams\":{\"away\":{\"team\":{\"id\":109}},\"home\":{\"team\":{\"id\":118}}}}",
+      "response_received_at_utc": "2026-03-01T12:00:02Z",
+      "ingested_at_utc": "2026-03-01T12:00:02.100Z",
+      "endpoint_id": "mlb_schedule_v1",
+      "parser_version": "matchanalysis_mlb_game_payload_parser_v1",
+      "schema_version": "mlb_schedule_api_game_payload_v1",
+      "supersedes_fixture_key": null,
+      "expected_raw_payload_sha256": "95bd1521b9b0e314436690cab87bd3d67b5aba72f9d07b21074ef44a3b82e685",
+      "expected_observation_id": "b95ef596384d43c90f74a3109e7ee04da1b60dab8faae2e6601e02167611bef9"
+    }
+  ]
+}
