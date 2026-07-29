@@ -25,6 +25,7 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/use_cases/import_legacy_prediction_snapshot.py",
     "application/use_cases/import_legacy_schedule_snapshot.py",
     "application/use_cases/link_legacy_quarantine_snapshots.py",
+    "application/use_cases/select_schedule_observations_as_of.py",
     "baseball/__init__.py",
     "baseball/domain/__init__.py",
     "baseball/domain/game.py",
@@ -33,6 +34,7 @@ AUTHORIZED_SOURCE_PATHS = {
     "baseball/domain/schedule.py",
     "baseball/domain/schedule_observation.py",
     "baseball/domain/schedule_revision.py",
+    "baseball/domain/schedule_snapshot.py",
     "core/__init__.py",
     "core/identity.py",
     "core/provenance.py",
@@ -92,6 +94,14 @@ SCHEDULE_OBSERVATION_REVISION_RUNTIME_PATHS = (
     / "application"
     / "use_cases"
     / "build_schedule_observation_revision_chains.py",
+)
+
+SCHEDULE_OBSERVATION_AS_OF_RUNTIME_PATHS = (
+    PACKAGE_ROOT / "baseball" / "domain" / "schedule_snapshot.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "select_schedule_observations_as_of.py",
 )
 
 P83E_BASELINE_SHA256 = {
@@ -429,6 +439,58 @@ class DependencyRuleTests(unittest.TestCase):
             / "application"
             / "use_cases"
             / "build_schedule_observation_revision_chains.py"
+        )
+        violations = [
+            f"{use_case.relative_to(REPOSITORY_ROOT)}:{line_number} -> {target}"
+            for target, line_number in imported_modules(use_case)
+            if target.startswith("match_analysis.infrastructure")
+        ]
+        self.assertEqual(violations, [])
+
+    def test_p8_schedule_observation_as_of_runtime_has_no_forbidden_capabilities(
+        self,
+    ) -> None:
+        forbidden_import_roots = {
+            "aiohttp",
+            "http",
+            "os",
+            "pathlib",
+            "requests",
+            "shutil",
+            "socket",
+            "sqlite3",
+            "tempfile",
+            "urllib",
+        }
+        forbidden_constructs = (
+            "BaseballGame(",
+            "MatchIdentity(",
+            "datetime.now(",
+            "datetime.utcnow(",
+            "time.time(",
+            "Betting-pool",
+            "legacy_betting_pool",
+        )
+        violations: list[str] = []
+        for path in SCHEDULE_OBSERVATION_AS_OF_RUNTIME_PATHS:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            for target, line_number in imported_modules(path):
+                if target.split(".")[0] in forbidden_import_roots:
+                    violations.append(f"{relative}:{line_number} -> {target}")
+            source = path.read_text(encoding="utf-8")
+            for construct in forbidden_constructs:
+                if construct in source:
+                    violations.append(f"{relative} -> {construct}")
+        self.assertEqual(violations, [])
+
+    def test_p8_schedule_observation_as_of_use_case_does_not_import_infrastructure(
+        self,
+    ) -> None:
+        use_case = (
+            PACKAGE_ROOT
+            / "application"
+            / "use_cases"
+            / "select_schedule_observations_as_of.py"
         )
         violations = [
             f"{use_case.relative_to(REPOSITORY_ROOT)}:{line_number} -> {target}"
