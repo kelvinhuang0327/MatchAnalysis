@@ -1,0 +1,17 @@
+{
+  "fixture_schema": "provider_participant_identity_map_fixture_v1",
+  "mappings": [
+    {
+      "provider_namespace": "MLB_STATS_API",
+      "provider_participant_id": "118",
+      "canonical_participant_id": "FIXTURE_CANONICAL_MLB_TEAM_118",
+      "mapping_version": "provider_participant_identity_map_v1"
+    },
+    {
+      "provider_namespace": "MLB_STATS_API",
+      "provider_participant_id": "109",
+      "canonical_participant_id": "FIXTURE_CANONICAL_MLB_TEAM_109",
+      "mapping_version": "provider_participant_identity_map_v1"
+    }
+  ]
+}
