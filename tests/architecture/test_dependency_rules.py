@@ -26,6 +26,7 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/use_cases/import_legacy_prediction_snapshot.py",
     "application/use_cases/import_legacy_schedule_snapshot.py",
     "application/use_cases/link_legacy_quarantine_snapshots.py",
+    "application/use_cases/materialize_schedule_baseball_games.py",
     "application/use_cases/project_schedule_identity_candidates.py",
     "application/use_cases/resolve_schedule_participant_identities.py",
     "application/use_cases/select_schedule_observations_as_of.py",
@@ -37,6 +38,7 @@ AUTHORIZED_SOURCE_PATHS = {
     "baseball/domain/participant_identity_resolution.py",
     "baseball/domain/quarantine_link.py",
     "baseball/domain/schedule.py",
+    "baseball/domain/schedule_game_materialization.py",
     "baseball/domain/schedule_identity_candidate.py",
     "baseball/domain/schedule_observation.py",
     "baseball/domain/schedule_revision.py",
@@ -141,6 +143,17 @@ MATCH_IDENTITY_CONSTRUCTION_RUNTIME_PATHS = (
     / "application"
     / "use_cases"
     / "construct_match_identities.py",
+)
+
+SCHEDULE_BASEBALL_GAME_MATERIALIZATION_RUNTIME_PATHS = (
+    PACKAGE_ROOT
+    / "baseball"
+    / "domain"
+    / "schedule_game_materialization.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "materialize_schedule_baseball_games.py",
 )
 
 P83E_BASELINE_SHA256 = {
@@ -711,6 +724,87 @@ class DependencyRuleTests(unittest.TestCase):
             f"{use_case.relative_to(REPOSITORY_ROOT)}:{line_number} -> {target}"
             for target, line_number in imported_modules(use_case)
             if target.startswith("match_analysis.infrastructure")
+        ]
+        self.assertEqual(violations, [])
+
+    def test_p12_game_materialization_has_no_forbidden_capabilities(
+        self,
+    ) -> None:
+        forbidden_import_roots = {
+            "aiohttp",
+            "http",
+            "os",
+            "pathlib",
+            "requests",
+            "shutil",
+            "socket",
+            "sqlite3",
+            "tempfile",
+            "urllib",
+        }
+        forbidden_constructs = (
+            "MatchIdentity(",
+            "datetime.now(",
+            "datetime.utcnow(",
+            "time.time(",
+            "provider_status_code",
+            "provider_detailed_status",
+            "Betting-pool",
+            "legacy_betting_pool",
+            "prediction",
+        )
+        violations: list[str] = []
+        for path in SCHEDULE_BASEBALL_GAME_MATERIALIZATION_RUNTIME_PATHS:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            for target, line_number in imported_modules(path):
+                if target.split(".")[0] in forbidden_import_roots:
+                    violations.append(f"{relative}:{line_number} -> {target}")
+            source = path.read_text(encoding="utf-8")
+            for construct in forbidden_constructs:
+                if construct in source:
+                    violations.append(f"{relative} -> {construct}")
+        self.assertEqual(violations, [])
+
+    def test_p12_constructs_only_the_existing_baseball_game(self) -> None:
+        domain_contract = (
+            SCHEDULE_BASEBALL_GAME_MATERIALIZATION_RUNTIME_PATHS[0]
+        )
+        use_case = SCHEDULE_BASEBALL_GAME_MATERIALIZATION_RUNTIME_PATHS[1]
+        use_case_tree = ast.parse(
+            use_case.read_text(encoding="utf-8"),
+            filename=str(use_case),
+        )
+        direct_constructor_names = [
+            node.func.id
+            for node in ast.walk(use_case_tree)
+            if isinstance(node, ast.Call)
+            and isinstance(node.func, ast.Name)
+        ]
+
+        self.assertNotIn(
+            "class BaseballGame",
+            domain_contract.read_text(encoding="utf-8"),
+        )
+        self.assertEqual(
+            direct_constructor_names.count("BaseballGame"),
+            1,
+        )
+        self.assertEqual(
+            direct_constructor_names.count("MatchIdentity"),
+            0,
+        )
+
+    def test_p12_use_case_does_not_import_outer_layers(self) -> None:
+        use_case = SCHEDULE_BASEBALL_GAME_MATERIALIZATION_RUNTIME_PATHS[1]
+        violations = [
+            f"{use_case.relative_to(REPOSITORY_ROOT)}:{line_number} -> {target}"
+            for target, line_number in imported_modules(use_case)
+            if target.startswith(
+                (
+                    "match_analysis.infrastructure",
+                    "match_analysis.interfaces",
+                )
+            )
         ]
         self.assertEqual(violations, [])
 
