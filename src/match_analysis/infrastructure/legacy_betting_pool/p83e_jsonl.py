@@ -9,10 +9,15 @@ import re
 from typing import BinaryIO
 
 from ...application.ports.legacy_prediction_source import (
+    LEGACY_PREDICTION_EVIDENCE_PARSER_VERSION,
+    LEGACY_PREDICTION_EVIDENCE_SCHEMA_VERSION,
+    LegacyPredictionEvidenceRow,
+    LegacyPredictionEvidenceSnapshot,
     LegacyPredictionRow,
     LegacyPredictionSnapshot,
     NULL_OUTCOME_PLACEHOLDER_FIELDS,
     PINNED_SOURCE_PREDICTION_VERSION,
+    legacy_prediction_evidence_snapshot_fingerprint,
 )
 
 
@@ -134,10 +139,29 @@ class P83eJsonlSnapshotSource:
         source: str | Path | bytes | bytearray | BinaryIO,
         *,
         expected_sha256: str,
+        expected_row_count: int | None = None,
+        expected_semantic_fingerprint: str | None = None,
+        source_repository: str | None = None,
+        source_ref: str | None = None,
+        source_blob: str | None = None,
     ) -> None:
         if _SHA256_PATTERN.fullmatch(expected_sha256) is None:
             raise ValueError("expected_sha256 must be a lowercase SHA-256")
+        if expected_row_count is not None and expected_row_count < 1:
+            raise ValueError("expected_row_count must be positive")
+        if (
+            expected_semantic_fingerprint is not None
+            and _SHA256_PATTERN.fullmatch(expected_semantic_fingerprint) is None
+        ):
+            raise ValueError(
+                "expected_semantic_fingerprint must be a lowercase SHA-256"
+            )
         self._expected_sha256 = expected_sha256
+        self._expected_row_count = expected_row_count
+        self._expected_semantic_fingerprint = expected_semantic_fingerprint
+        self._source_repository = source_repository
+        self._source_ref = source_ref
+        self._source_blob = source_blob
         self._path: Path | None = None
         self._bytes: bytes | None = None
 
@@ -160,9 +184,9 @@ class P83eJsonlSnapshotSource:
             raise RuntimeError("snapshot source was not initialized")
         return self._path.read_bytes()
 
-    def load(self) -> LegacyPredictionSnapshot:
-        """Hash first, then parse and validate without writing."""
-
+    def _parse_evidence(
+        self,
+    ) -> tuple[bytes, str, tuple[LegacyPredictionEvidenceRow, ...]]:
         raw = self._read_bytes()
         artifact_sha256 = sha256(raw).hexdigest()
         if artifact_sha256 != self._expected_sha256:
@@ -173,18 +197,36 @@ class P83eJsonlSnapshotSource:
         if not raw:
             raise _schema_error("snapshot is empty")
         try:
-            text = raw.decode("utf-8")
+            raw.decode("utf-8")
         except UnicodeDecodeError as error:
             raise _schema_error("snapshot is not valid UTF-8") from error
 
-        lines = text.splitlines()
-        if not lines or any(not line.strip() for line in lines):
+        raw_lines = raw.split(b"\n")
+        has_terminal_lf = raw.endswith(b"\n")
+        if has_terminal_lf:
+            raw_lines.pop()
+        normalized_raw_lines = tuple(
+            line[:-1]
+            if (index < len(raw_lines) - 1 or has_terminal_lf)
+            and line.endswith(b"\r")
+            else line
+            for index, line in enumerate(raw_lines)
+        )
+        if not normalized_raw_lines or any(
+            not line.strip() for line in normalized_raw_lines
+        ):
             raise _schema_error("snapshot contains a blank row")
 
-        validated_rows: list[LegacyPredictionRow] = []
+        validated_rows: list[LegacyPredictionEvidenceRow] = []
         seen_ids: set[str] = set()
         previous_id: str | None = None
-        for line_number, line in enumerate(lines, start=1):
+        for line_number, raw_line in enumerate(normalized_raw_lines, start=1):
+            try:
+                line = raw_line.decode("utf-8")
+            except UnicodeDecodeError as error:
+                raise _schema_error(
+                    f"line {line_number} is not valid UTF-8"
+                ) from error
             try:
                 parsed = json.loads(
                     line,
@@ -309,21 +351,108 @@ class P83eJsonlSnapshotSource:
                     raise _schema_error(f"{field} violates quarantine governance")
 
             validated_rows.append(
-                LegacyPredictionRow(
-                    source_game_id=game_id,
-                    source_prediction_version=source_version,
-                    predicted_side=predicted_side,
+                LegacyPredictionEvidenceRow(
+                    legacy_game_id=game_id,
+                    game_date=game_date,
+                    season=row["season"],
+                    home_team=home_team,
+                    away_team=away_team,
+                    home_sp_fip=numerics["home_sp_fip"],
+                    away_sp_fip=numerics["away_sp_fip"],
                     sp_fip_delta=delta,
+                    abs_sp_fip_delta=absolute_delta,
+                    home_win_probability=numerics["model_probability"],
+                    predicted_side=predicted_side,
+                    source_prediction_version=source_version,
+                    rule_primary_125_flag=row["rule_primary_125_flag"],
+                    rule_shadow_100_flag=row["rule_shadow_100_flag"],
+                    tier_b_candidate_flag=row["tier_b_candidate_flag"],
+                    tier_a_watchlist_flag=row["tier_a_watchlist_flag"],
+                    paper_only=row["paper_only"],
+                    diagnostic_only=row["diagnostic_only"],
+                    odds_used=row["odds_used"],
+                    market_edge_evaluated=row["market_edge_evaluated"],
+                    production_ready=row["production_ready"],
+                    result_home_score=row["result_home_score"],
+                    result_away_score=row["result_away_score"],
+                    actual_winner=row["actual_winner"],
+                    is_correct=row["is_correct"],
+                    raw_row_bytes=raw_line,
+                    raw_row_sha256=sha256(raw_line).hexdigest(),
                 )
             )
             seen_ids.add(game_id)
             previous_id = game_id
 
+        return raw, artifact_sha256, tuple(validated_rows)
+
+    def load(self) -> LegacyPredictionSnapshot:
+        """Return the unchanged reduced public snapshot API."""
+
+        _, artifact_sha256, evidence_rows = self._parse_evidence()
         return LegacyPredictionSnapshot(
             artifact_sha256=artifact_sha256,
-            rows=tuple(validated_rows),
+            rows=tuple(
+                LegacyPredictionRow(
+                    source_game_id=row.legacy_game_id,
+                    source_prediction_version=row.source_prediction_version,
+                    predicted_side=row.predicted_side,
+                    sp_fip_delta=row.sp_fip_delta,
+                )
+                for row in evidence_rows
+            ),
             validated_null_outcome_placeholder_fields=(
                 NULL_OUTCOME_PLACEHOLDER_FIELDS
             ),
             rows_with_observed_outcomes=0,
+        )
+
+    def load_evidence(self) -> LegacyPredictionEvidenceSnapshot:
+        """Return complete evidence bound to caller-supplied provenance."""
+
+        required_metadata = {
+            "expected_row_count": self._expected_row_count,
+            "expected_semantic_fingerprint": (
+                self._expected_semantic_fingerprint
+            ),
+            "source_repository": self._source_repository,
+            "source_ref": self._source_ref,
+            "source_blob": self._source_blob,
+        }
+        missing = sorted(
+            name for name, value in required_metadata.items() if value is None
+        )
+        if missing:
+            raise ValueError(
+                "load_evidence requires explicit " + ", ".join(missing)
+            )
+
+        raw, artifact_sha256, rows = self._parse_evidence()
+        if len(rows) != self._expected_row_count:
+            raise _schema_error(
+                "row count does not match the explicit expected_row_count"
+            )
+        snapshot_fingerprint = legacy_prediction_evidence_snapshot_fingerprint(
+            rows=rows,
+            source_repository=self._source_repository,
+            source_ref=self._source_ref,
+            source_blob=self._source_blob,
+            raw_artifact_sha256=artifact_sha256,
+            semantic_fingerprint=self._expected_semantic_fingerprint,
+            parser_version=LEGACY_PREDICTION_EVIDENCE_PARSER_VERSION,
+            schema_version=LEGACY_PREDICTION_EVIDENCE_SCHEMA_VERSION,
+            row_count=len(rows),
+        )
+        return LegacyPredictionEvidenceSnapshot(
+            rows=rows,
+            source_repository=self._source_repository,
+            source_ref=self._source_ref,
+            source_blob=self._source_blob,
+            raw_artifact_sha256=artifact_sha256,
+            semantic_fingerprint=self._expected_semantic_fingerprint,
+            parser_version=LEGACY_PREDICTION_EVIDENCE_PARSER_VERSION,
+            schema_version=LEGACY_PREDICTION_EVIDENCE_SCHEMA_VERSION,
+            row_count=len(rows),
+            snapshot_fingerprint=snapshot_fingerprint,
+            raw_artifact_bytes=raw,
         )

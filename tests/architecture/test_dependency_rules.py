@@ -174,7 +174,7 @@ P83E_BASELINE_SHA256 = {
         "6b41afc68bbe58fac48f68578edab353a64d0a33760f1811337ebb9d9bcb3735"
     ),
     "src/match_analysis/application/ports/legacy_prediction_source.py": (
-        "d1a707db18d1df6aa4b2445e254685988a274e51b9636215c070dae076957d77"
+        "e67a4aa577bbf96b26dff8652432614e44c26a72938357f798e88535d201e9f1"
     ),
     (
         "src/match_analysis/application/use_cases/"
@@ -183,12 +183,18 @@ P83E_BASELINE_SHA256 = {
     (
         "src/match_analysis/infrastructure/legacy_betting_pool/"
         "p83e_jsonl.py"
-    ): "ac0a39a1132f4e9276811f051ce1bea97d041b2fa44db162ceebe9e372f35c04",
+    ): "4cebaaddab8d96f0b2349a295a3c8f69a8c206f866da59f80f157fd918f2ed71",
     "tests/unit/test_prediction_contracts.py": (
         "66da8fb31b3a5c7aeda1999e35bb79aea0179de76445b8a38c27fb43f9b20525"
     ),
+    "tests/unit/test_legacy_prediction_evidence_contracts.py": (
+        "9a2789551bbc565546c32581f0dbf800f8549594376adb1231a0e27f6c1bd49a"
+    ),
     "tests/characterization/test_p83e_snapshot_adapter.py": (
         "3e810b61d78744496dc778a1d5e66e6b375c1cd2294269bd8398e3346fd3e9b3"
+    ),
+    "tests/characterization/test_p83e_public_evidence_snapshot.py": (
+        "125c2884220f6f065cda846791c7535a953318e4a783f9f05ed85de484b9db50"
     ),
 }
 
