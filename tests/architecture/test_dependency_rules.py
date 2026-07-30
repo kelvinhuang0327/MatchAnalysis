@@ -23,6 +23,7 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/use_cases/build_schedule_observation_revision_chains.py",
     "application/use_cases/capture_schedule_observation.py",
     "application/use_cases/construct_match_identities.py",
+    "application/use_cases/evaluate_schedule_pregame_eligibility.py",
     "application/use_cases/import_legacy_prediction_snapshot.py",
     "application/use_cases/import_legacy_schedule_snapshot.py",
     "application/use_cases/link_legacy_quarantine_snapshots.py",
@@ -36,6 +37,7 @@ AUTHORIZED_SOURCE_PATHS = {
     "baseball/domain/match_identity_authority.py",
     "baseball/domain/prediction.py",
     "baseball/domain/participant_identity_resolution.py",
+    "baseball/domain/pregame_eligibility.py",
     "baseball/domain/quarantine_link.py",
     "baseball/domain/schedule.py",
     "baseball/domain/schedule_game_materialization.py",
@@ -154,6 +156,17 @@ SCHEDULE_BASEBALL_GAME_MATERIALIZATION_RUNTIME_PATHS = (
     / "application"
     / "use_cases"
     / "materialize_schedule_baseball_games.py",
+)
+
+SCHEDULE_PREGAME_ELIGIBILITY_RUNTIME_PATHS = (
+    PACKAGE_ROOT
+    / "baseball"
+    / "domain"
+    / "pregame_eligibility.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "evaluate_schedule_pregame_eligibility.py",
 )
 
 P83E_BASELINE_SHA256 = {
@@ -796,6 +809,62 @@ class DependencyRuleTests(unittest.TestCase):
 
     def test_p12_use_case_does_not_import_outer_layers(self) -> None:
         use_case = SCHEDULE_BASEBALL_GAME_MATERIALIZATION_RUNTIME_PATHS[1]
+        violations = [
+            f"{use_case.relative_to(REPOSITORY_ROOT)}:{line_number} -> {target}"
+            for target, line_number in imported_modules(use_case)
+            if target.startswith(
+                (
+                    "match_analysis.infrastructure",
+                    "match_analysis.interfaces",
+                )
+            )
+        ]
+        self.assertEqual(violations, [])
+
+    def test_p13_pregame_eligibility_has_no_forbidden_capabilities(
+        self,
+    ) -> None:
+        forbidden_import_roots = {
+            "aiohttp",
+            "http",
+            "os",
+            "pathlib",
+            "requests",
+            "shutil",
+            "socket",
+            "sqlite3",
+            "tempfile",
+            "time",
+            "urllib",
+        }
+        forbidden_constructs = (
+            "BaseballGame(",
+            "MatchIdentity(",
+            "datetime.now(",
+            "datetime.utcnow(",
+            "time.time(",
+            "provider_status_code",
+            "provider_detailed_status",
+            "score",
+            "odds",
+            "prediction",
+            "Betting-pool",
+            "legacy_betting_pool",
+        )
+        violations: list[str] = []
+        for path in SCHEDULE_PREGAME_ELIGIBILITY_RUNTIME_PATHS:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            for target, line_number in imported_modules(path):
+                if target.split(".")[0] in forbidden_import_roots:
+                    violations.append(f"{relative}:{line_number} -> {target}")
+            source = path.read_text(encoding="utf-8")
+            for construct in forbidden_constructs:
+                if construct in source:
+                    violations.append(f"{relative} -> {construct}")
+        self.assertEqual(violations, [])
+
+    def test_p13_use_case_does_not_import_outer_layers(self) -> None:
+        use_case = SCHEDULE_PREGAME_ELIGIBILITY_RUNTIME_PATHS[1]
         violations = [
             f"{use_case.relative_to(REPOSITORY_ROOT)}:{line_number} -> {target}"
             for target, line_number in imported_modules(use_case)
