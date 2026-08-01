@@ -20,6 +20,7 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/ports/legacy_schedule_source.py",
     "application/ports/schedule_observation_source.py",
     "application/use_cases/__init__.py",
+    "application/use_cases/assess_legacy_prediction_quarantine.py",
     "application/use_cases/build_schedule_observation_revision_chains.py",
     "application/use_cases/capture_schedule_observation.py",
     "application/use_cases/construct_match_identities.py",
@@ -34,6 +35,7 @@ AUTHORIZED_SOURCE_PATHS = {
     "baseball/__init__.py",
     "baseball/domain/__init__.py",
     "baseball/domain/game.py",
+    "baseball/domain/legacy_prediction_quarantine.py",
     "baseball/domain/match_identity_authority.py",
     "baseball/domain/prediction.py",
     "baseball/domain/participant_identity_resolution.py",
@@ -84,6 +86,14 @@ QUARANTINE_LINK_RUNTIME_PATHS = (
     / "application"
     / "use_cases"
     / "link_legacy_quarantine_snapshots.py",
+)
+
+LEGACY_PREDICTION_QUARANTINE_ASSESSMENT_RUNTIME_PATHS = (
+    PACKAGE_ROOT / "baseball" / "domain" / "legacy_prediction_quarantine.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "assess_legacy_prediction_quarantine.py",
 )
 
 SCHEDULE_OBSERVATION_RUNTIME_PATHS = (
@@ -935,6 +945,73 @@ class DependencyRuleTests(unittest.TestCase):
         violations = [
             f"{path.relative_to(REPOSITORY_ROOT)} -> {constructor}"
             for path in QUARANTINE_LINK_RUNTIME_PATHS
+            for constructor in forbidden_constructors
+            if constructor in path.read_text(encoding="utf-8")
+        ]
+
+        self.assertEqual(violations, [])
+
+    def test_p14b2_legacy_prediction_quarantine_has_no_forbidden_capabilities(
+        self,
+    ) -> None:
+        forbidden_import_roots = {
+            "aiohttp",
+            "http",
+            "os",
+            "pathlib",
+            "requests",
+            "shutil",
+            "socket",
+            "sqlite3",
+            "tempfile",
+            "urllib",
+        }
+        forbidden_constructs = (
+            "BaseballGame(",
+            "MatchIdentity(",
+            "PredictionSourceObservation(",
+            "datetime.now(",
+            "datetime.utcnow(",
+            "time.time(",
+            "Betting-pool",
+            "legacy_betting_pool",
+        )
+        violations: list[str] = []
+        for path in LEGACY_PREDICTION_QUARANTINE_ASSESSMENT_RUNTIME_PATHS:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            for target, line_number in imported_modules(path):
+                if target.split(".")[0] in forbidden_import_roots:
+                    violations.append(f"{relative}:{line_number} -> {target}")
+            source = path.read_text(encoding="utf-8")
+            for construct in forbidden_constructs:
+                if construct in source:
+                    violations.append(f"{relative} -> {construct}")
+        self.assertEqual(violations, [])
+
+    def test_p14b2_legacy_prediction_quarantine_use_case_does_not_import_infrastructure(
+        self,
+    ) -> None:
+        use_case = LEGACY_PREDICTION_QUARANTINE_ASSESSMENT_RUNTIME_PATHS[1]
+        violations = [
+            f"{use_case.relative_to(REPOSITORY_ROOT)}:{line_number} -> {target}"
+            for target, line_number in imported_modules(use_case)
+            if target.startswith(
+                ("match_analysis.infrastructure", "match_analysis.interfaces")
+            )
+        ]
+        self.assertEqual(violations, [])
+
+    def test_p14b2_legacy_prediction_quarantine_runtime_cannot_construct_promoted_domain_objects(
+        self,
+    ) -> None:
+        forbidden_constructors = (
+            "MatchIdentity(",
+            "BaseballGame(",
+            "PredictionSourceObservation(",
+        )
+        violations = [
+            f"{path.relative_to(REPOSITORY_ROOT)} -> {constructor}"
+            for path in LEGACY_PREDICTION_QUARANTINE_ASSESSMENT_RUNTIME_PATHS
             for constructor in forbidden_constructors
             if constructor in path.read_text(encoding="utf-8")
         ]
