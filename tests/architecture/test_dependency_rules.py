@@ -34,10 +34,13 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/use_cases/select_schedule_observations_as_of.py",
     "baseball/__init__.py",
     "baseball/domain/__init__.py",
+    "baseball/domain/canonical_utc.py",
     "baseball/domain/game.py",
     "baseball/domain/legacy_prediction_quarantine.py",
     "baseball/domain/match_identity_authority.py",
     "baseball/domain/prediction.py",
+    "baseball/domain/prediction_admission.py",
+    "baseball/domain/prediction_source_observation.py",
     "baseball/domain/participant_identity_resolution.py",
     "baseball/domain/pregame_eligibility.py",
     "baseball/domain/quarantine_link.py",
@@ -177,6 +180,16 @@ SCHEDULE_PREGAME_ELIGIBILITY_RUNTIME_PATHS = (
     / "application"
     / "use_cases"
     / "evaluate_schedule_pregame_eligibility.py",
+)
+
+PREDICTION_ADMISSION_RUNTIME_PATHS = (
+    PACKAGE_ROOT / "baseball" / "domain" / "canonical_utc.py",
+    PACKAGE_ROOT / "baseball" / "domain" / "prediction_source_observation.py",
+    PACKAGE_ROOT / "baseball" / "domain" / "prediction_admission.py",
+)
+
+PREDICTION_SOURCE_OBSERVATION_AUTHORIZED_CONSTRUCTOR_PATHS = (
+    PACKAGE_ROOT / "baseball" / "domain" / "prediction_admission.py",
 )
 
 P83E_BASELINE_SHA256 = {
@@ -1077,6 +1090,68 @@ class DependencyRuleTests(unittest.TestCase):
                 ):
                     relative = path.relative_to(REPOSITORY_ROOT)
                     violations.append(f"{relative}:{line_number} -> {target}")
+        self.assertEqual(violations, [])
+
+    def test_p15a1_prediction_admission_foundation_has_no_forbidden_capabilities(
+        self,
+    ) -> None:
+        forbidden_import_roots = {
+            "aiohttp",
+            "http",
+            "os",
+            "pathlib",
+            "requests",
+            "shutil",
+            "socket",
+            "sqlite3",
+            "tempfile",
+            "urllib",
+        }
+        forbidden_constructs = (
+            "datetime.now(",
+            "datetime.utcnow(",
+            "time.time(",
+            "Betting-pool",
+            "legacy_betting_pool",
+        )
+        violations: list[str] = []
+        for path in PREDICTION_ADMISSION_RUNTIME_PATHS:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            for target, line_number in imported_modules(path):
+                if target.split(".")[0] in forbidden_import_roots:
+                    violations.append(f"{relative}:{line_number} -> {target}")
+            source = path.read_text(encoding="utf-8")
+            for construct in forbidden_constructs:
+                if construct in source:
+                    violations.append(f"{relative} -> {construct}")
+        self.assertEqual(violations, [])
+
+    def test_p15a1_prediction_admission_does_not_import_outer_layers(
+        self,
+    ) -> None:
+        violations: list[str] = []
+        for path in PREDICTION_ADMISSION_RUNTIME_PATHS:
+            for target, line_number in imported_modules(path):
+                if target.startswith(
+                    (
+                        "match_analysis.application",
+                        "match_analysis.infrastructure",
+                        "match_analysis.interfaces",
+                    )
+                ):
+                    relative = path.relative_to(REPOSITORY_ROOT)
+                    violations.append(f"{relative}:{line_number} -> {target}")
+        self.assertEqual(violations, [])
+
+    def test_p15a1_only_prediction_admission_module_constructs_the_observation(
+        self,
+    ) -> None:
+        violations = [
+            str(path.relative_to(REPOSITORY_ROOT))
+            for path in source_files()
+            if path not in PREDICTION_SOURCE_OBSERVATION_AUTHORIZED_CONSTRUCTOR_PATHS
+            and "PredictionSourceObservation(" in path.read_text(encoding="utf-8")
+        ]
         self.assertEqual(violations, [])
 
 
