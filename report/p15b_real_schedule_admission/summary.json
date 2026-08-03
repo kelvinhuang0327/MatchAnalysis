@@ -1,0 +1,28 @@
+{
+  "admitted_count": 3,
+  "claims": {
+    "betting_claim": false,
+    "db_written": false,
+    "deployed": false,
+    "legacy_rows_admitted": false,
+    "provider_called": false
+  },
+  "input_hashes": {
+    "authority_catalog_sha256": "492d99b6b1efe9f16d605e0c5e0bb3880d4c47742c503f1ce92dd7e57ccfaf54",
+    "participant_mapping_catalog_sha256": "af2f1ec7362da0b5e61c5fb67ff535ce0646b88576d61694cda0fb772f45c2c0",
+    "prediction_requests_sha256": "79bef7ba3af6a2aa82eee1450079827b874cf3660da6af88f798810f02193460",
+    "raw_schedule_payloads_sha256": "b83e89dd51c3953c174a6c6b64aa6edfed2dc50d423c1509b885a8cf322dad65"
+  },
+  "rejected_count": 6,
+  "rejection_reasons_breakdown": {
+    "EXACT_IDENTITY_MISMATCH": 1,
+    "INVALID_PREDICTION_TIMESTAMP_ORDER": 1,
+    "MISSING_SCHEDULE_CANDIDATE_MATCH": 1,
+    "PREDICTION_NOT_BEFORE_SCHEDULED_START": 1,
+    "SCHEDULE_NOT_PREGAME_ELIGIBLE": 1,
+    "SCHEDULE_OBSERVATION_ID_MISMATCH": 1
+  },
+  "request_count": 9,
+  "result_set_fingerprint": "78ce0f891006b3a33c7bca9acabec0856cffb5a28d4b164b00d641a14a9c72d1",
+  "schedule_as_of_utc": "2026-04-05T12:00:00Z"
+}

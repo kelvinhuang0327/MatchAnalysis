@@ -1,0 +1,42 @@
+[
+  {
+    "provider_namespace": "MLB_STATS_API",
+    "provider_game_id": "888001",
+    "game_number": 1,
+    "league": "MLB",
+    "season": 2026,
+    "canonical_game_id": "CANONICAL_MLB_GAME_888001_1",
+    "game_discriminator": null,
+    "authority_version": "fixture_match_identity_authority_v1"
+  },
+  {
+    "provider_namespace": "MLB_STATS_API",
+    "provider_game_id": "888002",
+    "game_number": 1,
+    "league": "MLB",
+    "season": 2026,
+    "canonical_game_id": "CANONICAL_MLB_GAME_888002_1",
+    "game_discriminator": null,
+    "authority_version": "fixture_match_identity_authority_v1"
+  },
+  {
+    "provider_namespace": "MLB_STATS_API",
+    "provider_game_id": "888001",
+    "game_number": 2,
+    "league": "MLB",
+    "season": 2026,
+    "canonical_game_id": "CANONICAL_MLB_GAME_888001_2",
+    "game_discriminator": "doubleheader_game_2",
+    "authority_version": "fixture_match_identity_authority_v1"
+  },
+  {
+    "provider_namespace": "MLB_STATS_API",
+    "provider_game_id": "888004",
+    "game_number": 1,
+    "league": "MLB",
+    "season": 2026,
+    "canonical_game_id": "CANONICAL_MLB_GAME_888004_1",
+    "game_discriminator": null,
+    "authority_version": "fixture_match_identity_authority_v1"
+  }
+]

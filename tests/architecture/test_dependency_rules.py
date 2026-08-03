@@ -54,6 +54,8 @@ AUTHORIZED_SOURCE_PATHS = {
     "core/identity.py",
     "core/provenance.py",
     "core/time.py",
+    "application/use_cases/prospective_prediction_admission_artifacts.py",
+    "application/use_cases/run_prospective_prediction_admission_workflow.py",
     "infrastructure/__init__.py",
     "infrastructure/legacy_betting_pool/__init__.py",
     "infrastructure/legacy_betting_pool/p83e_jsonl.py",
@@ -61,6 +63,8 @@ AUTHORIZED_SOURCE_PATHS = {
     "infrastructure/mlb_schedule/__init__.py",
     "infrastructure/mlb_schedule/explicit_payload_source.py",
     "interfaces/__init__.py",
+    "interfaces/cli/__init__.py",
+    "interfaces/cli/prospective_prediction_admission.py",
 }
 
 MLB_SCHEDULE_PAYLOAD_ADAPTER_RUNTIME_PATHS = (
@@ -398,7 +402,6 @@ class DependencyRuleTests(unittest.TestCase):
     def test_first_slice_has_no_persistence_or_runtime_integration(self) -> None:
         forbidden_path_parts = {
             "api",
-            "cli",
             "database",
             "db",
             "provider",
@@ -1152,6 +1155,82 @@ class DependencyRuleTests(unittest.TestCase):
             if path not in PREDICTION_SOURCE_OBSERVATION_AUTHORIZED_CONSTRUCTOR_PATHS
             and "PredictionSourceObservation(" in path.read_text(encoding="utf-8")
         ]
+        self.assertEqual(violations, [])
+
+    def test_p15b_real_schedule_admission_runtime_has_no_forbidden_capabilities(
+        self,
+    ) -> None:
+        forbidden_import_roots = {
+            "aiohttp",
+            "http",
+            "os",
+            "pathlib",
+            "requests",
+            "shutil",
+            "socket",
+            "sqlite3",
+            "tempfile",
+            "urllib",
+        }
+        p15b_paths = (
+            PACKAGE_ROOT
+            / "application"
+            / "use_cases"
+            / "run_prospective_prediction_admission_workflow.py",
+            PACKAGE_ROOT
+            / "application"
+            / "use_cases"
+            / "prospective_prediction_admission_artifacts.py",
+        )
+        violations: list[str] = []
+        for path in p15b_paths:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            for target, line_number in imported_modules(path):
+                if target.split(".")[0] in forbidden_import_roots:
+                    violations.append(f"{relative}:{line_number} -> {target}")
+            source = path.read_text(encoding="utf-8")
+            for construct in (
+                "datetime.now(",
+                "datetime.utcnow(",
+                "time.time(",
+                "Betting-pool",
+                "legacy_betting_pool",
+            ):
+                if construct in source:
+                    violations.append(f"{relative} -> {construct}")
+        self.assertEqual(violations, [])
+
+    def test_p15b_workflow_does_not_construct_protected_domain_objects(
+        self,
+    ) -> None:
+        p15b_source_files = [
+            PACKAGE_ROOT
+            / "application"
+            / "use_cases"
+            / "run_prospective_prediction_admission_workflow.py",
+            PACKAGE_ROOT
+            / "application"
+            / "use_cases"
+            / "prospective_prediction_admission_artifacts.py",
+            PACKAGE_ROOT
+            / "interfaces"
+            / "cli"
+            / "prospective_prediction_admission.py",
+        ]
+        forbidden_constructors = (
+            "MatchIdentity(",
+            "BaseballGame(",
+            "ScheduleBaseballGameMaterialization(",
+            "SchedulePregameEligibilityDecision(",
+            "PredictionSourceObservation(",
+        )
+        violations: list[str] = []
+        for path in p15b_source_files:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            source = path.read_text(encoding="utf-8")
+            for constructor in forbidden_constructors:
+                if constructor in source:
+                    violations.append(f"{relative} -> {constructor}")
         self.assertEqual(violations, [])
 
 
