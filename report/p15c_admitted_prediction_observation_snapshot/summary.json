@@ -1,0 +1,27 @@
+{
+  "admitted_observations_jsonl_sha256": "45f9f21d106dbe0dd5fc99aad45b1f23b587350184e086b0d752c9f3e92a2995",
+  "claims": {
+    "betting_claim": false,
+    "db_written": false,
+    "deployed": false,
+    "legacy_rows_admitted": false,
+    "network_called": false,
+    "outcomes_attached": false,
+    "provider_called": false
+  },
+  "report_sha256": "556626982fa7bd962ad0f1921d24c80477f5af44c4e2a9f7fd32d8cc5707254d",
+  "schema_version": "p15c.admitted_prediction_observation_snapshot.v1",
+  "snapshot_fingerprint": "858f1740463ff8f0b5556f26489445eec74c33377ba75f2fc7e65895d7f4f1c1",
+  "snapshot_row_count": 3,
+  "sorted_observation_ids": [
+    "0cabf8e0dbc4a79013bad2c8287ea7fe2ef91ee8ae9d8574629656c25166e917",
+    "573447cd9d62bff6bd13448f1c6f6c8b8e4301f8d070a056c1f23ffb3602f5ec",
+    "9671f4340017a7b6169b794ffd2bcb24a47c575b2792aa69f9dd7b3c01185103"
+  ],
+  "source_admitted_count": 3,
+  "source_rejected_count": 6,
+  "source_result_set_fingerprint": "78ce0f891006b3a33c7bca9acabec0856cffb5a28d4b164b00d641a14a9c72d1",
+  "source_results_sha256": "03ec7a7f5a39c5e07a9b244739a573ef4f0b28179ddd1cc3bf29fd4b354b413b",
+  "source_row_count": 9,
+  "source_summary_sha256": "105956802fea907df223b5a3b071cd5bb5981b381060001b69a6a522b43b4935"
+}
