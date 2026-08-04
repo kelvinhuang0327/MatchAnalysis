@@ -1,0 +1,28 @@
+{
+  "attached_count": 3,
+  "attachment_set_fingerprint": "fe6c96a18f7606869c30f8acdd21a525ab75ed3289bfc7af2c940fc3776c3772",
+  "attachments_jsonl_sha256": "c569c8f6ee1aced8bf5a35f71365a25f74df0f6912fa4851f1a7b219a543fa33",
+  "claims": {
+    "db_written": false,
+    "deployed": false,
+    "legacy_rows_admitted": false,
+    "network_called": false,
+    "odds_used": false,
+    "profitability_claim": false,
+    "provider_called": false,
+    "synthetic_results": true
+  },
+  "correct_count": 2,
+  "descriptive_accuracy": 0.666667,
+  "final_result_observation_count": 3,
+  "incorrect_count": 1,
+  "rejected_count": 0,
+  "rejection_reason_counts": {},
+  "report_sha256": "4c08ce4af27321386cdc824676b927686c5b5ddb23e75630292ff7fce5becb3c",
+  "result_input_sha256": "a51b599234b509780ac0858f273c09887a91274ae8bdaa5243f679f6ee3410dc",
+  "schema_version": "p16a.prediction_final_result_attachment.v1",
+  "source_prediction_count": 3,
+  "source_snapshot_fingerprint": "858f1740463ff8f0b5556f26489445eec74c33377ba75f2fc7e65895d7f4f1c1",
+  "source_snapshot_sha256": "45f9f21d106dbe0dd5fc99aad45b1f23b587350184e086b0d752c9f3e92a2995",
+  "source_snapshot_summary_sha256": "e0ba94cbfec2f296035596c427693bea87b4969e9aee624888be262f8f0ffb45"
+}

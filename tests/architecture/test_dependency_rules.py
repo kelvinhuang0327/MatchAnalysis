@@ -68,6 +68,10 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/use_cases/build_admitted_prediction_observation_snapshot.py",
     "application/use_cases/admitted_prediction_observation_artifacts.py",
     "interfaces/cli/admitted_prediction_observation_snapshot.py",
+    "baseball/domain/final_result_observation.py",
+    "application/use_cases/attach_final_results_to_admitted_predictions.py",
+    "application/use_cases/final_result_attachment_artifacts.py",
+    "interfaces/cli/final_result_attachment.py",
 }
 
 MLB_SCHEDULE_PAYLOAD_ADAPTER_RUNTIME_PATHS = (
@@ -1380,6 +1384,173 @@ class P15CDependencyRuleTests(unittest.TestCase):
     ) -> None:
         violations: list[str] = []
         for path in P15C_SNAPSHOT_RUNTIME_PATHS:
+            for target, line_number in imported_modules(path):
+                if target.startswith(
+                    (
+                        "match_analysis.infrastructure",
+                        "match_analysis.interfaces",
+                    )
+                ):
+                    relative = path.relative_to(REPOSITORY_ROOT)
+                    violations.append(f"{relative}:{line_number} -> {target}")
+        self.assertEqual(violations, [])
+
+
+P16A_ATTACHMENT_RUNTIME_PATHS = (
+    PACKAGE_ROOT / "baseball" / "domain" / "final_result_observation.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "attach_final_results_to_admitted_predictions.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "final_result_attachment_artifacts.py",
+)
+
+P16A_CLI_PATH = (
+    PACKAGE_ROOT / "interfaces" / "cli" / "final_result_attachment.py"
+)
+
+
+class P16ADependencyRuleTests(unittest.TestCase):
+    def test_p16a_attachment_runtime_has_no_forbidden_capabilities(
+        self,
+    ) -> None:
+        forbidden_import_roots = {
+            "aiohttp",
+            "http",
+            "os",
+            "requests",
+            "shutil",
+            "socket",
+            "sqlite3",
+            "tempfile",
+            "urllib",
+        }
+        forbidden_constructs = (
+            "datetime.now(",
+            "datetime.utcnow(",
+            "time.time(",
+            "Betting-pool",
+            "legacy_betting_pool",
+        )
+        violations: list[str] = []
+        for path in P16A_ATTACHMENT_RUNTIME_PATHS:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            for target, line_number in imported_modules(path):
+                if target.split(".")[0] in forbidden_import_roots:
+                    violations.append(f"{relative}:{line_number} -> {target}")
+            source = path.read_text(encoding="utf-8")
+            for construct in forbidden_constructs:
+                if construct in source:
+                    violations.append(f"{relative} -> {construct}")
+        self.assertEqual(violations, [])
+
+    def test_p16a_attachment_does_not_construct_protected_domain_objects(
+        self,
+    ) -> None:
+        p16a_files = [*P16A_ATTACHMENT_RUNTIME_PATHS, P16A_CLI_PATH]
+        forbidden_constructors = (
+            "PredictionSourceObservation(",
+            "MatchIdentity(",
+            "BaseballGame(",
+        )
+        violations: list[str] = []
+        for path in p16a_files:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            source = path.read_text(encoding="utf-8")
+            for constructor in forbidden_constructors:
+                if constructor in source:
+                    violations.append(f"{relative} -> {constructor}")
+        self.assertEqual(violations, [])
+
+    def test_p16a_final_result_observation_authorized_constructor_only(
+        self,
+    ) -> None:
+        authorized = {
+            PACKAGE_ROOT / "baseball" / "domain" / "final_result_observation.py",
+        }
+        violations: list[str] = []
+        for path in source_files():
+            if path not in authorized:
+                source = path.read_text(encoding="utf-8")
+                if "FinalResultObservation(" in source:
+                    relative = path.relative_to(REPOSITORY_ROOT)
+                    violations.append(f"{relative} -> FinalResultObservation(")
+        self.assertEqual(violations, [])
+
+    def test_p16a_attachment_does_not_import_p9_p13_construction_use_cases(
+        self,
+    ) -> None:
+        p9_p13_modules = (
+            "match_analysis.application.use_cases.project_schedule_identity_candidates",
+            "match_analysis.application.use_cases.resolve_schedule_participant_identities",
+            "match_analysis.application.use_cases.construct_match_identities",
+            "match_analysis.application.use_cases.materialize_schedule_baseball_games",
+            "match_analysis.application.use_cases.evaluate_schedule_pregame_eligibility",
+        )
+        violations: list[str] = []
+        for path in [*P16A_ATTACHMENT_RUNTIME_PATHS, P16A_CLI_PATH]:
+            for target, line_number in imported_modules(path):
+                if target in p9_p13_modules:
+                    relative = path.relative_to(REPOSITORY_ROOT)
+                    violations.append(f"{relative}:{line_number} -> {target}")
+        self.assertEqual(violations, [])
+
+    def test_p16a_attachment_does_not_call_prediction_admission(
+        self,
+    ) -> None:
+        forbidden_imports = (
+            "match_analysis.application.use_cases.run_prospective_prediction_admission_workflow",
+            "match_analysis.baseball.domain.prediction_admission",
+        )
+        violations: list[str] = []
+        for path in [*P16A_ATTACHMENT_RUNTIME_PATHS, P16A_CLI_PATH]:
+            for target, line_number in imported_modules(path):
+                if target in forbidden_imports:
+                    relative = path.relative_to(REPOSITORY_ROOT)
+                    violations.append(f"{relative}:{line_number} -> {target}")
+            source = path.read_text(encoding="utf-8")
+            for construct in (
+                "admit_prospective_prediction(",
+                "run_prospective_prediction_admission_workflow(",
+            ):
+                if construct in source:
+                    relative = path.relative_to(REPOSITORY_ROOT)
+                    violations.append(f"{relative} -> {construct}")
+        self.assertEqual(violations, [])
+
+    def test_legacy_code_cannot_import_p16a(
+        self,
+    ) -> None:
+        legacy_paths = [
+            *LEGACY_PREDICTION_QUARANTINE_ASSESSMENT_RUNTIME_PATHS,
+            PACKAGE_ROOT / "infrastructure" / "legacy_betting_pool" / "p83e_jsonl.py",
+            PACKAGE_ROOT / "infrastructure" / "legacy_betting_pool" / "p84b_schedule_jsonl.py",
+        ]
+        p16a_targets = (
+            "final_result_observation",
+            "attach_final_results_to_admitted_predictions",
+            "final_result_attachment_artifacts",
+            "final_result_attachment",
+        )
+        violations: list[str] = []
+        for path in legacy_paths:
+            if not path.exists():
+                continue
+            for target, line_number in imported_modules(path):
+                for p16a_name in p16a_targets:
+                    if p16a_name in target:
+                        relative = path.relative_to(REPOSITORY_ROOT)
+                        violations.append(f"{relative}:{line_number} -> {target}")
+        self.assertEqual(violations, [])
+
+    def test_p16a_application_does_not_import_infrastructure_or_interfaces(
+        self,
+    ) -> None:
+        violations: list[str] = []
+        for path in P16A_ATTACHMENT_RUNTIME_PATHS:
             for target, line_number in imported_modules(path):
                 if target.startswith(
                     (
