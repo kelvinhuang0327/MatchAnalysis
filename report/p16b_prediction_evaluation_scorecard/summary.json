@@ -1,0 +1,75 @@
+{
+  "accuracy": 0.666667,
+  "breakdown_by_market_id": {
+    "moneyline": {
+      "accuracy": 0.666667,
+      "brier_score": 0.2556,
+      "correct_count": 2,
+      "incorrect_count": 1,
+      "mean_selected_side_probability": 0.566667,
+      "row_count": 3
+    }
+  },
+  "breakdown_by_model_id": {
+    "model_v1": {
+      "accuracy": 0.666667,
+      "brier_score": 0.2556,
+      "correct_count": 2,
+      "incorrect_count": 1,
+      "mean_selected_side_probability": 0.566667,
+      "row_count": 3
+    }
+  },
+  "breakdown_by_selection": {
+    "AWAY": {
+      "accuracy": 1.0,
+      "brier_score": 0.2304,
+      "correct_count": 1,
+      "incorrect_count": 0,
+      "mean_selected_side_probability": 0.52,
+      "row_count": 1
+    },
+    "HOME": {
+      "accuracy": 0.5,
+      "brier_score": 0.2682,
+      "correct_count": 1,
+      "incorrect_count": 1,
+      "mean_selected_side_probability": 0.59,
+      "row_count": 2
+    }
+  },
+  "brier_score": 0.2556,
+  "claims": {
+    "db_written": false,
+    "deployed": false,
+    "legacy_rows_admitted": false,
+    "model_promoted": false,
+    "model_superiority_claim": false,
+    "network_called": false,
+    "odds_used": false,
+    "profitability_claim": false,
+    "provider_called": false,
+    "real_model_performance_claim": false,
+    "retraining_performed": false,
+    "sample_limited": true,
+    "synthetic_results": true
+  },
+  "correct_count": 2,
+  "evaluation_row_count": 3,
+  "evaluation_set_fingerprint": "5aa49a7bbf5526ec8fd3f67a8cda03a4519edc6a484c36be4fe83e41c12fd108",
+  "evaluations_jsonl_sha256": "4a09e439023c3d50741d86beddc0fa01d66812913552cc02a717f7ae9ebd8f05",
+  "excluded_rejected_count": 0,
+  "incorrect_count": 1,
+  "mean_selected_side_probability": 0.566667,
+  "report_sha256": "8aafd36ea83a3212c63a94f6ad47051a9b19d83c5d9645139f1d9350a55fabf6",
+  "schema_version": "p16b.prediction_evaluation_scorecard.v1",
+  "source_attached_count": 3,
+  "source_attachment_set_fingerprint": "fe6c96a18f7606869c30f8acdd21a525ab75ed3289bfc7af2c940fc3776c3772",
+  "source_attachments_sha256": "c569c8f6ee1aced8bf5a35f71365a25f74df0f6912fa4851f1a7b219a543fa33",
+  "source_rejected_count": 0,
+  "source_row_count": 3,
+  "source_snapshot_fingerprint": "858f1740463ff8f0b5556f26489445eec74c33377ba75f2fc7e65895d7f4f1c1",
+  "source_snapshot_sha256": "45f9f21d106dbe0dd5fc99aad45b1f23b587350184e086b0d752c9f3e92a2995",
+  "source_snapshot_summary_sha256": "e0ba94cbfec2f296035596c427693bea87b4969e9aee624888be262f8f0ffb45",
+  "source_summary_sha256": "f6b94e99bd25afbda95c271ba9153bd0af5d16cc83f175c8cbe5fb853fb86e6e"
+}
