@@ -76,6 +76,10 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/use_cases/build_prediction_evaluation_scorecard.py",
     "application/use_cases/prediction_evaluation_artifacts.py",
     "interfaces/cli/prediction_evaluation_scorecard.py",
+    "baseball/domain/prediction_feedback.py",
+    "application/use_cases/build_prediction_feedback_ledger.py",
+    "application/use_cases/prediction_feedback_artifacts.py",
+    "interfaces/cli/prediction_feedback_ledger.py",
 }
 
 MLB_SCHEDULE_PAYLOAD_ADAPTER_RUNTIME_PATHS = (
@@ -1709,6 +1713,160 @@ class P16BDependencyRuleTests(unittest.TestCase):
     ) -> None:
         violations: list[str] = []
         for path in P16B_EVALUATION_RUNTIME_PATHS[1:]:  # use cases
+            for target, line_number in imported_modules(path):
+                if target.startswith(
+                    (
+                        "match_analysis.infrastructure",
+                        "match_analysis.interfaces",
+                    )
+                ):
+                    relative = path.relative_to(REPOSITORY_ROOT)
+                    violations.append(f"{relative}:{line_number} -> {target}")
+        self.assertEqual(violations, [])
+
+
+P17A_FEEDBACK_RUNTIME_PATHS = (
+    PACKAGE_ROOT / "baseball" / "domain" / "prediction_feedback.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "build_prediction_feedback_ledger.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "prediction_feedback_artifacts.py",
+)
+
+P17A_CLI_PATH = (
+    PACKAGE_ROOT / "interfaces" / "cli" / "prediction_feedback_ledger.py"
+)
+
+
+class P17ADependencyRuleTests(unittest.TestCase):
+    def test_p17a_feedback_runtime_has_no_forbidden_capabilities(
+        self,
+    ) -> None:
+        forbidden_import_roots = {
+            "aiohttp",
+            "http",
+            "os",
+            "requests",
+            "shutil",
+            "socket",
+            "sqlite3",
+            "tempfile",
+            "urllib",
+        }
+        forbidden_constructs = (
+            "datetime.now(",
+            "datetime.utcnow(",
+            "time.time(",
+            "Betting-pool",
+            "legacy_betting_pool",
+        )
+        violations: list[str] = []
+        for path in P17A_FEEDBACK_RUNTIME_PATHS:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            for target, line_number in imported_modules(path):
+                if target.split(".")[0] in forbidden_import_roots:
+                    violations.append(f"{relative}:{line_number} -> {target}")
+            source = path.read_text(encoding="utf-8")
+            for construct in forbidden_constructs:
+                if construct in source:
+                    violations.append(f"{relative} -> {construct}")
+        self.assertEqual(violations, [])
+
+    def test_p17a_feedback_does_not_construct_protected_domain_objects(
+        self,
+    ) -> None:
+        p17a_files = [*P17A_FEEDBACK_RUNTIME_PATHS, P17A_CLI_PATH]
+        forbidden_constructors = (
+            "PredictionSourceObservation(",
+            "FinalResultObservation(",
+            "MatchIdentity(",
+            "BaseballGame(",
+        )
+        violations: list[str] = []
+        for path in p17a_files:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            source = path.read_text(encoding="utf-8")
+            for constructor in forbidden_constructors:
+                if constructor in source:
+                    violations.append(f"{relative} -> {constructor}")
+        self.assertEqual(violations, [])
+
+    def test_p17a_feedback_does_not_import_p9_p13_construction_use_cases(
+        self,
+    ) -> None:
+        p9_p13_modules = (
+            "match_analysis.application.use_cases.project_schedule_identity_candidates",
+            "match_analysis.application.use_cases.resolve_schedule_participant_identities",
+            "match_analysis.application.use_cases.construct_match_identities",
+            "match_analysis.application.use_cases.materialize_schedule_baseball_games",
+            "match_analysis.application.use_cases.evaluate_schedule_pregame_eligibility",
+        )
+        violations: list[str] = []
+        for path in [*P17A_FEEDBACK_RUNTIME_PATHS, P17A_CLI_PATH]:
+            for target, line_number in imported_modules(path):
+                if target in p9_p13_modules:
+                    relative = path.relative_to(REPOSITORY_ROOT)
+                    violations.append(f"{relative}:{line_number} -> {target}")
+        self.assertEqual(violations, [])
+
+    def test_p17a_feedback_does_not_call_prediction_admission_or_attachment(
+        self,
+    ) -> None:
+        forbidden_imports = (
+            "match_analysis.application.use_cases.run_prospective_prediction_admission_workflow",
+            "match_analysis.baseball.domain.prediction_admission",
+            "match_analysis.application.use_cases.attach_final_results_to_admitted_predictions",
+        )
+        violations: list[str] = []
+        for path in [*P17A_FEEDBACK_RUNTIME_PATHS, P17A_CLI_PATH]:
+            for target, line_number in imported_modules(path):
+                if target in forbidden_imports:
+                    relative = path.relative_to(REPOSITORY_ROOT)
+                    violations.append(f"{relative}:{line_number} -> {target}")
+            source = path.read_text(encoding="utf-8")
+            for construct in (
+                "admit_prospective_prediction(",
+                "run_prospective_prediction_admission_workflow(",
+                "attach_final_results_to_admitted_predictions(",
+            ):
+                if construct in source:
+                    relative = path.relative_to(REPOSITORY_ROOT)
+                    violations.append(f"{relative} -> {construct}")
+        self.assertEqual(violations, [])
+
+    def test_legacy_code_cannot_import_p17a(
+        self,
+    ) -> None:
+        legacy_paths = [
+            *LEGACY_PREDICTION_QUARANTINE_ASSESSMENT_RUNTIME_PATHS,
+            PACKAGE_ROOT / "infrastructure" / "legacy_betting_pool" / "p83e_jsonl.py",
+            PACKAGE_ROOT / "infrastructure" / "legacy_betting_pool" / "p84b_schedule_jsonl.py",
+        ]
+        p17a_targets = (
+            "prediction_feedback",
+            "build_prediction_feedback_ledger",
+            "prediction_feedback_artifacts",
+        )
+        violations: list[str] = []
+        for path in legacy_paths:
+            if not path.exists():
+                continue
+            for target, line_number in imported_modules(path):
+                for p17a_name in p17a_targets:
+                    if p17a_name in target:
+                        relative = path.relative_to(REPOSITORY_ROOT)
+                        violations.append(f"{relative}:{line_number} -> {target}")
+        self.assertEqual(violations, [])
+
+    def test_p17a_application_does_not_import_infrastructure_or_interfaces(
+        self,
+    ) -> None:
+        violations: list[str] = []
+        for path in P17A_FEEDBACK_RUNTIME_PATHS[1:]:  # use cases
             for target, line_number in imported_modules(path):
                 if target.startswith(
                     (

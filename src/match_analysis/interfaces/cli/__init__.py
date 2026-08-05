@@ -1,1 +1,1 @@
-"""CLI interface package for prediction admission, snapshots, and evaluation scorecards."""
+"""CLI interface package for prediction admission, snapshots, evaluation scorecards, and feedback ledgers."""
