@@ -101,9 +101,13 @@ AUTHORIZED_SOURCE_PATHS = {
     "interfaces/cli/multifold_historical_candidate_replay.py",
     "interfaces/cli/result_only_paper_decision_replay.py",
     "baseball/domain/prediction_learning_eligibility.py",
+    "baseball/domain/supervised_training_example.py",
     "application/use_cases/assess_prediction_learning_candidates.py",
     "application/use_cases/prediction_learning_candidate_artifacts.py",
+    "application/use_cases/materialize_moneyline_training_dataset.py",
+    "application/use_cases/moneyline_training_dataset_artifacts.py",
     "interfaces/cli/prediction_learning_candidate_gate.py",
+    "interfaces/cli/materialize_moneyline_training_dataset.py",
 }
 
 MLB_SCHEDULE_PAYLOAD_ADAPTER_RUNTIME_PATHS = (
@@ -1797,6 +1801,22 @@ P21A_CLI_PATH = (
     PACKAGE_ROOT / "interfaces" / "cli" / "prediction_learning_candidate_gate.py"
 )
 
+P22A_DATASET_RUNTIME_PATHS = (
+    PACKAGE_ROOT / "baseball" / "domain" / "supervised_training_example.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "materialize_moneyline_training_dataset.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "moneyline_training_dataset_artifacts.py",
+)
+
+P22A_CLI_PATH = (
+    PACKAGE_ROOT / "interfaces" / "cli" / "materialize_moneyline_training_dataset.py"
+)
+
 
 class P17ADependencyRuleTests(unittest.TestCase):
     def test_p17a_feedback_runtime_has_no_forbidden_capabilities(
@@ -2075,6 +2095,7 @@ class P21ADependencyRuleTests(unittest.TestCase):
                     violations.append(f"{relative} -> {construct}")
         self.assertEqual(violations, [])
 
+
     def test_p21a_application_does_not_import_outer_layers(self) -> None:
         violations: list[str] = []
         for path in P21A_LEARNING_RUNTIME_PATHS[1:]:
@@ -2089,6 +2110,60 @@ class P21ADependencyRuleTests(unittest.TestCase):
                     violations.append(f"{relative}:{line_number} -> {target}")
         self.assertEqual(violations, [])
 
+
+class P22ADependencyRuleTests(unittest.TestCase):
+    def test_p22a_runtime_has_no_external_or_training_capabilities(self) -> None:
+        forbidden_import_roots = {
+            "aiohttp",
+            "http",
+            "numpy",
+            "os",
+            "pandas",
+            "requests",
+            "shutil",
+            "sklearn",
+            "socket",
+            "sqlite3",
+            "tempfile",
+            "urllib",
+        }
+        forbidden_constructs = (
+            "datetime.now(",
+            "datetime.utcnow(",
+            "time.time(",
+            "model.fit(",
+            "retrain(",
+            "promote_model(",
+            "calculate_roi(",
+            "calculate_ev(",
+            "kelly_fraction(",
+            "P22A_STOP_MATCHANALYSIS_P22A_SCOPE_EXPANSION_REQUIRED",
+        )
+        violations: list[str] = []
+        for path in [*P22A_DATASET_RUNTIME_PATHS, P22A_CLI_PATH]:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            for target, line_number in imported_modules(path):
+                if target.split(".")[0] in forbidden_import_roots:
+                    violations.append(f"{relative}:{line_number} -> {target}")
+            source = path.read_text(encoding="utf-8")
+            for construct in forbidden_constructs:
+                if construct in source:
+                    violations.append(f"{relative} -> {construct}")
+        self.assertEqual(violations, [])
+
+    def test_p22a_application_does_not_import_outer_layers(self) -> None:
+        violations: list[str] = []
+        for path in P22A_DATASET_RUNTIME_PATHS[1:]:
+            for target, line_number in imported_modules(path):
+                if target.startswith(
+                    (
+                        "match_analysis.infrastructure",
+                        "match_analysis.interfaces",
+                    )
+                ):
+                    relative = path.relative_to(REPOSITORY_ROOT)
+                    violations.append(f"{relative}:{line_number} -> {target}")
+        self.assertEqual(violations, [])
 
 if __name__ == "__main__":
     unittest.main()

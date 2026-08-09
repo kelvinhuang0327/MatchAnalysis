@@ -1,0 +1,91 @@
+{
+  "candidates_collapsed_count": 677,
+  "claims": {
+    "model_promoted": false,
+    "production_ready": false,
+    "profitability_claim": false,
+    "retraining_performed": false,
+    "sample_limited": true,
+    "training_authorized": false,
+    "training_dataset_claim": true
+  },
+  "contract_version": "p22a.game_level_supervised_training_dataset_contract.v1",
+  "dataset_fingerprint": "05f9b31c608e1630a40b2369ac45ada8b103b2c1131b0cedcaa2c7fc91ba7750",
+  "date_range": {
+    "end_utc": "2025-08-31T17:57:00Z",
+    "start_utc": "2025-07-01T12:00:00Z"
+  },
+  "eligible_candidate_count": 1354,
+  "feature_names": [
+    "recent_win_rate_delta",
+    "starter_era_delta"
+  ],
+  "fold_count": 2,
+  "folds": [
+    {
+      "date_range": {
+        "end_utc": "2025-07-31T17:18:00Z",
+        "start_utc": "2025-07-01T12:00:00Z"
+      },
+      "fold_id": "wf_002",
+      "label_distribution": {
+        "0": 139,
+        "1": 180
+      },
+      "training_example_count": 319
+    },
+    {
+      "date_range": {
+        "end_utc": "2025-08-31T17:57:00Z",
+        "start_utc": "2025-08-01T12:00:00Z"
+      },
+      "fold_id": "wf_003",
+      "label_distribution": {
+        "0": 170,
+        "1": 188
+      },
+      "training_example_count": 358
+    }
+  ],
+  "label_distribution": {
+    "0": 309,
+    "1": 368
+  },
+  "model_promoted": false,
+  "p20b_historical_runtime_compliance": "REMAINS_REFUTED",
+  "production_ready": false,
+  "profitability_claim": false,
+  "retraining_performed": false,
+  "sample_limited": true,
+  "schema_version": "p22a.game_level_supervised_training_dataset.v1",
+  "source_assessed_count": 1354,
+  "source_candidate_artifact_fingerprint": "6cd935ea6d5ac5707726b25b2d1c42f8007a35a9b87f740792aa28b576424ac0",
+  "source_candidate_artifact_sha256": "6cd935ea6d5ac5707726b25b2d1c42f8007a35a9b87f740792aa28b576424ac0",
+  "source_candidate_summary_sha256": "037dc0898457afd973c07a4fd838cbfead52163b0465e3ae027b636e96ee0d38",
+  "source_excluded_count": 0,
+  "source_fold_artifacts": [
+    {
+      "fold_fingerprint": "70307d54bc44ffe2cbd038638581a67e034a89e2dd227b95952eec01f6589e11",
+      "fold_id": "wf_002",
+      "model_artifact_fingerprint": "667768b2e881acfef608232368b151caa12f89e7e570cf34458de3937387512d",
+      "model_fingerprint": "2a38f6c83e960ac1795af7f774f834160656f9c5fabd13106650e3ee24fd2f2b"
+    },
+    {
+      "fold_fingerprint": "3c5f9e62fb23620040a2015466f4a48099193cb0e77885b1e0b0e6f4e346b3f1",
+      "fold_id": "wf_003",
+      "model_artifact_fingerprint": "0a55ba0670a62c2d9b997fb9eee15111995a6f83c47fb639d46888cf57a1ea2e",
+      "model_fingerprint": "556d8f2ef51ec87aa7dd7e438437a77eb059d6cd39d7b8f15d92bed9fa9dec73"
+    }
+  ],
+  "source_historical_provenance_sha256": "2ad0419506c569f049440effe81f5c4a2762beafe5d8d9ba8b3041ae521632d2",
+  "source_historical_results_sha256": "493695bc65d89b1224bb886fc079b4d0f5bd7dbeb0a0066a20481ef4da09c3f3",
+  "source_result_rows_fingerprint": "79fd4f858bc6c70c2c2d044460503baf60cebaf2a9a58ce16ee0c78671c34064",
+  "target_label_semantics": "target_home_win=1 iff committed FINAL home_score is greater than away_score; target_home_win=0 iff away_score is greater",
+  "training_authorized": false,
+  "training_dataset_claim": true,
+  "training_example_count": 677,
+  "training_example_id_includes_target": false,
+  "training_example_id_is_path_independent": true,
+  "training_examples_jsonl_sha256": "1f692332ee050f7c132d05e7f1e8d94bd0a7dd0658f3b91d053b4cc44f865bf3",
+  "unmapped_candidate_count": 0
+}
