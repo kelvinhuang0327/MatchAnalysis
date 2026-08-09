@@ -1,0 +1,41 @@
+{
+  "claims": {
+    "db_written": false,
+    "deployed": false,
+    "network_called": false,
+    "odds_used": false,
+    "outcomes_used_for_selection": false,
+    "pnl_computed": false,
+    "profitability_claim": false,
+    "provider_called": false,
+    "result_only_settlement": true,
+    "training_performed": false
+  },
+  "decision_count": 3,
+  "decision_ids": [
+    "6eb6809b6311fe450e9c015d6cf8fc38dc7539f2cc18260ed8e03567acab5537",
+    "9cc721cd4587d75c5e67d98c2330fe3e86a7f783ef8d2ba94be66847d69350f1",
+    "ca4d0f35390390570784f899234d07439f3f2a555c25f536428826509b892e56"
+  ],
+  "decision_set_fingerprint": "58dcc554864fc39b12d1935de4a8070266cb3259581808ee29ed26bdc2339745",
+  "decisions_jsonl_sha256": "eeefa0687a39ba32a442728ec8f0e6a4e6d9dd764deb3d150af5753317beb24f",
+  "excluded_row_count": 0,
+  "final_results_sha256": "a51b599234b509780ac0858f273c09887a91274ae8bdaa5243f679f6ee3410dc",
+  "lost_count": 1,
+  "report_sha256": "7635b2d5d7686a5933b0185108d99b0adec30e7635869eb5c2bfe00c3dc1ca56",
+  "schema_version": "p18a.result_only_paper_decision.v1",
+  "settled_count": 3,
+  "settlement_schema_version": "p18a.result_only_paper_settlement.v1",
+  "settlement_set_fingerprint": "78791c5a29e51082aa1b48b267cc5bd7006b47e801ea407ac704f53001c728b3",
+  "settlement_status_counts": {
+    "LOST": 1,
+    "UNSETTLED": 0,
+    "WON": 2
+  },
+  "settlements_jsonl_sha256": "4a92f8157062a446bf3b2f3ad15fad435cabef81c069962f75bf800f5afc410c",
+  "source_snapshot_fingerprint": "858f1740463ff8f0b5556f26489445eec74c33377ba75f2fc7e65895d7f4f1c1",
+  "source_snapshot_sha256": "45f9f21d106dbe0dd5fc99aad45b1f23b587350184e086b0d752c9f3e92a2995",
+  "source_snapshot_summary_sha256": "e0ba94cbfec2f296035596c427693bea87b4969e9aee624888be262f8f0ffb45",
+  "unsettled_count": 0,
+  "won_count": 2
+}

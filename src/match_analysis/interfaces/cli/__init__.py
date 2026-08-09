@@ -1,1 +1,1 @@
-"""CLI interface package for prediction admission, snapshots, evaluation scorecards, and feedback ledgers."""
+"""CLI interface package for deterministic paper-only workflows."""

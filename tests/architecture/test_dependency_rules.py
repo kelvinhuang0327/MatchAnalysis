@@ -77,9 +77,13 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/use_cases/prediction_evaluation_artifacts.py",
     "interfaces/cli/prediction_evaluation_scorecard.py",
     "baseball/domain/prediction_feedback.py",
+    "baseball/domain/result_only_paper_decision.py",
     "application/use_cases/build_prediction_feedback_ledger.py",
     "application/use_cases/prediction_feedback_artifacts.py",
+    "application/use_cases/build_result_only_paper_decision_replay.py",
+    "application/use_cases/result_only_paper_decision_artifacts.py",
     "interfaces/cli/prediction_feedback_ledger.py",
+    "interfaces/cli/result_only_paper_decision_replay.py",
 }
 
 MLB_SCHEDULE_PAYLOAD_ADAPTER_RUNTIME_PATHS = (
@@ -1741,6 +1745,22 @@ P17A_CLI_PATH = (
     PACKAGE_ROOT / "interfaces" / "cli" / "prediction_feedback_ledger.py"
 )
 
+P18A_REPLAY_RUNTIME_PATHS = (
+    PACKAGE_ROOT / "baseball" / "domain" / "result_only_paper_decision.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "build_result_only_paper_decision_replay.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "result_only_paper_decision_artifacts.py",
+)
+
+P18A_CLI_PATH = (
+    PACKAGE_ROOT / "interfaces" / "cli" / "result_only_paper_decision_replay.py"
+)
+
 
 class P17ADependencyRuleTests(unittest.TestCase):
     def test_p17a_feedback_runtime_has_no_forbidden_capabilities(
@@ -1867,6 +1887,107 @@ class P17ADependencyRuleTests(unittest.TestCase):
     ) -> None:
         violations: list[str] = []
         for path in P17A_FEEDBACK_RUNTIME_PATHS[1:]:  # use cases
+            for target, line_number in imported_modules(path):
+                if target.startswith(
+                    (
+                        "match_analysis.infrastructure",
+                        "match_analysis.interfaces",
+                    )
+                ):
+                    relative = path.relative_to(REPOSITORY_ROOT)
+                    violations.append(f"{relative}:{line_number} -> {target}")
+        self.assertEqual(violations, [])
+
+
+class P18ADependencyRuleTests(unittest.TestCase):
+    def test_p18a_replay_runtime_has_no_external_or_profitability_capabilities(
+        self,
+    ) -> None:
+        forbidden_import_roots = {
+            "aiohttp",
+            "http",
+            "os",
+            "requests",
+            "shutil",
+            "socket",
+            "sqlite3",
+            "tempfile",
+            "urllib",
+        }
+        forbidden_constructs = (
+            "datetime.now(",
+            "datetime.utcnow(",
+            "time.time(",
+            "Betting-pool",
+            "legacy_betting_pool",
+            "calculate_payout(",
+            "calculate_profit(",
+            "calculate_roi(",
+            "calculate_ev(",
+            "kelly_fraction(",
+        )
+        violations: list[str] = []
+        for path in P18A_REPLAY_RUNTIME_PATHS:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            for target, line_number in imported_modules(path):
+                if target.split(".")[0] in forbidden_import_roots:
+                    violations.append(f"{relative}:{line_number} -> {target}")
+            source = path.read_text(encoding="utf-8")
+            for construct in forbidden_constructs:
+                if construct in source:
+                    violations.append(f"{relative} -> {construct}")
+        self.assertEqual(violations, [])
+
+    def test_p18a_replay_does_not_call_upstream_outcome_or_feedback_workflows(
+        self,
+    ) -> None:
+        forbidden_imports = (
+            "match_analysis.application.use_cases.attach_final_results_to_admitted_predictions",
+            "match_analysis.application.use_cases.build_prediction_evaluation_scorecard",
+            "match_analysis.application.use_cases.build_prediction_feedback_ledger",
+            "match_analysis.interfaces",
+            "match_analysis.infrastructure",
+        )
+        forbidden_constructs = (
+            "attach_final_results_to_admitted_predictions(",
+            "build_prediction_evaluation_scorecard(",
+            "build_prediction_feedback_ledger(",
+        )
+        violations: list[str] = []
+        for path in [*P18A_REPLAY_RUNTIME_PATHS, P18A_CLI_PATH]:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            for target, line_number in imported_modules(path):
+                if target.startswith(forbidden_imports):
+                    violations.append(f"{relative}:{line_number} -> {target}")
+            source = path.read_text(encoding="utf-8")
+            for construct in forbidden_constructs:
+                if construct in source:
+                    violations.append(f"{relative} -> {construct}")
+        self.assertEqual(violations, [])
+
+    def test_legacy_code_cannot_import_p18a(self) -> None:
+        legacy_paths = [
+            *LEGACY_PREDICTION_QUARANTINE_ASSESSMENT_RUNTIME_PATHS,
+            PACKAGE_ROOT / "infrastructure" / "legacy_betting_pool" / "p83e_jsonl.py",
+            PACKAGE_ROOT / "infrastructure" / "legacy_betting_pool" / "p84b_schedule_jsonl.py",
+        ]
+        p18a_targets = (
+            "result_only_paper_decision",
+            "build_result_only_paper_decision_replay",
+        )
+        violations: list[str] = []
+        for path in legacy_paths:
+            if not path.exists():
+                continue
+            for target, line_number in imported_modules(path):
+                if any(name in target for name in p18a_targets):
+                    relative = path.relative_to(REPOSITORY_ROOT)
+                    violations.append(f"{relative}:{line_number} -> {target}")
+        self.assertEqual(violations, [])
+
+    def test_p18a_application_does_not_import_outer_layers(self) -> None:
+        violations: list[str] = []
+        for path in P18A_REPLAY_RUNTIME_PATHS[1:]:
             for target, line_number in imported_modules(path):
                 if target.startswith(
                     (
