@@ -1,0 +1,26 @@
+{
+  "coefficients": [
+    "0.2820639975011785",
+    "-0.09609616789072993"
+  ],
+  "feature_names": [
+    "indep_recent_win_rate_delta",
+    "indep_starter_era_delta"
+  ],
+  "fingerprint": "5a0e7a0a90253c90eeed30a6f7672b578a76dc2a00a2fa3da7cf1196c0e80155",
+  "fold_id": "wf_001",
+  "intercept": "0.19592616199017746",
+  "max_iter": 1000,
+  "model_type": "logistic_regression",
+  "scaler_means": [
+    "-0.004478903507172063",
+    "-0.09830887114456008"
+  ],
+  "scaler_stds": [
+    "0.2364885946804932",
+    "2.1424749536909156"
+  ],
+  "schema_version": "p20a.reconstructed_model.v1",
+  "solver": "lbfgs",
+  "train_size": 566
+}

@@ -1,0 +1,22 @@
+{
+  "candidate_count": 4,
+  "candidate_set_fingerprint": "0ec50cc189fa239b5e54d34500353abecd5a0c86a94aac996ff65ff5f993a613",
+  "claims": {
+    "betting_performance": false,
+    "bounded": true,
+    "diagnostic": true,
+    "historical": true,
+    "model_promotion": false,
+    "paper_only": true,
+    "production": false,
+    "profitability": false
+  },
+  "fold_fingerprint": "cb57394c9943ca7cfac8bfc82342b6c828fbbf42bbc8a7a2a052baf07f5fa7aa",
+  "fold_id": "wf_001",
+  "max_absolute_difference": "2.372644169090633633971E-7",
+  "model_artifact_fingerprint": "5af07fa9d346e56be92bb0a185effa470de67106b2fb314dd5b37ad2a19bfd79",
+  "parity_passed": true,
+  "replay_row_count": 2,
+  "schema_version": "p20a.moneyline_walk_forward_replay.v1",
+  "training_row_count": 566
+}

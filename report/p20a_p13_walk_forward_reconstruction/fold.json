@@ -1,0 +1,5154 @@
+{
+  "expected_home_probabilities": [
+    "0.469229",
+    "0.539322"
+  ],
+  "feature_names": [
+    "indep_recent_win_rate_delta",
+    "indep_starter_era_delta"
+  ],
+  "fold_id": "wf_001",
+  "initial_train_months": 2,
+  "legacy_source_commit": "03b2fcf4de1a13ee9929afcef803d61955c9f41b",
+  "legacy_source_paths": [
+    "scripts/run_mlb_walk_forward_ml_candidate.py",
+    "wbc_backend/prediction/mlb_ml_feature_matrix.py",
+    "wbc_backend/prediction/mlb_walk_forward_model.py",
+    "outputs/predictions/PAPER/2026-05-11/p13_ml/ml_model_metadata.json",
+    "outputs/predictions/PAPER/2026-05-11/p13_ml/ml_feature_matrix.csv",
+    "outputs/predictions/PAPER/2026-05-11/p13_ml/ml_walk_forward_predictions.jsonl"
+  ],
+  "legacy_source_tree": "56a849bc68234db63da7a38f1643fa664217c5d0",
+  "min_train_size": 300,
+  "prediction_row_count": 2,
+  "prediction_rows": [
+    {
+      "away_team": "St. Louis Cardinals",
+      "date": "2025-06-01",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.3333333333333333",
+        "indep_starter_era_delta": "-1.727272727272727"
+      },
+      "game_id": "2025-06-01_TEX_STL",
+      "home_team": "Texas Rangers",
+      "scheduled_start_utc": "2025-06-01T12:00:00Z",
+      "source_schedule_observation_id": "516f58fefbe8844f7aa16db6d008e9a0d679b90552384c7da0cbeac314f0b6d9",
+      "target_home_win": 1
+    },
+    {
+      "away_team": "Boston Red Sox",
+      "date": "2025-06-01",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.875"
+      },
+      "game_id": "2025-06-01_ATL_BOS",
+      "home_team": "Atlanta Braves",
+      "scheduled_start_utc": "2025-06-01T13:00:00Z",
+      "source_schedule_observation_id": "278b24890105636ef45fa2cdaa026c262ebecdd62f6887a2ca67b9bbbb45b74c",
+      "target_home_win": 0
+    }
+  ],
+  "schema_version": "p20a.moneyline_walk_forward_fold.v1",
+  "train_as_of": "2025-05-31",
+  "training_row_count": 566,
+  "training_rows": [
+    {
+      "date": "2025-04-07",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.21666666666666667",
+        "indep_starter_era_delta": "2.833333333333333"
+      },
+      "game_id": "2025-04-07_CHC_TEX",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-07",
+      "features": {
+        "indep_recent_win_rate_delta": "0.09999999999999998",
+        "indep_starter_era_delta": "4.0"
+      },
+      "game_id": "2025-04-07_ARI_BAL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-07",
+      "features": {
+        "indep_recent_win_rate_delta": "0.5888888888888888",
+        "indep_starter_era_delta": "-1.0"
+      },
+      "game_id": "2025-04-07_SF_CIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-07",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.4",
+        "indep_starter_era_delta": "3.5"
+      },
+      "game_id": "2025-04-07_ATH_SD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-08",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "-1.0"
+      },
+      "game_id": "2025-04-08_NYM_MIA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-08",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.036363636363636376",
+        "indep_starter_era_delta": "-0.5"
+      },
+      "game_id": "2025-04-08_PIT_STL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-08",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.6666666666666667",
+        "indep_starter_era_delta": "3.0"
+      },
+      "game_id": "2025-04-08_ATL_PHI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-08",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "2.0"
+      },
+      "game_id": "2025-04-08_KC_MIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-08",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2777777777777778",
+        "indep_starter_era_delta": "1.0"
+      },
+      "game_id": "2025-04-08_COL_MIL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-08",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-3.0"
+      },
+      "game_id": "2025-04-08_ARI_BAL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-08",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.036363636363636376",
+        "indep_starter_era_delta": "1.0"
+      },
+      "game_id": "2025-04-08_SEA_HOU",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-08",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.4545454545454546",
+        "indep_starter_era_delta": "2.5"
+      },
+      "game_id": "2025-04-08_ATH_SD",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-09",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.12121212121212122",
+        "indep_starter_era_delta": "-1.0"
+      },
+      "game_id": "2025-04-09_PIT_STL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-09",
+      "features": {
+        "indep_recent_win_rate_delta": "0.27272727272727276",
+        "indep_starter_era_delta": "-5.5"
+      },
+      "game_id": "2025-04-09_NYM_MIA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-09",
+      "features": {
+        "indep_recent_win_rate_delta": "0.09090909090909094",
+        "indep_starter_era_delta": "-0.5"
+      },
+      "game_id": "2025-04-09_DET_NYY",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-09",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.023809523809523725",
+        "indep_starter_era_delta": "0.16666666666666652"
+      },
+      "game_id": "2025-04-09_CHC_TEX",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-09",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.3333333333333333",
+        "indep_starter_era_delta": "1.0"
+      },
+      "game_id": "2025-04-09_ATH_SD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-09",
+      "features": {
+        "indep_recent_win_rate_delta": "0.08333333333333331",
+        "indep_starter_era_delta": "-2.5"
+      },
+      "game_id": "2025-04-09_ARI_BAL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-09",
+      "features": {
+        "indep_recent_win_rate_delta": "0.3106060606060606",
+        "indep_starter_era_delta": "1.5"
+      },
+      "game_id": "2025-04-09_SF_CIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-09",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.08333333333333337",
+        "indep_starter_era_delta": "0.5"
+      },
+      "game_id": "2025-04-09_BOS_TOR",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-09",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.29999999999999993",
+        "indep_starter_era_delta": "-7.0"
+      },
+      "game_id": "2025-04-09_TB_LAA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-09",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2727272727272727",
+        "indep_starter_era_delta": "-2.5"
+      },
+      "game_id": "2025-04-09_KC_MIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-10",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.18181818181818182",
+        "indep_starter_era_delta": "-0.5"
+      },
+      "game_id": "2025-04-10_TB_LAA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-10",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2727272727272727",
+        "indep_starter_era_delta": "1.0"
+      },
+      "game_id": "2025-04-10_CLE_CWS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-10",
+      "features": {
+        "indep_recent_win_rate_delta": "0.16666666666666669",
+        "indep_starter_era_delta": "2.0"
+      },
+      "game_id": "2025-04-10_KC_MIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-10",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.15384615384615385",
+        "indep_starter_era_delta": "4.5"
+      },
+      "game_id": "2025-04-10_BOS_TOR",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-10",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.5454545454545454",
+        "indep_starter_era_delta": "-3.5"
+      },
+      "game_id": "2025-04-10_ATL_PHI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-11",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.038461538461538436",
+        "indep_starter_era_delta": "5.0"
+      },
+      "game_id": "2025-04-11_CLE_KC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-11",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-2.5"
+      },
+      "game_id": "2025-04-11_CIN_PIT",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-11",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.16666666666666663",
+        "indep_starter_era_delta": "1.5"
+      },
+      "game_id": "2025-04-11_NYY_SF",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-11",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.33333333333333337",
+        "indep_starter_era_delta": "-1.0"
+      },
+      "game_id": "2025-04-11_CWS_BOS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-11",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.24999999999999994",
+        "indep_starter_era_delta": "4.0"
+      },
+      "game_id": "2025-04-11_HOU_LAA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-11",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.24999999999999994",
+        "indep_starter_era_delta": "-0.5"
+      },
+      "game_id": "2025-04-11_STL_PHI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-11",
+      "features": {
+        "indep_recent_win_rate_delta": "0.5192307692307693",
+        "indep_starter_era_delta": "-3.0"
+      },
+      "game_id": "2025-04-11_SD_COL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-11",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.30769230769230765",
+        "indep_starter_era_delta": "1.0"
+      },
+      "game_id": "2025-04-11_SEA_TEX",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-11",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.282051282051282",
+        "indep_starter_era_delta": "1.0"
+      },
+      "game_id": "2025-04-11_ATH_NYM",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-11",
+      "features": {
+        "indep_recent_win_rate_delta": "0.11428571428571432",
+        "indep_starter_era_delta": "-2.5"
+      },
+      "game_id": "2025-04-11_LAD_CHC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-12",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.3296703296703297",
+        "indep_starter_era_delta": "4.5"
+      },
+      "game_id": "2025-04-12_MIN_DET",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-12",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.15384615384615385",
+        "indep_starter_era_delta": "7.5"
+      },
+      "game_id": "2025-04-12_STL_PHI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-12",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.23076923076923084",
+        "indep_starter_era_delta": "3.0"
+      },
+      "game_id": "2025-04-12_NYY_SF",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-12",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.18681318681318676",
+        "indep_starter_era_delta": "0.0"
+      },
+      "game_id": "2025-04-12_BAL_TOR",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-12",
+      "features": {
+        "indep_recent_win_rate_delta": "0.23076923076923078",
+        "indep_starter_era_delta": "-2.0"
+      },
+      "game_id": "2025-04-12_TB_ATL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-12",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2358974358974359",
+        "indep_starter_era_delta": "-2.5"
+      },
+      "game_id": "2025-04-12_CWS_BOS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-12",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-1.5"
+      },
+      "game_id": "2025-04-12_MIA_WSH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-12",
+      "features": {
+        "indep_recent_win_rate_delta": "0.038461538461538436",
+        "indep_starter_era_delta": "3.0"
+      },
+      "game_id": "2025-04-12_CLE_KC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-12",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.0714285714285714",
+        "indep_starter_era_delta": "4.0"
+      },
+      "game_id": "2025-04-12_ARI_MIL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-12",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-3.1666666666666665"
+      },
+      "game_id": "2025-04-12_LAD_CHC",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-12",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.21428571428571436",
+        "indep_starter_era_delta": "-5.5"
+      },
+      "game_id": "2025-04-12_SEA_TEX",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-13",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.10476190476190478",
+        "indep_starter_era_delta": "-1.166666666666667"
+      },
+      "game_id": "2025-04-13_BAL_TOR",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-13",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1428571428571429",
+        "indep_starter_era_delta": "1.6666666666666665"
+      },
+      "game_id": "2025-04-13_NYY_SF",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-13",
+      "features": {
+        "indep_recent_win_rate_delta": "0.10476190476190472",
+        "indep_starter_era_delta": "-0.6666666666666665"
+      },
+      "game_id": "2025-04-13_CLE_KC",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-13",
+      "features": {
+        "indep_recent_win_rate_delta": "0.13333333333333336",
+        "indep_starter_era_delta": "-2.6666666666666665"
+      },
+      "game_id": "2025-04-13_CIN_PIT",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-13",
+      "features": {
+        "indep_recent_win_rate_delta": "0.07142857142857145",
+        "indep_starter_era_delta": "0.0"
+      },
+      "game_id": "2025-04-13_MIA_WSH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-13",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.21428571428571436",
+        "indep_starter_era_delta": "-1.5"
+      },
+      "game_id": "2025-04-13_HOU_LAA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-13",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.37619047619047624",
+        "indep_starter_era_delta": "2.0"
+      },
+      "game_id": "2025-04-13_MIN_DET",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-13",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.11428571428571432",
+        "indep_starter_era_delta": "1.8333333333333335"
+      },
+      "game_id": "2025-04-13_CWS_BOS",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-13",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.21428571428571436",
+        "indep_starter_era_delta": "4.833333333333334"
+      },
+      "game_id": "2025-04-13_STL_PHI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-13",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.24285714285714288",
+        "indep_starter_era_delta": "3.333333333333333"
+      },
+      "game_id": "2025-04-13_ATH_NYM",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-13",
+      "features": {
+        "indep_recent_win_rate_delta": "0.5857142857142857",
+        "indep_starter_era_delta": "-2.3333333333333335"
+      },
+      "game_id": "2025-04-13_SD_COL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-13",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-1.0"
+      },
+      "game_id": "2025-04-13_SEA_TEX",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-13",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "3.6666666666666665"
+      },
+      "game_id": "2025-04-13_ARI_MIL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-14",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "0.0"
+      },
+      "game_id": "2025-04-14_PHI_SF",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-14",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-1.3333333333333335"
+      },
+      "game_id": "2025-04-14_TB_BOS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-14",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "3.0"
+      },
+      "game_id": "2025-04-14_NYY_KC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-14",
+      "features": {
+        "indep_recent_win_rate_delta": "0.3333333333333333",
+        "indep_starter_era_delta": "-3.5"
+      },
+      "game_id": "2025-04-14_TOR_ATL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-14",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.3333333333333333",
+        "indep_starter_era_delta": "-0.9999999999999996"
+      },
+      "game_id": "2025-04-14_MIN_NYM",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-14",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-0.6666666666666665"
+      },
+      "game_id": "2025-04-14_MIL_DET",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-14",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "1.0"
+      },
+      "game_id": "2025-04-14_STL_HOU",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-14",
+      "features": {
+        "indep_recent_win_rate_delta": "0.13333333333333341",
+        "indep_starter_era_delta": "-0.33333333333333304"
+      },
+      "game_id": "2025-04-14_SD_CHC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-14",
+      "features": {
+        "indep_recent_win_rate_delta": "0.39999999999999997",
+        "indep_starter_era_delta": "-3.5"
+      },
+      "game_id": "2025-04-14_LAD_COL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-15",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666671",
+        "indep_starter_era_delta": "-3.333333333333334"
+      },
+      "game_id": "2025-04-15_PIT_WSH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-15",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-2.6666666666666665"
+      },
+      "game_id": "2025-04-15_CIN_SEA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-15",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "2.333333333333334"
+      },
+      "game_id": "2025-04-15_MIA_ARI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-15",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "-2.0"
+      },
+      "game_id": "2025-04-15_PHI_SF",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-15",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "2.166666666666667"
+      },
+      "game_id": "2025-04-15_BAL_CLE",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-15",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-1.9999999999999996"
+      },
+      "game_id": "2025-04-15_TB_BOS",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-15",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "0.0"
+      },
+      "game_id": "2025-04-15_NYY_KC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-15",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "1.6666666666666665"
+      },
+      "game_id": "2025-04-15_TOR_ATL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-15",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.39999999999999997",
+        "indep_starter_era_delta": "2.333333333333333"
+      },
+      "game_id": "2025-04-15_MIN_NYM",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-15",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.13333333333333336",
+        "indep_starter_era_delta": "-1.3333333333333335"
+      },
+      "game_id": "2025-04-15_CWS_ATH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-15",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "1.333333333333333"
+      },
+      "game_id": "2025-04-15_STL_HOU",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-15",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-6.0"
+      },
+      "game_id": "2025-04-15_TEX_LAA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-15",
+      "features": {
+        "indep_recent_win_rate_delta": "0.13333333333333341",
+        "indep_starter_era_delta": "-2.166666666666667"
+      },
+      "game_id": "2025-04-15_SD_CHC",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-16",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-2.3333333333333335"
+      },
+      "game_id": "2025-04-16_SD_CHC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-16",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2",
+        "indep_starter_era_delta": "3.6666666666666665"
+      },
+      "game_id": "2025-04-16_BAL_CLE",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-16",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.13333333333333336",
+        "indep_starter_era_delta": "4.0"
+      },
+      "game_id": "2025-04-16_PIT_WSH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-16",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "2.0000000000000004"
+      },
+      "game_id": "2025-04-16_CIN_SEA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-16",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "1.3333333333333335"
+      },
+      "game_id": "2025-04-16_MIA_ARI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-16",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "1.6666666666666667"
+      },
+      "game_id": "2025-04-16_PHI_SF",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-16",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-1.666666666666667"
+      },
+      "game_id": "2025-04-16_TB_BOS",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-16",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2",
+        "indep_starter_era_delta": "2.3333333333333335"
+      },
+      "game_id": "2025-04-16_CWS_ATH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-17",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-1.333333333333333"
+      },
+      "game_id": "2025-04-17_PIT_WSH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-17",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2",
+        "indep_starter_era_delta": "-0.6666666666666665"
+      },
+      "game_id": "2025-04-17_CWS_ATH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-17",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "-1.666666666666667"
+      },
+      "game_id": "2025-04-17_PHI_SF",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-17",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-1.3333333333333335"
+      },
+      "game_id": "2025-04-17_BAL_CLE",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-17",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2666666666666666",
+        "indep_starter_era_delta": "0.666666666666667"
+      },
+      "game_id": "2025-04-17_DET_KC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-17",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-1.0"
+      },
+      "game_id": "2025-04-17_TB_NYY",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-17",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2666666666666666",
+        "indep_starter_era_delta": "1.0"
+      },
+      "game_id": "2025-04-17_NYM_STL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-17",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "1.9999999999999991"
+      },
+      "game_id": "2025-04-17_TEX_LAA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-18",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2666666666666666",
+        "indep_starter_era_delta": "-0.25"
+      },
+      "game_id": "2025-04-18_DET_KC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-18",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-0.6666666666666661"
+      },
+      "game_id": "2025-04-18_PIT_CLE",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-18",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "0.5"
+      },
+      "game_id": "2025-04-18_PHI_MIA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-18",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.26666666666666666",
+        "indep_starter_era_delta": "-0.9166666666666665"
+      },
+      "game_id": "2025-04-18_TB_NYY",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-18",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "0.3333333333333335"
+      },
+      "game_id": "2025-04-18_TOR_SEA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-18",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2666666666666666",
+        "indep_starter_era_delta": "-6.333333333333334"
+      },
+      "game_id": "2025-04-18_NYM_STL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-18",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.13333333333333336",
+        "indep_starter_era_delta": "-1.333333333333333"
+      },
+      "game_id": "2025-04-18_ATL_MIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-18",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "1.4166666666666665"
+      },
+      "game_id": "2025-04-18_TEX_LAD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-18",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "-0.4166666666666665"
+      },
+      "game_id": "2025-04-18_LAA_SF",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-19",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "0.0"
+      },
+      "game_id": "2025-04-19_PHI_MIA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-19",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2666666666666666",
+        "indep_starter_era_delta": "-0.5833333333333335"
+      },
+      "game_id": "2025-04-19_DET_KC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-19",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-1.3333333333333335"
+      },
+      "game_id": "2025-04-19_CHC_ARI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-19",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "3.25"
+      },
+      "game_id": "2025-04-19_TOR_SEA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-19",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "0.5"
+      },
+      "game_id": "2025-04-19_PIT_CLE",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-19",
+      "features": {
+        "indep_recent_win_rate_delta": "0.33333333333333326",
+        "indep_starter_era_delta": "-4.333333333333334"
+      },
+      "game_id": "2025-04-19_NYM_STL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-19",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-2.0"
+      },
+      "game_id": "2025-04-19_TEX_LAD",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-19",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2666666666666667",
+        "indep_starter_era_delta": "-3.0"
+      },
+      "game_id": "2025-04-19_COL_WSH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-19",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4666666666666667",
+        "indep_starter_era_delta": "-1.75"
+      },
+      "game_id": "2025-04-19_BOS_CWS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-19",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.39999999999999997",
+        "indep_starter_era_delta": "-2.666666666666666"
+      },
+      "game_id": "2025-04-19_TB_NYY",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-19",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "1.3333333333333335"
+      },
+      "game_id": "2025-04-19_HOU_SD",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-19",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "-3.6666666666666665"
+      },
+      "game_id": "2025-04-19_MIL_ATH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-19",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "3.0000000000000004"
+      },
+      "game_id": "2025-04-19_LAA_SF",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-20",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "0.0"
+      },
+      "game_id": "2025-04-20_PIT_CLE",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-20",
+      "features": {
+        "indep_recent_win_rate_delta": "0.13333333333333336",
+        "indep_starter_era_delta": "0.916666666666667"
+      },
+      "game_id": "2025-04-20_ATL_MIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-20",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4666666666666667",
+        "indep_starter_era_delta": "1.0"
+      },
+      "game_id": "2025-04-20_BOS_CWS",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-20",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "-3.5"
+      },
+      "game_id": "2025-04-20_PHI_MIA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-20",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-1.0833333333333335"
+      },
+      "game_id": "2025-04-20_TOR_SEA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-20",
+      "features": {
+        "indep_recent_win_rate_delta": "0.39999999999999997",
+        "indep_starter_era_delta": "-2.75"
+      },
+      "game_id": "2025-04-20_DET_KC",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-20",
+      "features": {
+        "indep_recent_win_rate_delta": "0.39999999999999997",
+        "indep_starter_era_delta": "0.0"
+      },
+      "game_id": "2025-04-20_NYM_STL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-20",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.26666666666666666",
+        "indep_starter_era_delta": "-0.25"
+      },
+      "game_id": "2025-04-20_TB_NYY",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-20",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "2.25"
+      },
+      "game_id": "2025-04-20_CHC_ARI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-20",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-2.583333333333333"
+      },
+      "game_id": "2025-04-20_TEX_LAD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-20",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.4",
+        "indep_starter_era_delta": "-0.5"
+      },
+      "game_id": "2025-04-20_COL_WSH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-20",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "1.25"
+      },
+      "game_id": "2025-04-20_LAA_SF",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-20",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-0.75"
+      },
+      "game_id": "2025-04-20_HOU_SD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-21",
+      "features": {
+        "indep_recent_win_rate_delta": "0.3333333333333333",
+        "indep_starter_era_delta": "0.75"
+      },
+      "game_id": "2025-04-21_BOS_CWS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-21",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.26666666666666666",
+        "indep_starter_era_delta": "2.75"
+      },
+      "game_id": "2025-04-21_MIA_CIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-21",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2666666666666666",
+        "indep_starter_era_delta": "-2.25"
+      },
+      "game_id": "2025-04-21_NYM_PHI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-21",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "-2.25"
+      },
+      "game_id": "2025-04-21_ATL_STL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-21",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "0.25"
+      },
+      "game_id": "2025-04-21_HOU_TOR",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-21",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-1.25"
+      },
+      "game_id": "2025-04-21_SF_MIL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-22",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-0.25"
+      },
+      "game_id": "2025-04-22_CLE_NYY",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-22",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "3.0"
+      },
+      "game_id": "2025-04-22_DET_SD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-22",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "1.0"
+      },
+      "game_id": "2025-04-22_MIA_CIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-22",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-2.25"
+      },
+      "game_id": "2025-04-22_WSH_BAL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-22",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2666666666666666",
+        "indep_starter_era_delta": "-0.5"
+      },
+      "game_id": "2025-04-22_NYM_PHI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-22",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "-1.75"
+      },
+      "game_id": "2025-04-22_KC_COL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-22",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-0.3333333333333335"
+      },
+      "game_id": "2025-04-22_CHC_LAD",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-22",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-0.75"
+      },
+      "game_id": "2025-04-22_MIN_CWS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-22",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "3.0"
+      },
+      "game_id": "2025-04-22_HOU_TOR",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-22",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-2.25"
+      },
+      "game_id": "2025-04-22_LAA_PIT",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-22",
+      "features": {
+        "indep_recent_win_rate_delta": "0.26666666666666666",
+        "indep_starter_era_delta": "-2.25"
+      },
+      "game_id": "2025-04-22_ARI_TB",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-22",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "4.5"
+      },
+      "game_id": "2025-04-22_SF_MIL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-22",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-3.5"
+      },
+      "game_id": "2025-04-22_ATH_TEX",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-23",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-2.666666666666667"
+      },
+      "game_id": "2025-04-23_ATL_STL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-23",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "0.25"
+      },
+      "game_id": "2025-04-23_DET_SD",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-23",
+      "features": {
+        "indep_recent_win_rate_delta": "0.33333333333333326",
+        "indep_starter_era_delta": "-1.0"
+      },
+      "game_id": "2025-04-23_NYM_PHI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-23",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-1.25"
+      },
+      "game_id": "2025-04-23_MIA_CIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-23",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "2.35"
+      },
+      "game_id": "2025-04-23_CLE_NYY",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-23",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "1.75"
+      },
+      "game_id": "2025-04-23_WSH_BAL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-23",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-2.25"
+      },
+      "game_id": "2025-04-23_BOS_SEA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-23",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "1.5"
+      },
+      "game_id": "2025-04-23_HOU_TOR",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-23",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "3.25"
+      },
+      "game_id": "2025-04-23_LAA_PIT",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-23",
+      "features": {
+        "indep_recent_win_rate_delta": "0.26666666666666666",
+        "indep_starter_era_delta": "0.5"
+      },
+      "game_id": "2025-04-23_ARI_TB",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-23",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-0.3999999999999999"
+      },
+      "game_id": "2025-04-23_SF_MIL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-23",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-4.0"
+      },
+      "game_id": "2025-04-23_ATH_TEX",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-24",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "3.0"
+      },
+      "game_id": "2025-04-24_MIN_CWS",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-24",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-0.3500000000000001"
+      },
+      "game_id": "2025-04-24_BOS_SEA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-24",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "-3.25"
+      },
+      "game_id": "2025-04-24_KC_COL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-24",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "1.4000000000000004"
+      },
+      "game_id": "2025-04-24_WSH_BAL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-24",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-4.25"
+      },
+      "game_id": "2025-04-24_LAA_PIT",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-24",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "4.0"
+      },
+      "game_id": "2025-04-24_ARI_TB",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-24",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-0.5"
+      },
+      "game_id": "2025-04-24_ATH_TEX",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "0.5"
+      },
+      "game_id": "2025-04-25_CHC_PHI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-25",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2666666666666666",
+        "indep_starter_era_delta": "4.0"
+      },
+      "game_id": "2025-04-25_WSH_NYM",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-0.4500000000000002"
+      },
+      "game_id": "2025-04-25_NYY_TOR",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-25",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "0.20000000000000018"
+      },
+      "game_id": "2025-04-25_KC_HOU",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-2.3333333333333335"
+      },
+      "game_id": "2025-04-25_MIN_LAA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-25",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "2.5"
+      },
+      "game_id": "2025-04-25_STL_MIL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-25",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.4666666666666667",
+        "indep_starter_era_delta": "2.3"
+      },
+      "game_id": "2025-04-25_COL_CIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-1.0499999999999998"
+      },
+      "game_id": "2025-04-25_SD_TB",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.0"
+      },
+      "game_id": "2025-04-25_ARI_ATL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.33333333333333326",
+        "indep_starter_era_delta": "-3.45"
+      },
+      "game_id": "2025-04-25_SEA_MIA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-1.8"
+      },
+      "game_id": "2025-04-25_LAD_PIT",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "2.1999999999999997"
+      },
+      "game_id": "2025-04-25_SF_TEX",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-26",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "-4.199999999999999"
+      },
+      "game_id": "2025-04-26_CLE_BOS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-26",
+      "features": {
+        "indep_recent_win_rate_delta": "0.13333333333333336",
+        "indep_starter_era_delta": "-3.933333333333333"
+      },
+      "game_id": "2025-04-26_MIN_LAA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-26",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.20000000000000018"
+      },
+      "game_id": "2025-04-26_STL_MIL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-26",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.4666666666666667",
+        "indep_starter_era_delta": "2.2"
+      },
+      "game_id": "2025-04-26_COL_CIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-26",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "1.4"
+      },
+      "game_id": "2025-04-26_WSH_NYM",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-26",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "0.6000000000000001"
+      },
+      "game_id": "2025-04-26_SF_TEX",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-26",
+      "features": {
+        "indep_recent_win_rate_delta": "0.3333333333333333",
+        "indep_starter_era_delta": "-1.3499999999999996"
+      },
+      "game_id": "2025-04-26_CHC_PHI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-26",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "0.7999999999999998"
+      },
+      "game_id": "2025-04-26_KC_HOU",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-26",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-0.20000000000000018"
+      },
+      "game_id": "2025-04-26_ARI_ATL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-26",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "0.0"
+      },
+      "game_id": "2025-04-26_SD_TB",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-26",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "1.2000000000000002"
+      },
+      "game_id": "2025-04-26_LAD_PIT",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-26",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "-2.5999999999999996"
+      },
+      "game_id": "2025-04-26_SEA_MIA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-27",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2666666666666666",
+        "indep_starter_era_delta": "-0.40000000000000036"
+      },
+      "game_id": "2025-04-27_WSH_NYM",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-27",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "0.0"
+      },
+      "game_id": "2025-04-27_NYY_TOR",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-27",
+      "features": {
+        "indep_recent_win_rate_delta": "0.3333333333333333",
+        "indep_starter_era_delta": "-3.4"
+      },
+      "game_id": "2025-04-27_DET_BAL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-27",
+      "features": {
+        "indep_recent_win_rate_delta": "0.13333333333333336",
+        "indep_starter_era_delta": "0.0"
+      },
+      "game_id": "2025-04-27_MIN_LAA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-27",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "0.8000000000000003"
+      },
+      "game_id": "2025-04-27_KC_HOU",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-27",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "3.666666666666667"
+      },
+      "game_id": "2025-04-27_STL_MIL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-27",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "5.7"
+      },
+      "game_id": "2025-04-27_SF_TEX",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-27",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-1.5499999999999998"
+      },
+      "game_id": "2025-04-27_LAD_PIT",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-27",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-2.4"
+      },
+      "game_id": "2025-04-27_SD_TB",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-27",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-0.7999999999999998"
+      },
+      "game_id": "2025-04-27_ARI_ATL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-27",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "0.5999999999999996"
+      },
+      "game_id": "2025-04-27_CHC_PHI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-28",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "1.6"
+      },
+      "game_id": "2025-04-28_WSH_NYM",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-28",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "1.1999999999999997"
+      },
+      "game_id": "2025-04-28_CLE_MIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-28",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.3333333333333333",
+        "indep_starter_era_delta": "-1.6000000000000005"
+      },
+      "game_id": "2025-04-28_BAL_NYY",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-28",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2666666666666666",
+        "indep_starter_era_delta": "2.2"
+      },
+      "game_id": "2025-04-28_CIN_STL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-28",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "2.333333333333333"
+      },
+      "game_id": "2025-04-28_TEX_ATH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-28",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-0.1999999999999993"
+      },
+      "game_id": "2025-04-28_HOU_DET",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-28",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.5333333333333333",
+        "indep_starter_era_delta": "0.5499999999999998"
+      },
+      "game_id": "2025-04-28_COL_ATL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-28",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "-0.08333333333333304"
+      },
+      "game_id": "2025-04-28_LAD_MIA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-29",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-2.2"
+      },
+      "game_id": "2025-04-29_CLE_MIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-29",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-1.766666666666667"
+      },
+      "game_id": "2025-04-29_PIT_CHC",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-29",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-2.5"
+      },
+      "game_id": "2025-04-29_PHI_WSH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-29",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "0.7999999999999998"
+      },
+      "game_id": "2025-04-29_TB_KC",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-29",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.26666666666666666",
+        "indep_starter_era_delta": "-0.06666666666666643"
+      },
+      "game_id": "2025-04-29_TOR_BOS",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-29",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "-2.5999999999999996"
+      },
+      "game_id": "2025-04-29_NYM_ARI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-29",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.13333333333333336",
+        "indep_starter_era_delta": "1.3333333333333335"
+      },
+      "game_id": "2025-04-29_CWS_MIL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-29",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-0.20000000000000018"
+      },
+      "game_id": "2025-04-29_HOU_DET",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-29",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.6",
+        "indep_starter_era_delta": "2.866666666666667"
+      },
+      "game_id": "2025-04-29_COL_ATL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-29",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4666666666666666",
+        "indep_starter_era_delta": "-1.1999999999999993"
+      },
+      "game_id": "2025-04-29_SEA_LAA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-29",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-0.7"
+      },
+      "game_id": "2025-04-29_SD_SF",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-30",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "-2.0"
+      },
+      "game_id": "2025-04-30_CIN_STL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-04-30",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.6",
+        "indep_starter_era_delta": "1.583333333333333"
+      },
+      "game_id": "2025-04-30_COL_ATL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-30",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4666666666666666",
+        "indep_starter_era_delta": "5.0"
+      },
+      "game_id": "2025-04-30_SEA_LAA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-30",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-1.0"
+      },
+      "game_id": "2025-04-30_SD_SF",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-30",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "2.5999999999999996"
+      },
+      "game_id": "2025-04-30_CLE_MIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-30",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.3333333333333333",
+        "indep_starter_era_delta": "-0.40000000000000036"
+      },
+      "game_id": "2025-04-30_BAL_NYY",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-30",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "0.7999999999999998"
+      },
+      "game_id": "2025-04-30_PIT_CHC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-30",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-1.233333333333333"
+      },
+      "game_id": "2025-04-30_PHI_WSH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-04-30",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-2.0"
+      },
+      "game_id": "2025-04-30_TEX_ATH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-01",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-1.333333333333333"
+      },
+      "game_id": "2025-05-01_PIT_CHC",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-01",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-0.40000000000000036"
+      },
+      "game_id": "2025-05-01_CIN_STL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-01",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-3.866666666666667"
+      },
+      "game_id": "2025-05-01_NYM_ARI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-01",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-0.06666666666666643"
+      },
+      "game_id": "2025-05-01_TB_KC",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-01",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "0.5833333333333335"
+      },
+      "game_id": "2025-05-01_CLE_MIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-01",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.3333333333333333",
+        "indep_starter_era_delta": "2.6"
+      },
+      "game_id": "2025-05-01_CWS_MIL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-01",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "-5.0"
+      },
+      "game_id": "2025-05-01_TEX_ATH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-01",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "1.3499999999999996"
+      },
+      "game_id": "2025-05-01_PHI_WSH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-01",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "-1.0"
+      },
+      "game_id": "2025-05-01_TOR_BOS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-01",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.39999999999999997",
+        "indep_starter_era_delta": "3.933333333333333"
+      },
+      "game_id": "2025-05-01_LAA_DET",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-01",
+      "features": {
+        "indep_recent_win_rate_delta": "0.33333333333333337",
+        "indep_starter_era_delta": "-0.16666666666666607"
+      },
+      "game_id": "2025-05-01_SF_COL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-02",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-0.16666666666666652"
+      },
+      "game_id": "2025-05-02_CIN_WSH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-02",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "0.6666666666666661"
+      },
+      "game_id": "2025-05-02_PIT_SD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-02",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.0"
+      },
+      "game_id": "2025-05-02_PHI_ARI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-02",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "2.3333333333333335"
+      },
+      "game_id": "2025-05-02_BAL_KC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-02",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "-0.33333333333333304"
+      },
+      "game_id": "2025-05-02_NYY_TB",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-02",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "-2.6333333333333333"
+      },
+      "game_id": "2025-05-02_TOR_CLE",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-02",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-0.5"
+      },
+      "game_id": "2025-05-02_BOS_MIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-02",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "2.5999999999999996"
+      },
+      "game_id": "2025-05-02_ATL_LAD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-02",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.3333333333333333",
+        "indep_starter_era_delta": "0.7000000000000002"
+      },
+      "game_id": "2025-05-02_CWS_HOU",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-02",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.33333333333333326",
+        "indep_starter_era_delta": "-1.4666666666666666"
+      },
+      "game_id": "2025-05-02_TEX_SEA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-02",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-0.2666666666666666"
+      },
+      "game_id": "2025-05-02_MIL_CHC",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-02",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2666666666666666",
+        "indep_starter_era_delta": "1.333333333333333"
+      },
+      "game_id": "2025-05-02_STL_NYM",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-02",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.4666666666666666",
+        "indep_starter_era_delta": "2.1666666666666665"
+      },
+      "game_id": "2025-05-02_LAA_DET",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-02",
+      "features": {
+        "indep_recent_win_rate_delta": "0.26666666666666666",
+        "indep_starter_era_delta": "-3.3333333333333335"
+      },
+      "game_id": "2025-05-02_SF_COL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-03",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.26666666666666666",
+        "indep_starter_era_delta": "2.0999999999999996"
+      },
+      "game_id": "2025-05-03_CWS_HOU",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-03",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-1.0"
+      },
+      "game_id": "2025-05-03_TOR_CLE",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-03",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "2.8333333333333335"
+      },
+      "game_id": "2025-05-03_PIT_SD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-03",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "1.8333333333333335"
+      },
+      "game_id": "2025-05-03_BOS_MIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-03",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.39999999999999997",
+        "indep_starter_era_delta": "1.666666666666667"
+      },
+      "game_id": "2025-05-03_MIA_ATH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-03",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "2.0"
+      },
+      "game_id": "2025-05-03_PHI_ARI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-03",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-4.166666666666666"
+      },
+      "game_id": "2025-05-03_CIN_WSH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-03",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.39999999999999997",
+        "indep_starter_era_delta": "0.8333333333333335"
+      },
+      "game_id": "2025-05-03_TEX_SEA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-03",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-4.083333333333333"
+      },
+      "game_id": "2025-05-03_MIL_CHC",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-03",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-1.0"
+      },
+      "game_id": "2025-05-03_BAL_KC",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-03",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-1.666666666666667"
+      },
+      "game_id": "2025-05-03_ATL_LAD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-03",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.5333333333333332",
+        "indep_starter_era_delta": "1.0333333333333332"
+      },
+      "game_id": "2025-05-03_LAA_DET",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-04",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-2.9285714285714284"
+      },
+      "game_id": "2025-05-04_BOS_MIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-04",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-0.3333333333333339"
+      },
+      "game_id": "2025-05-04_NYY_TB",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-04",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2666666666666666",
+        "indep_starter_era_delta": "0.3333333333333335"
+      },
+      "game_id": "2025-05-04_TOR_CLE",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-04",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.26666666666666666",
+        "indep_starter_era_delta": "3.0833333333333335"
+      },
+      "game_id": "2025-05-04_MIA_ATH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-04",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2666666666666666",
+        "indep_starter_era_delta": "-0.5714285714285716"
+      },
+      "game_id": "2025-05-04_MIL_CHC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-04",
+      "features": {
+        "indep_recent_win_rate_delta": "0.3333333333333333",
+        "indep_starter_era_delta": "-4.19047619047619"
+      },
+      "game_id": "2025-05-04_SF_COL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-04",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.39999999999999997",
+        "indep_starter_era_delta": "1.8333333333333335"
+      },
+      "game_id": "2025-05-04_LAA_DET",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-04",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-2.071428571428571"
+      },
+      "game_id": "2025-05-04_CIN_WSH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-04",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-1.4000000000000004"
+      },
+      "game_id": "2025-05-04_ATL_LAD",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-05",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "0.8333333333333335"
+      },
+      "game_id": "2025-05-05_NYY_SD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-05",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-1.583333333333333"
+      },
+      "game_id": "2025-05-05_ATL_CIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-05",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "1.3333333333333335"
+      },
+      "game_id": "2025-05-05_CHC_SF",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-05",
+      "features": {
+        "indep_recent_win_rate_delta": "0.33333333333333326",
+        "indep_starter_era_delta": "0.3333333333333335"
+      },
+      "game_id": "2025-05-05_KC_CWS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-05",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "0.5"
+      },
+      "game_id": "2025-05-05_MIL_HOU",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-05",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "0.833333333333333"
+      },
+      "game_id": "2025-05-05_STL_PIT",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-05",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "0.26190476190476186"
+      },
+      "game_id": "2025-05-05_ATH_SEA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-06",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "0.14285714285714324"
+      },
+      "game_id": "2025-05-06_WSH_CLE",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-06",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-1.2857142857142856"
+      },
+      "game_id": "2025-05-06_TB_PHI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-06",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "1.1904761904761907"
+      },
+      "game_id": "2025-05-06_NYY_SD",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-06",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "1.0357142857142856"
+      },
+      "game_id": "2025-05-06_ATL_CIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-06",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-1.0"
+      },
+      "game_id": "2025-05-06_CHC_SF",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-06",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "-1.6333333333333329"
+      },
+      "game_id": "2025-05-06_MIN_BAL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-06",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4",
+        "indep_starter_era_delta": "-1.7619047619047614"
+      },
+      "game_id": "2025-05-06_KC_CWS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-06",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "0.7000000000000002"
+      },
+      "game_id": "2025-05-06_MIL_HOU",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-06",
+      "features": {
+        "indep_recent_win_rate_delta": "0.26666666666666666",
+        "indep_starter_era_delta": "1.4523809523809526"
+      },
+      "game_id": "2025-05-06_STL_PIT",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-06",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "2.1428571428571432"
+      },
+      "game_id": "2025-05-06_ARI_NYM",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-06",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-0.14285714285714324"
+      },
+      "game_id": "2025-05-06_ATH_SEA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-07",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.5"
+      },
+      "game_id": "2025-05-07_MIL_HOU",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-07",
+      "features": {
+        "indep_recent_win_rate_delta": "0.3333333333333333",
+        "indep_starter_era_delta": "-0.4285714285714288"
+      },
+      "game_id": "2025-05-07_STL_PIT",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-07",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "1.9761904761904763"
+      },
+      "game_id": "2025-05-07_CHC_SF",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-07",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "2.119047619047619"
+      },
+      "game_id": "2025-05-07_ARI_NYM",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-07",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "0.5"
+      },
+      "game_id": "2025-05-07_MIA_LAD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-07",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666671",
+        "indep_starter_era_delta": "4.142857142857143"
+      },
+      "game_id": "2025-05-07_BOS_TEX",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-07",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.16666666666666652"
+      },
+      "game_id": "2025-05-07_TB_PHI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-07",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-1.285714285714286"
+      },
+      "game_id": "2025-05-07_NYY_SD",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-07",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "1.166666666666667"
+      },
+      "game_id": "2025-05-07_ATL_CIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-07",
+      "features": {
+        "indep_recent_win_rate_delta": "0.26666666666666666",
+        "indep_starter_era_delta": "-7.4"
+      },
+      "game_id": "2025-05-07_MIN_BAL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-07",
+      "features": {
+        "indep_recent_win_rate_delta": "0.5333333333333334",
+        "indep_starter_era_delta": "-0.2857142857142856"
+      },
+      "game_id": "2025-05-07_KC_CWS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-07",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.4666666666666666",
+        "indep_starter_era_delta": "2.0"
+      },
+      "game_id": "2025-05-07_COL_DET",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-07",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "1.8571428571428568"
+      },
+      "game_id": "2025-05-07_LAA_TOR",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-08",
+      "features": {
+        "indep_recent_win_rate_delta": "0.39999999999999997",
+        "indep_starter_era_delta": "-2.142857142857143"
+      },
+      "game_id": "2025-05-08_MIN_BAL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-08",
+      "features": {
+        "indep_recent_win_rate_delta": "0.13333333333333336",
+        "indep_starter_era_delta": "-1.9166666666666665"
+      },
+      "game_id": "2025-05-08_BOS_TEX",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-08",
+      "features": {
+        "indep_recent_win_rate_delta": "0.5333333333333334",
+        "indep_starter_era_delta": "-1.8809523809523814"
+      },
+      "game_id": "2025-05-08_KC_CWS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-08",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.6",
+        "indep_starter_era_delta": "2.3333333333333335"
+      },
+      "game_id": "2025-05-08_COL_DET",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-08",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-0.5714285714285716"
+      },
+      "game_id": "2025-05-08_TB_PHI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-08",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "0.8571428571428572"
+      },
+      "game_id": "2025-05-08_ATL_CIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-08",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "1.8571428571428572"
+      },
+      "game_id": "2025-05-08_LAA_TOR",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-08",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2666666666666666",
+        "indep_starter_era_delta": "1.2857142857142856"
+      },
+      "game_id": "2025-05-08_ARI_LAD",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-09",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4666666666666666",
+        "indep_starter_era_delta": "-2.0"
+      },
+      "game_id": "2025-05-09_DET_TEX",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-09",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.3333333333333333",
+        "indep_starter_era_delta": "1.1666666666666665"
+      },
+      "game_id": "2025-05-09_PIT_ATL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-09",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "-1.4285714285714284"
+      },
+      "game_id": "2025-05-09_WSH_STL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-09",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "1.7999999999999998"
+      },
+      "game_id": "2025-05-09_TB_MIL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-09",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-1.8571428571428568"
+      },
+      "game_id": "2025-05-09_NYM_CHC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-09",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "1.2857142857142856"
+      },
+      "game_id": "2025-05-09_CLE_PHI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-09",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4",
+        "indep_starter_era_delta": "-0.666666666666667"
+      },
+      "game_id": "2025-05-09_KC_BOS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-09",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.14285714285714324"
+      },
+      "game_id": "2025-05-09_CWS_MIA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-09",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-1.8571428571428572"
+      },
+      "game_id": "2025-05-09_HOU_CIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-09",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "0.14285714285714235"
+      },
+      "game_id": "2025-05-09_MIN_SF",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-09",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.4",
+        "indep_starter_era_delta": "2.857142857142857"
+      },
+      "game_id": "2025-05-09_COL_SD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-09",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "2.5"
+      },
+      "game_id": "2025-05-09_LAA_BAL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-09",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "1.571428571428572"
+      },
+      "game_id": "2025-05-09_ARI_LAD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-09",
+      "features": {
+        "indep_recent_win_rate_delta": "0.39999999999999997",
+        "indep_starter_era_delta": "-1.5714285714285712"
+      },
+      "game_id": "2025-05-09_SEA_TOR",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-09",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "-0.8571428571428572"
+      },
+      "game_id": "2025-05-09_ATH_NYY",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-10",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2666666666666666",
+        "indep_starter_era_delta": "3.285714285714286"
+      },
+      "game_id": "2025-05-10_WSH_STL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-10",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.3333333333333333",
+        "indep_starter_era_delta": "0.5714285714285716"
+      },
+      "game_id": "2025-05-10_PIT_ATL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-10",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-0.5535714285714284"
+      },
+      "game_id": "2025-05-10_ATH_NYY",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-10",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "1.047619047619048"
+      },
+      "game_id": "2025-05-10_TB_MIL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-10",
+      "features": {
+        "indep_recent_win_rate_delta": "0.5333333333333334",
+        "indep_starter_era_delta": "2.1428571428571432"
+      },
+      "game_id": "2025-05-10_DET_TEX",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-10",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4666666666666667",
+        "indep_starter_era_delta": "0.5535714285714284"
+      },
+      "game_id": "2025-05-10_KC_BOS",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-10",
+      "features": {
+        "indep_recent_win_rate_delta": "0.13333333333333336",
+        "indep_starter_era_delta": "-1.6285714285714286"
+      },
+      "game_id": "2025-05-10_CWS_MIA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-10",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "0.7321428571428572"
+      },
+      "game_id": "2025-05-10_MIN_SF",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-10",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2666666666666666",
+        "indep_starter_era_delta": "1.0"
+      },
+      "game_id": "2025-05-10_ARI_LAD",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-10",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-6.428571428571429"
+      },
+      "game_id": "2025-05-10_LAA_BAL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-10",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2666666666666666",
+        "indep_starter_era_delta": "3.0"
+      },
+      "game_id": "2025-05-10_SEA_TOR",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-11",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-1.2857142857142856"
+      },
+      "game_id": "2025-05-11_NYM_CHC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-11",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.33333333333333326",
+        "indep_starter_era_delta": "0.3035714285714288"
+      },
+      "game_id": "2025-05-11_WSH_STL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-11",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.39999999999999997",
+        "indep_starter_era_delta": "1.4107142857142856"
+      },
+      "game_id": "2025-05-11_PIT_ATL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-11",
+      "features": {
+        "indep_recent_win_rate_delta": "0.39999999999999997",
+        "indep_starter_era_delta": "0.03571428571428559"
+      },
+      "game_id": "2025-05-11_DET_TEX",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-11",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "0.28571428571428603"
+      },
+      "game_id": "2025-05-11_TB_MIL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-11",
+      "features": {
+        "indep_recent_win_rate_delta": "0.33333333333333337",
+        "indep_starter_era_delta": "-3.875"
+      },
+      "game_id": "2025-05-11_KC_BOS",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-11",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "-1.3095238095238098"
+      },
+      "game_id": "2025-05-11_MIN_SF",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-11",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-2.2857142857142856"
+      },
+      "game_id": "2025-05-11_CWS_MIA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-11",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.4666666666666667",
+        "indep_starter_era_delta": "5.285714285714286"
+      },
+      "game_id": "2025-05-11_COL_SD",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-11",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "1.1428571428571428"
+      },
+      "game_id": "2025-05-11_LAA_BAL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-11",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "-1.375"
+      },
+      "game_id": "2025-05-11_ARI_LAD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-11",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "1.4642857142857144"
+      },
+      "game_id": "2025-05-11_CLE_PHI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-12",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "0.0"
+      },
+      "game_id": "2025-05-12_CLE_MIL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-12",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-2.2083333333333335"
+      },
+      "game_id": "2025-05-12_DET_BOS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-12",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-1.714285714285714"
+      },
+      "game_id": "2025-05-12_PHI_STL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-12",
+      "features": {
+        "indep_recent_win_rate_delta": "0.26666666666666666",
+        "indep_starter_era_delta": "-0.2142857142857144"
+      },
+      "game_id": "2025-05-12_NYM_PIT",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-12",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "-1.4821428571428568"
+      },
+      "game_id": "2025-05-12_ATL_WSH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-12",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "-0.4285714285714288"
+      },
+      "game_id": "2025-05-12_CHC_MIA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-12",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-3.166666666666667"
+      },
+      "game_id": "2025-05-12_TEX_COL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-12",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2666666666666666",
+        "indep_starter_era_delta": "-0.125"
+      },
+      "game_id": "2025-05-12_HOU_KC",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-12",
+      "features": {
+        "indep_recent_win_rate_delta": "0.26666666666666666",
+        "indep_starter_era_delta": "-3.125"
+      },
+      "game_id": "2025-05-12_SD_LAA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-12",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "2.1500000000000004"
+      },
+      "game_id": "2025-05-12_SEA_NYY",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-12",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.375"
+      },
+      "game_id": "2025-05-12_SF_ARI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-13",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "0.31428571428571406"
+      },
+      "game_id": "2025-05-13_CLE_MIL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-13",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "1.0"
+      },
+      "game_id": "2025-05-13_TOR_TB",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-13",
+      "features": {
+        "indep_recent_win_rate_delta": "0.3333333333333333",
+        "indep_starter_era_delta": "-3.375"
+      },
+      "game_id": "2025-05-13_NYM_PIT",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-13",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "-2.125"
+      },
+      "game_id": "2025-05-13_ATL_WSH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-13",
+      "features": {
+        "indep_recent_win_rate_delta": "0.26666666666666666",
+        "indep_starter_era_delta": "-1.7857142857142856"
+      },
+      "game_id": "2025-05-13_CHC_MIA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-13",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "-1.2249999999999996"
+      },
+      "game_id": "2025-05-13_TEX_COL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-13",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2666666666666666",
+        "indep_starter_era_delta": "0.75"
+      },
+      "game_id": "2025-05-13_HOU_KC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-13",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "-1.25"
+      },
+      "game_id": "2025-05-13_SD_LAA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-13",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-0.017857142857142794"
+      },
+      "game_id": "2025-05-13_SEA_NYY",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-13",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-1.375"
+      },
+      "game_id": "2025-05-13_SF_ARI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-13",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "-3.0833333333333335"
+      },
+      "game_id": "2025-05-13_LAD_ATH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-14",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.39999999999999997",
+        "indep_starter_era_delta": "2.25"
+      },
+      "game_id": "2025-05-14_BAL_MIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-14",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-0.25"
+      },
+      "game_id": "2025-05-14_PHI_STL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-14",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-2.5"
+      },
+      "game_id": "2025-05-14_SF_ARI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-14",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-0.75"
+      },
+      "game_id": "2025-05-14_SEA_NYY",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-14",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "-2.125"
+      },
+      "game_id": "2025-05-14_DET_BOS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-14",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-0.625"
+      },
+      "game_id": "2025-05-14_TOR_TB",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-14",
+      "features": {
+        "indep_recent_win_rate_delta": "0.39999999999999997",
+        "indep_starter_era_delta": "-1.75"
+      },
+      "game_id": "2025-05-14_NYM_PIT",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-14",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666671",
+        "indep_starter_era_delta": "-2.1071428571428568"
+      },
+      "game_id": "2025-05-14_CIN_CWS",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-14",
+      "features": {
+        "indep_recent_win_rate_delta": "0.3333333333333333",
+        "indep_starter_era_delta": "-0.9107142857142856"
+      },
+      "game_id": "2025-05-14_ATL_WSH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-14",
+      "features": {
+        "indep_recent_win_rate_delta": "0.26666666666666666",
+        "indep_starter_era_delta": "-2.5833333333333335"
+      },
+      "game_id": "2025-05-14_TEX_COL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-14",
+      "features": {
+        "indep_recent_win_rate_delta": "0.26666666666666666",
+        "indep_starter_era_delta": "-2.0357142857142856"
+      },
+      "game_id": "2025-05-14_SD_LAA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-14",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-1.25"
+      },
+      "game_id": "2025-05-14_LAD_ATH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-15",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "-3.2916666666666665"
+      },
+      "game_id": "2025-05-15_ATL_WSH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-15",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.39999999999999997",
+        "indep_starter_era_delta": "-2.0"
+      },
+      "game_id": "2025-05-15_BAL_MIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-15",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2",
+        "indep_starter_era_delta": "0.25"
+      },
+      "game_id": "2025-05-15_CIN_CWS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-15",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "0.75"
+      },
+      "game_id": "2025-05-15_TOR_TB",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-15",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.75"
+      },
+      "game_id": "2025-05-15_TEX_HOU",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-16",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.3333333333333333",
+        "indep_starter_era_delta": "1.625"
+      },
+      "game_id": "2025-05-16_CIN_CLE",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-16",
+      "features": {
+        "indep_recent_win_rate_delta": "0.39999999999999997",
+        "indep_starter_era_delta": "2.5"
+      },
+      "game_id": "2025-05-16_PHI_PIT",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-16",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-0.46031746031746046"
+      },
+      "game_id": "2025-05-16_BAL_WSH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-16",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-0.375"
+      },
+      "game_id": "2025-05-16_NYY_NYM",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-16",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "-1.875"
+      },
+      "game_id": "2025-05-16_TOR_DET",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-16",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-1.2222222222222223"
+      },
+      "game_id": "2025-05-16_BOS_ATL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-16",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.13333333333333336",
+        "indep_starter_era_delta": "0.625"
+      },
+      "game_id": "2025-05-16_MIA_TB",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-16",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.13333333333333341",
+        "indep_starter_era_delta": "1.25"
+      },
+      "game_id": "2025-05-16_KC_STL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-16",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-6.0"
+      },
+      "game_id": "2025-05-16_TEX_HOU",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-16",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2666666666666666",
+        "indep_starter_era_delta": "-0.25"
+      },
+      "game_id": "2025-05-16_MIL_MIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-16",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-6.666666666666667"
+      },
+      "game_id": "2025-05-16_SD_SEA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-16",
+      "features": {
+        "indep_recent_win_rate_delta": "0.3333333333333333",
+        "indep_starter_era_delta": "-1.1428571428571432"
+      },
+      "game_id": "2025-05-16_LAD_LAA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-16",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-0.125"
+      },
+      "game_id": "2025-05-16_SF_ATH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-17",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "0.7250000000000001"
+      },
+      "game_id": "2025-05-17_NYY_NYM",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-17",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "0.5"
+      },
+      "game_id": "2025-05-17_CHC_CWS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-17",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.13333333333333336",
+        "indep_starter_era_delta": "4.888888888888889"
+      },
+      "game_id": "2025-05-17_BAL_WSH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-17",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666671",
+        "indep_starter_era_delta": "2.5"
+      },
+      "game_id": "2025-05-17_MIA_TB",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-17",
+      "features": {
+        "indep_recent_win_rate_delta": "0.39999999999999997",
+        "indep_starter_era_delta": "-1.2222222222222223"
+      },
+      "game_id": "2025-05-17_PHI_PIT",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-17",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-1.6666666666666665"
+      },
+      "game_id": "2025-05-17_TEX_HOU",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-17",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.26666666666666666",
+        "indep_starter_era_delta": "0.666666666666667"
+      },
+      "game_id": "2025-05-17_BOS_ATL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-17",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.4",
+        "indep_starter_era_delta": "0.2142857142857144"
+      },
+      "game_id": "2025-05-17_MIL_MIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-17",
+      "features": {
+        "indep_recent_win_rate_delta": "0.3333333333333333",
+        "indep_starter_era_delta": "-2.0"
+      },
+      "game_id": "2025-05-17_ARI_COL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-17",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-3.208333333333333"
+      },
+      "game_id": "2025-05-17_SD_SEA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-17",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-0.9444444444444446"
+      },
+      "game_id": "2025-05-17_SF_ATH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-18",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "0.5"
+      },
+      "game_id": "2025-05-18_TEX_HOU",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-18",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.13333333333333336",
+        "indep_starter_era_delta": "-3.75"
+      },
+      "game_id": "2025-05-18_BAL_WSH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-18",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "-0.7111111111111108"
+      },
+      "game_id": "2025-05-18_BOS_ATL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-18",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "2.2380952380952386"
+      },
+      "game_id": "2025-05-18_TOR_DET",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-18",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-2.0416666666666665"
+      },
+      "game_id": "2025-05-18_CIN_CLE",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-18",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.13333333333333336",
+        "indep_starter_era_delta": "1.625"
+      },
+      "game_id": "2025-05-18_MIA_TB",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-18",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2666666666666667",
+        "indep_starter_era_delta": "-0.6944444444444446"
+      },
+      "game_id": "2025-05-18_KC_STL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-18",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "1.6190476190476186"
+      },
+      "game_id": "2025-05-18_CHC_CWS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-18",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "-0.5555555555555554"
+      },
+      "game_id": "2025-05-18_SF_ATH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-18",
+      "features": {
+        "indep_recent_win_rate_delta": "0.26666666666666666",
+        "indep_starter_era_delta": "-0.9206349206349209"
+      },
+      "game_id": "2025-05-18_ARI_COL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-18",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-2.0"
+      },
+      "game_id": "2025-05-18_LAD_LAA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-18",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "1.375"
+      },
+      "game_id": "2025-05-18_SD_SEA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-18",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-0.4722222222222223"
+      },
+      "game_id": "2025-05-18_NYY_NYM",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-19",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2",
+        "indep_starter_era_delta": "1.2222222222222223"
+      },
+      "game_id": "2025-05-19_PIT_CIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-19",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "0.75"
+      },
+      "game_id": "2025-05-19_MIA_CHC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-19",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "2.5250000000000004"
+      },
+      "game_id": "2025-05-19_BOS_NYM",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-19",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4",
+        "indep_starter_era_delta": "-2.0"
+      },
+      "game_id": "2025-05-19_MIN_CLE",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-19",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2",
+        "indep_starter_era_delta": "1.8194444444444446"
+      },
+      "game_id": "2025-05-19_CWS_SEA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-19",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.6",
+        "indep_starter_era_delta": "2.5694444444444446"
+      },
+      "game_id": "2025-05-19_COL_PHI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-19",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-0.5555555555555554"
+      },
+      "game_id": "2025-05-19_SF_KC",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-19",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2",
+        "indep_starter_era_delta": "-2.4444444444444446"
+      },
+      "game_id": "2025-05-19_ATH_LAA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-19",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-0.8888888888888888"
+      },
+      "game_id": "2025-05-19_LAD_ARI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-20",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.26666666666666666",
+        "indep_starter_era_delta": "0.22222222222222188"
+      },
+      "game_id": "2025-05-20_PIT_CIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-20",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "1.166666666666667"
+      },
+      "game_id": "2025-05-20_BOS_NYM",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-20",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.5396825396825391"
+      },
+      "game_id": "2025-05-20_NYY_TEX",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-20",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-0.9999999999999996"
+      },
+      "game_id": "2025-05-20_TOR_SD",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-20",
+      "features": {
+        "indep_recent_win_rate_delta": "0.20000000000000007",
+        "indep_starter_era_delta": "2.1111111111111107"
+      },
+      "game_id": "2025-05-20_STL_DET",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-20",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.6",
+        "indep_starter_era_delta": "2.4444444444444446"
+      },
+      "game_id": "2025-05-20_COL_PHI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-20",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.3333333333333333",
+        "indep_starter_era_delta": "0.08333333333333304"
+      },
+      "game_id": "2025-05-20_ATH_LAA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-21",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2",
+        "indep_starter_era_delta": "-1.4444444444444446"
+      },
+      "game_id": "2025-05-21_PIT_CIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-21",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "2.777777777777778"
+      },
+      "game_id": "2025-05-21_TB_HOU",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-21",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4",
+        "indep_starter_era_delta": "0.3333333333333335"
+      },
+      "game_id": "2025-05-21_MIL_BAL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-21",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.13333333333333336",
+        "indep_starter_era_delta": "-0.6944444444444446"
+      },
+      "game_id": "2025-05-21_CWS_SEA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-21",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4666666666666667",
+        "indep_starter_era_delta": "-1.0"
+      },
+      "game_id": "2025-05-21_MIN_CLE",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-21",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-1.7555555555555555"
+      },
+      "game_id": "2025-05-21_BOS_NYM",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-21",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-0.16666666666666652"
+      },
+      "game_id": "2025-05-21_NYY_TEX",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-21",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "2.0"
+      },
+      "game_id": "2025-05-21_TOR_SD",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-21",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.3333333333333333",
+        "indep_starter_era_delta": "-1.7777777777777777"
+      },
+      "game_id": "2025-05-21_ATH_LAA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-21",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "0.375"
+      },
+      "game_id": "2025-05-21_LAD_ARI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-22",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "0.5"
+      },
+      "game_id": "2025-05-22_NYY_TEX",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-22",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "2.333333333333333"
+      },
+      "game_id": "2025-05-22_TOR_SD",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-22",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.6666666666666667",
+        "indep_starter_era_delta": "2.2222222222222223"
+      },
+      "game_id": "2025-05-22_COL_PHI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-22",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.4666666666666666",
+        "indep_starter_era_delta": "0.7777777777777777"
+      },
+      "game_id": "2025-05-22_ATH_LAA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-22",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2666666666666666",
+        "indep_starter_era_delta": "1.4444444444444446"
+      },
+      "game_id": "2025-05-22_DET_CLE",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-22",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "3.2857142857142856"
+      },
+      "game_id": "2025-05-22_WSH_ATL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-23",
+      "features": {
+        "indep_recent_win_rate_delta": "0.26666666666666666",
+        "indep_starter_era_delta": "-0.75"
+      },
+      "game_id": "2025-05-23_BOS_BAL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-23",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-1.333333333333333"
+      },
+      "game_id": "2025-05-23_CIN_CHC",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-23",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.13333333333333336",
+        "indep_starter_era_delta": "0.5"
+      },
+      "game_id": "2025-05-23_PIT_MIL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-23",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "1.5999999999999996"
+      },
+      "game_id": "2025-05-23_WSH_SF",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-23",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "0.47777777777777786"
+      },
+      "game_id": "2025-05-23_ATL_SD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-23",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.13333333333333336",
+        "indep_starter_era_delta": "2.133333333333333"
+      },
+      "game_id": "2025-05-23_CWS_TEX",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-23",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-1.5714285714285712"
+      },
+      "game_id": "2025-05-23_HOU_SEA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-23",
+      "features": {
+        "indep_recent_win_rate_delta": "0.33333333333333337",
+        "indep_starter_era_delta": "2.375"
+      },
+      "game_id": "2025-05-23_MIN_KC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-23",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "-1.4555555555555557"
+      },
+      "game_id": "2025-05-23_STL_ARI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-23",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2666666666666666",
+        "indep_starter_era_delta": "0.09999999999999964"
+      },
+      "game_id": "2025-05-23_LAA_MIA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-24",
+      "features": {
+        "indep_recent_win_rate_delta": "0.3333333333333333",
+        "indep_starter_era_delta": "0.03333333333333366"
+      },
+      "game_id": "2025-05-24_BOS_BAL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-24",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2666666666666666",
+        "indep_starter_era_delta": "0.20000000000000018"
+      },
+      "game_id": "2025-05-24_STL_ARI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-24",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.36666666666666714"
+      },
+      "game_id": "2025-05-24_PIT_MIL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-24",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-1.8571428571428568"
+      },
+      "game_id": "2025-05-24_CIN_CHC",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-24",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.8555555555555552"
+      },
+      "game_id": "2025-05-24_HOU_SEA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-24",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "0.8928571428571428"
+      },
+      "game_id": "2025-05-24_CWS_TEX",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-24",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.5333333333333332",
+        "indep_starter_era_delta": "3.0999999999999996"
+      },
+      "game_id": "2025-05-24_COL_NYY",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-24",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-0.7333333333333334"
+      },
+      "game_id": "2025-05-24_TB_TOR",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-24",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-2.539682539682539"
+      },
+      "game_id": "2025-05-24_DET_CLE",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-24",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-0.9722222222222223"
+      },
+      "game_id": "2025-05-24_NYM_LAD",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-24",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.6666666666666667",
+        "indep_starter_era_delta": "2.111111111111111"
+      },
+      "game_id": "2025-05-24_ATH_PHI",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-24",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2666666666666666",
+        "indep_starter_era_delta": "-0.4666666666666668"
+      },
+      "game_id": "2025-05-24_LAA_MIA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-2.711111111111111"
+      },
+      "game_id": "2025-05-25_DET_CLE",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "-1.7285714285714282"
+      },
+      "game_id": "2025-05-25_BOS_BAL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "3.2"
+      },
+      "game_id": "2025-05-25_WSH_SF",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "1.0333333333333337"
+      },
+      "game_id": "2025-05-25_PIT_MIL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-25",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-0.7222222222222223"
+      },
+      "game_id": "2025-05-25_CIN_CHC",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "1.1"
+      },
+      "game_id": "2025-05-25_TB_TOR",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-0.2999999999999998"
+      },
+      "game_id": "2025-05-25_HOU_SEA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4666666666666667",
+        "indep_starter_era_delta": "0.6000000000000001"
+      },
+      "game_id": "2025-05-25_MIN_KC",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "1.583333333333333"
+      },
+      "game_id": "2025-05-25_CWS_TEX",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2666666666666666",
+        "indep_starter_era_delta": "0.5999999999999996"
+      },
+      "game_id": "2025-05-25_STL_ARI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-25",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.5333333333333332",
+        "indep_starter_era_delta": "2.6"
+      },
+      "game_id": "2025-05-25_COL_NYY",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-25",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.6666666666666667",
+        "indep_starter_era_delta": "1.75"
+      },
+      "game_id": "2025-05-25_ATH_PHI",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2666666666666666",
+        "indep_starter_era_delta": "0.36507936507936556"
+      },
+      "game_id": "2025-05-25_LAA_MIA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "0.09999999999999964"
+      },
+      "game_id": "2025-05-25_ATL_SD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-25",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "-2.75"
+      },
+      "game_id": "2025-05-25_NYM_LAD",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-26",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.7000000000000002"
+      },
+      "game_id": "2025-05-26_MIL_BOS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-26",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4666666666666666",
+        "indep_starter_era_delta": "-4.0"
+      },
+      "game_id": "2025-05-26_CHC_COL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-26",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.4666666666666666",
+        "indep_starter_era_delta": "4.766666666666666"
+      },
+      "game_id": "2025-05-26_BAL_STL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-26",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-1.7000000000000002"
+      },
+      "game_id": "2025-05-26_TEX_TOR",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-26",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "0.0"
+      },
+      "game_id": "2025-05-26_KC_CIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-26",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "2.4"
+      },
+      "game_id": "2025-05-26_CLE_LAD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-26",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.13333333333333341",
+        "indep_starter_era_delta": "-0.6999999999999997"
+      },
+      "game_id": "2025-05-26_TB_MIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-26",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.7999999999999998"
+      },
+      "game_id": "2025-05-26_ARI_PIT",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-26",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-3.4000000000000004"
+      },
+      "game_id": "2025-05-26_SD_MIA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-26",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "2.8333333333333335"
+      },
+      "game_id": "2025-05-26_LAA_NYY",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-27",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-0.8555555555555552"
+      },
+      "game_id": "2025-05-27_CLE_LAD",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-27",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.3333333333333333",
+        "indep_starter_era_delta": "-0.20000000000000018"
+      },
+      "game_id": "2025-05-27_BAL_STL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-27",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "2.4272727272727272"
+      },
+      "game_id": "2025-05-27_DET_SF",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-27",
+      "features": {
+        "indep_recent_win_rate_delta": "0.33333333333333337",
+        "indep_starter_era_delta": "0.0"
+      },
+      "game_id": "2025-05-27_PHI_ATL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-27",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "1.6888888888888887"
+      },
+      "game_id": "2025-05-27_TB_MIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-27",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "0.20000000000000018"
+      },
+      "game_id": "2025-05-27_NYM_CWS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-27",
+      "features": {
+        "indep_recent_win_rate_delta": "0.1333333333333333",
+        "indep_starter_era_delta": "4.5"
+      },
+      "game_id": "2025-05-27_MIL_BOS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-27",
+      "features": {
+        "indep_recent_win_rate_delta": "0.5333333333333332",
+        "indep_starter_era_delta": "-5.0"
+      },
+      "game_id": "2025-05-27_CHC_COL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-27",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-1.1090909090909093"
+      },
+      "game_id": "2025-05-27_TEX_TOR",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-27",
+      "features": {
+        "indep_recent_win_rate_delta": "0.39999999999999997",
+        "indep_starter_era_delta": "-1.7000000000000002"
+      },
+      "game_id": "2025-05-27_HOU_ATH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-27",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "0.8454545454545452"
+      },
+      "game_id": "2025-05-27_LAA_NYY",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-27",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.7999999999999998"
+      },
+      "game_id": "2025-05-27_SEA_WSH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-27",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-1.5999999999999996"
+      },
+      "game_id": "2025-05-27_SD_MIA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-28",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "-0.37777777777777777"
+      },
+      "game_id": "2025-05-28_DET_SF",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-28",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "0.43333333333333357"
+      },
+      "game_id": "2025-05-28_TB_MIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-28",
+      "features": {
+        "indep_recent_win_rate_delta": "0.19999999999999996",
+        "indep_starter_era_delta": "-1.5"
+      },
+      "game_id": "2025-05-28_NYM_CWS",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-28",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2",
+        "indep_starter_era_delta": "-1.4805194805194803"
+      },
+      "game_id": "2025-05-28_MIL_BOS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-28",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4666666666666667",
+        "indep_starter_era_delta": "0.29545454545454586"
+      },
+      "game_id": "2025-05-28_HOU_ATH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-28",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "2.272727272727273"
+      },
+      "game_id": "2025-05-28_ARI_PIT",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-28",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-1.8999999999999995"
+      },
+      "game_id": "2025-05-28_SD_MIA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-28",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.39999999999999997",
+        "indep_starter_era_delta": "2.477777777777778"
+      },
+      "game_id": "2025-05-28_BAL_STL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-28",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2",
+        "indep_starter_era_delta": "-2.7777777777777777"
+      },
+      "game_id": "2025-05-28_KC_CIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-28",
+      "features": {
+        "indep_recent_win_rate_delta": "0.6",
+        "indep_starter_era_delta": "-2.0"
+      },
+      "game_id": "2025-05-28_CHC_COL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-28",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.20000000000000007",
+        "indep_starter_era_delta": "2.480519480519481"
+      },
+      "game_id": "2025-05-28_LAA_NYY",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-29",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4",
+        "indep_starter_era_delta": "-0.17499999999999982"
+      },
+      "game_id": "2025-05-29_PHI_ATL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-29",
+      "features": {
+        "indep_recent_win_rate_delta": "0.33333333333333337",
+        "indep_starter_era_delta": "-4.318181818181818"
+      },
+      "game_id": "2025-05-29_TOR_ATH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-29",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-0.13333333333333286"
+      },
+      "game_id": "2025-05-29_HOU_TB",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-29",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-0.20454545454545414"
+      },
+      "game_id": "2025-05-29_SEA_WSH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-30",
+      "features": {
+        "indep_recent_win_rate_delta": "0.2666666666666667",
+        "indep_starter_era_delta": "1.875"
+      },
+      "game_id": "2025-05-30_CHC_CIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-30",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4666666666666667",
+        "indep_starter_era_delta": "-1.6363636363636362"
+      },
+      "game_id": "2025-05-30_TOR_ATH",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-30",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-0.17272727272727284"
+      },
+      "game_id": "2025-05-30_CLE_LAA",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-30",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4",
+        "indep_starter_era_delta": "-2.854545454545454"
+      },
+      "game_id": "2025-05-30_NYM_COL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-30",
+      "features": {
+        "indep_recent_win_rate_delta": "0.13333333333333336",
+        "indep_starter_era_delta": "-0.40000000000000036"
+      },
+      "game_id": "2025-05-30_ATL_BOS",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-30",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2666666666666666",
+        "indep_starter_era_delta": "0.5250000000000004"
+      },
+      "game_id": "2025-05-30_TEX_STL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-30",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.2666666666666666",
+        "indep_starter_era_delta": "-0.4583333333333335"
+      },
+      "game_id": "2025-05-30_KC_DET",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-30",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-0.4545454545454546"
+      },
+      "game_id": "2025-05-30_HOU_TB",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-30",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "-1.0"
+      },
+      "game_id": "2025-05-30_ARI_WSH",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-30",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-1.8181818181818183"
+      },
+      "game_id": "2025-05-30_SD_PIT",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-30",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.1333333333333333",
+        "indep_starter_era_delta": "-2.1"
+      },
+      "game_id": "2025-05-30_SEA_MIN",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-30",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.33333333333333337",
+        "indep_starter_era_delta": "2.2545454545454544"
+      },
+      "game_id": "2025-05-30_LAD_NYY",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-31",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "-0.6767676767676765"
+      },
+      "game_id": "2025-05-31_TEX_STL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-31",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "-0.39090909090909065"
+      },
+      "game_id": "2025-05-31_BAL_CWS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-31",
+      "features": {
+        "indep_recent_win_rate_delta": "0.06666666666666665",
+        "indep_starter_era_delta": "0.5454545454545454"
+      },
+      "game_id": "2025-05-31_PHI_MIL",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-31",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "-2.5"
+      },
+      "game_id": "2025-05-31_CLE_LAA",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-31",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.3333333333333333",
+        "indep_starter_era_delta": "1.272727272727273"
+      },
+      "game_id": "2025-05-31_KC_DET",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-31",
+      "features": {
+        "indep_recent_win_rate_delta": "0.4",
+        "indep_starter_era_delta": "-4.463636363636363"
+      },
+      "game_id": "2025-05-31_NYM_COL",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-31",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "-0.4545454545454546"
+      },
+      "game_id": "2025-05-31_HOU_TB",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-31",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.43181818181818166"
+      },
+      "game_id": "2025-05-31_ATL_BOS",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-31",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.06666666666666665",
+        "indep_starter_era_delta": "1.977272727272727"
+      },
+      "game_id": "2025-05-31_MIA_SF",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-31",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "2.034090909090909"
+      },
+      "game_id": "2025-05-31_SEA_MIN",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-31",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.19999999999999996",
+        "indep_starter_era_delta": "0.4909090909090912"
+      },
+      "game_id": "2025-05-31_LAD_NYY",
+      "target_home_win": 1
+    },
+    {
+      "date": "2025-05-31",
+      "features": {
+        "indep_recent_win_rate_delta": "0.0",
+        "indep_starter_era_delta": "0.0"
+      },
+      "game_id": "2025-05-31_SD_PIT",
+      "target_home_win": 0
+    },
+    {
+      "date": "2025-05-31",
+      "features": {
+        "indep_recent_win_rate_delta": "-0.3333333333333333",
+        "indep_starter_era_delta": "-1.0"
+      },
+      "game_id": "2025-05-31_ARI_WSH",
+      "target_home_win": 0
+    }
+  ],
+  "validation_end": "2025-06-30",
+  "validation_months": 1,
+  "validation_start": "2025-06-01"
+}
