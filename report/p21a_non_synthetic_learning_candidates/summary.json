@@ -1,0 +1,33 @@
+{
+  "assessment_schema_version": "p21a.learning_candidate_assessment.v1",
+  "assessments_jsonl_sha256": "4fcf05a4bc4580b0829567d4b247e735e1d53600693964c972483f651ca33236",
+  "assessments_semantic_fingerprint": "4fcf05a4bc4580b0829567d4b247e735e1d53600693964c972483f651ca33236",
+  "candidate_schema_version": "p21a.non_synthetic_learning_candidate.v1",
+  "candidates_semantic_fingerprint": "0a0ab24dc6b32ca82070f1e2e4cba6c1be04b3a75add37f959a9311638c16973",
+  "claims": {
+    "model_promoted": false,
+    "non_synthetic": true,
+    "profitability_claim": false,
+    "real_betting_recommendation": false,
+    "retraining_performed": false,
+    "sample_limited": true,
+    "synthetic_results": false,
+    "training_authorized": false,
+    "training_dataset_claim": false
+  },
+  "eligible_candidate_ids": [
+    "71fcfe14087b746d1153a6b8d5557f435e4711d7d7bf0015303ddd677117fa13",
+    "9b4575091d5e5ccf65e1d7cc9bbe8a11836877b77c705864120786e1b1ee37fd",
+    "9d6600b40c02f0c8ba4c9674386dbc9b62d341a76721ee36f756afc563587dcd",
+    "c6f22db986cccc44d44a0033395734dbdb036b89bed7cd9aa85c467e3fcbee2e"
+  ],
+  "eligible_count": 4,
+  "excluded_count": 0,
+  "exclusion_reason_counts": {},
+  "feedback_ledger_fingerprint": "adf320cb91681254ed9ca79467c818406a8d64beaf0631bf61afab1bcb13e087",
+  "learning_candidates_jsonl_sha256": "0461b995befd2974185c9a4dc118ce08b5b7b4a41533b0e4b62a81f1827a4eb8",
+  "schema_version": "p21a.non_synthetic_learning_candidates.v1",
+  "source_feedback_jsonl_sha256": "f1912760faa0c29ef1dbd24d759d6ce8b5bcf763c0f2e71e7f9608c76dbedb2a",
+  "source_feedback_row_count": 4,
+  "source_feedback_summary_sha256": "71e8a16f1a36c14dd4c86c7cbec32dffc2ab1be3ef5fa457c0af5240ccd735db"
+}

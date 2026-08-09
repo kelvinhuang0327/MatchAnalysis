@@ -97,6 +97,10 @@ AUTHORIZED_SOURCE_PATHS = {
     "interfaces/cli/prediction_feedback_ledger.py",
     "interfaces/cli/historical_feedback_replay.py",
     "interfaces/cli/result_only_paper_decision_replay.py",
+    "baseball/domain/prediction_learning_eligibility.py",
+    "application/use_cases/assess_prediction_learning_candidates.py",
+    "application/use_cases/prediction_learning_candidate_artifacts.py",
+    "interfaces/cli/prediction_learning_candidate_gate.py",
 }
 
 MLB_SCHEDULE_PAYLOAD_ADAPTER_RUNTIME_PATHS = (
@@ -1774,6 +1778,22 @@ P18A_CLI_PATH = (
     PACKAGE_ROOT / "interfaces" / "cli" / "result_only_paper_decision_replay.py"
 )
 
+P21A_LEARNING_RUNTIME_PATHS = (
+    PACKAGE_ROOT / "baseball" / "domain" / "prediction_learning_eligibility.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "assess_prediction_learning_candidates.py",
+    PACKAGE_ROOT
+    / "application"
+    / "use_cases"
+    / "prediction_learning_candidate_artifacts.py",
+)
+
+P21A_CLI_PATH = (
+    PACKAGE_ROOT / "interfaces" / "cli" / "prediction_learning_candidate_gate.py"
+)
+
 
 class P17ADependencyRuleTests(unittest.TestCase):
     def test_p17a_feedback_runtime_has_no_forbidden_capabilities(
@@ -2001,6 +2021,60 @@ class P18ADependencyRuleTests(unittest.TestCase):
     def test_p18a_application_does_not_import_outer_layers(self) -> None:
         violations: list[str] = []
         for path in P18A_REPLAY_RUNTIME_PATHS[1:]:
+            for target, line_number in imported_modules(path):
+                if target.startswith(
+                    (
+                        "match_analysis.infrastructure",
+                        "match_analysis.interfaces",
+                    )
+                ):
+                    relative = path.relative_to(REPOSITORY_ROOT)
+                    violations.append(f"{relative}:{line_number} -> {target}")
+        self.assertEqual(violations, [])
+
+
+class P21ADependencyRuleTests(unittest.TestCase):
+    def test_p21a_runtime_has_no_external_or_training_capabilities(self) -> None:
+        forbidden_import_roots = {
+            "aiohttp",
+            "http",
+            "os",
+            "requests",
+            "shutil",
+            "socket",
+            "sqlite3",
+            "tempfile",
+            "urllib",
+        }
+        forbidden_imports = (
+            "match_analysis.application.use_cases.build_prediction_feedback_ledger",
+            "match_analysis.infrastructure",
+            "match_analysis.interfaces",
+        )
+        violations: list[str] = []
+        for path in [*P21A_LEARNING_RUNTIME_PATHS, P21A_CLI_PATH]:
+            relative = path.relative_to(REPOSITORY_ROOT)
+            for target, line_number in imported_modules(path):
+                if target.split(".")[0] in forbidden_import_roots:
+                    violations.append(f"{relative}:{line_number} -> {target}")
+                if target.startswith(forbidden_imports):
+                    violations.append(f"{relative}:{line_number} -> {target}")
+            source = path.read_text(encoding="utf-8")
+            for construct in (
+                "model.fit(",
+                "retrain(",
+                "promote_model(",
+                "calculate_roi(",
+                "calculate_ev(",
+                "kelly_fraction(",
+            ):
+                if construct in source:
+                    violations.append(f"{relative} -> {construct}")
+        self.assertEqual(violations, [])
+
+    def test_p21a_application_does_not_import_outer_layers(self) -> None:
+        violations: list[str] = []
+        for path in P21A_LEARNING_RUNTIME_PATHS[1:]:
             for target, line_number in imported_modules(path):
                 if target.startswith(
                     (
