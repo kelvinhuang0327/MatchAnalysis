@@ -1,0 +1,55 @@
+{
+  "models": {
+    "wf_002": {
+      "coefficients": [
+        "0.19164862103078323",
+        "-0.05939643613560536"
+      ],
+      "feature_names": [
+        "indep_recent_win_rate_delta",
+        "indep_starter_era_delta"
+      ],
+      "fingerprint": "2a38f6c83e960ac1795af7f774f834160656f9c5fabd13106650e3ee24fd2f2b",
+      "fold_id": "wf_002",
+      "intercept": "0.1656496929719636",
+      "max_iter": 1000,
+      "model_type": "logistic_regression",
+      "scaler_means": [
+        "-0.004481216183343845",
+        "-0.05781526466346302"
+      ],
+      "scaler_stds": [
+        "0.23328592187761468",
+        "2.0036674607356035"
+      ],
+      "solver": "lbfgs",
+      "train_size": 893
+    },
+    "wf_003": {
+      "coefficients": [
+        "0.16096454834207277",
+        "-0.09111076041780708"
+      ],
+      "feature_names": [
+        "indep_recent_win_rate_delta",
+        "indep_starter_era_delta"
+      ],
+      "fingerprint": "556d8f2ef51ec87aa7dd7e438437a77eb059d6cd39d7b8f15d92bed9fa9dec73",
+      "fold_id": "wf_003",
+      "intercept": "0.19056834759534005",
+      "max_iter": 1000,
+      "model_type": "logistic_regression",
+      "scaler_means": [
+        "-0.00346677066974097",
+        "-0.02008263923189738"
+      ],
+      "scaler_stds": [
+        "0.22590373696469299",
+        "1.9113406737053362"
+      ],
+      "solver": "lbfgs",
+      "train_size": 1212
+    }
+  },
+  "schema_version": "p21b.reconstructed_models.v1"
+}

@@ -1,0 +1,6110 @@
+{
+  "claims": {
+    "historical": true,
+    "non_synthetic": true,
+    "paper_only": true
+  },
+  "rows": [
+    {
+      "away_score": 5,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-07-01_TOR_NYY",
+      "date": "20250701",
+      "game_number": 0,
+      "home_score": 12,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-07-01_PIT_STL",
+      "date": "20250701",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-07-01_MIA_MIN",
+      "date": "20250701",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-07-01_TB_ATH",
+      "date": "20250701",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "TBA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-07-01_BOS_CIN",
+      "date": "20250701",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-07-01_ATL_LAA",
+      "date": "20250701",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-07-01_CHC_CLE",
+      "date": "20250701",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-07-01_TEX_BAL",
+      "date": "20250701",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-07-01_COL_HOU",
+      "date": "20250701",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-07-01_SEA_KC",
+      "date": "20250701",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-07-01_ARI_SF",
+      "date": "20250701",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-07-01_LAD_CWS",
+      "date": "20250701",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-07-02_TB_ATH",
+      "date": "20250702",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "TBA"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-07-02_PIT_STL",
+      "date": "20250702",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 11,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-07-02_WSH_DET",
+      "date": "20250702",
+      "game_number": 1,
+      "home_score": 2,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-07-02_PHI_SD",
+      "date": "20250702",
+      "game_number": 1,
+      "home_score": 4,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-07-02_NYM_MIL",
+      "date": "20250702",
+      "game_number": 1,
+      "home_score": 2,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-07-02_MIA_MIN",
+      "date": "20250702",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-07-02_TOR_NYY",
+      "date": "20250702",
+      "game_number": 0,
+      "home_score": 11,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-07-02_ATL_LAA",
+      "date": "20250702",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-07-02_CHC_CLE",
+      "date": "20250702",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-07-02_TEX_BAL",
+      "date": "20250702",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-07-02_COL_HOU",
+      "date": "20250702",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-07-02_SEA_KC",
+      "date": "20250702",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-07-02_ARI_SF",
+      "date": "20250702",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-07-02_LAD_CWS",
+      "date": "20250702",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-07-03_MIA_MIN",
+      "date": "20250703",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-07-03_COL_HOU",
+      "date": "20250703",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-07-03_TOR_NYY",
+      "date": "20250703",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-07-03_NYM_MIL",
+      "date": "20250703",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-07-03_ATL_LAA",
+      "date": "20250703",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-07-03_ARI_SF",
+      "date": "20250703",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-07-03_SEA_KC",
+      "date": "20250703",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-07-03_LAD_CWS",
+      "date": "20250703",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 11,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-07-04_WSH_BOS",
+      "date": "20250704",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-07-04_PHI_CIN",
+      "date": "20250704",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-07-04_CHC_STL",
+      "date": "20250704",
+      "game_number": 0,
+      "home_score": 11,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-07-04_SEA_PIT",
+      "date": "20250704",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-07-04_MIN_TB",
+      "date": "20250704",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-07-04_SD_TEX",
+      "date": "20250704",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-07-04_TOR_LAA",
+      "date": "20250704",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-07-04_CLE_DET",
+      "date": "20250704",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-07-04_MIA_MIL",
+      "date": "20250704",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-07-04_ATL_BAL",
+      "date": "20250704",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-07-04_COL_CWS",
+      "date": "20250704",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 18,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-07-04_LAD_HOU",
+      "date": "20250704",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-07-04_ARI_KC",
+      "date": "20250704",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-07-04_ATH_SF",
+      "date": "20250704",
+      "game_number": 0,
+      "home_score": 11,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-07-05_CHC_STL",
+      "date": "20250705",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-07-05_TOR_LAA",
+      "date": "20250705",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-07-05_WSH_BOS",
+      "date": "20250705",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-07-05_PHI_CIN",
+      "date": "20250705",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-07-05_ARI_KC",
+      "date": "20250705",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-07-05_NYM_NYY",
+      "date": "20250705",
+      "game_number": 0,
+      "home_score": 12,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-07-05_MIA_MIL",
+      "date": "20250705",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-07-05_CLE_DET",
+      "date": "20250705",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-07-05_LAD_HOU",
+      "date": "20250705",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-07-05_COL_CWS",
+      "date": "20250705",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-07-05_SD_TEX",
+      "date": "20250705",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-07-05_ATH_SF",
+      "date": "20250705",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-07-05_SEA_PIT",
+      "date": "20250705",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-07-06_ATL_BAL",
+      "date": "20250706",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-07-06_PHI_CIN",
+      "date": "20250706",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-07-06_TOR_LAA",
+      "date": "20250706",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-07-06_CLE_DET",
+      "date": "20250706",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-07-06_MIN_TB",
+      "date": "20250706",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-07-06_COL_CWS",
+      "date": "20250706",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-07-06_SEA_PIT",
+      "date": "20250706",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-07-06_CHC_STL",
+      "date": "20250706",
+      "game_number": 0,
+      "home_score": 11,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-07-06_ATH_SF",
+      "date": "20250706",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-07-07_DET_TB",
+      "date": "20250707",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-07-07_BOS_COL",
+      "date": "20250707",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-07-07_CIN_MIA",
+      "date": "20250707",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-07-07_KC_PIT",
+      "date": "20250707",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-07-07_CWS_TOR",
+      "date": "20250707",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-07-07_MIL_LAD",
+      "date": "20250707",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-07-07_HOU_CLE",
+      "date": "20250707",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-07-07_LAA_TEX",
+      "date": "20250707",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-07-07_SF_PHI",
+      "date": "20250707",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "NYN",
+      "canonical_game_id": "2025-07-08_BAL_NYM",
+      "date": "20250708",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-07-08_DET_TB",
+      "date": "20250708",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-07-08_NYY_SEA",
+      "date": "20250708",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-07-08_BOS_COL",
+      "date": "20250708",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 12,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-07-08_CIN_MIA",
+      "date": "20250708",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-07-08_KC_PIT",
+      "date": "20250708",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-07-08_MIN_CHC",
+      "date": "20250708",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-07-08_CWS_TOR",
+      "date": "20250708",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-07-08_MIL_LAD",
+      "date": "20250708",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-07-08_STL_WSH",
+      "date": "20250708",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 13,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-07-08_LAA_TEX",
+      "date": "20250708",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-07-08_SD_ARI",
+      "date": "20250708",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-07-08_SF_PHI",
+      "date": "20250708",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-07-08_ATH_ATL",
+      "date": "20250708",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-07-09_CWS_TOR",
+      "date": "20250709",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-07-09_MIL_LAD",
+      "date": "20250709",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 13,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-07-09_SF_PHI",
+      "date": "20250709",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-07-09_DET_TB",
+      "date": "20250709",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-07-09_BOS_COL",
+      "date": "20250709",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-07-09_CIN_MIA",
+      "date": "20250709",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-07-09_KC_PIT",
+      "date": "20250709",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-07-09_MIN_CHC",
+      "date": "20250709",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-07-09_STL_WSH",
+      "date": "20250709",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-07-09_HOU_CLE",
+      "date": "20250709",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-07-09_LAA_TEX",
+      "date": "20250709",
+      "game_number": 0,
+      "home_score": 11,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-07-09_SD_ARI",
+      "date": "20250709",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-07-09_ATH_ATL",
+      "date": "20250709",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "NYN",
+      "canonical_game_id": "2025-07-10_BAL_NYM",
+      "date": "20250710",
+      "game_number": 1,
+      "home_score": 3,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-07-10_MIN_CHC",
+      "date": "20250710",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-07-10_CIN_MIA",
+      "date": "20250710",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-07-10_NYY_SEA",
+      "date": "20250710",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-07-10_BOS_TB",
+      "date": "20250710",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-07-10_STL_WSH",
+      "date": "20250710",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-07-10_ATH_ATL",
+      "date": "20250710",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 11,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-07-10_LAA_TEX",
+      "date": "20250710",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-07-10_SD_ARI",
+      "date": "20250710",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-07-11_CWS_CLE",
+      "date": "20250711",
+      "game_number": 1,
+      "home_score": 2,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-07-11_BAL_MIA",
+      "date": "20250711",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-07-11_CIN_COL",
+      "date": "20250711",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 12,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-07-11_DET_SEA",
+      "date": "20250711",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-07-11_BOS_TB",
+      "date": "20250711",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "NYN",
+      "canonical_game_id": "2025-07-11_KC_NYM",
+      "date": "20250711",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-07-11_HOU_TEX",
+      "date": "20250711",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-07-11_MIN_PIT",
+      "date": "20250711",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-07-11_MIL_WSH",
+      "date": "20250711",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-07-11_STL_ATL",
+      "date": "20250711",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-07-11_LAA_ARI",
+      "date": "20250711",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-07-11_SD_PHI",
+      "date": "20250711",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-07-11_ATH_TOR",
+      "date": "20250711",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-07-11_SF_LAD",
+      "date": "20250711",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-07-12_NYY_CHC",
+      "date": "20250712",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 15,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-07-12_DET_SEA",
+      "date": "20250712",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-07-12_SF_LAD",
+      "date": "20250712",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-07-12_BAL_MIA",
+      "date": "20250712",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-07-12_CIN_COL",
+      "date": "20250712",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-07-12_BOS_TB",
+      "date": "20250712",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-07-12_CWS_CLE",
+      "date": "20250712",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-07-12_HOU_TEX",
+      "date": "20250712",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-07-12_LAA_ARI",
+      "date": "20250712",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-07-12_ATH_TOR",
+      "date": "20250712",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-07-13_BOS_TB",
+      "date": "20250713",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 11,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-07-13_BAL_MIA",
+      "date": "20250713",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-07-13_NYY_CHC",
+      "date": "20250713",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-07-13_CIN_COL",
+      "date": "20250713",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-07-13_DET_SEA",
+      "date": "20250713",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "NYN",
+      "canonical_game_id": "2025-07-13_KC_NYM",
+      "date": "20250713",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-07-13_HOU_TEX",
+      "date": "20250713",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-07-13_MIN_PIT",
+      "date": "20250713",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-07-13_CWS_CLE",
+      "date": "20250713",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-07-13_MIL_WSH",
+      "date": "20250713",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-07-13_SF_LAD",
+      "date": "20250713",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-07-13_ATH_TOR",
+      "date": "20250713",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-07-13_LAA_ARI",
+      "date": "20250713",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-07-13_SD_PHI",
+      "date": "20250713",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-07-18_CHC_BOS",
+      "date": "20250718",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-07-18_PIT_CWS",
+      "date": "20250718",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-07-18_WSH_SD",
+      "date": "20250718",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-07-18_TOR_SF",
+      "date": "20250718",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-07-18_CLE_ATH",
+      "date": "20250718",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-07-18_MIA_KC",
+      "date": "20250718",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-07-18_TB_BAL",
+      "date": "20250718",
+      "game_number": 0,
+      "home_score": 11,
+      "home_team_code": "TBA"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-07-18_TEX_DET",
+      "date": "20250718",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-07-18_COL_MIN",
+      "date": "20250718",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-07-18_ARI_STL",
+      "date": "20250718",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-07-18_SEA_HOU",
+      "date": "20250718",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-07-18_LAD_MIL",
+      "date": "20250718",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-07-19_TOR_SF",
+      "date": "20250719",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-07-19_NYM_CIN",
+      "date": "20250719",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-07-19_MIA_KC",
+      "date": "20250719",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-07-19_PHI_LAA",
+      "date": "20250719",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-07-19_PIT_CWS",
+      "date": "20250719",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-07-19_WSH_SD",
+      "date": "20250719",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-07-19_TB_BAL",
+      "date": "20250719",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "TBA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-07-19_TEX_DET",
+      "date": "20250719",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-07-19_CLE_ATH",
+      "date": "20250719",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-07-19_CHC_BOS",
+      "date": "20250719",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-07-19_ARI_STL",
+      "date": "20250719",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-07-19_COL_MIN",
+      "date": "20250719",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-07-19_LAD_MIL",
+      "date": "20250719",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-07-19_SEA_HOU",
+      "date": "20250719",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-07-20_TOR_SF",
+      "date": "20250720",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-07-20_TB_BAL",
+      "date": "20250720",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "TBA"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-07-20_WSH_SD",
+      "date": "20250720",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-07-20_PHI_LAA",
+      "date": "20250720",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-07-20_PIT_CWS",
+      "date": "20250720",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-07-20_ATL_NYY",
+      "date": "20250720",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-07-20_NYM_CIN",
+      "date": "20250720",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-07-20_CLE_ATH",
+      "date": "20250720",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-07-20_MIA_KC",
+      "date": "20250720",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-07-20_CHC_BOS",
+      "date": "20250720",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-07-20_COL_MIN",
+      "date": "20250720",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 11,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-07-20_SEA_HOU",
+      "date": "20250720",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-07-20_ARI_STL",
+      "date": "20250720",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-07-20_LAD_MIL",
+      "date": "20250720",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-07-20_TEX_DET",
+      "date": "20250720",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-07-21_CLE_BAL",
+      "date": "20250721",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-07-21_PIT_DET",
+      "date": "20250721",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-07-21_MIA_SD",
+      "date": "20250721",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-07-21_WSH_CIN",
+      "date": "20250721",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-07-21_PHI_BOS",
+      "date": "20250721",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-07-21_TOR_NYY",
+      "date": "20250721",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-07-21_NYM_LAA",
+      "date": "20250721",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-07-21_ATL_SF",
+      "date": "20250721",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-07-21_TB_CWS",
+      "date": "20250721",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "TBA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-07-21_TEX_ATH",
+      "date": "20250721",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-07-21_COL_STL",
+      "date": "20250721",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-07-21_ARI_HOU",
+      "date": "20250721",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-07-21_SEA_MIL",
+      "date": "20250721",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-07-21_LAD_MIN",
+      "date": "20250721",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-07-22_CLE_BAL",
+      "date": "20250722",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-07-22_PIT_DET",
+      "date": "20250722",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-07-22_MIA_SD",
+      "date": "20250722",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-07-22_WSH_CIN",
+      "date": "20250722",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-07-22_PHI_BOS",
+      "date": "20250722",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-07-22_TB_CWS",
+      "date": "20250722",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "TBA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-07-22_NYM_LAA",
+      "date": "20250722",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-07-22_TEX_ATH",
+      "date": "20250722",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-07-22_COL_STL",
+      "date": "20250722",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-07-22_ARI_HOU",
+      "date": "20250722",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-07-22_SEA_MIL",
+      "date": "20250722",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-07-22_LAD_MIN",
+      "date": "20250722",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-07-23_WSH_CIN",
+      "date": "20250723",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-07-23_MIA_SD",
+      "date": "20250723",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-07-23_ATL_SF",
+      "date": "20250723",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-07-23_CHC_KC",
+      "date": "20250723",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-07-23_COL_STL",
+      "date": "20250723",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-07-23_ARI_HOU",
+      "date": "20250723",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-07-23_SEA_MIL",
+      "date": "20250723",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-07-23_LAD_MIN",
+      "date": "20250723",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-07-23_CLE_BAL",
+      "date": "20250723",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-07-23_TOR_NYY",
+      "date": "20250723",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-07-23_PHI_BOS",
+      "date": "20250723",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 11,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-07-23_TB_CWS",
+      "date": "20250723",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "TBA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-07-23_TEX_ATH",
+      "date": "20250723",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-07-24_CLE_BAL",
+      "date": "20250724",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 11,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-07-24_DET_TOR",
+      "date": "20250724",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-07-24_STL_SD",
+      "date": "20250724",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-07-24_LAA_SEA",
+      "date": "20250724",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-07-25_MIL_MIA",
+      "date": "20250725",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-07-25_PIT_ARI",
+      "date": "20250725",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-07-25_BAL_COL",
+      "date": "20250725",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 12,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-07-25_NYY_PHI",
+      "date": "20250725",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-07-25_BOS_LAD",
+      "date": "20250725",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-07-25_CIN_TB",
+      "date": "20250725",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-07-25_DET_TOR",
+      "date": "20250725",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-07-25_STL_SD",
+      "date": "20250725",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-07-25_CWS_CHC",
+      "date": "20250725",
+      "game_number": 0,
+      "home_score": 12,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 15,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-07-25_HOU_ATH",
+      "date": "20250725",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-07-25_MIN_WSH",
+      "date": "20250725",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-07-25_LAA_SEA",
+      "date": "20250725",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "NYN",
+      "canonical_game_id": "2025-07-25_SF_NYM",
+      "date": "20250725",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-07-26_NYY_PHI",
+      "date": "20250726",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-07-26_KC_CLE",
+      "date": "20250726",
+      "game_number": 1,
+      "home_score": 5,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-07-26_DET_TOR",
+      "date": "20250726",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-07-26_PIT_ARI",
+      "date": "20250726",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-07-26_CIN_TB",
+      "date": "20250726",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-07-26_BAL_COL",
+      "date": "20250726",
+      "game_number": 0,
+      "home_score": 18,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-07-26_TEX_ATL",
+      "date": "20250726",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-07-26_HOU_ATH",
+      "date": "20250726",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-07-26_MIN_WSH",
+      "date": "20250726",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-07-26_CWS_CHC",
+      "date": "20250726",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-07-26_MIL_MIA",
+      "date": "20250726",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-07-26_BOS_LAD",
+      "date": "20250726",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-07-26_STL_SD",
+      "date": "20250726",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "NYN",
+      "canonical_game_id": "2025-07-26_SF_NYM",
+      "date": "20250726",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-07-26_LAA_SEA",
+      "date": "20250726",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-07-27_BAL_COL",
+      "date": "20250727",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-07-27_BOS_LAD",
+      "date": "20250727",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-07-27_PIT_ARI",
+      "date": "20250727",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-07-27_NYY_PHI",
+      "date": "20250727",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-07-27_CIN_TB",
+      "date": "20250727",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-07-27_DET_TOR",
+      "date": "20250727",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-07-27_KC_CLE",
+      "date": "20250727",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-07-27_HOU_ATH",
+      "date": "20250727",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-07-27_MIN_WSH",
+      "date": "20250727",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-07-27_MIL_MIA",
+      "date": "20250727",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-07-27_STL_SD",
+      "date": "20250727",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-07-27_TEX_ATL",
+      "date": "20250727",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-07-27_LAA_SEA",
+      "date": "20250727",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-07-28_BAL_TOR",
+      "date": "20250728",
+      "game_number": 0,
+      "home_score": 11,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-07-28_CLE_COL",
+      "date": "20250728",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-07-28_NYY_TB",
+      "date": "20250728",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-07-28_CIN_LAD",
+      "date": "20250728",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-07-28_MIN_BOS",
+      "date": "20250728",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-07-28_CWS_PHI",
+      "date": "20250728",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-07-28_MIL_CHC",
+      "date": "20250728",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-07-28_STL_MIA",
+      "date": "20250728",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-07-28_HOU_WSH",
+      "date": "20250728",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-07-28_LAA_TEX",
+      "date": "20250728",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "NYN",
+      "canonical_game_id": "2025-07-28_SD_NYM",
+      "date": "20250728",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-07-28_ATH_SEA",
+      "date": "20250728",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-07-29_BAL_TOR",
+      "date": "20250729",
+      "game_number": 1,
+      "home_score": 16,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-07-29_CLE_COL",
+      "date": "20250729",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-07-29_DET_ARI",
+      "date": "20250729",
+      "game_number": 0,
+      "home_score": 12,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-07-29_CIN_LAD",
+      "date": "20250729",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-07-29_KC_ATL",
+      "date": "20250729",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-07-29_CWS_PHI",
+      "date": "20250729",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-07-29_MIL_CHC",
+      "date": "20250729",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-07-29_STL_MIA",
+      "date": "20250729",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-07-29_HOU_WSH",
+      "date": "20250729",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-07-29_LAA_TEX",
+      "date": "20250729",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "NYN",
+      "canonical_game_id": "2025-07-29_SD_NYM",
+      "date": "20250729",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-07-29_SF_PIT",
+      "date": "20250729",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-07-29_ATH_SEA",
+      "date": "20250729",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-07-30_BAL_TOR",
+      "date": "20250730",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-07-30_DET_ARI",
+      "date": "20250730",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 13,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-07-30_MIN_BOS",
+      "date": "20250730",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-07-30_HOU_WSH",
+      "date": "20250730",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-07-30_CWS_PHI",
+      "date": "20250730",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-07-30_MIL_CHC",
+      "date": "20250730",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-07-30_SF_PIT",
+      "date": "20250730",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "NYN",
+      "canonical_game_id": "2025-07-30_SD_NYM",
+      "date": "20250730",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-07-30_NYY_TB",
+      "date": "20250730",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-07-30_CIN_LAD",
+      "date": "20250730",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-07-30_STL_MIA",
+      "date": "20250730",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-07-30_LAA_TEX",
+      "date": "20250730",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-07-30_ATH_SEA",
+      "date": "20250730",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-07-31_NYY_TB",
+      "date": "20250731",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 12,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-07-31_CIN_ATL",
+      "date": "20250731",
+      "game_number": 0,
+      "home_score": 11,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-07-31_SEA_TEX",
+      "date": "20250731",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-08-01_CIN_ATL",
+      "date": "20250801",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-08-01_CHC_BAL",
+      "date": "20250801",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-08-01_PHI_DET",
+      "date": "20250801",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 16,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-08-01_WSH_MIL",
+      "date": "20250801",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-08-01_TOR_KC",
+      "date": "20250801",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-08-01_NYM_SF",
+      "date": "20250801",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-08-01_CLE_MIN",
+      "date": "20250801",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 12,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-08-01_MIA_NYY",
+      "date": "20250801",
+      "game_number": 0,
+      "home_score": 13,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-08-01_TB_LAD",
+      "date": "20250801",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "TBA"
+    },
+    {
+      "away_score": 16,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-08-01_COL_PIT",
+      "date": "20250801",
+      "game_number": 0,
+      "home_score": 17,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-08-01_LAA_CWS",
+      "date": "20250801",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-08-01_SD_STL",
+      "date": "20250801",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-08-01_SEA_TEX",
+      "date": "20250801",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-08-02_TB_LAD",
+      "date": "20250802",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "TBA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-08-02_CHC_BAL",
+      "date": "20250802",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-08-02_TOR_KC",
+      "date": "20250802",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-08-02_COL_PIT",
+      "date": "20250802",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-08-02_PHI_DET",
+      "date": "20250802",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-08-02_WSH_MIL",
+      "date": "20250802",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-08-02_BOS_HOU",
+      "date": "20250802",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-08-02_SEA_TEX",
+      "date": "20250802",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-08-02_CLE_MIN",
+      "date": "20250802",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-08-02_MIA_NYY",
+      "date": "20250802",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-08-02_ATH_ARI",
+      "date": "20250802",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-08-02_LAA_CWS",
+      "date": "20250802",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-08-02_SD_STL",
+      "date": "20250802",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-08-03_BOS_HOU",
+      "date": "20250803",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-08-03_TB_LAD",
+      "date": "20250803",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "TBA"
+    },
+    {
+      "away_score": 14,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-08-03_WSH_MIL",
+      "date": "20250803",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-08-03_TOR_KC",
+      "date": "20250803",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-08-03_CLE_MIN",
+      "date": "20250803",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-08-03_CHC_BAL",
+      "date": "20250803",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-08-03_COL_PIT",
+      "date": "20250803",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-08-03_LAA_CWS",
+      "date": "20250803",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-08-03_SD_STL",
+      "date": "20250803",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-08-03_SEA_TEX",
+      "date": "20250803",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-08-03_PHI_DET",
+      "date": "20250803",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-08-04_MIA_HOU",
+      "date": "20250804",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-08-04_PHI_BAL",
+      "date": "20250804",
+      "game_number": 0,
+      "home_score": 13,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-08-04_BOS_KC",
+      "date": "20250804",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-08-04_NYM_CLE",
+      "date": "20250804",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-08-04_ATL_MIL",
+      "date": "20250804",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-08-04_CHC_CIN",
+      "date": "20250804",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-08-04_TEX_NYY",
+      "date": "20250804",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 15,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-08-04_COL_TOR",
+      "date": "20250804",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-08-04_LAA_TB",
+      "date": "20250804",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-08-04_ARI_SD",
+      "date": "20250804",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-08-04_LAD_STL",
+      "date": "20250804",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-08-05_PIT_SF",
+      "date": "20250805",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-08-05_DET_MIN",
+      "date": "20250805",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 16,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-08-05_WSH_ATH",
+      "date": "20250805",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-08-05_PHI_BAL",
+      "date": "20250805",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-08-05_BOS_KC",
+      "date": "20250805",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-08-05_NYM_CLE",
+      "date": "20250805",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-08-05_ATL_MIL",
+      "date": "20250805",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-08-05_CHC_CIN",
+      "date": "20250805",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-08-05_TEX_NYY",
+      "date": "20250805",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-08-05_LAA_TB",
+      "date": "20250805",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-08-05_ARI_SD",
+      "date": "20250805",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-08-05_SEA_CWS",
+      "date": "20250805",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-08-05_LAD_STL",
+      "date": "20250805",
+      "game_number": 0,
+      "home_score": 12,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-08-06_PIT_SF",
+      "date": "20250806",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-08-06_PHI_BAL",
+      "date": "20250806",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-08-06_NYM_CLE",
+      "date": "20250806",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-08-06_CHC_CIN",
+      "date": "20250806",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-08-06_TEX_NYY",
+      "date": "20250806",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 20,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-08-06_COL_TOR",
+      "date": "20250806",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-08-06_LAA_TB",
+      "date": "20250806",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-08-06_LAD_STL",
+      "date": "20250806",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-08-06_MIA_HOU",
+      "date": "20250806",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-08-06_BOS_KC",
+      "date": "20250806",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-08-06_ATL_MIL",
+      "date": "20250806",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-08-06_ARI_SD",
+      "date": "20250806",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-08-06_SEA_CWS",
+      "date": "20250806",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-08-07_WSH_ATH",
+      "date": "20250807",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-08-07_SEA_CWS",
+      "date": "20250807",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-08-07_PIT_CIN",
+      "date": "20250807",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-08-07_ATL_MIA",
+      "date": "20250807",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-08-08_PIT_CIN",
+      "date": "20250808",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-08-08_BAL_ATH",
+      "date": "20250808",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-08-08_NYY_HOU",
+      "date": "20250808",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-08-08_DET_LAA",
+      "date": "20250808",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-08-08_ATL_MIA",
+      "date": "20250808",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-08-08_CWS_CLE",
+      "date": "20250808",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-08-08_TEX_PHI",
+      "date": "20250808",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-08-08_MIN_KC",
+      "date": "20250808",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "NYN",
+      "canonical_game_id": "2025-08-08_MIL_NYM",
+      "date": "20250808",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-08-08_STL_CHC",
+      "date": "20250808",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-08-08_ARI_COL",
+      "date": "20250808",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-08-08_SD_BOS",
+      "date": "20250808",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-08-08_SEA_TB",
+      "date": "20250808",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-08-08_LAD_TOR",
+      "date": "20250808",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-08-09_SF_WSH",
+      "date": "20250809",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-08-09_DET_LAA",
+      "date": "20250809",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-08-09_MIN_KC",
+      "date": "20250809",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-08-09_CWS_CLE",
+      "date": "20250809",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-08-09_STL_CHC",
+      "date": "20250809",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-08-09_TEX_PHI",
+      "date": "20250809",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-08-09_ARI_COL",
+      "date": "20250809",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-08-09_SD_BOS",
+      "date": "20250809",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-08-09_LAD_TOR",
+      "date": "20250809",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-08-09_SEA_TB",
+      "date": "20250809",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-08-10_MIN_KC",
+      "date": "20250810",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 14,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-08-10_PIT_CIN",
+      "date": "20250810",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-08-10_ATL_MIA",
+      "date": "20250810",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-08-10_NYY_HOU",
+      "date": "20250810",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-08-10_DET_LAA",
+      "date": "20250810",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-08-10_CWS_CLE",
+      "date": "20250810",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "NYN",
+      "canonical_game_id": "2025-08-10_MIL_NYM",
+      "date": "20250810",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-08-10_TEX_PHI",
+      "date": "20250810",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-08-10_SF_WSH",
+      "date": "20250810",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-08-10_ARI_COL",
+      "date": "20250810",
+      "game_number": 0,
+      "home_score": 13,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-08-10_SD_BOS",
+      "date": "20250810",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-08-10_SEA_TB",
+      "date": "20250810",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-08-10_LAD_TOR",
+      "date": "20250810",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-08-10_STL_CHC",
+      "date": "20250810",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-08-11_CIN_PHI",
+      "date": "20250811",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-08-11_NYY_MIN",
+      "date": "20250811",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-08-11_MIL_PIT",
+      "date": "20250811",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-08-11_STL_COL",
+      "date": "20250811",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-08-11_TEX_ARI",
+      "date": "20250811",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-08-11_LAA_LAD",
+      "date": "20250811",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-08-11_SF_SD",
+      "date": "20250811",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-08-11_ATH_TB",
+      "date": "20250811",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-08-12_BAL_SEA",
+      "date": "20250812",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-08-12_CIN_PHI",
+      "date": "20250812",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-08-12_CLE_MIA",
+      "date": "20250812",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-08-12_NYM_ATL",
+      "date": "20250812",
+      "game_number": 0,
+      "home_score": 13,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-08-12_KC_WSH",
+      "date": "20250812",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-08-12_MIL_PIT",
+      "date": "20250812",
+      "game_number": 0,
+      "home_score": 14,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-08-12_STL_COL",
+      "date": "20250812",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-08-12_TEX_ARI",
+      "date": "20250812",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 14,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-08-12_HOU_BOS",
+      "date": "20250812",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-08-12_SF_SD",
+      "date": "20250812",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-08-12_ATH_TB",
+      "date": "20250812",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-08-13_KC_WSH",
+      "date": "20250813",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-08-13_CWS_DET",
+      "date": "20250813",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-08-13_MIL_PIT",
+      "date": "20250813",
+      "game_number": 0,
+      "home_score": 12,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-08-13_STL_COL",
+      "date": "20250813",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-08-13_TEX_ARI",
+      "date": "20250813",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-08-13_CIN_PHI",
+      "date": "20250813",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-08-13_BAL_SEA",
+      "date": "20250813",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 13,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-08-13_CLE_MIA",
+      "date": "20250813",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-08-13_NYY_MIN",
+      "date": "20250813",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-08-13_TOR_CHC",
+      "date": "20250813",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-08-13_HOU_BOS",
+      "date": "20250813",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 11,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-08-13_NYM_ATL",
+      "date": "20250813",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-08-13_LAA_LAD",
+      "date": "20250813",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-08-13_ATH_TB",
+      "date": "20250813",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-08-14_BAL_SEA",
+      "date": "20250814",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-08-14_TOR_CHC",
+      "date": "20250814",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-08-14_CLE_MIA",
+      "date": "20250814",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-08-14_WSH_PHI",
+      "date": "20250814",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-08-14_NYM_ATL",
+      "date": "20250814",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-08-14_MIN_DET",
+      "date": "20250814",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-08-14_COL_ARI",
+      "date": "20250814",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-08-15_CHC_PIT",
+      "date": "20250815",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-08-15_CIN_MIL",
+      "date": "20250815",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-08-15_WSH_PHI",
+      "date": "20250815",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-08-15_TOR_TEX",
+      "date": "20250815",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 11,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-08-15_NYM_SEA",
+      "date": "20250815",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-08-15_BOS_MIA",
+      "date": "20250815",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-08-15_HOU_BAL",
+      "date": "20250815",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-08-15_MIN_DET",
+      "date": "20250815",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-08-15_KC_CWS",
+      "date": "20250815",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-08-15_STL_NYY",
+      "date": "20250815",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-08-15_COL_ARI",
+      "date": "20250815",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-08-15_ATH_LAA",
+      "date": "20250815",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-08-15_SF_TB",
+      "date": "20250815",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-08-16_CHC_PIT",
+      "date": "20250816",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-08-16_TOR_TEX",
+      "date": "20250816",
+      "game_number": 0,
+      "home_score": 14,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-08-16_WSH_PHI",
+      "date": "20250816",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-08-16_BOS_MIA",
+      "date": "20250816",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-08-16_CIN_MIL",
+      "date": "20250816",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-08-16_CLE_ATL",
+      "date": "20250816",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-08-16_KC_CWS",
+      "date": "20250816",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-08-16_MIN_DET",
+      "date": "20250816",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 12,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-08-16_STL_NYY",
+      "date": "20250816",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-08-16_COL_ARI",
+      "date": "20250816",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-08-16_SF_TB",
+      "date": "20250816",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-08-16_LAD_SD",
+      "date": "20250816",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 11,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-08-17_WSH_PHI",
+      "date": "20250817",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-08-17_BOS_MIA",
+      "date": "20250817",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-08-17_TOR_TEX",
+      "date": "20250817",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-08-17_CLE_ATL",
+      "date": "20250817",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-08-17_CIN_MIL",
+      "date": "20250817",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-08-17_KC_CWS",
+      "date": "20250817",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-08-17_STL_NYY",
+      "date": "20250817",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 11,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-08-17_ATH_LAA",
+      "date": "20250817",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-08-17_SF_TB",
+      "date": "20250817",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-08-17_LAD_SD",
+      "date": "20250817",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-08-17_NYM_SEA",
+      "date": "20250817",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-08-18_CHC_MIL",
+      "date": "20250818",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-08-18_DET_HOU",
+      "date": "20250818",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-08-18_PIT_TOR",
+      "date": "20250818",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-08-18_MIA_STL",
+      "date": "20250818",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-08-18_PHI_SEA",
+      "date": "20250818",
+      "game_number": 0,
+      "home_score": 12,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-08-18_BOS_BAL",
+      "date": "20250818",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-08-18_KC_TEX",
+      "date": "20250818",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-08-18_COL_LAD",
+      "date": "20250818",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-08-18_ARI_CLE",
+      "date": "20250818",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-08-18_SD_SF",
+      "date": "20250818",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-08-19_CHC_MIL",
+      "date": "20250819",
+      "game_number": 1,
+      "home_score": 6,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-08-19_DET_HOU",
+      "date": "20250819",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-08-19_PIT_TOR",
+      "date": "20250819",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-08-19_MIA_STL",
+      "date": "20250819",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "NYN",
+      "canonical_game_id": "2025-08-19_WSH_NYM",
+      "date": "20250819",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-08-19_PHI_SEA",
+      "date": "20250819",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-08-19_BOS_BAL",
+      "date": "20250819",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-08-19_ATL_CWS",
+      "date": "20250819",
+      "game_number": 0,
+      "home_score": 11,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 13,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-08-19_TB_NYY",
+      "date": "20250819",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "TBA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-08-19_KC_TEX",
+      "date": "20250819",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-08-19_MIN_ATH",
+      "date": "20250819",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 11,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-08-19_COL_LAD",
+      "date": "20250819",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-08-19_LAA_CIN",
+      "date": "20250819",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-08-19_ARI_CLE",
+      "date": "20250819",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-08-19_SD_SF",
+      "date": "20250819",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-08-20_PHI_SEA",
+      "date": "20250820",
+      "game_number": 0,
+      "home_score": 11,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-08-20_DET_HOU",
+      "date": "20250820",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-08-20_MIA_STL",
+      "date": "20250820",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "NYN",
+      "canonical_game_id": "2025-08-20_WSH_NYM",
+      "date": "20250820",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "CHA",
+      "canonical_game_id": "2025-08-20_ATL_CWS",
+      "date": "20250820",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-08-20_TB_NYY",
+      "date": "20250820",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "TBA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-08-20_MIN_ATH",
+      "date": "20250820",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-08-20_CHC_MIL",
+      "date": "20250820",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-08-20_COL_LAD",
+      "date": "20250820",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-08-20_LAA_CIN",
+      "date": "20250820",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-08-20_SD_SF",
+      "date": "20250820",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-08-21_MIN_ATH",
+      "date": "20250821",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-08-21_KC_TEX",
+      "date": "20250821",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-08-21_CHC_MIL",
+      "date": "20250821",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "CHN"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-08-21_COL_LAD",
+      "date": "20250821",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "NYN",
+      "canonical_game_id": "2025-08-21_WSH_NYM",
+      "date": "20250821",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-08-21_SD_SF",
+      "date": "20250821",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-08-21_BAL_HOU",
+      "date": "20250821",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-08-21_NYY_BOS",
+      "date": "20250821",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-08-21_TB_STL",
+      "date": "20250821",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "TBA"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-08-22_PIT_COL",
+      "date": "20250822",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-08-22_PHI_WSH",
+      "date": "20250822",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-08-22_BAL_HOU",
+      "date": "20250822",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-08-22_NYY_BOS",
+      "date": "20250822",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-08-22_DET_KC",
+      "date": "20250822",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-08-22_TB_STL",
+      "date": "20250822",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "TBA"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-08-22_CWS_MIN",
+      "date": "20250822",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-08-22_TEX_CLE",
+      "date": "20250822",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-08-22_MIL_SF",
+      "date": "20250822",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-08-22_LAA_CHC",
+      "date": "20250822",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-08-22_ARI_CIN",
+      "date": "20250822",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-08-22_SD_LAD",
+      "date": "20250822",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-08-22_SEA_ATH",
+      "date": "20250822",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 12,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-08-23_NYY_BOS",
+      "date": "20250823",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-08-23_MIA_TOR",
+      "date": "20250823",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-08-23_PHI_WSH",
+      "date": "20250823",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-08-23_DET_KC",
+      "date": "20250823",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-08-23_PIT_COL",
+      "date": "20250823",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "PIT"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-08-23_BAL_HOU",
+      "date": "20250823",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-08-23_TEX_CLE",
+      "date": "20250823",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-08-23_CWS_MIN",
+      "date": "20250823",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-08-23_MIL_SF",
+      "date": "20250823",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "NYN",
+      "canonical_game_id": "2025-08-23_ATL_NYM",
+      "date": "20250823",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-08-23_SD_LAD",
+      "date": "20250823",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 12,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-08-23_LAA_CHC",
+      "date": "20250823",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-08-23_SEA_ATH",
+      "date": "20250823",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-08-24_TB_STL",
+      "date": "20250824",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "TBA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "HOU",
+      "canonical_game_id": "2025-08-24_BAL_HOU",
+      "date": "20250824",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-08-24_PHI_WSH",
+      "date": "20250824",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "NYN",
+      "canonical_game_id": "2025-08-24_ATL_NYM",
+      "date": "20250824",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "ATL"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-08-24_DET_KC",
+      "date": "20250824",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "DET"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "TOR",
+      "canonical_game_id": "2025-08-24_MIA_TOR",
+      "date": "20250824",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-08-24_CWS_MIN",
+      "date": "20250824",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SFN",
+      "canonical_game_id": "2025-08-24_MIL_SF",
+      "date": "20250824",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "CLE",
+      "canonical_game_id": "2025-08-24_TEX_CLE",
+      "date": "20250824",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-08-24_LAA_CHC",
+      "date": "20250824",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "ANA"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-08-24_ARI_CIN",
+      "date": "20250824",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "ARI"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "LAN",
+      "canonical_game_id": "2025-08-24_SD_LAD",
+      "date": "20250824",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "SDN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "ATH",
+      "canonical_game_id": "2025-08-24_SEA_ATH",
+      "date": "20250824",
+      "game_number": 0,
+      "home_score": 11,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-08-24_NYY_BOS",
+      "date": "20250824",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-08-25_MIA_ATL",
+      "date": "20250825",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-08-25_NYY_WSH",
+      "date": "20250825",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-08-25_TOR_MIN",
+      "date": "20250825",
+      "game_number": 0,
+      "home_score": 10,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-08-25_NYM_PHI",
+      "date": "20250825",
+      "game_number": 0,
+      "home_score": 13,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-08-25_CWS_KC",
+      "date": "20250825",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-08-25_MIL_ARI",
+      "date": "20250825",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-08-25_STL_PIT",
+      "date": "20250825",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-08-25_TEX_LAA",
+      "date": "20250825",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-08-25_SEA_SD",
+      "date": "20250825",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-08-25_ATH_DET",
+      "date": "20250825",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-08-25_LAD_CIN",
+      "date": "20250825",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 11,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-08-26_MIA_ATL",
+      "date": "20250826",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-08-26_NYY_WSH",
+      "date": "20250826",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-08-26_TOR_MIN",
+      "date": "20250826",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-08-26_NYM_PHI",
+      "date": "20250826",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-08-26_CWS_KC",
+      "date": "20250826",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-08-26_MIL_ARI",
+      "date": "20250826",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "MIL"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-08-26_STL_PIT",
+      "date": "20250826",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-08-26_TEX_LAA",
+      "date": "20250826",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-08-26_HOU_COL",
+      "date": "20250826",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-08-26_SEA_SD",
+      "date": "20250826",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-08-26_SF_CHC",
+      "date": "20250826",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-08-26_ATH_DET",
+      "date": "20250826",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-08-26_LAD_CIN",
+      "date": "20250826",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "WAS",
+      "canonical_game_id": "2025-08-27_NYY_WSH",
+      "date": "20250827",
+      "game_number": 0,
+      "home_score": 11,
+      "home_team_code": "NYA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-08-27_CLE_TB",
+      "date": "20250827",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 12,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-08-27_MIA_ATL",
+      "date": "20250827",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "MIA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-08-27_SEA_SD",
+      "date": "20250827",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "SEA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-08-27_BAL_BOS",
+      "date": "20250827",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "MIN",
+      "canonical_game_id": "2025-08-27_TOR_MIN",
+      "date": "20250827",
+      "game_number": 0,
+      "home_score": 9,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "PHI",
+      "canonical_game_id": "2025-08-27_NYM_PHI",
+      "date": "20250827",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 12,
+      "away_team_code": "KCA",
+      "canonical_game_id": "2025-08-27_CWS_KC",
+      "date": "20250827",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-08-27_STL_PIT",
+      "date": "20250827",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-08-27_TEX_LAA",
+      "date": "20250827",
+      "game_number": 0,
+      "home_score": 20,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-08-27_HOU_COL",
+      "date": "20250827",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "CIN",
+      "canonical_game_id": "2025-08-27_LAD_CIN",
+      "date": "20250827",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-08-27_SF_CHC",
+      "date": "20250827",
+      "game_number": 0,
+      "home_score": 12,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-08-27_ATH_DET",
+      "date": "20250827",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-08-28_BAL_BOS",
+      "date": "20250828",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "BAL"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "COL",
+      "canonical_game_id": "2025-08-28_HOU_COL",
+      "date": "20250828",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-08-28_STL_PIT",
+      "date": "20250828",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "SLN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-08-28_SF_CHC",
+      "date": "20250828",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-08-28_PHI_ATL",
+      "date": "20250828",
+      "game_number": 0,
+      "home_score": 19,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-08-28_CWS_NYY",
+      "date": "20250828",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 7,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-08-29_CIN_STL",
+      "date": "20250829",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-08-29_WSH_TB",
+      "date": "20250829",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-08-29_PHI_ATL",
+      "date": "20250829",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-08-29_CLE_SEA",
+      "date": "20250829",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-08-29_CWS_NYY",
+      "date": "20250829",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 0,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-08-29_HOU_LAA",
+      "date": "20250829",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-08-29_KC_DET",
+      "date": "20250829",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-08-29_MIN_SD",
+      "date": "20250829",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 11,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-08-29_COL_CHC",
+      "date": "20250829",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-08-29_ATH_TEX",
+      "date": "20250829",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-08-29_LAD_ARI",
+      "date": "20250829",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 8,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-08-29_SF_BAL",
+      "date": "20250829",
+      "game_number": 0,
+      "home_score": 15,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-08-30_TOR_MIL",
+      "date": "20250830",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "TBA",
+      "canonical_game_id": "2025-08-30_WSH_TB",
+      "date": "20250830",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "WAS"
+    },
+    {
+      "away_score": 10,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-08-30_BOS_PIT",
+      "date": "20250830",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 11,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-08-30_NYM_MIA",
+      "date": "20250830",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-08-30_PHI_ATL",
+      "date": "20250830",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "PHI"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-08-30_CIN_STL",
+      "date": "20250830",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-08-30_HOU_LAA",
+      "date": "20250830",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 12,
+      "away_team_code": "SDN",
+      "canonical_game_id": "2025-08-30_MIN_SD",
+      "date": "20250830",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "MIN"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-08-30_CWS_NYY",
+      "date": "20250830",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 1,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-08-30_KC_DET",
+      "date": "20250830",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-08-30_CLE_SEA",
+      "date": "20250830",
+      "game_number": 0,
+      "home_score": 4,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 6,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-08-30_LAD_ARI",
+      "date": "20250830",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-08-31_CIN_STL",
+      "date": "20250831",
+      "game_number": 0,
+      "home_score": 7,
+      "home_team_code": "CIN"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "PIT",
+      "canonical_game_id": "2025-08-31_BOS_PIT",
+      "date": "20250831",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "BOS"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "MIL",
+      "canonical_game_id": "2025-08-31_TOR_MIL",
+      "date": "20250831",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "TOR"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "SEA",
+      "canonical_game_id": "2025-08-31_CLE_SEA",
+      "date": "20250831",
+      "game_number": 0,
+      "home_score": 2,
+      "home_team_code": "CLE"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "MIA",
+      "canonical_game_id": "2025-08-31_NYM_MIA",
+      "date": "20250831",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "NYN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "ANA",
+      "canonical_game_id": "2025-08-31_HOU_LAA",
+      "date": "20250831",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "HOU"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "DET",
+      "canonical_game_id": "2025-08-31_KC_DET",
+      "date": "20250831",
+      "game_number": 0,
+      "home_score": 0,
+      "home_team_code": "KCA"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "NYA",
+      "canonical_game_id": "2025-08-31_CWS_NYY",
+      "date": "20250831",
+      "game_number": 0,
+      "home_score": 3,
+      "home_team_code": "CHA"
+    },
+    {
+      "away_score": 5,
+      "away_team_code": "CHN",
+      "canonical_game_id": "2025-08-31_COL_CHC",
+      "date": "20250831",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "COL"
+    },
+    {
+      "away_score": 2,
+      "away_team_code": "BAL",
+      "canonical_game_id": "2025-08-31_SF_BAL",
+      "date": "20250831",
+      "game_number": 0,
+      "home_score": 13,
+      "home_team_code": "SFN"
+    },
+    {
+      "away_score": 9,
+      "away_team_code": "TEX",
+      "canonical_game_id": "2025-08-31_ATH_TEX",
+      "date": "20250831",
+      "game_number": 0,
+      "home_score": 6,
+      "home_team_code": "ATH"
+    },
+    {
+      "away_score": 4,
+      "away_team_code": "ARI",
+      "canonical_game_id": "2025-08-31_LAD_ARI",
+      "date": "20250831",
+      "game_number": 0,
+      "home_score": 5,
+      "home_team_code": "LAN"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "ATL",
+      "canonical_game_id": "2025-08-31_PHI_ATL",
+      "date": "20250831",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "PHI"
+    }
+  ],
+  "source_archive_blob": "3e9b08be2530870f38c474db316de6de58b1b381",
+  "source_archive_path": "data/mlb_2025/gl2025.zip",
+  "source_archive_sha256": "957a7cff15cf7926889749c3ef99802ef030ee1b5f7c112b06ba5cb810df5f76",
+  "source_commit": "03b2fcf4de1a13ee9929afcef803d61955c9f41b",
+  "source_member": "gl2025.txt",
+  "source_repository": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool",
+  "source_tree": "56a849bc68234db63da7a38f1643fa664217c5d0",
+  "source_verified_at_utc": "2026-03-12T06:29:35.016973Z"
+}
