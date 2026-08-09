@@ -6,8 +6,10 @@ This artifact is a bounded, paper-only, diagnostic inference slice.
 
 - Candidate count: `2`
 - Admission count: `0`
-- Candidate-set fingerprint: `6e6619a074b2bd5fe7f5072d6a417c532ee0b0f97ebff005447ea36ea25b8688`
-- Model-artifact fingerprint: `5cec1105c4c2fb9a4ff6de736475977fd3bac1b141bcaacd9b115fd295d7899f`
+- Candidate-set fingerprint: `8d6c1b69bc9f6534287fce04c260b35bfc6586c8574a48e41dfddd4f284aee6f`
+- Model-artifact fingerprint: `d0b2eb6f2ff19d039bd13478edc56c5cac28f23a4a87510412e239286550d76e`
+- Artifact kind: `bounded_deterministic_fixture`
+- Bounded parity basis: `ffca78865db53ffaebc17110c39a604f484a353d38858c64787ac8a81c7664c9`
 
 ## Legacy provenance
 
@@ -19,10 +21,14 @@ This artifact is a bounded, paper-only, diagnostic inference slice.
 - Path: `wbc_backend/prediction/mlb_independent_features.py`
 - Path: `wbc_backend/prediction/mlb_ml_feature_matrix.py`
 - Path: `wbc_backend/prediction/mlb_walk_forward_model.py`
+- Path: `outputs/predictions/PAPER/2026-05-11/p13_ml/ml_model_metadata.json`
+- Path: `outputs/predictions/PAPER/2026-05-11/p13_ml/ml_feature_matrix.csv`
+- Path: `outputs/predictions/PAPER/2026-05-11/p13_ml/ml_walk_forward_predictions.jsonl`
 
 ## Boundaries
 
 - Market: `moneyline` only.
 - Features: P13 independent recent-form and starter-ERA deltas only.
 - No final score, result, settlement, odds join, provider call, database write, training, or profitability claim.
+- The fixture uses the committed P13 coefficient-summary magnitude and one committed pregame prediction row; it does not claim to recover unavailable fold weights.
 - The artifact does not claim broad historical parity or production accuracy.

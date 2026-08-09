@@ -1,0 +1,26 @@
+{
+  "schema_version": "p19a.moneyline_legacy_parity_fixture.v1",
+  "legacy_source_commit": "03b2fcf4de1a13ee9929afcef803d61955c9f41b",
+  "legacy_source_tree": "56a849bc68234db63da7a38f1643fa664217c5d0",
+  "feature_matrix_path": "outputs/predictions/PAPER/2026-05-11/p13_ml/ml_feature_matrix.csv",
+  "prediction_fixture_path": "outputs/predictions/PAPER/2026-05-11/p13_ml/ml_walk_forward_predictions.jsonl",
+  "game_id": "2025-06-01_TEX_STL",
+  "feature_columns": [
+    "indep_recent_win_rate_delta",
+    "indep_starter_era_delta"
+  ],
+  "feature_values": {
+    "indep_recent_win_rate_delta": "-0.3333333333333333",
+    "indep_starter_era_delta": "-1.727272727272727"
+  },
+  "legacy_model_semantics": {
+    "model_type": "logistic_regression",
+    "feature_policy": "p13_v1",
+    "leakage_safe": true,
+    "fold_id": "wf_001",
+    "mean_abs_coef": "0.141479"
+  },
+  "expected_home_probability": "0.469229",
+  "expected_probability_tolerance": "0.000001",
+  "basis_fingerprint": "ffca78865db53ffaebc17110c39a604f484a353d38858c64787ac8a81c7664c9"
+}

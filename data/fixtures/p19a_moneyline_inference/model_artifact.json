@@ -1,4 +1,5 @@
 {
+  "artifact_kind": "bounded_deterministic_fixture",
   "coefficients": [
     "0.141479",
     "-0.141479"
@@ -7,14 +8,17 @@
     "recent_win_rate_delta",
     "starter_era_delta"
   ],
-  "intercept": "0.05",
+  "intercept": "-0.32045289576578900563207442720029724589407765179209",
   "legacy_source_commit": "03b2fcf4de1a13ee9929afcef803d61955c9f41b",
   "legacy_source_paths": [
     "scripts/run_mlb_walk_forward_ml_candidate.py",
     "wbc_backend/prediction/mlb_independent_feature_builder.py",
     "wbc_backend/prediction/mlb_independent_features.py",
     "wbc_backend/prediction/mlb_ml_feature_matrix.py",
-    "wbc_backend/prediction/mlb_walk_forward_model.py"
+    "wbc_backend/prediction/mlb_walk_forward_model.py",
+    "outputs/predictions/PAPER/2026-05-11/p13_ml/ml_model_metadata.json",
+    "outputs/predictions/PAPER/2026-05-11/p13_ml/ml_feature_matrix.csv",
+    "outputs/predictions/PAPER/2026-05-11/p13_ml/ml_walk_forward_predictions.jsonl"
   ],
   "legacy_source_repository": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool",
   "legacy_source_tree": "56a849bc68234db63da7a38f1643fa664217c5d0",
@@ -28,5 +32,8 @@
     "1",
     "1"
   ],
+  "fixture_basis_id": "ffca78865db53ffaebc17110c39a604f484a353d38858c64787ac8a81c7664c9",
+  "fixture_expected_home_probability": "0.469229",
+  "fixture_expected_probability_tolerance": "0.000001",
   "schema_version": "p19a.moneyline_model_artifact.v1"
 }

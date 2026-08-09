@@ -51,7 +51,13 @@ def _canonical_json_bytes(projection: dict[str, Any]) -> bytes:
 
 @dataclass(frozen=True, slots=True)
 class MoneylineModelArtifact:
-    """A no-training, no-network artifact for P13 logistic inference."""
+    """A no-training, no-network artifact for P13 logistic inference.
+
+    P13's committed metadata exposes a coefficient summary, not a serialized
+    fold model.  The P19A artifact is therefore explicitly marked as a
+    bounded deterministic fixture and carries the single committed legacy
+    prediction used to characterize it.
+    """
 
     model_id: str
     model_version: str
@@ -65,6 +71,10 @@ class MoneylineModelArtifact:
     legacy_source_tree: str
     legacy_source_paths: tuple[str, ...]
     schema_version: str = MONEYLINE_MODEL_ARTIFACT_SCHEMA_VERSION
+    artifact_kind: str = "bounded_deterministic_fixture"
+    fixture_basis_id: str = ""
+    fixture_expected_home_probability: Decimal | None = None
+    fixture_expected_probability_tolerance: Decimal = Decimal("0.000001")
 
     def __post_init__(self) -> None:
         for field_name in (
@@ -73,6 +83,7 @@ class MoneylineModelArtifact:
             "legacy_source_repository",
             "legacy_source_commit",
             "legacy_source_tree",
+            "artifact_kind",
         ):
             _require_text(getattr(self, field_name), field_name)
         _require_git_object_id(self.legacy_source_commit, "legacy_source_commit")
@@ -95,6 +106,25 @@ class MoneylineModelArtifact:
             raise ValueError("legacy_source_paths must be a non-empty tuple")
         for path in self.legacy_source_paths:
             _require_text(path, "legacy_source_path")
+        if self.artifact_kind != "bounded_deterministic_fixture":
+            raise ValueError("P19A model artifact must be a bounded deterministic fixture")
+        _require_text(self.fixture_basis_id, "fixture_basis_id")
+        if self.fixture_expected_home_probability is None:
+            raise ValueError("fixture_expected_home_probability is required")
+        _require_finite_decimal(
+            self.fixture_expected_home_probability,
+            "fixture_expected_home_probability",
+        )
+        if not (
+            Decimal("0") < self.fixture_expected_home_probability < Decimal("1")
+        ):
+            raise ValueError("fixture_expected_home_probability must be between zero and one")
+        _require_finite_decimal(
+            self.fixture_expected_probability_tolerance,
+            "fixture_expected_probability_tolerance",
+        )
+        if self.fixture_expected_probability_tolerance <= Decimal("0"):
+            raise ValueError("fixture_expected_probability_tolerance must be positive")
 
     @classmethod
     def from_projection(cls, projection: Mapping[str, Any]) -> "MoneylineModelArtifact":
@@ -126,6 +156,16 @@ class MoneylineModelArtifact:
                 schema_version=str(
                     projection.get("schema_version", MONEYLINE_MODEL_ARTIFACT_SCHEMA_VERSION)
                 ),
+                artifact_kind=str(
+                    projection.get("artifact_kind", "bounded_deterministic_fixture")
+                ),
+                fixture_basis_id=str(projection.get("fixture_basis_id", "")),
+                fixture_expected_home_probability=Decimal(
+                    str(projection["fixture_expected_home_probability"])
+                ),
+                fixture_expected_probability_tolerance=Decimal(
+                    str(projection.get("fixture_expected_probability_tolerance", "0.000001"))
+                ),
             )
         except (KeyError, TypeError, ValueError, InvalidOperation) as exc:
             raise ValueError("invalid Moneyline model artifact projection") from exc
@@ -144,6 +184,14 @@ class MoneylineModelArtifact:
             "legacy_source_commit": self.legacy_source_commit,
             "legacy_source_tree": self.legacy_source_tree,
             "legacy_source_paths": list(self.legacy_source_paths),
+            "artifact_kind": self.artifact_kind,
+            "fixture_basis_id": self.fixture_basis_id,
+            "fixture_expected_home_probability": str(
+                self.fixture_expected_home_probability
+            ),
+            "fixture_expected_probability_tolerance": str(
+                self.fixture_expected_probability_tolerance
+            ),
         }
 
     def canonical_bytes(self) -> bytes:

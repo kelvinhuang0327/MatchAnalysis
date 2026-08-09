@@ -2,7 +2,7 @@
   "admission_count": 0,
   "admitted_count": 0,
   "candidate_count": 2,
-  "candidate_set_fingerprint": "6e6619a074b2bd5fe7f5072d6a417c532ee0b0f97ebff005447ea36ea25b8688",
+  "candidate_set_fingerprint": "8d6c1b69bc9f6534287fce04c260b35bfc6586c8574a48e41dfddd4f284aee6f",
   "claims": {
     "betting_claim": false,
     "db_written": false,
@@ -13,6 +13,7 @@
     "training_performed": false
   },
   "model_artifact": {
+    "artifact_kind": "bounded_deterministic_fixture",
     "coefficients": [
       "0.141479",
       "-0.141479"
@@ -21,14 +22,20 @@
       "recent_win_rate_delta",
       "starter_era_delta"
     ],
-    "intercept": "0.05",
+    "fixture_basis_id": "ffca78865db53ffaebc17110c39a604f484a353d38858c64787ac8a81c7664c9",
+    "fixture_expected_home_probability": "0.469229",
+    "fixture_expected_probability_tolerance": "0.000001",
+    "intercept": "-0.32045289576578900563207442720029724589407765179209",
     "legacy_source_commit": "03b2fcf4de1a13ee9929afcef803d61955c9f41b",
     "legacy_source_paths": [
       "scripts/run_mlb_walk_forward_ml_candidate.py",
       "wbc_backend/prediction/mlb_independent_feature_builder.py",
       "wbc_backend/prediction/mlb_independent_features.py",
       "wbc_backend/prediction/mlb_ml_feature_matrix.py",
-      "wbc_backend/prediction/mlb_walk_forward_model.py"
+      "wbc_backend/prediction/mlb_walk_forward_model.py",
+      "outputs/predictions/PAPER/2026-05-11/p13_ml/ml_model_metadata.json",
+      "outputs/predictions/PAPER/2026-05-11/p13_ml/ml_feature_matrix.csv",
+      "outputs/predictions/PAPER/2026-05-11/p13_ml/ml_walk_forward_predictions.jsonl"
     ],
     "legacy_source_repository": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool",
     "legacy_source_tree": "56a849bc68234db63da7a38f1643fa664217c5d0",
@@ -44,7 +51,7 @@
     ],
     "schema_version": "p19a.moneyline_model_artifact.v1"
   },
-  "model_artifact_fingerprint": "5cec1105c4c2fb9a4ff6de736475977fd3bac1b141bcaacd9b115fd295d7899f",
+  "model_artifact_fingerprint": "d0b2eb6f2ff19d039bd13478edc56c5cac28f23a4a87510412e239286550d76e",
   "rejected_count": 0,
   "schema_version": "p19a.moneyline_inference_summary.v1"
 }

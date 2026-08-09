@@ -207,6 +207,8 @@ def render_report_markdown(
         f"- Admission count: `{len(result.admissions)}`",
         f"- Candidate-set fingerprint: `{result.candidate_set_fingerprint}`",
         f"- Model-artifact fingerprint: `{result.model_artifact_fingerprint}`",
+        f"- Artifact kind: `{model_artifact.artifact_kind}`",
+        f"- Bounded parity basis: `{model_artifact.fixture_basis_id}`",
         "",
         "## Legacy provenance",
         "",
@@ -223,6 +225,7 @@ def render_report_markdown(
             "- Market: `moneyline` only.",
             "- Features: P13 independent recent-form and starter-ERA deltas only.",
             "- No final score, result, settlement, odds join, provider call, database write, training, or profitability claim.",
+            "- The fixture uses the committed P13 coefficient-summary magnitude and one committed pregame prediction row; it does not claim to recover unavailable fold weights.",
             "- The artifact does not claim broad historical parity or production accuracy.",
             "",
         ]

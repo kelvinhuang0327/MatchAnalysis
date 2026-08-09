@@ -42,9 +42,9 @@ class GenerateMoneylinePredictionsTests(unittest.TestCase):
         )
         artifact = load_moneyline_model_artifact(FIXTURE_DIR / "model_artifact.json")
         kwargs = {
-            "prediction_generated_at_utc": "2026-04-05T10:01:00Z",
-            "response_received_at_utc": "2026-04-05T10:01:01Z",
-            "ingested_at_utc": "2026-04-05T10:01:02Z",
+            "prediction_generated_at_utc": "2025-06-01T00:01:00Z",
+            "response_received_at_utc": "2025-06-01T00:01:01Z",
+            "ingested_at_utc": "2025-06-01T00:01:02Z",
         }
         first = generate_moneyline_predictions(snapshots, artifact, **kwargs)
         second = generate_moneyline_predictions(snapshots, artifact, **kwargs)
@@ -112,9 +112,9 @@ class GenerateMoneylinePredictionsTests(unittest.TestCase):
             generate_moneyline_predictions(
                 snapshots,
                 artifact,
-                prediction_generated_at_utc="2026-04-05T12:00:00Z",
-                response_received_at_utc="2026-04-05T12:00:00Z",
-                ingested_at_utc="2026-04-05T12:00:00Z",
+                prediction_generated_at_utc="2025-06-01T12:00:00Z",
+                response_received_at_utc="2025-06-01T12:00:00Z",
+                ingested_at_utc="2025-06-01T12:00:00Z",
             )
 
 

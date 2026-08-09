@@ -1,7 +1,7 @@
 """Bounded characterization of the committed P13 logistic semantics."""
 
 from decimal import Decimal
-from math import exp
+import json
 from pathlib import Path
 import sys
 import unittest
@@ -31,33 +31,39 @@ class LegacyMoneylineParityTests(unittest.TestCase):
         result = generate_moneyline_predictions(
             snapshots,
             artifact,
-            prediction_generated_at_utc="2026-04-05T10:01:00Z",
-            response_received_at_utc="2026-04-05T10:01:01Z",
-            ingested_at_utc="2026-04-05T10:01:02Z",
+            prediction_generated_at_utc="2025-06-01T00:01:00Z",
+            response_received_at_utc="2025-06-01T00:01:01Z",
+            ingested_at_utc="2025-06-01T00:01:02Z",
+        )
+        parity = json.loads(
+            (FIXTURE_DIR / "legacy_parity_fixture.json").read_text(encoding="utf-8")
         )
         snapshot = snapshots[0]
-        standardized = [
-            (float(value) - float(mean)) / float(std)
-            for value, mean, std in zip(
-                snapshot.feature_vector(),
-                artifact.scaler_means,
-                artifact.scaler_stds,
-                strict=True,
-            )
-        ]
-        logit = float(artifact.intercept) + sum(
-            float(coefficient) * value
-            for coefficient, value in zip(
-                artifact.coefficients,
-                standardized,
-                strict=True,
-            )
+        expected = Decimal(parity["expected_home_probability"])
+        self.assertEqual(snapshot.identity.canonical_game_id, parity["game_id"])
+        self.assertEqual(
+            tuple(str(value) for value in snapshot.feature_vector()),
+            tuple(
+                parity["feature_values"][name]
+                for name in (
+                    "indep_recent_win_rate_delta",
+                    "indep_starter_era_delta",
+                )
+            ),
         )
-        expected = 1.0 / (1.0 + exp(-logit))
+        self.assertEqual(
+            artifact.fixture_basis_id,
+            parity["basis_fingerprint"],
+        )
+        self.assertEqual(
+            sum(abs(value) for value in artifact.coefficients)
+            / Decimal(len(artifact.coefficients)),
+            Decimal(parity["legacy_model_semantics"]["mean_abs_coef"]),
+        )
         self.assertAlmostEqual(
             float(result.candidates[0].model_probability),
-            expected,
-            places=12,
+            float(expected),
+            places=6,
         )
         self.assertEqual(
             result.candidates[0].model_id,
