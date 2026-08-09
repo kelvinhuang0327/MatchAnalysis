@@ -106,8 +106,11 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/use_cases/prediction_learning_candidate_artifacts.py",
     "application/use_cases/materialize_moneyline_training_dataset.py",
     "application/use_cases/moneyline_training_dataset_artifacts.py",
+    "application/use_cases/moneyline_challenger_artifacts.py",
+    "application/use_cases/train_moneyline_challenger.py",
     "interfaces/cli/prediction_learning_candidate_gate.py",
     "interfaces/cli/materialize_moneyline_training_dataset.py",
+    "interfaces/cli/train_moneyline_challenger.py",
 }
 
 MLB_SCHEDULE_PAYLOAD_ADAPTER_RUNTIME_PATHS = (

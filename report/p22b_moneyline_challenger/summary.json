@@ -1,0 +1,145 @@
+{
+  "artifact_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+  "claims": {
+    "model_promoted": false,
+    "out_of_sample_evaluated": false,
+    "production_ready": false,
+    "profitability_claim": false,
+    "real_betting_recommendation": false,
+    "training_authorized": true,
+    "training_performed": true
+  },
+  "coefficients": [
+    "0.07189574798907576",
+    "-0.18864675668577843"
+  ],
+  "feature_names": [
+    "recent_win_rate_delta",
+    "starter_era_delta"
+  ],
+  "fit_configuration": {
+    "max_iter": 1000,
+    "model_type": "logistic_regression",
+    "solver": "lbfgs"
+  },
+  "fitted_state_fingerprint": "91331b7b6a0e9d3121786b1e3c6c9afba5cfc76bb101a60397b16cc6792ed5ce",
+  "intercept": "0.17680256818882115",
+  "label_distribution": {
+    "0": 309,
+    "1": 368
+  },
+  "label_semantics": "target_home_win=1 iff committed FINAL home_score is greater than away_score; target_home_win=0 iff away_score is greater",
+  "model_artifact": {
+    "artifact_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+    "artifact_kind": "bounded_deterministic_fixture",
+    "artifact_role": "CHALLENGER",
+    "artifact_schema_version": "p22b.moneyline_challenger_artifact.v1",
+    "claims": {
+      "model_promoted": false,
+      "out_of_sample_evaluated": false,
+      "production_ready": false,
+      "profitability_claim": false,
+      "real_betting_recommendation": false,
+      "training_authorized": true,
+      "training_performed": true
+    },
+    "coefficients": [
+      "0.07189574798907576",
+      "-0.18864675668577843"
+    ],
+    "feature_names": [
+      "recent_win_rate_delta",
+      "starter_era_delta"
+    ],
+    "fit_configuration": {
+      "max_iter": 1000,
+      "model_type": "logistic_regression",
+      "solver": "lbfgs"
+    },
+    "fitted_state_fingerprint": "91331b7b6a0e9d3121786b1e3c6c9afba5cfc76bb101a60397b16cc6792ed5ce",
+    "fixture_basis_id": "1cfa6ad981fdf3fcf67db03ca4d7ab05319889e71155280aa40c0b85fe59924e",
+    "fixture_compatibility_note": "P19A requires a bounded fixture expectation field; P22B does not assert predictive quality or use the placeholder for model selection.",
+    "fixture_expected_home_probability": "0.5",
+    "fixture_expected_probability_tolerance": "0.5",
+    "intercept": "0.17680256818882115",
+    "label_distribution": {
+      "0": 309,
+      "1": 368
+    },
+    "label_semantics": "target_home_win=1 iff committed FINAL home_score is greater than away_score; target_home_win=0 iff away_score is greater",
+    "legacy_source_commit": "01d4ac2544710280a03c617ba1016b2450a2414b",
+    "legacy_source_paths": [
+      "report/p22a_game_level_training_dataset/training_examples.jsonl",
+      "report/p22a_game_level_training_dataset/summary.json",
+      "src/match_analysis/application/use_cases/reconstruct_moneyline_walk_forward_model.py",
+      "src/match_analysis/baseball/domain/moneyline_walk_forward_fold.py",
+      "src/match_analysis/baseball/domain/moneyline_model_artifact.py"
+    ],
+    "legacy_source_repository": "/Users/kelvin/VibeCoding-WorkSpace/MatchAnalysis",
+    "legacy_source_tree": "050552b94ca582547a8c84f9fa8a479d9abaa9f0",
+    "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+    "model_role": "CHALLENGER",
+    "model_version": "p22b.moneyline_logistic_challenger.v1",
+    "scaler_fitted_state": {
+      "means": [
+        "-0.007483998030526829",
+        "0.07919803808686963"
+      ],
+      "scales": [
+        "0.20751463149907917",
+        "1.6445178684195918"
+      ]
+    },
+    "scaler_means": [
+      "-0.007483998030526829",
+      "0.07919803808686963"
+    ],
+    "scaler_stds": [
+      "0.20751463149907917",
+      "1.6445178684195918"
+    ],
+    "schema_version": "p19a.moneyline_model_artifact.v1",
+    "source_dataset_fingerprint": "05f9b31c608e1630a40b2369ac45ada8b103b2c1131b0cedcaa2c7fc91ba7750",
+    "training_code_contract": "p22b.deterministic_moneyline_challenger_training.v1",
+    "training_code_paths": [
+      "src/match_analysis/application/use_cases/train_moneyline_challenger.py",
+      "src/match_analysis/application/use_cases/moneyline_challenger_artifacts.py"
+    ],
+    "training_example_count": 677,
+    "training_runtime": {
+      "executable": "/usr/bin/python3",
+      "numpy_version": "1.26.2",
+      "python_version": "3.9.6",
+      "sklearn_version": "1.3.2"
+    }
+  },
+  "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+  "model_promoted": false,
+  "model_role": "CHALLENGER",
+  "out_of_sample_evaluated": false,
+  "production_ready": false,
+  "profitability_claim": false,
+  "real_betting_recommendation": false,
+  "scaler_fitted_state": {
+    "means": [
+      "-0.007483998030526829",
+      "0.07919803808686963"
+    ],
+    "scales": [
+      "0.20751463149907917",
+      "1.6445178684195918"
+    ]
+  },
+  "schema_version": "p22b.moneyline_challenger_training_summary.v1",
+  "source_dataset_fingerprint": "05f9b31c608e1630a40b2369ac45ada8b103b2c1131b0cedcaa2c7fc91ba7750",
+  "training_authorized": true,
+  "training_code_contract": "p22b.deterministic_moneyline_challenger_training.v1",
+  "training_example_count": 677,
+  "training_performed": true,
+  "training_runtime": {
+    "executable": "/usr/bin/python3",
+    "numpy_version": "1.26.2",
+    "python_version": "3.9.6",
+    "sklearn_version": "1.3.2"
+  }
+}
