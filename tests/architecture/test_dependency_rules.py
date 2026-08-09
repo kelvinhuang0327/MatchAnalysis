@@ -90,9 +90,12 @@ AUTHORIZED_SOURCE_PATHS = {
     "baseball/domain/result_only_paper_decision.py",
     "application/use_cases/build_prediction_feedback_ledger.py",
     "application/use_cases/prediction_feedback_artifacts.py",
+    "application/use_cases/replay_historical_prediction_feedback.py",
+    "application/use_cases/historical_feedback_replay_artifacts.py",
     "application/use_cases/build_result_only_paper_decision_replay.py",
     "application/use_cases/result_only_paper_decision_artifacts.py",
     "interfaces/cli/prediction_feedback_ledger.py",
+    "interfaces/cli/historical_feedback_replay.py",
     "interfaces/cli/result_only_paper_decision_replay.py",
 }
 

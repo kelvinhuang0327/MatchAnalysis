@@ -1,0 +1,77 @@
+{
+  "claims": {
+    "db_written": false,
+    "deployed": false,
+    "deterministic": true,
+    "diagnostic": true,
+    "historical": true,
+    "model_promoted": false,
+    "network_called": false,
+    "non_synthetic": true,
+    "odds_used": false,
+    "paper_only": true,
+    "profitability_claim": false,
+    "real_betting_recommendation": false,
+    "retraining_performed": false,
+    "sample_limited": true,
+    "synthetic_results": false,
+    "training_authorized": false,
+    "training_dataset_claim": false
+  },
+  "feedback_jsonl_sha256": "f1912760faa0c29ef1dbd24d759d6ce8b5bcf763c0f2e71e7f9608c76dbedb2a",
+  "feedback_ledger_fingerprint": "adf320cb91681254ed9ca79467c818406a8d64beaf0631bf61afab1bcb13e087",
+  "feedback_row_count": 4,
+  "historical_provenance": {
+    "rows": [
+      {
+        "away_score": 3,
+        "away_team_code": "BOS",
+        "canonical_game_id": "2025-06-01_ATL_BOS",
+        "date": "20250601",
+        "game_number": 0,
+        "home_score": 1,
+        "home_team_code": "ATL"
+      },
+      {
+        "away_score": 1,
+        "away_team_code": "SLN",
+        "canonical_game_id": "2025-06-01_TEX_STL",
+        "date": "20250601",
+        "game_number": 0,
+        "home_score": 8,
+        "home_team_code": "TEX"
+      }
+    ],
+    "source_archive_blob": "3e9b08be2530870f38c474db316de6de58b1b381",
+    "source_archive_path": "data/mlb_2025/gl2025.zip",
+    "source_archive_sha256": "957a7cff15cf7926889749c3ef99802ef030ee1b5f7c112b06ba5cb810df5f76",
+    "source_commit": "03b2fcf4de1a13ee9929afcef803d61955c9f41b",
+    "source_member": "gl2025.txt",
+    "source_repository": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool",
+    "source_tree": "56a849bc68234db63da7a38f1643fa664217c5d0",
+    "source_verified_at_utc": "2026-03-12T06:29:35.016973Z"
+  },
+  "historical_provenance_sha256": "4de5dc553de5875ee2668beedadb6607102f1e73cafaae2c8dc56cd64e4c7188",
+  "historical_results_sha256": "039d1de9740d56dd6250d3b9553fdc9be39130f7c8589ecac8a7b883568d82a3",
+  "p15c_admission_count": 4,
+  "p15c_admission_result_set_fingerprint": "7b429e0542911a2e49445108d336c1e4d493562adb929edff954b81907b22184",
+  "p15c_snapshot_fingerprint": "14883857dcc52e6953ded8cac45238d4512ae9a7a5121d21c1ac5b79fd3c033f",
+  "p16a_attachment_count": 4,
+  "p16a_attachment_set_fingerprint": "90a201bec8f75a64c77c3573467bd746ecb2bd19eb90bb415488a24b181deef0",
+  "p16b_evaluation_count": 4,
+  "p16b_evaluation_set_fingerprint": "566ec789a11e4f1f21ea723119fff6e014d6474ce0cf2d678f3bc6cfda53a4df",
+  "p17a_feedback_ledger_fingerprint": "adf320cb91681254ed9ca79467c818406a8d64beaf0631bf61afab1bcb13e087",
+  "p19a_model_artifact_fingerprint": "5af07fa9d346e56be92bb0a185effa470de67106b2fb314dd5b37ad2a19bfd79",
+  "p20a_fold_id": "wf_001",
+  "p20a_fold_sha256": "72bc146d79e271e60c2d0b5de5ee95a805faa6b75044667d0cdc82618e35a3d6",
+  "p20a_model_fingerprint": "5a0e7a0a90253c90eeed30a6f7672b578a76dc2a00a2fa3da7cf1196c0e80155",
+  "p20a_prediction_sha256": "0aeee05fb8f8ccdcbe963cbb695e36bf732d55c84f8a66bbe362f628d2ef88cb",
+  "p20a_reconstruction_sha256": "49d0869217b330b24e164ede8f3b6ee9145910ef1b4024a869287e32f79d8117",
+  "p20a_summary_sha256": "09ef792333461202f2cf3b44c20e219e6268ee89f35416a457060ab6f0a172a7",
+  "replay_game_ids": [
+    "2025-06-01_ATL_BOS",
+    "2025-06-01_TEX_STL"
+  ],
+  "report_sha256": "597dddaf1f7db455c6f841157faa5a82c34375dbac6400a9aa14cb0f4088eff7",
+  "schema_version": "p20b.first_non_synthetic_historical_feedback.v1"
+}

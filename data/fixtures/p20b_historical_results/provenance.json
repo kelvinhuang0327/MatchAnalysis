@@ -1,0 +1,35 @@
+{
+  "claims": {
+    "historical": true,
+    "non_synthetic": true,
+    "paper_only": true
+  },
+  "source_archive_blob": "3e9b08be2530870f38c474db316de6de58b1b381",
+  "source_archive_path": "data/mlb_2025/gl2025.zip",
+  "source_archive_sha256": "957a7cff15cf7926889749c3ef99802ef030ee1b5f7c112b06ba5cb810df5f76",
+  "source_commit": "03b2fcf4de1a13ee9929afcef803d61955c9f41b",
+  "source_member": "gl2025.txt",
+  "source_repository": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool",
+  "source_tree": "56a849bc68234db63da7a38f1643fa664217c5d0",
+  "source_verified_at_utc": "2026-03-12T06:29:35.016973Z",
+  "rows": [
+    {
+      "away_score": 1,
+      "away_team_code": "SLN",
+      "canonical_game_id": "2025-06-01_TEX_STL",
+      "date": "20250601",
+      "game_number": 0,
+      "home_score": 8,
+      "home_team_code": "TEX"
+    },
+    {
+      "away_score": 3,
+      "away_team_code": "BOS",
+      "canonical_game_id": "2025-06-01_ATL_BOS",
+      "date": "20250601",
+      "game_number": 0,
+      "home_score": 1,
+      "home_team_code": "ATL"
+    }
+  ]
+}
