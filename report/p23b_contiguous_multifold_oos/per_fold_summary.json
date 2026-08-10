@@ -1,0 +1,425 @@
+{
+  "folds": [
+    {
+      "accuracy_delta": "0.0869565217391304347826086957",
+      "brier_delta": "-0.0185290503700629834798105778",
+      "challenger_accuracy": "0.7826086956521739130434782609",
+      "challenger_brier_better_count": 18,
+      "challenger_frozen": true,
+      "challenger_mean_brier": "0.2138127101219392124690037207",
+      "challenger_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "challenger_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "challenger_source_dataset_fingerprint": "05f9b31c608e1630a40b2369ac45ada8b103b2c1131b0cedcaa2c7fc91ba7750",
+      "equal_brier_count": 0,
+      "evaluable_game_count": 23,
+      "evaluable_game_ids": [
+        "824829",
+        "822972",
+        "824427",
+        "822806",
+        "824025",
+        "823289",
+        "823218",
+        "824998",
+        "824830",
+        "822969",
+        "823374",
+        "823858",
+        "824267",
+        "824429",
+        "822805",
+        "823620",
+        "824105",
+        "824591",
+        "824347",
+        "824023",
+        "823290",
+        "823214",
+        "824999"
+      ],
+      "evaluation_coverage": "1",
+      "exclusion_reason_distribution": {},
+      "feature_as_of_range": [
+        "2026-06-08T22:34:59.999999Z",
+        "2026-06-10T02:04:59.999999Z"
+      ],
+      "feature_fingerprint": "8d69b9c8bbbf1c4107d7bb5979fee1118bdf7a637529ec9775c6f3dd469b3deb",
+      "feature_unavailable": [],
+      "feature_unavailable_count": 0,
+      "fold_fingerprint": "50b56eac672a83b03877d7581a250ea123ce27f598075c1d12ca28e5e0cf3c7e",
+      "fold_id": "wf_004",
+      "game_count": 23,
+      "incumbent_accuracy": "0.6956521739130434782608695652",
+      "incumbent_brier_better_count": 5,
+      "incumbent_fidelity_route": "MIGRATED_SEMANTIC_RECONSTRUCTION",
+      "incumbent_input_fingerprint_recomputed": true,
+      "incumbent_mean_brier": "0.2323417604920021959488142985",
+      "incumbent_model_fingerprint": "0a55ba0670a62c2d9b997fb9eee15111995a6f83c47fb639d46888cf57a1ea2e",
+      "incumbent_model_id": "p13_walk_forward_logistic_v1_wf_003",
+      "incumbent_source_fold_fingerprint": "3c5f9e62fb23620040a2015466f4a48099193cb0e77885b1e0b0e6f4e346b3f1",
+      "incumbent_source_fold_id": "wf_003",
+      "incumbent_training_cutoff": "2025-07-31",
+      "incumbent_training_row_count": 1212,
+      "metrics_population": "MODEL_EVALUABLE_GAMES",
+      "no_outcome_selection": true,
+      "no_training_overlap_verified": true,
+      "outcome_isolation_verified": true,
+      "pit_safe_feature_reconstruction_verified": true,
+      "raw_game_count": 23,
+      "result_fingerprint": "f17471b1ceaa6b85e2037a228c8224f063b024a187d4c14922b54e81eb476677",
+      "scheduled_start_range": [
+        "2026-06-08T22:35:00Z",
+        "2026-06-10T02:05:00Z"
+      ],
+      "source_manifest_fingerprint": "94aae2435bc4cb0f97ce77cb83c0a370a86392268e4d4ec1b2f130ca1f4e0447",
+      "strict_future_boundary_verified": true,
+      "validation_end": "2026-06-09",
+      "validation_start": "2026-06-08"
+    },
+    {
+      "accuracy_delta": "0E-28",
+      "brier_delta": "-0.0003818696568114340940009707",
+      "challenger_accuracy": "0.6470588235294117647058823529",
+      "challenger_brier_better_count": 8,
+      "challenger_frozen": true,
+      "challenger_mean_brier": "0.2355944398855450715523633044",
+      "challenger_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "challenger_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "challenger_source_dataset_fingerprint": "05f9b31c608e1630a40b2369ac45ada8b103b2c1131b0cedcaa2c7fc91ba7750",
+      "equal_brier_count": 0,
+      "evaluable_game_count": 17,
+      "evaluable_game_ids": [
+        "822970",
+        "824428",
+        "823215",
+        "823287",
+        "824831",
+        "823372",
+        "822804",
+        "824103",
+        "824590",
+        "824348",
+        "824022",
+        "823855",
+        "824265",
+        "824101",
+        "824346",
+        "823371",
+        "824827"
+      ],
+      "evaluation_coverage": "0.7727272727272727272727272727",
+      "exclusion_reason_distribution": {
+        "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY": 5
+      },
+      "feature_as_of_range": [
+        "2026-06-10T17:09:59.999999Z",
+        "2026-06-11T23:04:59.999999Z"
+      ],
+      "feature_fingerprint": "dc2dcde7d8ec51493bf05d04d917f2c23a14cea23b7b0ba752d9772a5494d470",
+      "feature_unavailable": [
+        {
+          "affected_starters": [
+            {
+              "qualifying_prior_start_count": 1,
+              "required_prior_start_count": 2,
+              "side": "home",
+              "starter_id": 687473,
+              "starter_name": "Ryan Gusto",
+              "team": "Miami Marlins"
+            }
+          ],
+          "deterministic_exclusion_identity": "5f3c86ce3c96df70bb91b4f020397e05553ea6a2d9ef7ca55c8015b42487de50",
+          "feature_name": "starter_era_delta",
+          "fold_id": "wf_005",
+          "game_id": "823856",
+          "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+          "scheduled_start": "2026-06-10T22:40:00Z",
+          "status": "FEATURE_UNAVAILABLE"
+        },
+        {
+          "affected_starters": [
+            {
+              "qualifying_prior_start_count": 0,
+              "required_prior_start_count": 2,
+              "side": "away",
+              "starter_id": 702474,
+              "starter_name": "Mike Paredes",
+              "team": "Minnesota Twins"
+            }
+          ],
+          "deterministic_exclusion_identity": "75da742566eb777369e618b96e9da81f18d5a0449b4689bec4be3d9e66bc8dd2",
+          "feature_name": "starter_era_delta",
+          "fold_id": "wf_005",
+          "game_id": "824266",
+          "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+          "scheduled_start": "2026-06-10T22:40:00Z",
+          "status": "FEATURE_UNAVAILABLE"
+        },
+        {
+          "affected_starters": [
+            {
+              "qualifying_prior_start_count": 1,
+              "required_prior_start_count": 2,
+              "side": "home",
+              "starter_id": 681810,
+              "starter_name": "Austin Warren",
+              "team": "New York Mets"
+            }
+          ],
+          "deterministic_exclusion_identity": "da47aa5e5f256beadf2d9563639bca2374226a8a53802ab73774c0d60fc7a5c3",
+          "feature_name": "starter_era_delta",
+          "fold_id": "wf_005",
+          "game_id": "823618",
+          "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+          "scheduled_start": "2026-06-10T23:10:00Z",
+          "status": "FEATURE_UNAVAILABLE"
+        },
+        {
+          "affected_starters": [
+            {
+              "qualifying_prior_start_count": 1,
+              "required_prior_start_count": 2,
+              "side": "home",
+              "starter_id": 678022,
+              "starter_name": "Jack Perkins",
+              "team": "Athletics"
+            }
+          ],
+          "deterministic_exclusion_identity": "a3961df67b1eaf8033985d2c23b07d0c8f665f83ea6ade7793dbc9000121c53e",
+          "feature_name": "starter_era_delta",
+          "fold_id": "wf_005",
+          "game_id": "824996",
+          "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+          "scheduled_start": "2026-06-11T01:05:00Z",
+          "status": "FEATURE_UNAVAILABLE"
+        },
+        {
+          "affected_starters": [
+            {
+              "qualifying_prior_start_count": 1,
+              "required_prior_start_count": 2,
+              "side": "away",
+              "starter_id": 690928,
+              "starter_name": "Hunter Dobbins",
+              "team": "St. Louis Cardinals"
+            }
+          ],
+          "deterministic_exclusion_identity": "7434a8836590eb3780c1b83ca7b6f49ede35edbdd3b7fadf676332af130615b0",
+          "feature_name": "starter_era_delta",
+          "fold_id": "wf_005",
+          "game_id": "823619",
+          "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+          "scheduled_start": "2026-06-11T17:10:00Z",
+          "status": "FEATURE_UNAVAILABLE"
+        }
+      ],
+      "feature_unavailable_count": 5,
+      "fold_fingerprint": "2fb192124847fa21556321e1bd8c34b2c95159873eba8e5662d00a4565ae781b",
+      "fold_id": "wf_005",
+      "game_count": 17,
+      "incumbent_accuracy": "0.6470588235294117647058823529",
+      "incumbent_brier_better_count": 9,
+      "incumbent_fidelity_route": "MIGRATED_SEMANTIC_RECONSTRUCTION",
+      "incumbent_input_fingerprint_recomputed": true,
+      "incumbent_mean_brier": "0.2359763095423565056463642751",
+      "incumbent_model_fingerprint": "0a55ba0670a62c2d9b997fb9eee15111995a6f83c47fb639d46888cf57a1ea2e",
+      "incumbent_model_id": "p13_walk_forward_logistic_v1_wf_003",
+      "incumbent_source_fold_fingerprint": "3c5f9e62fb23620040a2015466f4a48099193cb0e77885b1e0b0e6f4e346b3f1",
+      "incumbent_source_fold_id": "wf_003",
+      "incumbent_training_cutoff": "2025-07-31",
+      "incumbent_training_row_count": 1212,
+      "metrics_population": "MODEL_EVALUABLE_GAMES",
+      "no_outcome_selection": true,
+      "no_training_overlap_verified": true,
+      "outcome_isolation_verified": true,
+      "pit_safe_feature_reconstruction_verified": true,
+      "raw_game_count": 22,
+      "result_fingerprint": "ab7841cc513af49c029eda90e71ac6393455c3fd0b63e04c41494502c82e0f1a",
+      "scheduled_start_range": [
+        "2026-06-10T17:10:00Z",
+        "2026-06-11T23:05:00Z"
+      ],
+      "source_manifest_fingerprint": "eec56c5c1a9c71fa6dcd3c4e7db0c7c8cc045bd99b5742da0474638d508d3c96",
+      "strict_future_boundary_verified": true,
+      "validation_end": "2026-06-11",
+      "validation_start": "2026-06-10"
+    },
+    {
+      "accuracy_delta": "0.04",
+      "brier_delta": "-0.0077406534709125442953407236",
+      "challenger_accuracy": "0.56",
+      "challenger_brier_better_count": 14,
+      "challenger_frozen": true,
+      "challenger_mean_brier": "0.2450962914115768163054796276",
+      "challenger_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "challenger_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "challenger_source_dataset_fingerprint": "05f9b31c608e1630a40b2369ac45ada8b103b2c1131b0cedcaa2c7fc91ba7750",
+      "equal_brier_count": 0,
+      "evaluable_game_count": 25,
+      "evaluable_game_ids": [
+        "823370",
+        "822726",
+        "824826",
+        "824425",
+        "824752",
+        "823617",
+        "824507",
+        "822803",
+        "824588",
+        "823695",
+        "824102",
+        "823211",
+        "823694",
+        "822802",
+        "822725",
+        "823369",
+        "824828",
+        "824426",
+        "824508",
+        "824587",
+        "824749",
+        "823776",
+        "824100",
+        "823213",
+        "824019"
+      ],
+      "evaluation_coverage": "0.8333333333333333333333333333",
+      "exclusion_reason_distribution": {
+        "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY": 5
+      },
+      "feature_as_of_range": [
+        "2026-06-12T22:39:59.999999Z",
+        "2026-06-14T02:06:59.999999Z"
+      ],
+      "feature_fingerprint": "390d0cde0e5b28cff87d44b924f7c1924084eed197fc1c88b5a6af1538788fb6",
+      "feature_unavailable": [
+        {
+          "affected_starters": [
+            {
+              "qualifying_prior_start_count": 0,
+              "required_prior_start_count": 2,
+              "side": "away",
+              "starter_id": 621383,
+              "starter_name": "Tanner Banks",
+              "team": "Philadelphia Phillies"
+            }
+          ],
+          "deterministic_exclusion_identity": "f2ac0c5f441601a1ca1fcf7eeb185a64faad0d5c8c39523fef95ab019ace54f3",
+          "feature_name": "starter_era_delta",
+          "fold_id": "wf_006",
+          "game_id": "823778",
+          "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+          "scheduled_start": "2026-06-12T23:40:00Z",
+          "status": "FEATURE_UNAVAILABLE"
+        },
+        {
+          "affected_starters": [
+            {
+              "qualifying_prior_start_count": 1,
+              "required_prior_start_count": 2,
+              "side": "home",
+              "starter_id": 691951,
+              "starter_name": "Sam Aldegheri",
+              "team": "Los Angeles Angels"
+            }
+          ],
+          "deterministic_exclusion_identity": "f9591161f4194206c1e69f2fb6f4deaefd96dced3a4503bcc9a7f17d5383b85d",
+          "feature_name": "starter_era_delta",
+          "fold_id": "wf_006",
+          "game_id": "824020",
+          "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+          "scheduled_start": "2026-06-13T01:38:00Z",
+          "status": "FEATURE_UNAVAILABLE"
+        },
+        {
+          "affected_starters": [
+            {
+              "qualifying_prior_start_count": 0,
+              "required_prior_start_count": 2,
+              "side": "away",
+              "starter_id": 807743,
+              "starter_name": "Sean Sullivan",
+              "team": "Colorado Rockies"
+            }
+          ],
+          "deterministic_exclusion_identity": "624084960982675b65306cd5ab7a08ca887f86cdbe2d410a4d4d4a9906c5ec86",
+          "feature_name": "starter_era_delta",
+          "fold_id": "wf_006",
+          "game_id": "824997",
+          "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+          "scheduled_start": "2026-06-13T02:05:00Z",
+          "status": "FEATURE_UNAVAILABLE"
+        },
+        {
+          "affected_starters": [
+            {
+              "qualifying_prior_start_count": 0,
+              "required_prior_start_count": 2,
+              "side": "home",
+              "starter_id": 640455,
+              "starter_name": "Sean Manaea",
+              "team": "New York Mets"
+            }
+          ],
+          "deterministic_exclusion_identity": "b33aeb70011321fa1eaab0168751969a34630437918f82baf73a9274db416a0e",
+          "feature_name": "starter_era_delta",
+          "fold_id": "wf_006",
+          "game_id": "823616",
+          "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+          "scheduled_start": "2026-06-13T20:10:00Z",
+          "status": "FEATURE_UNAVAILABLE"
+        },
+        {
+          "affected_starters": [
+            {
+              "qualifying_prior_start_count": 0,
+              "required_prior_start_count": 2,
+              "side": "home",
+              "starter_id": 683155,
+              "starter_name": "Joey Estes",
+              "team": "Athletics"
+            }
+          ],
+          "deterministic_exclusion_identity": "453eef51cf3252ddb8cde3e995ec010ace6a2e71a4fee49e01de754450e2c890",
+          "feature_name": "starter_era_delta",
+          "fold_id": "wf_006",
+          "game_id": "824995",
+          "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+          "scheduled_start": "2026-06-14T02:05:00Z",
+          "status": "FEATURE_UNAVAILABLE"
+        }
+      ],
+      "feature_unavailable_count": 5,
+      "fold_fingerprint": "8d5e35dda3b82dfc60200464029a034a4529b14b4c88563f484e259b04d4db94",
+      "fold_id": "wf_006",
+      "game_count": 25,
+      "incumbent_accuracy": "0.52",
+      "incumbent_brier_better_count": 11,
+      "incumbent_fidelity_route": "MIGRATED_SEMANTIC_RECONSTRUCTION",
+      "incumbent_input_fingerprint_recomputed": true,
+      "incumbent_mean_brier": "0.2528369448824893606008203512",
+      "incumbent_model_fingerprint": "0a55ba0670a62c2d9b997fb9eee15111995a6f83c47fb639d46888cf57a1ea2e",
+      "incumbent_model_id": "p13_walk_forward_logistic_v1_wf_003",
+      "incumbent_source_fold_fingerprint": "3c5f9e62fb23620040a2015466f4a48099193cb0e77885b1e0b0e6f4e346b3f1",
+      "incumbent_source_fold_id": "wf_003",
+      "incumbent_training_cutoff": "2025-07-31",
+      "incumbent_training_row_count": 1212,
+      "metrics_population": "MODEL_EVALUABLE_GAMES",
+      "no_outcome_selection": true,
+      "no_training_overlap_verified": true,
+      "outcome_isolation_verified": true,
+      "pit_safe_feature_reconstruction_verified": true,
+      "raw_game_count": 30,
+      "result_fingerprint": "a55cef6f7db8a8af41bcedb8fc5aead061dbf74b959feefd75617c232f547ad6",
+      "scheduled_start_range": [
+        "2026-06-12T22:40:00Z",
+        "2026-06-14T02:07:00Z"
+      ],
+      "source_manifest_fingerprint": "3ba7e35c1dfa1acdeec9480554baad70b022fefbbfa3d90cd3a74ba07100b374",
+      "strict_future_boundary_verified": true,
+      "validation_end": "2026-06-13",
+      "validation_start": "2026-06-12"
+    }
+  ],
+  "schema_version": "p23b.moneyline_contiguous_multifold_oos_per_fold_summary.v1"
+}

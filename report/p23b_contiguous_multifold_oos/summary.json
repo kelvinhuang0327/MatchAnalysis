@@ -1,0 +1,70 @@
+{
+  "accuracy_delta": "0.0461538461538461538461538461",
+  "brier_delta": "-0.0096334812223085631848796597",
+  "challenger_accuracy": "0.6615384615384615384615384615",
+  "challenger_brier_better_count": 40,
+  "challenger_frozen": true,
+  "challenger_mean_brier": "0.2315416168638198232432961914",
+  "challenger_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+  "challenger_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+  "challenger_retrained": false,
+  "challenger_source_dataset_fingerprint": "05f9b31c608e1630a40b2369ac45ada8b103b2c1131b0cedcaa2c7fc91ba7750",
+  "comparison_set_fingerprint": "783ec4c4673ecd255d7e7f77c6a7c4f459ea63c8a567f3cc80a37bbb415c9f04",
+  "deterministic_replay_verified": true,
+  "equal_brier_count": 0,
+  "evaluation_complete": true,
+  "fold_count": 3,
+  "fold_ids": [
+    "wf_004",
+    "wf_005",
+    "wf_006"
+  ],
+  "folds_equal": [],
+  "folds_with_challenger_lower_brier": [
+    "wf_004",
+    "wf_005",
+    "wf_006"
+  ],
+  "folds_with_incumbent_lower_brier": [],
+  "incumbent_accuracy": "0.6153846153846153846153846154",
+  "incumbent_brier_better_count": 25,
+  "incumbent_input_fingerprint_recomputed": true,
+  "incumbent_mean_brier": "0.2411750980861283864281758511",
+  "incumbent_model_fingerprints": {
+    "wf_004": "0a55ba0670a62c2d9b997fb9eee15111995a6f83c47fb639d46888cf57a1ea2e",
+    "wf_005": "0a55ba0670a62c2d9b997fb9eee15111995a6f83c47fb639d46888cf57a1ea2e",
+    "wf_006": "0a55ba0670a62c2d9b997fb9eee15111995a6f83c47fb639d46888cf57a1ea2e"
+  },
+  "incumbent_model_ids": {
+    "wf_004": "p13_walk_forward_logistic_v1_wf_003",
+    "wf_005": "p13_walk_forward_logistic_v1_wf_003",
+    "wf_006": "p13_walk_forward_logistic_v1_wf_003"
+  },
+  "input_order_invariance_verified": true,
+  "metrics_population": "MODEL_EVALUABLE_GAMES",
+  "model_promoted": false,
+  "multi_fold_evaluated": true,
+  "no_outcome_selection": true,
+  "no_training_overlap_verified": true,
+  "official_source_provenance_verified": true,
+  "out_of_sample_evaluated": true,
+  "outcome_isolation_verified": true,
+  "p20b_historical_runtime_compliance": "REMAINS_REFUTED",
+  "per_fold_brier_delta": [
+    "-0.0185290503700629834798105778",
+    "-0.0003818696568114340940009707",
+    "-0.0077406534709125442953407236"
+  ],
+  "pit_safe_feature_reconstruction_verified": true,
+  "pooled_evaluation_coverage": "0.8666666666666666666666666667",
+  "production_ready": false,
+  "profitability_claim": false,
+  "promotion_authorized": false,
+  "real_betting_recommendation": false,
+  "schema_version": "p23b.moneyline_contiguous_multifold_oos_summary.v1",
+  "strict_future_boundary_verified": true,
+  "total_evaluable_game_count": 65,
+  "total_feature_unavailable_count": 10,
+  "total_game_count": 65,
+  "total_raw_game_count": 75
+}
