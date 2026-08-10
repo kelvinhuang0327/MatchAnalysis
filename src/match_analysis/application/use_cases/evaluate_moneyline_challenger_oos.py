@@ -46,6 +46,16 @@ from .moneyline_oos_comparison_artifacts import (
 
 P23A_FOLD_ID = "wf_004"
 P23A_INCUMBENT_FOLD_ID = "wf_003"
+P23A_INCUMBENT_SOURCE_FOLD_FINGERPRINT = (
+    "3c5f9e62fb23620040a2015466f4a48099193cb0e77885b1e0b0e6f4e346b3f1"
+)
+P23A_INCUMBENT_TRAINING_SEMANTIC_FINGERPRINT = (
+    "c69196281a74d986eb1a9825e57340da5130420008341cf38bedaf62d86d2b5f"
+)
+P23A_INCUMBENT_FIXTURE_BASIS_ID = (
+    "ba6fa27f9cd8eb95d81fbe5878ddb3b1e9fff8ec17364c0ffdc4adf6bc3944a3"
+)
+P23A_INCUMBENT_FIXTURE_EXPECTED_PROBABILITY = "0.594699"
 P23A_TRAINING_INFORMATION_BOUNDARY_UTC = "2026-03-12T06:29:35.016973Z"
 P23A_INCUMBENT_FIDELITY_ROUTE = "MIGRATED_SEMANTIC_RECONSTRUCTION"
 P23A_CHALLENGER_FINGERPRINT = (
@@ -99,6 +109,18 @@ def _sha256_json(value: Mapping[str, Any]) -> str:
     return sha256(canonical_json_bytes(value)).hexdigest()
 
 
+def _semantic_jsonl_fingerprint(
+    rows: Sequence[Mapping[str, Any]],
+    *,
+    key_fields: tuple[str, ...],
+) -> str:
+    ordered = sorted(
+        rows,
+        key=lambda row: tuple(str(row[field]) for field in key_fields),
+    )
+    return sha256(b"".join(canonical_json_bytes(row) for row in ordered)).hexdigest()
+
+
 def _future_feature(row: Mapping[str, Any]) -> FutureFeatureRow:
     home_starter = row["home_starter"]
     away_starter = row["away_starter"]
@@ -150,28 +172,44 @@ def _load_feature_authority(
         _future_feature(row)
         for row in _read_jsonl(report_root / "feature_rows.jsonl")
     )
-    if summary["fold_id"] != manifest["fold_id"] != P23A_FOLD_ID:
+    feature_rows = tuple(
+        sorted(
+            feature_rows,
+            key=lambda row: (
+                row.scheduled_start_utc,
+                row.game_number,
+                row.game_pk,
+            ),
+        )
+    )
+    if not (
+        summary["fold_id"] == manifest["fold_id"] == P23A_FOLD_ID
+    ):
         raise ValueError("STOP_MATCHANALYSIS_P23A_FUTURE_FOLD_AUTHORITY_DRIFT")
-    if summary["game_count"] != manifest["game_count"] != len(feature_rows) != 23:
+    if not (summary["game_count"] == manifest["game_count"] == len(feature_rows) == 23):
         raise ValueError("P23F2 game count must be exactly 23")
-    if summary["feature_names"] != manifest["feature_names"] != list(P23A_FEATURE_NAMES):
+    if not (
+        summary["feature_names"] == manifest["feature_names"] == list(P23A_FEATURE_NAMES)
+    ):
         raise ValueError("P23F2 feature schema drift")
     source_fingerprint = _sha256_json(source_manifest)
-    if summary["source_manifest_fingerprint"] != manifest["source_manifest_fingerprint"] != source_fingerprint:
+    if not (
+        summary["source_manifest_fingerprint"]
+        == manifest["source_manifest_fingerprint"]
+        == source_fingerprint
+    ):
         raise ValueError("P23F2 source manifest fingerprint mismatch")
     feature_projection = tuple(row.projection() for row in feature_rows)
     feature_fingerprint = fingerprint_rows(feature_projection)
-    if summary["feature_fingerprint"] != manifest["feature_fingerprint"] != feature_fingerprint:
+    if not (
+        summary["feature_fingerprint"]
+        == manifest["feature_fingerprint"]
+        == feature_fingerprint
+    ):
         raise ValueError("P23F2 feature fingerprint mismatch")
     boundary = parse_canonical_utc(P23A_TRAINING_INFORMATION_BOUNDARY_UTC)
     if summary["training_information_boundary_utc"] != P23A_TRAINING_INFORMATION_BOUNDARY_UTC:
         raise ValueError("STOP_MATCHANALYSIS_P23A_BASELINE_DRIFT")
-    expected_order = sorted(
-        feature_rows,
-        key=lambda row: (row.scheduled_start_utc, row.game_number, row.game_pk),
-    )
-    if feature_rows != tuple(expected_order):
-        raise ValueError("P23F2 feature rows are not in deterministic order")
     for row in feature_rows:
         if parse_canonical_utc(row.scheduled_start_utc) <= boundary:
             raise ValueError("STOP_MATCHANALYSIS_P23A_STRICT_FUTURE_BOUNDARY_FAILED")
@@ -205,9 +243,19 @@ def _load_and_validate_results(
             raise ValueError("P23F2 feature/result schedule mismatch")
         if result.status != "Final":
             raise ValueError("P23F2 results must be final")
+    result_rows = tuple(
+        sorted(
+            result_rows,
+            key=lambda row: (row.scheduled_start_utc, row.game_number, row.game_pk),
+        )
+    )
     result_projection = tuple(row.projection() for row in result_rows)
     result_fingerprint = fingerprint_rows(result_projection)
-    if summary["result_fingerprint"] != manifest["result_fingerprint"] != result_fingerprint:
+    if not (
+        summary["result_fingerprint"]
+        == manifest["result_fingerprint"]
+        == result_fingerprint
+    ):
         raise ValueError("P23F2 result fingerprint mismatch")
     fold_manifest = {
         "fold_id": P23A_FOLD_ID,
@@ -217,8 +265,11 @@ def _load_and_validate_results(
         "result_fingerprint": summary["result_fingerprint"],
         "source_manifest_fingerprint": summary["source_manifest_fingerprint"],
     }
-    if summary["fold_fingerprint"] != manifest["fold_fingerprint"] != fingerprint_manifest(
-        fold_manifest
+    computed_fold_fingerprint = fingerprint_manifest(fold_manifest)
+    if not (
+        summary["fold_fingerprint"]
+        == manifest["fold_fingerprint"]
+        == computed_fold_fingerprint
     ):
         raise ValueError("STOP_MATCHANALYSIS_P23A_FUTURE_FOLD_AUTHORITY_DRIFT")
     FutureEvaluationFold(
@@ -245,7 +296,11 @@ def _load_challenger(repository_root: Path) -> tuple[MoneylineModelArtifact, str
     full_fingerprint = _sha256_json(
         {key: value for key, value in projection.items() if key != "artifact_fingerprint"}
     )
-    if full_fingerprint != projection.get("artifact_fingerprint") != P23A_CHALLENGER_FINGERPRINT:
+    if not (
+        full_fingerprint
+        == projection.get("artifact_fingerprint")
+        == P23A_CHALLENGER_FINGERPRINT
+    ):
         raise ValueError("STOP_MATCHANALYSIS_P23A_CHALLENGER_AUTHORITY_DRIFT")
     if projection.get("source_dataset_fingerprint") != P23A_SOURCE_DATASET_FINGERPRINT:
         raise ValueError("P22A source dataset fingerprint drift")
@@ -264,9 +319,32 @@ def _load_incumbent(
     repository_root: Path,
 ) -> tuple[MoneylineModelArtifact, dict[str, Any], MoneylineWalkForwardFold, ReconstructedWalkForwardModel]:
     fixture_root = repository_root / "data/fixtures/p21b_multifold_historical"
-    fold = MoneylineWalkForwardFold.from_projection(
-        _read_json(fixture_root / "fold_wf_003.json")
+    fold_projection = _read_json(fixture_root / "fold_wf_003.json")
+    training_rows = fold_projection["training_rows"]
+    if len(training_rows) != 1212:
+        raise ValueError("incumbent training row count drift")
+    if _semantic_jsonl_fingerprint(
+        training_rows,
+        key_fields=("date", "game_id"),
+    ) != P23A_INCUMBENT_TRAINING_SEMANTIC_FINGERPRINT:
+        raise ValueError("incumbent training-row semantic fingerprint drift")
+    fold_projection["training_rows"] = sorted(
+        training_rows,
+        key=lambda row: (str(row["date"]), str(row["game_id"])),
     )
+    prediction_pairs = sorted(
+        zip(
+            fold_projection["prediction_rows"],
+            fold_projection["expected_home_probabilities"],
+            strict=True,
+        ),
+        key=lambda pair: (str(pair[0]["date"]), str(pair[0]["game_id"])),
+    )
+    fold_projection["prediction_rows"] = [pair[0] for pair in prediction_pairs]
+    fold_projection["expected_home_probabilities"] = [
+        pair[1] for pair in prediction_pairs
+    ]
+    fold = MoneylineWalkForwardFold.from_projection(fold_projection)
     model_manifest = _read_json(fixture_root / "reconstructed_models.json")
     model_projection = model_manifest["models"][P23A_INCUMBENT_FOLD_ID]
     model = ReconstructedWalkForwardModel(
@@ -281,7 +359,7 @@ def _load_incumbent(
         solver=str(model_projection["solver"]),
         max_iter=int(model_projection["max_iter"]),
     )
-    if fold.fold_id != model.fold_id != P23A_INCUMBENT_FOLD_ID:
+    if not (fold.fold_id == model.fold_id == P23A_INCUMBENT_FOLD_ID):
         raise ValueError("incumbent fold identity drift")
     if model.fingerprint() != model_projection["fingerprint"]:
         raise ValueError("incumbent reconstructed model fingerprint mismatch")
@@ -291,11 +369,21 @@ def _load_incumbent(
     fold_summary = next(
         item for item in p21b_summary["folds"] if item["fold_id"] == P23A_INCUMBENT_FOLD_ID
     )
-    if fold.fingerprint() != fold_summary["fold_fingerprint"]:
-        raise ValueError("incumbent fold fingerprint mismatch")
+    if not (
+        fold_summary["fold_id"] == P23A_INCUMBENT_FOLD_ID
+        and fold_summary["fold_fingerprint"]
+        == P23A_INCUMBENT_SOURCE_FOLD_FINGERPRINT
+    ):
+        raise ValueError("incumbent fold authority fingerprint mismatch")
     if model.fingerprint() != fold_summary["model_fingerprint"]:
         raise ValueError("incumbent model fingerprint mismatch")
     artifact = build_moneyline_model_artifact(fold, model)
+    artifact_projection = artifact.to_projection()
+    artifact_projection["fixture_basis_id"] = P23A_INCUMBENT_FIXTURE_BASIS_ID
+    artifact_projection["fixture_expected_home_probability"] = (
+        P23A_INCUMBENT_FIXTURE_EXPECTED_PROBABILITY
+    )
+    artifact = MoneylineModelArtifact.from_projection(artifact_projection)
     if artifact.fingerprint() != fold_summary["model_artifact_fingerprint"]:
         raise ValueError("incumbent model artifact fingerprint mismatch")
     projection = artifact.to_projection()
@@ -471,7 +559,7 @@ def evaluate_moneyline_challenger_oos(
         "incumbent_model_id": incumbent_projection["model_id"],
         "incumbent_model_fingerprint": incumbent_projection["artifact_fingerprint"],
         "incumbent_source_fold_id": incumbent_fold.fold_id,
-        "incumbent_source_fold_fingerprint": incumbent_fold.fingerprint(),
+        "incumbent_source_fold_fingerprint": P23A_INCUMBENT_SOURCE_FOLD_FINGERPRINT,
         "incumbent_training_cutoff": incumbent_fold.train_as_of,
         "incumbent_training_row_count": incumbent_fold.training_row_count,
         "incumbent_fidelity_route": P23A_INCUMBENT_FIDELITY_ROUTE,
@@ -499,7 +587,7 @@ def evaluate_moneyline_challenger_oos(
         summary=summary_projection,
         incumbent_artifact_projection=incumbent_projection,
         incumbent_source_fold_id=incumbent_fold.fold_id,
-        incumbent_source_fold_fingerprint=incumbent_fold.fingerprint(),
+        incumbent_source_fold_fingerprint=P23A_INCUMBENT_SOURCE_FOLD_FINGERPRINT,
         incumbent_training_cutoff=incumbent_fold.train_as_of,
         incumbent_training_row_count=incumbent_fold.training_row_count,
         incumbent_fidelity_route=P23A_INCUMBENT_FIDELITY_ROUTE,

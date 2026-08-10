@@ -46,6 +46,31 @@ class EvaluateMoneylineChallengerOOSTests(unittest.TestCase):
         )
         self.assertEqual(first, second)
 
+    def test_input_row_order_does_not_change_paired_output(self) -> None:
+        predictions = predict_feature_rows(self.features, self.challenger, self.incumbent)
+        first = pair_predictions_with_results(
+            feature_rows=self.features,
+            predictions=predictions,
+            result_rows=self.results,
+            challenger_model_id=self.challenger_id,
+            challenger_model_fingerprint=self.challenger_fp,
+            incumbent_model_id=self.incumbent_id,
+            incumbent_model_fingerprint=self.incumbent_fp,
+        )
+        second = pair_predictions_with_results(
+            feature_rows=tuple(reversed(self.features)),
+            predictions=predictions,
+            result_rows=tuple(reversed(self.results)),
+            challenger_model_id=self.challenger_id,
+            challenger_model_fingerprint=self.challenger_fp,
+            incumbent_model_id=self.incumbent_id,
+            incumbent_model_fingerprint=self.incumbent_fp,
+        )
+        self.assertEqual(
+            tuple(row.to_projection() for row in first),
+            tuple(row.to_projection() for row in second),
+        )
+
     def test_outcomes_are_joined_after_predictions_are_frozen(self) -> None:
         predictions = predict_feature_rows(self.features, self.challenger, self.incumbent)
         original_rows = pair_predictions_with_results(
