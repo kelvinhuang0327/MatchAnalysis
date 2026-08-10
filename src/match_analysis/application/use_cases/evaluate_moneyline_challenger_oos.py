@@ -317,9 +317,19 @@ def _load_challenger(repository_root: Path) -> tuple[MoneylineModelArtifact, str
 
 def _load_incumbent(
     repository_root: Path,
-) -> tuple[MoneylineModelArtifact, dict[str, Any], MoneylineWalkForwardFold, ReconstructedWalkForwardModel]:
+) -> tuple[
+    MoneylineModelArtifact,
+    dict[str, Any],
+    MoneylineWalkForwardFold,
+    ReconstructedWalkForwardModel,
+    str,
+]:
     fixture_root = repository_root / "data/fixtures/p21b_multifold_historical"
     fold_projection = _read_json(fixture_root / "fold_wf_003.json")
+    source_fold = MoneylineWalkForwardFold.from_projection(fold_projection)
+    source_fold_fingerprint = source_fold.fingerprint()
+    if source_fold_fingerprint != P23A_INCUMBENT_SOURCE_FOLD_FINGERPRINT:
+        raise ValueError("incumbent fold fingerprint mismatch")
     training_rows = fold_projection["training_rows"]
     if len(training_rows) != 1212:
         raise ValueError("incumbent training row count drift")
@@ -372,7 +382,7 @@ def _load_incumbent(
     if not (
         fold_summary["fold_id"] == P23A_INCUMBENT_FOLD_ID
         and fold_summary["fold_fingerprint"]
-        == P23A_INCUMBENT_SOURCE_FOLD_FINGERPRINT
+        == source_fold_fingerprint
     ):
         raise ValueError("incumbent fold authority fingerprint mismatch")
     if model.fingerprint() != fold_summary["model_fingerprint"]:
@@ -388,7 +398,7 @@ def _load_incumbent(
         raise ValueError("incumbent model artifact fingerprint mismatch")
     projection = artifact.to_projection()
     projection["artifact_fingerprint"] = artifact.fingerprint()
-    return artifact, projection, fold, model
+    return artifact, projection, fold, model, source_fold_fingerprint
 
 
 def _validate_no_training_overlap(
@@ -518,7 +528,13 @@ def evaluate_moneyline_challenger_oos(
     root = Path(repository_root)
     summary, manifest, source_manifest, feature_rows = _load_feature_authority(root)
     challenger, challenger_fingerprint, challenger_projection = _load_challenger(root)
-    incumbent, incumbent_projection, incumbent_fold, incumbent_model = _load_incumbent(root)
+    (
+        incumbent,
+        incumbent_projection,
+        incumbent_fold,
+        incumbent_model,
+        incumbent_source_fold_fingerprint,
+    ) = _load_incumbent(root)
     _validate_no_training_overlap(root, feature_rows)
 
     # Both prediction streams are fully frozen before final outcomes are read.
@@ -559,7 +575,7 @@ def evaluate_moneyline_challenger_oos(
         "incumbent_model_id": incumbent_projection["model_id"],
         "incumbent_model_fingerprint": incumbent_projection["artifact_fingerprint"],
         "incumbent_source_fold_id": incumbent_fold.fold_id,
-        "incumbent_source_fold_fingerprint": P23A_INCUMBENT_SOURCE_FOLD_FINGERPRINT,
+        "incumbent_source_fold_fingerprint": incumbent_source_fold_fingerprint,
         "incumbent_training_cutoff": incumbent_fold.train_as_of,
         "incumbent_training_row_count": incumbent_fold.training_row_count,
         "incumbent_fidelity_route": P23A_INCUMBENT_FIDELITY_ROUTE,
@@ -587,7 +603,7 @@ def evaluate_moneyline_challenger_oos(
         summary=summary_projection,
         incumbent_artifact_projection=incumbent_projection,
         incumbent_source_fold_id=incumbent_fold.fold_id,
-        incumbent_source_fold_fingerprint=P23A_INCUMBENT_SOURCE_FOLD_FINGERPRINT,
+        incumbent_source_fold_fingerprint=incumbent_source_fold_fingerprint,
         incumbent_training_cutoff=incumbent_fold.train_as_of,
         incumbent_training_row_count=incumbent_fold.training_row_count,
         incumbent_fidelity_route=P23A_INCUMBENT_FIDELITY_ROUTE,
