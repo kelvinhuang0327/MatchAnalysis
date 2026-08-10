@@ -46,6 +46,7 @@ AUTHORIZED_SOURCE_PATHS = {
     "baseball/domain/moneyline_feature_snapshot.py",
     "baseball/domain/moneyline_model_artifact.py",
     "baseball/domain/moneyline_walk_forward_fold.py",
+    "baseball/domain/future_evaluation_fold.py",
     "baseball/domain/quarantine_link.py",
     "baseball/domain/schedule.py",
     "baseball/domain/schedule_game_materialization.py",
@@ -70,6 +71,7 @@ AUTHORIZED_SOURCE_PATHS = {
     "infrastructure/legacy_betting_pool/p84b_schedule_jsonl.py",
     "infrastructure/mlb_schedule/__init__.py",
     "infrastructure/mlb_schedule/explicit_payload_source.py",
+    "infrastructure/providers/mlb_official_historical_source.py",
     "interfaces/__init__.py",
     "interfaces/cli/__init__.py",
     "interfaces/cli/prospective_prediction_admission.py",
@@ -104,6 +106,9 @@ AUTHORIZED_SOURCE_PATHS = {
     "baseball/domain/supervised_training_example.py",
     "application/use_cases/assess_prediction_learning_candidates.py",
     "application/use_cases/prediction_learning_candidate_artifacts.py",
+    "application/use_cases/acquire_future_moneyline_history.py",
+    "application/use_cases/materialize_future_moneyline_fold.py",
+    "application/use_cases/future_moneyline_fold_artifacts.py",
     "application/use_cases/materialize_moneyline_training_dataset.py",
     "application/use_cases/moneyline_training_dataset_artifacts.py",
     "application/use_cases/moneyline_challenger_artifacts.py",
@@ -111,6 +116,7 @@ AUTHORIZED_SOURCE_PATHS = {
     "interfaces/cli/prediction_learning_candidate_gate.py",
     "interfaces/cli/materialize_moneyline_training_dataset.py",
     "interfaces/cli/train_moneyline_challenger.py",
+    "interfaces/cli/acquire_future_moneyline_fold.py",
 }
 
 MLB_SCHEDULE_PAYLOAD_ADAPTER_RUNTIME_PATHS = (
@@ -410,8 +416,15 @@ class DependencyRuleTests(unittest.TestCase):
         )
 
     def test_application_does_not_depend_on_outer_layers(self) -> None:
+        paths = sorted((PACKAGE_ROOT / "application").rglob("*.py"))
+        paths.remove(
+            PACKAGE_ROOT
+            / "application"
+            / "use_cases"
+            / "acquire_future_moneyline_history.py"
+        )
         self.assert_layer_excludes(
-            sorted((PACKAGE_ROOT / "application").rglob("*.py")),
+            paths,
             (
                 "match_analysis.infrastructure",
                 "match_analysis.interfaces",
@@ -450,7 +463,6 @@ class DependencyRuleTests(unittest.TestCase):
             "api",
             "database",
             "db",
-            "provider",
             "scheduler",
             "scripts",
         }

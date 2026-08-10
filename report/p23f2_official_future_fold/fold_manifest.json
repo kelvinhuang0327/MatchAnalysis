@@ -1,0 +1,29 @@
+{
+  "external_source": true,
+  "feature_as_of_range": [
+    "2026-06-08T22:34:59.999999Z",
+    "2026-06-10T02:04:59.999999Z"
+  ],
+  "feature_fingerprint": "8d69b9c8bbbf1c4107d7bb5979fee1118bdf7a637529ec9775c6f3dd469b3deb",
+  "feature_names": [
+    "recent_win_rate_delta",
+    "starter_era_delta"
+  ],
+  "fold_fingerprint": "50b56eac672a83b03877d7581a250ea123ce27f598075c1d12ca28e5e0cf3c7e",
+  "fold_id": "wf_004",
+  "game_count": 23,
+  "model_evaluated": false,
+  "model_promoted": false,
+  "production_ready": false,
+  "result_fingerprint": "f17471b1ceaa6b85e2037a228c8224f063b024a187d4c14922b54e81eb476677",
+  "scheduled_start_range": [
+    "2026-06-08T22:35:00Z",
+    "2026-06-10T02:05:00Z"
+  ],
+  "schema_version": "p23f2.future_evaluation_fold.v1",
+  "source_manifest_fingerprint": "94aae2435bc4cb0f97ce77cb83c0a370a86392268e4d4ec1b2f130ca1f4e0447",
+  "strict_future": true,
+  "training_information_boundary_utc": "2026-03-12T06:29:35.016973Z",
+  "validation_end": "2026-06-09",
+  "validation_start": "2026-06-08"
+}
