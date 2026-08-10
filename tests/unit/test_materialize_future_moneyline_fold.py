@@ -13,7 +13,11 @@ sys.path.insert(0, str(REPOSITORY_ROOT / "src"))
 from match_analysis.application.use_cases.acquire_future_moneyline_history import load_normalized_rows
 from match_analysis.application.use_cases.future_moneyline_fold_artifacts import canonical_json_bytes
 from match_analysis.application.use_cases.materialize_future_moneyline_fold import materialize_future_moneyline_fold, materialize_from_normalized_dir
-from match_analysis.baseball.domain.future_evaluation_fold import FEATURE_NAMES, TRAINING_INFORMATION_BOUNDARY_UTC
+from match_analysis.baseball.domain.future_evaluation_fold import (
+    FEATURE_NAMES,
+    TRAINING_INFORMATION_BOUNDARY_UTC,
+    fingerprint_rows,
+)
 
 
 NORMALIZED_ROOT = REPOSITORY_ROOT / "data/fixtures/p23f2_official_2026_history/normalized"
@@ -68,12 +72,20 @@ class MaterializeFutureMoneylineFoldTests(unittest.TestCase):
             source_manifest_fingerprint=source_fingerprint(),
         )
         mutated = replace(fold.result_rows[0], home_score=0, away_score=99)
-        self.assertNotEqual(mutated.home_score, fold.result_rows[0].home_score)
-        self.assertEqual(
-            tuple(row.feature_fingerprint for row in fold.feature_rows),
-            tuple(row.feature_fingerprint for row in fold.feature_rows),
+        mutated_fold = replace(
+            fold,
+            result_rows=(mutated, *fold.result_rows[1:]),
         )
-        self.assertEqual(fold.feature_fingerprint, fold.feature_fingerprint)
+        original_result_fingerprint = fingerprint_rows(
+            tuple(row.projection() for row in fold.result_rows)
+        )
+        mutated_result_fingerprint = fingerprint_rows(
+            tuple(row.projection() for row in mutated_fold.result_rows)
+        )
+        self.assertNotEqual(mutated.home_score, fold.result_rows[0].home_score)
+        self.assertNotEqual(original_result_fingerprint, mutated_result_fingerprint)
+        self.assertEqual(mutated_fold.feature_fingerprint, fold.feature_fingerprint)
+        self.assertEqual(mutated_fold.feature_rows, fold.feature_rows)
 
 
 if __name__ == "__main__":

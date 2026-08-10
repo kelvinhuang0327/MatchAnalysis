@@ -417,19 +417,26 @@ class DependencyRuleTests(unittest.TestCase):
 
     def test_application_does_not_depend_on_outer_layers(self) -> None:
         paths = sorted((PACKAGE_ROOT / "application").rglob("*.py"))
-        paths.remove(
+        p23f2_acquisition = (
             PACKAGE_ROOT
             / "application"
             / "use_cases"
             / "acquire_future_moneyline_history.py"
         )
-        self.assert_layer_excludes(
-            paths,
-            (
-                "match_analysis.infrastructure",
-                "match_analysis.interfaces",
-            ),
-        )
+        violations = []
+        for path in paths:
+            for target, line_number in imported_modules(path):
+                is_allowlisted_p23f2_source = (
+                    path == p23f2_acquisition
+                    and target
+                    == "match_analysis.infrastructure.providers.mlb_official_historical_source"
+                )
+                if target.startswith(
+                    ("match_analysis.infrastructure", "match_analysis.interfaces")
+                ) and not is_allowlisted_p23f2_source:
+                    relative = path.relative_to(REPOSITORY_ROOT)
+                    violations.append(f"{relative}:{line_number} -> {target}")
+        self.assertEqual(violations, [])
 
     def test_source_has_no_legacy_imports(self) -> None:
         violations: list[str] = []
@@ -463,15 +470,22 @@ class DependencyRuleTests(unittest.TestCase):
             "api",
             "database",
             "db",
+            "provider",
             "scheduler",
             "scripts",
         }
+        allowlisted_p23f2_provider = (
+            PACKAGE_ROOT
+            / "infrastructure"
+            / "providers"
+            / "mlb_official_historical_source.py"
+        )
         violations = [
             path.relative_to(PACKAGE_ROOT).as_posix()
             for path in source_files()
             if forbidden_path_parts.intersection(
                 path.relative_to(PACKAGE_ROOT).parts
-            )
+            ) and path != allowlisted_p23f2_provider
         ]
         self.assertEqual(violations, [])
 
