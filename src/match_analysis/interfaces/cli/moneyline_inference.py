@@ -12,13 +12,13 @@ from ...application.use_cases.moneyline_inference_artifacts import (
     load_moneyline_model_artifact,
     write_moneyline_inference_artifacts,
 )
+from ...application.use_cases.paper_moneyline_batch_artifacts import (
+    default_paper_moneyline_model_artifact_path,
+)
 
 
-DEFAULT_PAPER_MONEYLINE_MODEL_ARTIFACT_PATH = (
+DEFAULT_PAPER_MONEYLINE_MODEL_ARTIFACT_PATH = default_paper_moneyline_model_artifact_path(
     Path(__file__).resolve().parents[4]
-    / "report"
-    / "p22b_moneyline_challenger"
-    / "model_artifact.json"
 )
 
 

@@ -1,0 +1,1741 @@
+{
+  "acquisition_timestamp_utc": "2026-08-10T00:00:00Z",
+  "historical_date_scope": {
+    "end": "2026-06-20",
+    "start": "2026-06-14"
+  },
+  "normalized_hashes": {
+    "pitcher_game_logs.jsonl": "f3ded71b1a07efbb938caac3e01356a95bcc22311a62b5f17d91d64fbf574a64",
+    "schedule.jsonl": "905c78e2e25f9a33ef71698d7c9f861feceb0b8c30058608c017abf98674e99e",
+    "target_boxscores.jsonl": "ae17808991541c4ad9c3fe0347678c7fd8ded09d1af5113d205236a41f8a3ded"
+  },
+  "records": [
+    {
+      "acquired_at_utc": "2026-08-10T03:45:00Z",
+      "path": "data/fixtures/p23f2_official_2026_history/raw/schedule_2026-03-25_2026-06-30.json",
+      "scope": "reused official schedule rows 2026-06-14..2026-06-20",
+      "sha256": "6950ed55ff1ddeb9b90f90138847ed7ebe79ce39d37614268d344af96eb65e55",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-03-25&endDate=2026-06-30&gameType=R&hydrate=team"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/822721.json",
+      "scope": "official boxscore game 822721",
+      "sha256": "8a5ef9d62180d8ea9873a2828218f39e3a431e8c475703c6d8e761dab934f5b7",
+      "url": "https://statsapi.mlb.com/api/v1/game/822721/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/822722.json",
+      "scope": "official boxscore game 822722",
+      "sha256": "8e52af2710be16b45d644159ad2b35af0dd30a2efa73d6f561fc2afa58d765be",
+      "url": "https://statsapi.mlb.com/api/v1/game/822722/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/822723.json",
+      "scope": "official boxscore game 822723",
+      "sha256": "e1b8a73287904b7ec85affc19b147931a82c06022cfa89d73b5df37a1f0d4c8a",
+      "url": "https://statsapi.mlb.com/api/v1/game/822723/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/822724.json",
+      "scope": "official boxscore game 822724",
+      "sha256": "c31ef1737dc6c9f693e80d5d86ce84cc0f951b5bfd942ed8187390d1e8bef673",
+      "url": "https://statsapi.mlb.com/api/v1/game/822724/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/822801.json",
+      "scope": "official boxscore game 822801",
+      "sha256": "832a0868f31407bbbb2276662b3bddb3f2e91b9be5251a7e55f6d98af00c9747",
+      "url": "https://statsapi.mlb.com/api/v1/game/822801/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/822885.json",
+      "scope": "official boxscore game 822885",
+      "sha256": "023260a1eb7501ae97de4ae0e89cbdf79947ed2c464b82fff1a60d33f91f638a",
+      "url": "https://statsapi.mlb.com/api/v1/game/822885/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/822886.json",
+      "scope": "official boxscore game 822886",
+      "sha256": "723c5f9fdcd1a2a7e2fa1ec2c8c17c84040967998507636d6facdf84d9181578",
+      "url": "https://statsapi.mlb.com/api/v1/game/822886/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/822887.json",
+      "scope": "official boxscore game 822887",
+      "sha256": "89a026acf23008a1ec8510027fdfd73e2e9865bc99203d97da45b42b940e8e30",
+      "url": "https://statsapi.mlb.com/api/v1/game/822887/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/822888.json",
+      "scope": "official boxscore game 822888",
+      "sha256": "44cfcc9de023795255d6e8855cb16964f9aa221a527a6f984bab15c12a0649f5",
+      "url": "https://statsapi.mlb.com/api/v1/game/822888/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/822889.json",
+      "scope": "official boxscore game 822889",
+      "sha256": "469e02bef41e669f7d73140448ee50bd4e0bc61657cdbb0d50c72421a5162465",
+      "url": "https://statsapi.mlb.com/api/v1/game/822889/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/822966.json",
+      "scope": "official boxscore game 822966",
+      "sha256": "042d873cf59733d2c90b99eac51daed78f2e0211250c37c93fad4046798f87d6",
+      "url": "https://statsapi.mlb.com/api/v1/game/822966/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/822967.json",
+      "scope": "official boxscore game 822967",
+      "sha256": "10f4ad3e56ec8e13afc423a5fa065ba72a1c53b928204ec0f18647de1f6544cb",
+      "url": "https://statsapi.mlb.com/api/v1/game/822967/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823044.json",
+      "scope": "official boxscore game 823044",
+      "sha256": "bc11a1572f7f538cd581135381516dbac2e5d76577335cb98224278d5b519ba0",
+      "url": "https://statsapi.mlb.com/api/v1/game/823044/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823045.json",
+      "scope": "official boxscore game 823045",
+      "sha256": "72c40bbb966b5fafa29a42e14428f104cc5443a22549556678bf8a490898bdab",
+      "url": "https://statsapi.mlb.com/api/v1/game/823045/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823046.json",
+      "scope": "official boxscore game 823046",
+      "sha256": "edd48e0fd819cf0e559bb784226388b9bf28037034ea7868a03a54c77afff912",
+      "url": "https://statsapi.mlb.com/api/v1/game/823046/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823124.json",
+      "scope": "official boxscore game 823124",
+      "sha256": "8010ead9fba4a963ab4be48938d068bb8a7d58dea6fe2a1a287c48f66a6965d3",
+      "url": "https://statsapi.mlb.com/api/v1/game/823124/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823125.json",
+      "scope": "official boxscore game 823125",
+      "sha256": "b6d550b2e887f0aed24dabf8731abfd01f314317848ba2382309eb08d5d82024",
+      "url": "https://statsapi.mlb.com/api/v1/game/823125/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823126.json",
+      "scope": "official boxscore game 823126",
+      "sha256": "4effff9dcb8d1d47b3f4b4f52632b812cb9298c6b23c779b57e30fa76eeab465",
+      "url": "https://statsapi.mlb.com/api/v1/game/823126/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823127.json",
+      "scope": "official boxscore game 823127",
+      "sha256": "c367517c20f54140d2570d9d600aea6c9b302222823b76b04ebb9d4d82565256",
+      "url": "https://statsapi.mlb.com/api/v1/game/823127/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823128.json",
+      "scope": "official boxscore game 823128",
+      "sha256": "11596819d75daa7240a2dcd85fecd9240cadfda14c58da3c1f0d130382da618e",
+      "url": "https://statsapi.mlb.com/api/v1/game/823128/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823212.json",
+      "scope": "official boxscore game 823212",
+      "sha256": "0a31f8466425f8f9c6b216d50845d330e7ec679fec9b7f2bceba3b9b72c880a4",
+      "url": "https://statsapi.mlb.com/api/v1/game/823212/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823368.json",
+      "scope": "official boxscore game 823368",
+      "sha256": "84c29ab91d94c352032623bdcd4d9c907871ff1295724a0c9fcf90a37abb6290",
+      "url": "https://statsapi.mlb.com/api/v1/game/823368/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823447.json",
+      "scope": "official boxscore game 823447",
+      "sha256": "835c292f216a4f5262386deb321233baece0dce2fb4be156810a8ff896f21754",
+      "url": "https://statsapi.mlb.com/api/v1/game/823447/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823448.json",
+      "scope": "official boxscore game 823448",
+      "sha256": "3639c4bbaaf74fe3b69b048f3ec43c8f2749c6d9b708685127692fdc5261dd9b",
+      "url": "https://statsapi.mlb.com/api/v1/game/823448/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823450.json",
+      "scope": "official boxscore game 823450",
+      "sha256": "ffb896c605a737e7b079cfd2037f99b3c0f4399d4d7e9440ceea5346ce22df86",
+      "url": "https://statsapi.mlb.com/api/v1/game/823450/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823451.json",
+      "scope": "official boxscore game 823451",
+      "sha256": "7e206c277fd41d9bd5f3a8b028b9a32c509ee5a94ca74f65b083a27b2ed13085",
+      "url": "https://statsapi.mlb.com/api/v1/game/823451/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823452.json",
+      "scope": "official boxscore game 823452",
+      "sha256": "45025063d9983a3aa67d9423f50b7713ab08e7b79eb13c9a732f3242219778d6",
+      "url": "https://statsapi.mlb.com/api/v1/game/823452/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823532.json",
+      "scope": "official boxscore game 823532",
+      "sha256": "2423db1c7ad6e73ea8592ce8fc0c4ff864c852cc148f967a2e7b339d053739de",
+      "url": "https://statsapi.mlb.com/api/v1/game/823532/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823533.json",
+      "scope": "official boxscore game 823533",
+      "sha256": "d8586a4758bd6a07128a992ed8495184a28af37a18f908e1d9f870b0e3edc4b0",
+      "url": "https://statsapi.mlb.com/api/v1/game/823533/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823534.json",
+      "scope": "official boxscore game 823534",
+      "sha256": "245748667d03813c650044b828baa1e2416388926cfb433a0ec556c36d6d3f0b",
+      "url": "https://statsapi.mlb.com/api/v1/game/823534/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823535.json",
+      "scope": "official boxscore game 823535",
+      "sha256": "efb339daeab27413a1e3454e5b5a81a4a248f717609ecb67577ffda6cf6b695a",
+      "url": "https://statsapi.mlb.com/api/v1/game/823535/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823536.json",
+      "scope": "official boxscore game 823536",
+      "sha256": "4752bd388d0ea1b1faa92bb2bb4cb53e0a6bc9d687aebe4e654a098fc3ab9bb2",
+      "url": "https://statsapi.mlb.com/api/v1/game/823536/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823615.json",
+      "scope": "official boxscore game 823615",
+      "sha256": "d18a5fbcc7db5f8d296c36ca9b343ce6dff638e9a320e15e8c6107065737e335",
+      "url": "https://statsapi.mlb.com/api/v1/game/823615/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823693.json",
+      "scope": "official boxscore game 823693",
+      "sha256": "b35fe65bcc4c2439a1e5730ae4b217b8c9b0722080084376d3b21b153ad1628a",
+      "url": "https://statsapi.mlb.com/api/v1/game/823693/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823772.json",
+      "scope": "official boxscore game 823772",
+      "sha256": "76d963dc9c8d2cdc1c7f5a8a67bde2d97b94fb018b8468727e923817ff4b4e12",
+      "url": "https://statsapi.mlb.com/api/v1/game/823772/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823774.json",
+      "scope": "official boxscore game 823774",
+      "sha256": "2e8260bbd8da5f0a355e7f539b2efb2bd7bd08c53b4b2cb7d6d8af96b7a553f9",
+      "url": "https://statsapi.mlb.com/api/v1/game/823774/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823775.json",
+      "scope": "official boxscore game 823775",
+      "sha256": "cb585632a89040d028e3eafd104c5178e4bda92cbab01975030e485d13daf187",
+      "url": "https://statsapi.mlb.com/api/v1/game/823775/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823777.json",
+      "scope": "official boxscore game 823777",
+      "sha256": "33d4d261d49a525bdb3b0c8806e9b627c413acd69e81020b5438f8d576319d81",
+      "url": "https://statsapi.mlb.com/api/v1/game/823777/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823853.json",
+      "scope": "official boxscore game 823853",
+      "sha256": "1248e5a238e8c5c40d5199c53f983913060238a2058d36240ae3ea310b20de70",
+      "url": "https://statsapi.mlb.com/api/v1/game/823853/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823854.json",
+      "scope": "official boxscore game 823854",
+      "sha256": "6f748796efc0b0bb95460903ef988a386bb725c1d65d9df924fd8580d18cdd9e",
+      "url": "https://statsapi.mlb.com/api/v1/game/823854/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823936.json",
+      "scope": "official boxscore game 823936",
+      "sha256": "dd918d7b32dd4e0514dc0732d0db19c5ba8531ecc250117a81f3cf7c2f9ca498",
+      "url": "https://statsapi.mlb.com/api/v1/game/823936/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823937.json",
+      "scope": "official boxscore game 823937",
+      "sha256": "2a7214ed7b34bf9719eb1468c5e27bb9a2d9c6d77b762a077f38b1b0d7a575d0",
+      "url": "https://statsapi.mlb.com/api/v1/game/823937/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823938.json",
+      "scope": "official boxscore game 823938",
+      "sha256": "4abd17a52547033528d4be022cb646c279b9e2813194ea1fb3462d158a56765a",
+      "url": "https://statsapi.mlb.com/api/v1/game/823938/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823939.json",
+      "scope": "official boxscore game 823939",
+      "sha256": "dca6c30734339e23297e09ce94e3b13af62d9a2e3fff8f17d697fbeb37a37103",
+      "url": "https://statsapi.mlb.com/api/v1/game/823939/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/823940.json",
+      "scope": "official boxscore game 823940",
+      "sha256": "cff75c302c9f9ec3f5402e3e52ce3567c3b9a81574390732714dad851be14e6f",
+      "url": "https://statsapi.mlb.com/api/v1/game/823940/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824021.json",
+      "scope": "official boxscore game 824021",
+      "sha256": "122877c9cafb8e9083abda77614d757dd0d598f6f82ec5119946be767f5db093",
+      "url": "https://statsapi.mlb.com/api/v1/game/824021/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824097.json",
+      "scope": "official boxscore game 824097",
+      "sha256": "4b39cb22dacd19d03dd59c79f87041bc1f60e75fb6c4dece84a52df4c65aff53",
+      "url": "https://statsapi.mlb.com/api/v1/game/824097/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824098.json",
+      "scope": "official boxscore game 824098",
+      "sha256": "21eea5d7fae234236398112487545f6b0fc9a30a125063341054327bdb2ddaa3",
+      "url": "https://statsapi.mlb.com/api/v1/game/824098/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824099.json",
+      "scope": "official boxscore game 824099",
+      "sha256": "cfaa9dc9d4b21e7a41375d0980114d7be38e921389d85acac22c147ef3da4faa",
+      "url": "https://statsapi.mlb.com/api/v1/game/824099/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824178.json",
+      "scope": "official boxscore game 824178",
+      "sha256": "70eac7f77de85630cf127f5eaaf72aed8f7599e39e87fef0508984622b52618e",
+      "url": "https://statsapi.mlb.com/api/v1/game/824178/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824179.json",
+      "scope": "official boxscore game 824179",
+      "sha256": "0976c9913a83b12fd8b018d8465b099a5ea88eae7765188e5108bfadfb5fbb2f",
+      "url": "https://statsapi.mlb.com/api/v1/game/824179/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824180.json",
+      "scope": "official boxscore game 824180",
+      "sha256": "a8a23ccd4c51adee7e995e49d8362a45c849769dea01f3e670fb8025e522ff2e",
+      "url": "https://statsapi.mlb.com/api/v1/game/824180/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824181.json",
+      "scope": "official boxscore game 824181",
+      "sha256": "5cd5e170ef9b90b8ee0dfe2e7ba951531b116ea88b1f8ce512c2931c50b2ac97",
+      "url": "https://statsapi.mlb.com/api/v1/game/824181/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824182.json",
+      "scope": "official boxscore game 824182",
+      "sha256": "51f6b4fd90f48f1b29e54926b9b7f52caad69d5f24f4817447368b1078d640c9",
+      "url": "https://statsapi.mlb.com/api/v1/game/824182/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824263.json",
+      "scope": "official boxscore game 824263",
+      "sha256": "5d35f91d766e46cfaf3da8550f16c8844427ed93bd10f6eeaf3fe9cf91c4d471",
+      "url": "https://statsapi.mlb.com/api/v1/game/824263/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824264.json",
+      "scope": "official boxscore game 824264",
+      "sha256": "4966fbeb87a8f32f393179321095e4ed5887b18d983250c855729507d2b0c1f8",
+      "url": "https://statsapi.mlb.com/api/v1/game/824264/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824342.json",
+      "scope": "official boxscore game 824342",
+      "sha256": "e7ed19b85d92e356b7171eb2897692afb968ce28f912d8def34dae1dd42df7b6",
+      "url": "https://statsapi.mlb.com/api/v1/game/824342/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824345.json",
+      "scope": "official boxscore game 824345",
+      "sha256": "ab6476481bd564c2af26ae5a0bdc13f4a1d72b6180b2d5044a858571926eae63",
+      "url": "https://statsapi.mlb.com/api/v1/game/824345/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824503.json",
+      "scope": "official boxscore game 824503",
+      "sha256": "ff44c6aa0770427e67a349dc25b869c8af76e10bef014c251b0fd13bb40bda12",
+      "url": "https://statsapi.mlb.com/api/v1/game/824503/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824504.json",
+      "scope": "official boxscore game 824504",
+      "sha256": "acef525478b37bb0a9ac103025f141fbca51923a6387bc301be5ac432d7fc008",
+      "url": "https://statsapi.mlb.com/api/v1/game/824504/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824505.json",
+      "scope": "official boxscore game 824505",
+      "sha256": "7d23b6034d60d870dd46289cfbb2114fe1f9c40ecab66adf006d9e0dce92d944",
+      "url": "https://statsapi.mlb.com/api/v1/game/824505/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824506.json",
+      "scope": "official boxscore game 824506",
+      "sha256": "dd9d9d17681b2f2f1dd4f2d000b077da06e8e0da743755e5a61d38001d62a1e1",
+      "url": "https://statsapi.mlb.com/api/v1/game/824506/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824586.json",
+      "scope": "official boxscore game 824586",
+      "sha256": "3ff0b9e7d23a3e428eeffe8a3e1435a567b33d50f75537a194e6e2885fe4bf28",
+      "url": "https://statsapi.mlb.com/api/v1/game/824586/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824663.json",
+      "scope": "official boxscore game 824663",
+      "sha256": "3eb5f47b49856d5870434dc82b9cc64e645150b2a3bee9d98d18ad0799b6eb51",
+      "url": "https://statsapi.mlb.com/api/v1/game/824663/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824665.json",
+      "scope": "official boxscore game 824665",
+      "sha256": "c2b5f2d45b09b53b9ae8e378b3fd6d39483c9529d4de8e3794fee54e6c896771",
+      "url": "https://statsapi.mlb.com/api/v1/game/824665/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824666.json",
+      "scope": "official boxscore game 824666",
+      "sha256": "0ed18be37f06c4a38fd7540dcb3ec36d1a8b75a366e53cf68b385b47f29b2b48",
+      "url": "https://statsapi.mlb.com/api/v1/game/824666/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824667.json",
+      "scope": "official boxscore game 824667",
+      "sha256": "2264b8df42fd2cf6f6434a3da820c9e0eb21a53c7285ec3feea1244bba2fcbc4",
+      "url": "https://statsapi.mlb.com/api/v1/game/824667/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824668.json",
+      "scope": "official boxscore game 824668",
+      "sha256": "f970b9f8e06412fe5a63c4a02cbdd230596942b812f5928cdcb9811c7b708dc5",
+      "url": "https://statsapi.mlb.com/api/v1/game/824668/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824746.json",
+      "scope": "official boxscore game 824746",
+      "sha256": "13a7b46bcd07956a09656af936687d07edba1ce79d4b06a467fbe92144ae646b",
+      "url": "https://statsapi.mlb.com/api/v1/game/824746/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824748.json",
+      "scope": "official boxscore game 824748",
+      "sha256": "b031dc096ae605e20f63c343548762b714995c63d089286386a289da478a903e",
+      "url": "https://statsapi.mlb.com/api/v1/game/824748/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824750.json",
+      "scope": "official boxscore game 824750",
+      "sha256": "dd8239b6571076ff93e517a8f9e810288e516c87cd529a5d10ca6ba611a37128",
+      "url": "https://statsapi.mlb.com/api/v1/game/824750/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824751.json",
+      "scope": "official boxscore game 824751",
+      "sha256": "1bb38fa7cab1fee360f860dcbb5337cbd6e137d578dff6a780b57d5ca773069e",
+      "url": "https://statsapi.mlb.com/api/v1/game/824751/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824823.json",
+      "scope": "official boxscore game 824823",
+      "sha256": "ec54916ff08455a01fdb69320001f921d02644424bf2132d307d75b98e0a8322",
+      "url": "https://statsapi.mlb.com/api/v1/game/824823/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824909.json",
+      "scope": "official boxscore game 824909",
+      "sha256": "a6948f00aba207fe0ebc0bd2d2c26d496c019e06e2d781bb91482ad17cb7ddd5",
+      "url": "https://statsapi.mlb.com/api/v1/game/824909/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824910.json",
+      "scope": "official boxscore game 824910",
+      "sha256": "bf06737936ab800376899294b1c73a4d1a95768deee2719e9ce11a799e9d180c",
+      "url": "https://statsapi.mlb.com/api/v1/game/824910/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824912.json",
+      "scope": "official boxscore game 824912",
+      "sha256": "1b4aaea587c1e75260de1cf062073eb939ae2b03a304a479ca4ebf64ba9bbfc9",
+      "url": "https://statsapi.mlb.com/api/v1/game/824912/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824912.json",
+      "scope": "official boxscore game 824912",
+      "sha256": "1b4aaea587c1e75260de1cf062073eb939ae2b03a304a479ca4ebf64ba9bbfc9",
+      "url": "https://statsapi.mlb.com/api/v1/game/824912/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824913.json",
+      "scope": "official boxscore game 824913",
+      "sha256": "3d92b7c7816527f25659677bdd8676414998683d0e8d43dc16ed008c656b50a1",
+      "url": "https://statsapi.mlb.com/api/v1/game/824913/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824988.json",
+      "scope": "official boxscore game 824988",
+      "sha256": "4b6af060d0f960d55ae60f1c6e55e8a21aa4cf8a4b0e928b7a1facd152805fce",
+      "url": "https://statsapi.mlb.com/api/v1/game/824988/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824989.json",
+      "scope": "official boxscore game 824989",
+      "sha256": "7037d73bd82b76d8790fdaf794b26e821c1d22a37af4ca0fbfca5475608e5ccc",
+      "url": "https://statsapi.mlb.com/api/v1/game/824989/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824990.json",
+      "scope": "official boxscore game 824990",
+      "sha256": "33eb615da20b267868e4c2af4cd4fe5929b35a55d82ef925f3cc0dda33b8e994",
+      "url": "https://statsapi.mlb.com/api/v1/game/824990/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824991.json",
+      "scope": "official boxscore game 824991",
+      "sha256": "90d9634a2405340534e95734f8ba771436eb3736a869ad7ee9e44b290867d70c",
+      "url": "https://statsapi.mlb.com/api/v1/game/824991/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824992.json",
+      "scope": "official boxscore game 824992",
+      "sha256": "341dc8a230ccad881863eb0fe003d641c5ca38fcc6efa33cf003b5d7d4d7a600",
+      "url": "https://statsapi.mlb.com/api/v1/game/824992/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824993.json",
+      "scope": "official boxscore game 824993",
+      "sha256": "ae2e94fdf475a33bde7345239422e6655eeff0a96ddf3b4775fc6698c6fcf91c",
+      "url": "https://statsapi.mlb.com/api/v1/game/824993/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/824994.json",
+      "scope": "official boxscore game 824994",
+      "sha256": "672dceb07be0458b293598b0007d10be4adee6ea3a331daaf7b2128e41e46a41",
+      "url": "https://statsapi.mlb.com/api/v1/game/824994/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/825068.json",
+      "scope": "official boxscore game 825068",
+      "sha256": "10351fbe7554034e3b8fc003df6925c177b224b95bcdb6636a252c9241821689",
+      "url": "https://statsapi.mlb.com/api/v1/game/825068/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/825069.json",
+      "scope": "official boxscore game 825069",
+      "sha256": "b0c11abef82d80b39dd7a19e963434c9eca2de65add886b0204c08a0d35fa53b",
+      "url": "https://statsapi.mlb.com/api/v1/game/825069/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/825070.json",
+      "scope": "official boxscore game 825070",
+      "sha256": "d09fdfc689bf9a9388d5b4e6fb767738c0f5c6f4a568bbc83b64a01136a4fbe4",
+      "url": "https://statsapi.mlb.com/api/v1/game/825070/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/825071.json",
+      "scope": "official boxscore game 825071",
+      "sha256": "813b9db8cb8aff40ba9735b582f1a5f5a9bf5e5da69b375167e8b7255a513659",
+      "url": "https://statsapi.mlb.com/api/v1/game/825071/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/boxscores/825072.json",
+      "scope": "official boxscore game 825072",
+      "sha256": "44beee0beeabe8a3c90059a8111703d9e999bd6c1335b18de6cb1709398929b2",
+      "url": "https://statsapi.mlb.com/api/v1/game/825072/boxscore?"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/518876.json",
+      "scope": "2026 regular-season pitching game log player 518876",
+      "sha256": "7cf77eb4d8dfe1e5510e6dc89618ccadf5c882b6627b043e441712ca59403118",
+      "url": "https://statsapi.mlb.com/api/v1/people/518876/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/519242.json",
+      "scope": "2026 regular-season pitching game log player 519242",
+      "sha256": "5a72ba65a206278614b0705bd2d1ae2a28e0ad40b67d9aad47fff1e1dc2bd886",
+      "url": "https://statsapi.mlb.com/api/v1/people/519242/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/527048.json",
+      "scope": "2026 regular-season pitching game log player 527048",
+      "sha256": "3786646d07848a90539194088b3a7590b61b8ee1d0806f7f499e97d95977eb2d",
+      "url": "https://statsapi.mlb.com/api/v1/people/527048/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/543037.json",
+      "scope": "2026 regular-season pitching game log player 543037",
+      "sha256": "ebd100359997203830cacda98d1254a125cdb0e2f922cb251e68928c3dbe62b1",
+      "url": "https://statsapi.mlb.com/api/v1/people/543037/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/543135.json",
+      "scope": "2026 regular-season pitching game log player 543135",
+      "sha256": "fe9451f64acf307e9559af89c1514ee60af00b2a8fdc4e2670d92979508ce2d1",
+      "url": "https://statsapi.mlb.com/api/v1/people/543135/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/543243.json",
+      "scope": "2026 regular-season pitching game log player 543243",
+      "sha256": "8ee5e6bc84022a1902eb4aa530b445422b01443e444a920367b98c62115ef661",
+      "url": "https://statsapi.mlb.com/api/v1/people/543243/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/547179.json",
+      "scope": "2026 regular-season pitching game log player 547179",
+      "sha256": "70a307aaae74953929bc32b7a239b75d1e022d2151c0272dca7e4f12170fb77a",
+      "url": "https://statsapi.mlb.com/api/v1/people/547179/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/554430.json",
+      "scope": "2026 regular-season pitching game log player 554430",
+      "sha256": "4b72e255107be7a2cceeceda07038d805ab327e215980a3010f7402ab0e9b96b",
+      "url": "https://statsapi.mlb.com/api/v1/people/554430/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/571578.json",
+      "scope": "2026 regular-season pitching game log player 571578",
+      "sha256": "905ac4c3488e63e13737e64f5bbf569dfe24b70f1217844b0625ec93174189d3",
+      "url": "https://statsapi.mlb.com/api/v1/people/571578/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/592332.json",
+      "scope": "2026 regular-season pitching game log player 592332",
+      "sha256": "41599f6ba78e4491009dbcf4f8be696063c51cb46fde3dd0665d2baa841e8c6d",
+      "url": "https://statsapi.mlb.com/api/v1/people/592332/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/593958.json",
+      "scope": "2026 regular-season pitching game log player 593958",
+      "sha256": "52159ec0589e85ce4f93bf025f71213d9b146630e735ccf8dee3a63ea4d8b72b",
+      "url": "https://statsapi.mlb.com/api/v1/people/593958/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/593974.json",
+      "scope": "2026 regular-season pitching game log player 593974",
+      "sha256": "fd99ec8a961b8f8cff1035e2ead75fa2d4afc207e46d7ab585bf1b41716ac0fd",
+      "url": "https://statsapi.mlb.com/api/v1/people/593974/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/594798.json",
+      "scope": "2026 regular-season pitching game log player 594798",
+      "sha256": "32559ef690e82e6c975c91f2ed319fb0bbe4c7c412b61f152a709f202707e60e",
+      "url": "https://statsapi.mlb.com/api/v1/people/594798/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/605288.json",
+      "scope": "2026 regular-season pitching game log player 605288",
+      "sha256": "6d854f92d2505f3eef8f51caf02b0472a0c20d873a773fb3d80ff1f3ff61b183",
+      "url": "https://statsapi.mlb.com/api/v1/people/605288/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/605400.json",
+      "scope": "2026 regular-season pitching game log player 605400",
+      "sha256": "8c6061ca0e9a60f62c2a5cec38015096c0b9dee087c556e0747e11887378eb5e",
+      "url": "https://statsapi.mlb.com/api/v1/people/605400/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/605488.json",
+      "scope": "2026 regular-season pitching game log player 605488",
+      "sha256": "0605382df64aaeaf78d20885acfbd4b992025883e51e9d7005d7965759adfa9a",
+      "url": "https://statsapi.mlb.com/api/v1/people/605488/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/607067.json",
+      "scope": "2026 regular-season pitching game log player 607067",
+      "sha256": "f9988d37f3afee88a6978aaebc394729ca8553e732bbdd48a646c47162ab57c4",
+      "url": "https://statsapi.mlb.com/api/v1/people/607067/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/607074.json",
+      "scope": "2026 regular-season pitching game log player 607074",
+      "sha256": "1c7dc305de88cdaae585d8749e30708adbd2ccee7bd3a6e31f6bef59f9a6211a",
+      "url": "https://statsapi.mlb.com/api/v1/people/607074/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/607259.json",
+      "scope": "2026 regular-season pitching game log player 607259",
+      "sha256": "6b2be06266346b6b17f43db0e1a9165bee23dd0e6e2a588fafdc79fe8a745f4c",
+      "url": "https://statsapi.mlb.com/api/v1/people/607259/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/607536.json",
+      "scope": "2026 regular-season pitching game log player 607536",
+      "sha256": "9d19ad7ffdbe222bc02b136a579585fa7c54fb914de27e06088cc56f85d6d4e4",
+      "url": "https://statsapi.mlb.com/api/v1/people/607536/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/607625.json",
+      "scope": "2026 regular-season pitching game log player 607625",
+      "sha256": "ea936b7911c8795f0372b2755f5ca0392e7c70f8c1406eebf1ebb9319e15e80b",
+      "url": "https://statsapi.mlb.com/api/v1/people/607625/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/608372.json",
+      "scope": "2026 regular-season pitching game log player 608372",
+      "sha256": "bbea6158d6a4908ef778cf14613d984153e2df87d5b72a9b396eddb19cdc0e1d",
+      "url": "https://statsapi.mlb.com/api/v1/people/608372/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/608379.json",
+      "scope": "2026 regular-season pitching game log player 608379",
+      "sha256": "7ec52361fd4c0c75942cb82a27d115a6bd479e57abbdf5298c6e263665aca266",
+      "url": "https://statsapi.mlb.com/api/v1/people/608379/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/621111.json",
+      "scope": "2026 regular-season pitching game log player 621111",
+      "sha256": "1f600ea1cc080b6d1efe39c4882e532a235f04276a955d02b2ac3865bbb245c9",
+      "url": "https://statsapi.mlb.com/api/v1/people/621111/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/623454.json",
+      "scope": "2026 regular-season pitching game log player 623454",
+      "sha256": "4e670ab40d9a6f489dde315ec72e7651dabe2524cdf838accee06057c1c1502c",
+      "url": "https://statsapi.mlb.com/api/v1/people/623454/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/624133.json",
+      "scope": "2026 regular-season pitching game log player 624133",
+      "sha256": "2d2b6adb5c8c9b8264f596df94aa2e4f5dd60378d52ee59cf80dc3b460bce281",
+      "url": "https://statsapi.mlb.com/api/v1/people/624133/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/640455.json",
+      "scope": "2026 regular-season pitching game log player 640455",
+      "sha256": "a6a77c081a9b7993b3d12855fb32a3d44679e403a5048ba23b06be2040aeb642",
+      "url": "https://statsapi.mlb.com/api/v1/people/640455/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/641743.json",
+      "scope": "2026 regular-season pitching game log player 641743",
+      "sha256": "ff752eb37860ae6b336edb808787eddafa39272e3fc77cb8e592a6d760c133e1",
+      "url": "https://statsapi.mlb.com/api/v1/people/641743/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/641778.json",
+      "scope": "2026 regular-season pitching game log player 641778",
+      "sha256": "f810770883534aa4ecf01649b526473fcab7a312ad9c7e037f134e566513d28e",
+      "url": "https://statsapi.mlb.com/api/v1/people/641778/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/641793.json",
+      "scope": "2026 regular-season pitching game log player 641793",
+      "sha256": "3f02234e97b47819ffab03d07119398a1520c9da5629f930c33ac3d48fcff37b",
+      "url": "https://statsapi.mlb.com/api/v1/people/641793/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/642547.json",
+      "scope": "2026 regular-season pitching game log player 642547",
+      "sha256": "46cc7e60865ab296eb4a58c971460f1ff4773b59f16ca3422522b8e0167decce",
+      "url": "https://statsapi.mlb.com/api/v1/people/642547/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/643377.json",
+      "scope": "2026 regular-season pitching game log player 643377",
+      "sha256": "911a46a537ba0a085ba8443ef231a279c41e8d13404f8f0fd95fe1d423eb46c3",
+      "url": "https://statsapi.mlb.com/api/v1/people/643377/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/645261.json",
+      "scope": "2026 regular-season pitching game log player 645261",
+      "sha256": "1c806e04807b614983c0a68efaa9f5dd81917326301bbaf74ef6a67d8c29a1b0",
+      "url": "https://statsapi.mlb.com/api/v1/people/645261/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/647336.json",
+      "scope": "2026 regular-season pitching game log player 647336",
+      "sha256": "5ca37339c8857f9ff24989f820461808181740868c3318b405215810f6a946e7",
+      "url": "https://statsapi.mlb.com/api/v1/people/647336/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/650633.json",
+      "scope": "2026 regular-season pitching game log player 650633",
+      "sha256": "686d91fced3deb99450305457853433d13afd93e8a7f9ae34f8c113f9351c421",
+      "url": "https://statsapi.mlb.com/api/v1/people/650633/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/650644.json",
+      "scope": "2026 regular-season pitching game log player 650644",
+      "sha256": "dcf8117f5c01a53320f70a64e837c53070f96efe9d8ea79864f67b7fc1cd7192",
+      "url": "https://statsapi.mlb.com/api/v1/people/650644/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/650911.json",
+      "scope": "2026 regular-season pitching game log player 650911",
+      "sha256": "a146ac522ee8ed717a4d0f5e9f0e4c7f54b40952180f0fd363eddbf690d3b5fb",
+      "url": "https://statsapi.mlb.com/api/v1/people/650911/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/656302.json",
+      "scope": "2026 regular-season pitching game log player 656302",
+      "sha256": "afd4d73581416aba088629088ab185a93179166432f75929e995d687c7aa13a5",
+      "url": "https://statsapi.mlb.com/api/v1/people/656302/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/656492.json",
+      "scope": "2026 regular-season pitching game log player 656492",
+      "sha256": "4252d5d66d515aba64590f7a2325540502110b584a3fde032add0c0e0b8e8e80",
+      "url": "https://statsapi.mlb.com/api/v1/people/656492/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/656550.json",
+      "scope": "2026 regular-season pitching game log player 656550",
+      "sha256": "ccca286798a2872a1d323e2315f5dbf0a12500e203b8861d5b55a03e2d8b1c08",
+      "url": "https://statsapi.mlb.com/api/v1/people/656550/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/656605.json",
+      "scope": "2026 regular-season pitching game log player 656605",
+      "sha256": "df7490fd022c144adb79c111eb1e1df8db58a35f5d943913e23298286582b477",
+      "url": "https://statsapi.mlb.com/api/v1/people/656605/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/656794.json",
+      "scope": "2026 regular-season pitching game log player 656794",
+      "sha256": "948146dd2b895e46ae709cc53b7e60eec3dcaad8681c48186e813043b08fe529",
+      "url": "https://statsapi.mlb.com/api/v1/people/656794/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/656876.json",
+      "scope": "2026 regular-season pitching game log player 656876",
+      "sha256": "5255740fa6386ecf010cc472026620d38edf36fb4cbc95b669d5fee14f855699",
+      "url": "https://statsapi.mlb.com/api/v1/people/656876/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/657277.json",
+      "scope": "2026 regular-season pitching game log player 657277",
+      "sha256": "c1cbe84404d3dedc0a8c22034baf0b9ab5d98ec3372766885752395873454338",
+      "url": "https://statsapi.mlb.com/api/v1/people/657277/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/657746.json",
+      "scope": "2026 regular-season pitching game log player 657746",
+      "sha256": "0321e9c3a69c43fc57719b0dc6c264e9767a75befc3cc8e3d3ed62627a791ca2",
+      "url": "https://statsapi.mlb.com/api/v1/people/657746/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/660271.json",
+      "scope": "2026 regular-season pitching game log player 660271",
+      "sha256": "95566f7eb9faef83fd3632f0d24fc6170d44d9f0ac5dfca8625cdb7737f30dbc",
+      "url": "https://statsapi.mlb.com/api/v1/people/660271/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/663372.json",
+      "scope": "2026 regular-season pitching game log player 663372",
+      "sha256": "7904ba0fd4b382f3edc115e1ecbc5555dc80690de3964273090b5b4772af118c",
+      "url": "https://statsapi.mlb.com/api/v1/people/663372/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/663436.json",
+      "scope": "2026 regular-season pitching game log player 663436",
+      "sha256": "37093c53909f801bf8ba90c1cf9375a546cc110dd4ea506a534445e0713027d1",
+      "url": "https://statsapi.mlb.com/api/v1/people/663436/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/663542.json",
+      "scope": "2026 regular-season pitching game log player 663542",
+      "sha256": "8349d0deba8016234f1bb20564a6f59089ee6be3028d6deaed63e42743890332",
+      "url": "https://statsapi.mlb.com/api/v1/people/663542/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/663554.json",
+      "scope": "2026 regular-season pitching game log player 663554",
+      "sha256": "c5c8217e0198b83230f299ed3563dac8944d672d1ff700f9adfa6ead41d5e5d4",
+      "url": "https://statsapi.mlb.com/api/v1/people/663554/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/663556.json",
+      "scope": "2026 regular-season pitching game log player 663556",
+      "sha256": "4ad4bdf987189b65a60e80fb31d630f43a74323bd33b71c2bf50a25dad93c5f4",
+      "url": "https://statsapi.mlb.com/api/v1/people/663556/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/663567.json",
+      "scope": "2026 regular-season pitching game log player 663567",
+      "sha256": "beb9e727b37e69cf396c6c05f39e5038925a473a905935721a479caa4e9e0eed",
+      "url": "https://statsapi.mlb.com/api/v1/people/663567/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/663568.json",
+      "scope": "2026 regular-season pitching game log player 663568",
+      "sha256": "d3f28f2441e6f700552f7854b7f8a8fd425ebe062079d51d441a6983b2a5d0e2",
+      "url": "https://statsapi.mlb.com/api/v1/people/663568/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/663903.json",
+      "scope": "2026 regular-season pitching game log player 663903",
+      "sha256": "adb5014d9378bc68895514de6b1fea04a67da137c47781d48556a3d1565fb81a",
+      "url": "https://statsapi.mlb.com/api/v1/people/663903/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/663969.json",
+      "scope": "2026 regular-season pitching game log player 663969",
+      "sha256": "743fb3dade45751680bbcd48ff4203fa1559df0eb34156b20cf704f37a39139e",
+      "url": "https://statsapi.mlb.com/api/v1/people/663969/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/664285.json",
+      "scope": "2026 regular-season pitching game log player 664285",
+      "sha256": "40dfd5338ab829d3a6c451cb194fc620a129c99263c22ab455dca5f0c8ff5ded",
+      "url": "https://statsapi.mlb.com/api/v1/people/664285/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/665795.json",
+      "scope": "2026 regular-season pitching game log player 665795",
+      "sha256": "feac88fd3701193e37070c048462407ece130b877ac75ad51230f32116fa870d",
+      "url": "https://statsapi.mlb.com/api/v1/people/665795/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/665871.json",
+      "scope": "2026 regular-season pitching game log player 665871",
+      "sha256": "68e5f98bfe221fdb1623a8d91c36e27b2554abb054e52f1e21475d71014b0653",
+      "url": "https://statsapi.mlb.com/api/v1/people/665871/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/666157.json",
+      "scope": "2026 regular-season pitching game log player 666157",
+      "sha256": "a2c3e09f099b7278883f5eb99497c56afc9d4c7322caecf468f3f27b78b8316b",
+      "url": "https://statsapi.mlb.com/api/v1/people/666157/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/666200.json",
+      "scope": "2026 regular-season pitching game log player 666200",
+      "sha256": "a1854c40a09c5dba471b1ebc2c0bc7fb2f35571b561a61ef12f96e377627787e",
+      "url": "https://statsapi.mlb.com/api/v1/people/666200/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/667755.json",
+      "scope": "2026 regular-season pitching game log player 667755",
+      "sha256": "aee5cf7abb1b2855947b3bcbab904caddbae1c52788063708d15232bb2b39b11",
+      "url": "https://statsapi.mlb.com/api/v1/people/667755/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/668678.json",
+      "scope": "2026 regular-season pitching game log player 668678",
+      "sha256": "834d37068567c6a80e26eaa2a0145ea108a82718d4af923f8116814d4b299dab",
+      "url": "https://statsapi.mlb.com/api/v1/people/668678/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/668909.json",
+      "scope": "2026 regular-season pitching game log player 668909",
+      "sha256": "c5bd558d10523157260336ab902d55bb6d0a3f5783046b23e2b2480f5ae8fdff",
+      "url": "https://statsapi.mlb.com/api/v1/people/668909/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/668964.json",
+      "scope": "2026 regular-season pitching game log player 668964",
+      "sha256": "7c37f64d0afe5dce8946bfb0d13c1b667110f7f344b2d4435bfbf7b243c7dfa3",
+      "url": "https://statsapi.mlb.com/api/v1/people/668964/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/668984.json",
+      "scope": "2026 regular-season pitching game log player 668984",
+      "sha256": "b890a6c2ab7b4d7bfb66b75274022beafd9142aaa2035a54bfc91cf4a38000c8",
+      "url": "https://statsapi.mlb.com/api/v1/people/668984/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/669020.json",
+      "scope": "2026 regular-season pitching game log player 669020",
+      "sha256": "01497c3fa4757d2ac095468996f9f4a27f6ba17ccbf580fbefe1a9c0a0c3e83c",
+      "url": "https://statsapi.mlb.com/api/v1/people/669020/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/669022.json",
+      "scope": "2026 regular-season pitching game log player 669022",
+      "sha256": "06dd395e80f9dc2e8ab598173a0f3bd99657061726a0b98f5c8dff3822011667",
+      "url": "https://statsapi.mlb.com/api/v1/people/669022/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/669160.json",
+      "scope": "2026 regular-season pitching game log player 669160",
+      "sha256": "fe0865ee691015a9d500dbadd57e7854d9183ce025cdc348a3069b13857ff59d",
+      "url": "https://statsapi.mlb.com/api/v1/people/669160/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/669194.json",
+      "scope": "2026 regular-season pitching game log player 669194",
+      "sha256": "1594f80ee670a0fa2bcbab3004b735de2684dacd5011e57e9eba9ad14e5f2066",
+      "url": "https://statsapi.mlb.com/api/v1/people/669194/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/669199.json",
+      "scope": "2026 regular-season pitching game log player 669199",
+      "sha256": "c7e5b4549f3a004fced04889e9915f0bf22cd478cb14e6d66926fa26bc5a7ad3",
+      "url": "https://statsapi.mlb.com/api/v1/people/669199/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/669302.json",
+      "scope": "2026 regular-season pitching game log player 669302",
+      "sha256": "45ea4c814607dffb27f230579dff9bcbce9bbc64d8e0a6ad1ee7aef895c8585e",
+      "url": "https://statsapi.mlb.com/api/v1/people/669302/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/669358.json",
+      "scope": "2026 regular-season pitching game log player 669358",
+      "sha256": "a77c7b2458041529192ad256937039d44ec2bd26503ec2abe7e7012283edefbf",
+      "url": "https://statsapi.mlb.com/api/v1/people/669358/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/669372.json",
+      "scope": "2026 regular-season pitching game log player 669372",
+      "sha256": "ce1d3975127705bd62d33110dce4a16016e536ac689dd865a135a74fe233791c",
+      "url": "https://statsapi.mlb.com/api/v1/people/669372/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/669373.json",
+      "scope": "2026 regular-season pitching game log player 669373",
+      "sha256": "94134e173c6d48888b9dd1b4544381b137abaa202e34c9708e2d151b72e5007d",
+      "url": "https://statsapi.mlb.com/api/v1/people/669373/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/669432.json",
+      "scope": "2026 regular-season pitching game log player 669432",
+      "sha256": "91d464fad425204b64b7b01b2e1d198841ecc1c1ad200b664af5905e431e4cd4",
+      "url": "https://statsapi.mlb.com/api/v1/people/669432/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/669461.json",
+      "scope": "2026 regular-season pitching game log player 669461",
+      "sha256": "897db80be3aedc02dff966310e8f239ded286154a60898c7b056e2338de631ef",
+      "url": "https://statsapi.mlb.com/api/v1/people/669461/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/669467.json",
+      "scope": "2026 regular-season pitching game log player 669467",
+      "sha256": "84358be81536920fb2a82b4d9b5fc13743ddc214c36f93378103eea763f4f804",
+      "url": "https://statsapi.mlb.com/api/v1/people/669467/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/669923.json",
+      "scope": "2026 regular-season pitching game log player 669923",
+      "sha256": "1b8e079556a353f80af09b72403a6f5f32711988868fe12e2899e84d832e5310",
+      "url": "https://statsapi.mlb.com/api/v1/people/669923/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/671096.json",
+      "scope": "2026 regular-season pitching game log player 671096",
+      "sha256": "4896b15f7c5fe9896574002af8c0501dd059a7f0009ad67c837667bd0c05ea99",
+      "url": "https://statsapi.mlb.com/api/v1/people/671096/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/671737.json",
+      "scope": "2026 regular-season pitching game log player 671737",
+      "sha256": "f19c35e76e23fba02eea38758054abcdcbf1d5dca0ff25bc30c186c3564603c0",
+      "url": "https://statsapi.mlb.com/api/v1/people/671737/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/672282.json",
+      "scope": "2026 regular-season pitching game log player 672282",
+      "sha256": "6463f22ef71aacb157b1bd52d1307443c747b9540ffc794fc43bad324f3ba57e",
+      "url": "https://statsapi.mlb.com/api/v1/people/672282/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/673540.json",
+      "scope": "2026 regular-season pitching game log player 673540",
+      "sha256": "844b68d185ca717eaabe9b4ef3f21c520b8fe85c7da845414f30084525fb58e9",
+      "url": "https://statsapi.mlb.com/api/v1/people/673540/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/674841.json",
+      "scope": "2026 regular-season pitching game log player 674841",
+      "sha256": "0bb133517a3bd808aa1208f4a7a0bbe333c969a638c3fb48de9a927bcc8c0d05",
+      "url": "https://statsapi.mlb.com/api/v1/people/674841/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/675512.json",
+      "scope": "2026 regular-season pitching game log player 675512",
+      "sha256": "4b3cd4cd26fcfbc7e9f789c32fd25102c0d9a562f8dd454d57f3b47a91ac7424",
+      "url": "https://statsapi.mlb.com/api/v1/people/675512/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/675660.json",
+      "scope": "2026 regular-season pitching game log player 675660",
+      "sha256": "c1028a78514611ef9fdc19f86decf22a0c5f3e567af23be3c01ef6c4ef05286b",
+      "url": "https://statsapi.mlb.com/api/v1/people/675660/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/676106.json",
+      "scope": "2026 regular-season pitching game log player 676106",
+      "sha256": "aa2fee32ea88aa946050060a60f00cfa84b3dac985abf65d3d3c79b6f8460afb",
+      "url": "https://statsapi.mlb.com/api/v1/people/676106/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/676282.json",
+      "scope": "2026 regular-season pitching game log player 676282",
+      "sha256": "4fd3cf1719d1b6ab13353c0fc156454002fddec22723b6854cf469e14163df0c",
+      "url": "https://statsapi.mlb.com/api/v1/people/676282/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/676440.json",
+      "scope": "2026 regular-season pitching game log player 676440",
+      "sha256": "93d82bfbf062c9b541cee72a98bdc4cf53aaffae0c107540829657b134b33079",
+      "url": "https://statsapi.mlb.com/api/v1/people/676440/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/676571.json",
+      "scope": "2026 regular-season pitching game log player 676571",
+      "sha256": "4309a0bbe8254be0b3bb74b2eb98f61dd8cf6e7a42d80e1a380eafc209850f3e",
+      "url": "https://statsapi.mlb.com/api/v1/people/676571/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/676917.json",
+      "scope": "2026 regular-season pitching game log player 676917",
+      "sha256": "5335b3106fbadfbc0e8e75868f632606e1bd42bd9cd70ee495c4d7cb6495bc56",
+      "url": "https://statsapi.mlb.com/api/v1/people/676917/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/676962.json",
+      "scope": "2026 regular-season pitching game log player 676962",
+      "sha256": "b2fee11b63d33ef5f0690d98a714bb9a58259e3383e2cd4198a4193706fb3566",
+      "url": "https://statsapi.mlb.com/api/v1/people/676962/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/676974.json",
+      "scope": "2026 regular-season pitching game log player 676974",
+      "sha256": "468eb5e4133b27249e1b6ef15ed77d2b559008af8d02af2f40ef1911ba952818",
+      "url": "https://statsapi.mlb.com/api/v1/people/676974/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/677944.json",
+      "scope": "2026 regular-season pitching game log player 677944",
+      "sha256": "b75c57ff24094e5e6c22d3ff2de896c8dcd0e3102462b6246e34ca35068f7262",
+      "url": "https://statsapi.mlb.com/api/v1/people/677944/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/677952.json",
+      "scope": "2026 regular-season pitching game log player 677952",
+      "sha256": "dcfc0b95c7eb5ab0561aaff67db1d62015061f69531082dd879ce43144b474bd",
+      "url": "https://statsapi.mlb.com/api/v1/people/677952/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/677958.json",
+      "scope": "2026 regular-season pitching game log player 677958",
+      "sha256": "db980fcadfe7b6ad743e980cce098bfe25c1ff076bc92b5e0552e1d744148f6f",
+      "url": "https://statsapi.mlb.com/api/v1/people/677958/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/677960.json",
+      "scope": "2026 regular-season pitching game log player 677960",
+      "sha256": "ab092a9502102300343be34da92d630b32bee4a92fc95917047f25f258b04e2f",
+      "url": "https://statsapi.mlb.com/api/v1/people/677960/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/678022.json",
+      "scope": "2026 regular-season pitching game log player 678022",
+      "sha256": "8e8609ee9753fcc7aff2d6c081a8124015a125f381c9f53dd13eca7f6ba44ff9",
+      "url": "https://statsapi.mlb.com/api/v1/people/678022/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/678906.json",
+      "scope": "2026 regular-season pitching game log player 678906",
+      "sha256": "140ece2c343f8c7c8175f43a37d1ab91682574d2accea0afa01c5770ee49c3a5",
+      "url": "https://statsapi.mlb.com/api/v1/people/678906/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/679883.json",
+      "scope": "2026 regular-season pitching game log player 679883",
+      "sha256": "1e0f6c7f97a9e3153076af0f51ae11dfbbaf28b1ea5a70827127ef55e496c952",
+      "url": "https://statsapi.mlb.com/api/v1/people/679883/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/680570.json",
+      "scope": "2026 regular-season pitching game log player 680570",
+      "sha256": "69f1a81ff0ad53d02785786cca922803712426270143e74e102f08abbd398404",
+      "url": "https://statsapi.mlb.com/api/v1/people/680570/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/680694.json",
+      "scope": "2026 regular-season pitching game log player 680694",
+      "sha256": "b58974f74b9322d543e3e8b1b2a1a867b54b1a540c609878414869b629d0998b",
+      "url": "https://statsapi.mlb.com/api/v1/people/680694/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/680736.json",
+      "scope": "2026 regular-season pitching game log player 680736",
+      "sha256": "7f00b3403ed0ba49e4c4bf99b00a5babe5e341e837eee9bc2c10c0d51878a95a",
+      "url": "https://statsapi.mlb.com/api/v1/people/680736/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/680755.json",
+      "scope": "2026 regular-season pitching game log player 680755",
+      "sha256": "51ab2db9c17ba07e5a4dbe00a444addde092b2832e3cb01a46b53ed646b79664",
+      "url": "https://statsapi.mlb.com/api/v1/people/680755/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/681190.json",
+      "scope": "2026 regular-season pitching game log player 681190",
+      "sha256": "e48e281b93e513ae2449b62752741f301f23659d3effbbb28c24bfcb23aacb86",
+      "url": "https://statsapi.mlb.com/api/v1/people/681190/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/681293.json",
+      "scope": "2026 regular-season pitching game log player 681293",
+      "sha256": "14b12fca43efeb73b7bd5b5205ead4519b6c68770621346ebc566edf3916424c",
+      "url": "https://statsapi.mlb.com/api/v1/people/681293/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/681517.json",
+      "scope": "2026 regular-season pitching game log player 681517",
+      "sha256": "df5d1f95d5f578f5b8cd5d036d1ab62f973cd569e385c277813bc030c4aedfa0",
+      "url": "https://statsapi.mlb.com/api/v1/people/681517/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/682243.json",
+      "scope": "2026 regular-season pitching game log player 682243",
+      "sha256": "ce8e6e3c949b473d192dc497f2c00f1ea8fc39fdd941e5cd2889327ee2d7a6de",
+      "url": "https://statsapi.mlb.com/api/v1/people/682243/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/683003.json",
+      "scope": "2026 regular-season pitching game log player 683003",
+      "sha256": "e5b4556fba9ef702e2799c63492066e71c5b86db6da6acf7ad21f194ded207b4",
+      "url": "https://statsapi.mlb.com/api/v1/people/683003/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/683004.json",
+      "scope": "2026 regular-season pitching game log player 683004",
+      "sha256": "be59a5e439be96e00dc6a394fd20e41e3f5201af8ccd341cecf1d86ebf07bfde",
+      "url": "https://statsapi.mlb.com/api/v1/people/683004/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/684007.json",
+      "scope": "2026 regular-season pitching game log player 684007",
+      "sha256": "d2dbcd983c9c6e0feee77929466d8b614d941ece5ac62479d7e2571868b22394",
+      "url": "https://statsapi.mlb.com/api/v1/people/684007/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/685126.json",
+      "scope": "2026 regular-season pitching game log player 685126",
+      "sha256": "be3b55731982a885c98853bd1270fe4f8739279f02d1507fec0beaecf7d5b904",
+      "url": "https://statsapi.mlb.com/api/v1/people/685126/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/686218.json",
+      "scope": "2026 regular-season pitching game log player 686218",
+      "sha256": "39bfa52a0b312f0a93a0431c4b0ccc7f3e75363ec3cc62562fc48f3d221395c0",
+      "url": "https://statsapi.mlb.com/api/v1/people/686218/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/686613.json",
+      "scope": "2026 regular-season pitching game log player 686613",
+      "sha256": "9b34529b7428df967975b67db441a606215fb2d5c2149ac73ba8d603a7627a1b",
+      "url": "https://statsapi.mlb.com/api/v1/people/686613/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/686790.json",
+      "scope": "2026 regular-season pitching game log player 686790",
+      "sha256": "ca9a9d5b859a327ac2b07681d7d9de78773836e14bd9cbde1c273604cc203306",
+      "url": "https://statsapi.mlb.com/api/v1/people/686790/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/687064.json",
+      "scope": "2026 regular-season pitching game log player 687064",
+      "sha256": "63ee9f69373dfc9fb48392f27a63f8201d3b474dabe3104e73e1e79fd8684df4",
+      "url": "https://statsapi.mlb.com/api/v1/people/687064/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/687075.json",
+      "scope": "2026 regular-season pitching game log player 687075",
+      "sha256": "fe52decb658f44697f6971edce237360006b60e1a7f7c2bff72e03d79fcccdf4",
+      "url": "https://statsapi.mlb.com/api/v1/people/687075/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/687473.json",
+      "scope": "2026 regular-season pitching game log player 687473",
+      "sha256": "48f872d12790875cc0f021c05bc938a5c1cfa719b628f2ceea0fe4d535c0d9d4",
+      "url": "https://statsapi.mlb.com/api/v1/people/687473/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/687562.json",
+      "scope": "2026 regular-season pitching game log player 687562",
+      "sha256": "ec739825e21a1565ade492a20a754e414294262d749155d7c1c74b7fb7611927",
+      "url": "https://statsapi.mlb.com/api/v1/people/687562/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/687570.json",
+      "scope": "2026 regular-season pitching game log player 687570",
+      "sha256": "b48cf27e04286b1593dbbed67369ca67710f046ee8a651b51b882ca240a560b7",
+      "url": "https://statsapi.mlb.com/api/v1/people/687570/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/687765.json",
+      "scope": "2026 regular-season pitching game log player 687765",
+      "sha256": "57c692cb09c2a1f9358829b9d74168f3de121c0cf467e32ed2b4376385d651eb",
+      "url": "https://statsapi.mlb.com/api/v1/people/687765/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/687931.json",
+      "scope": "2026 regular-season pitching game log player 687931",
+      "sha256": "50053fa86d1842692cbee8df64cdf8ef84f666144ab94d02482dd1031c63f71c",
+      "url": "https://statsapi.mlb.com/api/v1/people/687931/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/688107.json",
+      "scope": "2026 regular-season pitching game log player 688107",
+      "sha256": "10a161e01f276e82a4c57135976e568f2e6e11c576aa7e4ca3aa0e96868614bf",
+      "url": "https://statsapi.mlb.com/api/v1/people/688107/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/690986.json",
+      "scope": "2026 regular-season pitching game log player 690986",
+      "sha256": "dafa7a0971cd986f1ced049518802b1e6023102d985df10c386f5181848da375",
+      "url": "https://statsapi.mlb.com/api/v1/people/690986/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/690997.json",
+      "scope": "2026 regular-season pitching game log player 690997",
+      "sha256": "910c6ad6ce76cf4f9ec70b397a76019284d2c74c7a3ad0d6bf1eeb8e48144b45",
+      "url": "https://statsapi.mlb.com/api/v1/people/690997/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/691725.json",
+      "scope": "2026 regular-season pitching game log player 691725",
+      "sha256": "b41829e97d2fc2f0555ce223604ff57513f35c7a0df02df808f62c8d01389ef1",
+      "url": "https://statsapi.mlb.com/api/v1/people/691725/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/691951.json",
+      "scope": "2026 regular-season pitching game log player 691951",
+      "sha256": "01fbf6bd395ad678752f3055625981befb8c6f1da55d19585a8b34922d7861d7",
+      "url": "https://statsapi.mlb.com/api/v1/people/691951/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/693433.json",
+      "scope": "2026 regular-season pitching game log player 693433",
+      "sha256": "f5299eda7eedad82161e6f7fe18f68cbe6136bbfdf574f565400b12c61ae7b47",
+      "url": "https://statsapi.mlb.com/api/v1/people/693433/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/693645.json",
+      "scope": "2026 regular-season pitching game log player 693645",
+      "sha256": "071c1bb6736a47b1e475bd0d0a6e9715e0dd7735f8d5a602e79ba1492146eee4",
+      "url": "https://statsapi.mlb.com/api/v1/people/693645/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/693821.json",
+      "scope": "2026 regular-season pitching game log player 693821",
+      "sha256": "e757918172936f74f7f351ab71eb6008945e8929e4a51fe1b227dacd6361c57d",
+      "url": "https://statsapi.mlb.com/api/v1/people/693821/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/693855.json",
+      "scope": "2026 regular-season pitching game log player 693855",
+      "sha256": "bd31264d5c286b2bcfd81f295f4ad2e45a2d0ab210fc052293ecb5f7f678e0f1",
+      "url": "https://statsapi.mlb.com/api/v1/people/693855/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/694346.json",
+      "scope": "2026 regular-season pitching game log player 694346",
+      "sha256": "f2965370215f6eaa55e496b59fa96eab41d8a2b66772152be4cb653d52cf27c0",
+      "url": "https://statsapi.mlb.com/api/v1/people/694346/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/694738.json",
+      "scope": "2026 regular-season pitching game log player 694738",
+      "sha256": "24e69ebad65dce60f8cda43642c331363eaee7f360185623cd288c9522f90855",
+      "url": "https://statsapi.mlb.com/api/v1/people/694738/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/694819.json",
+      "scope": "2026 regular-season pitching game log player 694819",
+      "sha256": "d2cb80aa9a7d967cc732b953c51f5d66bea470af7061b05fe27200e0ed90a727",
+      "url": "https://statsapi.mlb.com/api/v1/people/694819/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/694973.json",
+      "scope": "2026 regular-season pitching game log player 694973",
+      "sha256": "bd4f6bd6e0c62e03ba0f80a8eaa7c449bb646c0bd66db87383821a6521024ef8",
+      "url": "https://statsapi.mlb.com/api/v1/people/694973/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/695076.json",
+      "scope": "2026 regular-season pitching game log player 695076",
+      "sha256": "8cc5c665a626c13818f7e12e5fe1df940f68cbd005b8800a60d7b6bf9b18592c",
+      "url": "https://statsapi.mlb.com/api/v1/people/695076/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/695505.json",
+      "scope": "2026 regular-season pitching game log player 695505",
+      "sha256": "d07fa4e58bc033a84db799add905b2b6a0ecc1410a8eb87aa50b0a73d6b0e38f",
+      "url": "https://statsapi.mlb.com/api/v1/people/695505/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/695611.json",
+      "scope": "2026 regular-season pitching game log player 695611",
+      "sha256": "50f87249ba82c4f1e055f83431b24ce2945c9bc4d0a2f68d260b5957f16b0d95",
+      "url": "https://statsapi.mlb.com/api/v1/people/695611/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/696149.json",
+      "scope": "2026 regular-season pitching game log player 696149",
+      "sha256": "22caace3067ad7442dd891dd94c702b71e4a4d723ed86960246b1729074440ea",
+      "url": "https://statsapi.mlb.com/api/v1/people/696149/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/696270.json",
+      "scope": "2026 regular-season pitching game log player 696270",
+      "sha256": "0d5fd6510da4609c52beb47f69e3f222198bdfaf37edb50ab90d28ff38de9fdc",
+      "url": "https://statsapi.mlb.com/api/v1/people/696270/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/699134.json",
+      "scope": "2026 regular-season pitching game log player 699134",
+      "sha256": "297c90390bed891313534fca1ad8c52612df3ebd54ceaff3a41443d86e8419a5",
+      "url": "https://statsapi.mlb.com/api/v1/people/699134/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/700241.json",
+      "scope": "2026 regular-season pitching game log player 700241",
+      "sha256": "e612695e3f0c2dbda54638fc85769d19984c20274c90862a9da34b4b3fe8bb65",
+      "url": "https://statsapi.mlb.com/api/v1/people/700241/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/700712.json",
+      "scope": "2026 regular-season pitching game log player 700712",
+      "sha256": "99ff2f6000a5ded04abb1e2d6addc184236616182e1c9862164438335cf76d07",
+      "url": "https://statsapi.mlb.com/api/v1/people/700712/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/701542.json",
+      "scope": "2026 regular-season pitching game log player 701542",
+      "sha256": "432442c4949f9b5f47a9a0080a642c5ef0e40753ef61ba0455505ad85480ce40",
+      "url": "https://statsapi.mlb.com/api/v1/people/701542/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/702056.json",
+      "scope": "2026 regular-season pitching game log player 702056",
+      "sha256": "2521abbfd20b0c7bfc38cbbd1d1d7c49b95a838bca5eedea827053bc9514b7f0",
+      "url": "https://statsapi.mlb.com/api/v1/people/702056/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/702070.json",
+      "scope": "2026 regular-season pitching game log player 702070",
+      "sha256": "99f8b22dba37857df74babcb9f7758600f98877805dcb80783c789b914029a41",
+      "url": "https://statsapi.mlb.com/api/v1/people/702070/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/702275.json",
+      "scope": "2026 regular-season pitching game log player 702275",
+      "sha256": "e2f5f6b6b67497ec86713171cef57dd302ac0665e9064800faafd129334bd8b5",
+      "url": "https://statsapi.mlb.com/api/v1/people/702275/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/702474.json",
+      "scope": "2026 regular-season pitching game log player 702474",
+      "sha256": "1704547f839c82281ccf9635d97bcaafecef80114a5dcc1497f53fea52ae172f",
+      "url": "https://statsapi.mlb.com/api/v1/people/702474/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/800048.json",
+      "scope": "2026 regular-season pitching game log player 800048",
+      "sha256": "9e9ded5518e8a174837d8c1363e619a0e8ad18a16a5588833bb6368348343ae1",
+      "url": "https://statsapi.mlb.com/api/v1/people/800048/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/801139.json",
+      "scope": "2026 regular-season pitching game log player 801139",
+      "sha256": "3c4e8f6c0ac63f58f80fd91325c4783a9701b3017551e6533758d4a5494a4953",
+      "url": "https://statsapi.mlb.com/api/v1/people/801139/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/805673.json",
+      "scope": "2026 regular-season pitching game log player 805673",
+      "sha256": "dd8410622b12682828ab18d781eef41485f58eadae8a19ca076a85501d508b2d",
+      "url": "https://statsapi.mlb.com/api/v1/people/805673/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/807743.json",
+      "scope": "2026 regular-season pitching game log player 807743",
+      "sha256": "63cc2c3de7caae0392367695ba2c1818393a13235a491491f3be7da961a5453b",
+      "url": "https://statsapi.mlb.com/api/v1/people/807743/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/808963.json",
+      "scope": "2026 regular-season pitching game log player 808963",
+      "sha256": "4e45837153c889d92ab00858e70eecf1a8f76df9b8e8138a11c3711c602c8609",
+      "url": "https://statsapi.mlb.com/api/v1/people/808963/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/808967.json",
+      "scope": "2026 regular-season pitching game log player 808967",
+      "sha256": "fb618e52184202e84d290321ae42d70c62c7553c89a2028fb3ce0abed89f58a6",
+      "url": "https://statsapi.mlb.com/api/v1/people/808967/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/813349.json",
+      "scope": "2026 regular-season pitching game log player 813349",
+      "sha256": "bf69e17fb4a9bf4088128b708f0e775dfcbff4d5c2bf9e37d0aeb9dbeba27d71",
+      "url": "https://statsapi.mlb.com/api/v1/people/813349/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "acquired_at_utc": "2026-08-10T00:00:00Z",
+      "path": "data/fixtures/p24c_promoted_moneyline_shadow_batch/raw/pitcher_game_logs/837227.json",
+      "scope": "2026 regular-season pitching game log player 837227",
+      "sha256": "00bbadf5a18ca51e30175e3c7e665803256c6fdb2544e9bbda0203050d3d5257",
+      "url": "https://statsapi.mlb.com/api/v1/people/837227/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    }
+  ],
+  "schema_version": "p24c.source_manifest.v1",
+  "source_authority": "MLB_STATS_API",
+  "source_domains": [
+    "mlb.com"
+  ]
+}
