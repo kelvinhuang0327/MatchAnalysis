@@ -1,0 +1,74 @@
+"""Characterization of the committed-authority P23A comparison."""
+
+import json
+from pathlib import Path
+import unittest
+
+from match_analysis.application.use_cases.evaluate_moneyline_challenger_oos import (
+    run_deterministic_moneyline_challenger_oos,
+)
+
+
+ROOT = Path(__file__).resolve().parents[2]
+
+
+class P23AStrictlyFutureOOSComparisonTests(unittest.TestCase):
+    def test_committed_authority_produces_complete_descriptive_comparison(self) -> None:
+        result = run_deterministic_moneyline_challenger_oos(ROOT)
+        self.assertEqual(len(result.rows), 23)
+        self.assertEqual(result.summary["fold_id"], "wf_004")
+        self.assertEqual(result.summary["incumbent_source_fold_id"], "wf_003")
+        self.assertEqual(result.summary["incumbent_training_cutoff"], "2025-07-31")
+        self.assertEqual(result.summary["incumbent_training_row_count"], 1212)
+        self.assertEqual(
+            result.summary["challenger_model_fingerprint"],
+            "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+        )
+        self.assertEqual(result.summary["challenger_mean_brier"], "0.2138127101219392124690037207")
+        self.assertEqual(result.summary["incumbent_mean_brier"], "0.2323417604920021959488142985")
+        self.assertEqual(result.summary["brier_delta"], "-0.0185290503700629834798105778")
+        self.assertEqual(result.summary["challenger_accuracy"], "0.7826086956521739130434782609")
+        self.assertEqual(result.summary["incumbent_accuracy"], "0.6956521739130434782608695652")
+        self.assertEqual(result.summary["accuracy_delta"], "0.0869565217391304347826086957")
+        self.assertEqual(result.summary["challenger_brier_better_count"], 18)
+        self.assertEqual(result.summary["incumbent_brier_better_count"], 5)
+        self.assertEqual(result.summary["equal_brier_count"], 0)
+        self.assertTrue(result.summary["strict_future_boundary_verified"])
+        self.assertTrue(result.summary["pit_safe_feature_reconstruction_verified"])
+        self.assertTrue(result.summary["no_training_overlap_verified"])
+        self.assertTrue(result.summary["challenger_frozen"])
+        self.assertTrue(result.summary["outcome_isolation_verified"])
+        self.assertTrue(result.summary["deterministic_replay_verified"])
+
+    def test_summary_contains_only_descriptive_no_promotion_claims(self) -> None:
+        result = run_deterministic_moneyline_challenger_oos(ROOT)
+        for key in (
+            "out_of_sample_evaluated",
+            "evaluation_complete",
+            "model_promoted",
+            "promotion_authorized",
+            "production_ready",
+            "profitability_claim",
+            "real_betting_recommendation",
+            "retraining_performed",
+        ):
+            self.assertIn(key, result.summary)
+        self.assertFalse(result.summary["model_promoted"])
+        self.assertFalse(result.summary["promotion_authorized"])
+        self.assertFalse(result.summary["production_ready"])
+        self.assertNotIn("recommended_model", result.summary)
+        self.assertNotIn("promote", result.summary)
+
+    def test_authority_report_has_expected_future_cohort(self) -> None:
+        summary = json.loads(
+            (ROOT / "report/p23f2_official_future_fold/summary.json").read_text()
+        )
+        self.assertEqual(summary["fold_id"], "wf_004")
+        self.assertEqual(summary["game_count"], 23)
+        self.assertEqual(summary["validation_start"], "2026-06-08")
+        self.assertEqual(summary["validation_end"], "2026-06-09")
+        self.assertTrue(summary["strict_future"])
+
+
+if __name__ == "__main__":
+    unittest.main()

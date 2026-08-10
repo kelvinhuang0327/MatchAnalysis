@@ -1,0 +1,54 @@
+{
+  "artifact_fingerprint": "0a55ba0670a62c2d9b997fb9eee15111995a6f83c47fb639d46888cf57a1ea2e",
+  "artifact_kind": "bounded_deterministic_fixture",
+  "artifact_role": "INCUMBENT",
+  "artifact_schema_version": "p23a.moneyline_strictly_future_incumbent_artifact.v1",
+  "claims": {
+    "model_promoted": false,
+    "out_of_sample_evaluated": true,
+    "production_ready": false,
+    "profitability_claim": false,
+    "promotion_authorized": false,
+    "real_betting_recommendation": false,
+    "retraining_performed": false
+  },
+  "coefficients": [
+    "0.16096454834207277",
+    "-0.09111076041780708"
+  ],
+  "feature_names": [
+    "recent_win_rate_delta",
+    "starter_era_delta"
+  ],
+  "fixture_basis_id": "ba6fa27f9cd8eb95d81fbe5878ddb3b1e9fff8ec17364c0ffdc4adf6bc3944a3",
+  "fixture_expected_home_probability": "0.594699",
+  "fixture_expected_probability_tolerance": "0.000001",
+  "intercept": "0.19056834759534005",
+  "legacy_source_commit": "03b2fcf4de1a13ee9929afcef803d61955c9f41b",
+  "legacy_source_paths": [
+    "scripts/run_mlb_walk_forward_ml_candidate.py",
+    "wbc_backend/prediction/mlb_ml_feature_matrix.py",
+    "wbc_backend/prediction/mlb_walk_forward_model.py",
+    "outputs/predictions/PAPER/2026-05-11/p13_ml/ml_model_metadata.json",
+    "outputs/predictions/PAPER/2026-05-11/p13_ml/ml_feature_matrix.csv",
+    "outputs/predictions/PAPER/2026-05-11/p13_ml/ml_walk_forward_predictions.jsonl"
+  ],
+  "legacy_source_repository": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool",
+  "legacy_source_tree": "56a849bc68234db63da7a38f1643fa664217c5d0",
+  "model_fidelity_route": "MIGRATED_SEMANTIC_RECONSTRUCTION",
+  "model_id": "p13_walk_forward_logistic_v1_wf_003",
+  "model_version": "p13_walk_forward_logistic_v1",
+  "scaler_means": [
+    "-0.00346677066974097",
+    "-0.02008263923189738"
+  ],
+  "scaler_stds": [
+    "0.22590373696469299",
+    "1.9113406737053362"
+  ],
+  "schema_version": "p19a.moneyline_model_artifact.v1",
+  "source_fold_fingerprint": "3c5f9e62fb23620040a2015466f4a48099193cb0e77885b1e0b0e6f4e346b3f1",
+  "source_fold_id": "wf_003",
+  "training_cutoff": "2025-07-31",
+  "training_row_count": 1212
+}

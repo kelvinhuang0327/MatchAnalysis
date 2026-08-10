@@ -6,4 +6,5 @@ __all__ = (
     "multifold_historical_candidate_replay",
     "prediction_learning_candidate_gate",
     "train_moneyline_challenger",
+    "evaluate_moneyline_challenger_oos",
 )
