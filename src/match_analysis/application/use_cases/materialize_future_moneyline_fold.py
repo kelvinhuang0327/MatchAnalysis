@@ -3,8 +3,11 @@
 from __future__ import annotations
 
 from collections import defaultdict
+from dataclasses import dataclass
 from datetime import UTC, date, datetime, timedelta
 from decimal import Decimal, getcontext
+from hashlib import sha256
+import json
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -29,12 +32,170 @@ from .acquire_future_moneyline_history import (
 getcontext().prec = 28
 
 
+FEATURE_EVALUABLE = "EVALUABLE"
+FEATURE_UNAVAILABLE = "FEATURE_UNAVAILABLE"
+FEATURE_UNAVAILABLE_REASON = "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY"
+REQUIRED_STARTER_HISTORY = 2
+
+
+@dataclass(frozen=True, slots=True)
+class FutureFeatureEligibility:
+    raw_game_ids: tuple[str, ...]
+    evaluable_game_ids: tuple[str, ...]
+    feature_unavailable_rows: tuple[dict[str, Any], ...]
+
+
 def _parse(value: str) -> datetime:
     return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(UTC)
 
 
 def _decimal(value: Decimal) -> str:
     return format(value, "f")
+
+
+def _target_games(
+    *,
+    schedule_rows: tuple[Mapping[str, Any], ...],
+    validation_start: str,
+    validation_end: str,
+) -> tuple[Mapping[str, Any], ...]:
+    return tuple(
+        sorted(
+            (
+                row
+                for row in schedule_rows
+                if validation_start <= str(row["official_date"]) <= validation_end
+            ),
+            key=lambda row: (
+                str(row["scheduled_start_utc"]),
+                int(row["game_number"]),
+                int(row["game_pk"]),
+            ),
+        )
+    )
+
+
+def _qualifying_same_season_starts(
+    logs_by_player: Mapping[int, tuple[Mapping[str, Any], ...]],
+    player_id: int,
+    target_date: str,
+) -> int:
+    target_season = target_date[:4]
+    return sum(
+        1
+        for row in logs_by_player.get(player_id, ())
+        if row["game_type"] == "R"
+        and row["games_started"] == 1
+        and str(row["date"])[:4] == target_season
+        and str(row["date"]) < target_date
+    )
+
+
+def _eligibility_identity(
+    *,
+    fold_id: str,
+    game_id: str,
+    scheduled_start: str,
+    feature_name: str,
+    reason: str,
+) -> str:
+    payload = {
+        "feature_name": feature_name,
+        "fold_id": fold_id,
+        "game_id": game_id,
+        "reason": reason,
+        "scheduled_start": scheduled_start,
+    }
+    canonical = (
+        json.dumps(payload, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
+        + "\n"
+    ).encode("utf-8")
+    return sha256(canonical).hexdigest()
+
+
+def classify_future_feature_eligibility(
+    *,
+    schedule_rows: tuple[Mapping[str, Any], ...],
+    target_boxscore_rows: tuple[Mapping[str, Any], ...],
+    pitcher_game_log_rows: tuple[Mapping[str, Any], ...],
+    fold_id: str,
+    validation_start: str,
+    validation_end: str,
+) -> FutureFeatureEligibility:
+    """Classify raw games from pregame inputs without reading outcome fields."""
+
+    target_games = _target_games(
+        schedule_rows=schedule_rows,
+        validation_start=validation_start,
+        validation_end=validation_end,
+    )
+    if len(target_games) < 2:
+        raise RuntimeError("STOP_MATCHANALYSIS_P23F2_OFFICIAL_SOURCE_INSUFFICIENT")
+    boxes = {str(row["provider_game_id"]): row for row in target_boxscore_rows}
+    logs: dict[int, list[Mapping[str, Any]]] = defaultdict(list)
+    for row in pitcher_game_log_rows:
+        logs[int(row["player_id"])].append(row)
+    logs_tuple = {player_id: tuple(rows) for player_id, rows in logs.items()}
+
+    raw_game_ids: list[str] = []
+    evaluable_game_ids: list[str] = []
+    unavailable_rows: list[dict[str, Any]] = []
+    for game in target_games:
+        game_id = str(game["provider_game_id"])
+        box = boxes.get(game_id)
+        if box is None:
+            raise RuntimeError("STOP_MATCHANALYSIS_P23F2_STARTER_IDENTITY_UNRESOLVED")
+        raw_game_ids.append(game_id)
+        affected_starters: list[dict[str, Any]] = []
+        for side in ("home", "away"):
+            starter = box[f"{side}_starter"]
+            if not isinstance(starter, Mapping):
+                raise RuntimeError(
+                    "STOP_MATCHANALYSIS_P23F2_STARTER_IDENTITY_UNRESOLVED"
+                )
+            count = _qualifying_same_season_starts(
+                logs_tuple,
+                int(starter["player_id"]),
+                str(game["official_date"]),
+            )
+            if count < REQUIRED_STARTER_HISTORY:
+                affected_starters.append(
+                    {
+                        "side": side,
+                        "team": str(game[f"{side}_team"]["name"]),
+                        "starter_id": int(starter["player_id"]),
+                        "starter_name": str(starter["full_name"]),
+                        "qualifying_prior_start_count": count,
+                        "required_prior_start_count": REQUIRED_STARTER_HISTORY,
+                    }
+                )
+        if not affected_starters:
+            evaluable_game_ids.append(game_id)
+            continue
+        reason = FEATURE_UNAVAILABLE_REASON
+        unavailable_rows.append(
+            {
+                "fold_id": fold_id,
+                "game_id": game_id,
+                "scheduled_start": str(game["scheduled_start_utc"]),
+                "status": FEATURE_UNAVAILABLE,
+                "reason": reason,
+                "feature_name": "starter_era_delta",
+                "affected_starters": affected_starters,
+                "deterministic_exclusion_identity": _eligibility_identity(
+                    fold_id=fold_id,
+                    game_id=game_id,
+                    scheduled_start=str(game["scheduled_start_utc"]),
+                    feature_name="starter_era_delta",
+                    reason=reason,
+                ),
+            }
+        )
+    return FutureFeatureEligibility(
+        raw_game_ids=tuple(raw_game_ids),
+        evaluable_game_ids=tuple(evaluable_game_ids),
+        feature_unavailable_rows=tuple(unavailable_rows),
+    )
 
 
 def _team_recent_delta(
@@ -69,11 +230,22 @@ def _starter_era(
     logs_by_player: Mapping[int, tuple[Mapping[str, Any], ...]],
     player_id: int,
     target_date: str,
+    *,
+    require_same_season_history: bool = False,
 ) -> Decimal:
     prior = [
         row for row in logs_by_player.get(player_id, ())
-        if row["game_type"] == "R" and row["date"] < target_date and row["games_started"] == 1
+        if row["game_type"] == "R"
+        and row["date"] < target_date
+        and row["games_started"] == 1
     ]
+    if require_same_season_history:
+        target_season = target_date[:4]
+        prior = [row for row in prior if str(row["date"])[:4] == target_season]
+        if len(prior) < REQUIRED_STARTER_HISTORY:
+            raise RuntimeError(
+                "STOP_MATCHANALYSIS_P23B_INSUFFICIENT_SAME_SEASON_STARTER_HISTORY"
+            )
     outs = sum(int(row["outs"]) for row in prior)
     earned_runs = sum(int(row["earned_runs"]) for row in prior)
     if outs <= 0:
@@ -87,13 +259,20 @@ def materialize_future_moneyline_fold(
     target_boxscore_rows: tuple[Mapping[str, Any], ...],
     pitcher_game_log_rows: tuple[Mapping[str, Any], ...],
     source_manifest_fingerprint: str,
+    fold_id: str = FOLD_ID,
+    validation_start: str = VALIDATION_START,
+    validation_end: str = VALIDATION_END,
+    evaluable_game_ids: frozenset[str] | None = None,
+    raw_game_ids: tuple[str, ...] | None = None,
+    feature_unavailable_rows: tuple[Mapping[str, Any], ...] = (),
 ) -> FutureEvaluationFold:
-    """Materialize one June cohort, freezing features before results are joined."""
+    """Materialize one future cohort, freezing features before results are joined."""
 
     boundary = _parse(TRAINING_INFORMATION_BOUNDARY_UTC)
-    target_games = tuple(
-        row for row in schedule_rows
-        if VALIDATION_START <= row["official_date"] <= VALIDATION_END
+    target_games = _target_games(
+        schedule_rows=schedule_rows,
+        validation_start=validation_start,
+        validation_end=validation_end,
     )
     if len(target_games) < 2:
         raise RuntimeError("STOP_MATCHANALYSIS_P23F2_OFFICIAL_SOURCE_INSUFFICIENT")
@@ -101,6 +280,23 @@ def materialize_future_moneyline_fold(
         raise RuntimeError("STOP_MATCHANALYSIS_P23F2_BASELINE_DRIFT")
     if any(not row["final"] for row in target_games):
         raise RuntimeError("STOP_MATCHANALYSIS_P23F2_OFFICIAL_SOURCE_INSUFFICIENT")
+    target_game_ids = tuple(str(row["provider_game_id"]) for row in target_games)
+    raw_ids = tuple(raw_game_ids or target_game_ids)
+    if set(raw_ids) != set(target_game_ids) or len(raw_ids) != len(target_game_ids):
+        raise ValueError("raw game identities must match the target fold")
+    if evaluable_game_ids is None:
+        evaluable_ids = frozenset(target_game_ids)
+    else:
+        if raw_game_ids is None:
+            raise ValueError("P23B evaluable membership requires raw membership")
+        evaluable_ids = frozenset(str(game_id) for game_id in evaluable_game_ids)
+        if not evaluable_ids <= set(target_game_ids):
+            raise ValueError("evaluable game identities must be raw fold games")
+    if len(evaluable_ids) < 2:
+        raise RuntimeError("STOP_MATCHANALYSIS_P23B_INSUFFICIENT_EVALUABLE_GAMES")
+    feature_games = tuple(
+        game for game in target_games if str(game["provider_game_id"]) in evaluable_ids
+    )
     boxes = {row["provider_game_id"]: row for row in target_boxscore_rows}
     logs: dict[int, list[Mapping[str, Any]]] = defaultdict(list)
     for row in pitcher_game_log_rows:
@@ -108,7 +304,7 @@ def materialize_future_moneyline_fold(
     logs_tuple = {player_id: tuple(rows) for player_id, rows in logs.items()}
 
     feature_rows: list[FutureFeatureRow] = []
-    for game in sorted(target_games, key=lambda row: (row["scheduled_start_utc"], row["game_number"], row["game_pk"])):
+    for game in feature_games:
         box = boxes.get(game["provider_game_id"])
         if box is None:
             raise RuntimeError("STOP_MATCHANALYSIS_P23F2_STARTER_IDENTITY_UNRESOLVED")
@@ -121,8 +317,16 @@ def materialize_future_moneyline_fold(
             away_team_id=game["away_team"]["id"],
             target_start=target_start,
         )
-        starter_delta = _starter_era(logs_tuple, int(home_starter["player_id"]), game["official_date"]) - _starter_era(
-            logs_tuple, int(away_starter["player_id"]), game["official_date"]
+        starter_delta = _starter_era(
+            logs_tuple,
+            int(home_starter["player_id"]),
+            game["official_date"],
+            require_same_season_history=evaluable_game_ids is not None,
+        ) - _starter_era(
+            logs_tuple,
+            int(away_starter["player_id"]),
+            game["official_date"],
+            require_same_season_history=evaluable_game_ids is not None,
         )
         feature_rows.append(
             FutureFeatureRow(
@@ -154,29 +358,43 @@ def materialize_future_moneyline_fold(
             status=game["status"],
             source_result_id=f"MLB_STATS_API:game/{game['game_pk']}/schedule:{game['official_date']}",
         )
-        for game in sorted(target_games, key=lambda row: (row["scheduled_start_utc"], row["game_number"], row["game_pk"]))
+        for game in target_games
     )
     feature_fingerprint = fingerprint_rows(tuple(row.projection() for row in frozen_features))
     result_fingerprint = fingerprint_rows(tuple(row.projection() for row in results))
+    preserve_raw_membership = (
+        raw_game_ids is not None or bool(feature_unavailable_rows)
+    )
     manifest = {
-        "fold_id": FOLD_ID,
-        "validation_start": VALIDATION_START,
-        "validation_end": VALIDATION_END,
+        "fold_id": fold_id,
+        "validation_start": validation_start,
+        "validation_end": validation_end,
         "feature_fingerprint": feature_fingerprint,
         "result_fingerprint": result_fingerprint,
         "source_manifest_fingerprint": source_manifest_fingerprint,
     }
+    if preserve_raw_membership:
+        manifest.update(
+            {
+                "raw_game_ids": list(raw_ids),
+                "feature_unavailable": [
+                    dict(row) for row in feature_unavailable_rows
+                ],
+            }
+        )
     return FutureEvaluationFold(
-        fold_id=FOLD_ID,
+        fold_id=fold_id,
         training_information_boundary_utc=TRAINING_INFORMATION_BOUNDARY_UTC,
-        validation_start=VALIDATION_START,
-        validation_end=VALIDATION_END,
+        validation_start=validation_start,
+        validation_end=validation_end,
         feature_rows=frozen_features,
         result_rows=results,
         source_manifest_fingerprint=source_manifest_fingerprint,
         feature_fingerprint=feature_fingerprint,
         result_fingerprint=result_fingerprint,
         fold_fingerprint=fingerprint_manifest(manifest),
+        raw_game_ids=raw_ids if preserve_raw_membership else (),
+        feature_unavailable_rows=tuple(dict(row) for row in feature_unavailable_rows),
     )
 
 
@@ -184,6 +402,9 @@ def materialize_from_normalized_dir(
     normalized_root: str | Path,
     *,
     source_manifest_fingerprint: str,
+    fold_id: str = FOLD_ID,
+    validation_start: str = VALIDATION_START,
+    validation_end: str = VALIDATION_END,
 ) -> FutureEvaluationFold:
     root = Path(normalized_root)
     return materialize_future_moneyline_fold(
@@ -191,7 +412,18 @@ def materialize_from_normalized_dir(
         target_boxscore_rows=load_normalized_rows(root / "target_boxscores.jsonl"),
         pitcher_game_log_rows=load_normalized_rows(root / "pitcher_game_logs.jsonl"),
         source_manifest_fingerprint=source_manifest_fingerprint,
+        fold_id=fold_id,
+        validation_start=validation_start,
+        validation_end=validation_end,
     )
 
 
-__all__ = ("materialize_from_normalized_dir", "materialize_future_moneyline_fold")
+__all__ = (
+    "FEATURE_EVALUABLE",
+    "FEATURE_UNAVAILABLE",
+    "FEATURE_UNAVAILABLE_REASON",
+    "FutureFeatureEligibility",
+    "classify_future_feature_eligibility",
+    "materialize_from_normalized_dir",
+    "materialize_future_moneyline_fold",
+)

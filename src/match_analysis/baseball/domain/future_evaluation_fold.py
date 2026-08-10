@@ -6,6 +6,7 @@ from dataclasses import dataclass, replace
 from datetime import UTC, datetime
 from hashlib import sha256
 import json
+import re
 from typing import Any, Mapping
 
 
@@ -15,6 +16,7 @@ TRAINING_INFORMATION_BOUNDARY_UTC = "2026-03-12T06:29:35.016973Z"
 RECENT_GAME_WINDOW = 15
 MIN_HISTORY_MONTHS = 2
 FOLD_ID = "wf_004"
+_FOLD_ID_PATTERN = re.compile(r"^wf_\d{3}$")
 
 
 def _canonical_bytes(value: Mapping[str, Any]) -> bytes:
@@ -118,22 +120,57 @@ class FutureEvaluationFold:
     feature_fingerprint: str
     result_fingerprint: str
     fold_fingerprint: str = ""
+    raw_game_ids: tuple[str, ...] = ()
+    feature_unavailable_rows: tuple[Mapping[str, Any], ...] = ()
 
     def __post_init__(self) -> None:
-        if self.fold_id != FOLD_ID:
-            raise ValueError("P23F2 must materialize exactly wf_004")
+        if _FOLD_ID_PATTERN.fullmatch(self.fold_id) is None:
+            raise ValueError("future fold id must match wf_NNN")
         if len(self.feature_rows) < 2:
             raise ValueError("future fold requires more than one feature row")
         feature_ids = [row.provider_game_id for row in self.feature_rows]
         result_ids = [row.provider_game_id for row in self.result_rows]
+        raw_ids = self.raw_game_ids or tuple(feature_ids)
+        if any(not isinstance(row, Mapping) for row in self.feature_unavailable_rows):
+            raise ValueError("feature-unavailable rows must be mappings")
+        unavailable_ids = [
+            str(row.get("game_id", "")) for row in self.feature_unavailable_rows
+        ]
+        if any(not game_id for game_id in unavailable_ids):
+            raise ValueError("feature-unavailable rows require game_id")
+        if len(set(raw_ids)) != len(raw_ids):
+            raise ValueError("raw game identities must be unique")
+        if len(set(unavailable_ids)) != len(unavailable_ids):
+            raise ValueError("feature-unavailable identities must be unique")
+        if set(feature_ids) & set(unavailable_ids):
+            raise ValueError("feature-unavailable game cannot be evaluable")
+        if set(feature_ids) | set(unavailable_ids) != set(raw_ids):
+            raise ValueError("raw fold membership is incomplete")
+        for row in self.feature_unavailable_rows:
+            if row.get("fold_id") != self.fold_id:
+                raise ValueError("feature-unavailable fold identity mismatch")
+            if row.get("feature_name") != "starter_era_delta":
+                raise ValueError("feature-unavailable feature name mismatch")
+            if row.get("reason") != "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY":
+                raise ValueError("feature-unavailable reason is not controlled")
+            if {
+                "home_score",
+                "away_score",
+                "winner",
+                "challenger_correct",
+                "incumbent_correct",
+                "brier",
+                "profit",
+            } & row.keys():
+                raise ValueError("feature-unavailable rows must be outcome-blind")
         feature_order = [
             (row.scheduled_start_utc, row.game_number, row.game_pk)
             for row in self.feature_rows
         ]
         if feature_order != sorted(feature_order):
             raise ValueError("feature rows must be in deterministic order")
-        if set(feature_ids) != set(result_ids) or len(result_ids) != len(feature_ids):
-            raise ValueError("results must match feature identities exactly")
+        if set(raw_ids) != set(result_ids) or len(result_ids) != len(raw_ids):
+            raise ValueError("results must match raw identities exactly")
         boundary = _parse(self.training_information_boundary_utc)
         for row in self.feature_rows:
             scheduled = _parse(row.scheduled_start_utc)
@@ -146,7 +183,7 @@ class FutureEvaluationFold:
                 raise ValueError("future fold results must be final")
 
     def manifest_projection(self) -> dict[str, Any]:
-        return {
+        projection = {
             "schema_version": FUTURE_FOLD_SCHEMA_VERSION,
             "fold_id": self.fold_id,
             "training_information_boundary_utc": self.training_information_boundary_utc,
@@ -165,6 +202,22 @@ class FutureEvaluationFold:
             "model_promoted": False,
             "production_ready": False,
         }
+        if self.raw_game_ids or self.feature_unavailable_rows:
+            raw_ids = self.raw_game_ids or tuple(
+                row.provider_game_id for row in self.feature_rows
+            )
+            projection.update(
+                {
+                    "raw_game_count": len(raw_ids),
+                    "evaluable_game_count": len(self.feature_rows),
+                    "feature_unavailable_count": len(self.feature_unavailable_rows),
+                    "raw_game_ids": list(raw_ids),
+                    "feature_unavailable": [
+                        dict(row) for row in self.feature_unavailable_rows
+                    ],
+                }
+            )
+        return projection
 
 
 def fingerprint_rows(rows: tuple[Mapping[str, Any], ...]) -> str:

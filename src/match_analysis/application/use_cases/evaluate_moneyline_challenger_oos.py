@@ -161,6 +161,18 @@ def _future_result(row: Mapping[str, Any]) -> FutureResultRow:
     )
 
 
+def parse_future_feature_projection(row: Mapping[str, Any]) -> FutureFeatureRow:
+    """Parse one future feature row using the existing P23A authority contract."""
+
+    return _future_feature(row)
+
+
+def parse_future_result_projection(row: Mapping[str, Any]) -> FutureResultRow:
+    """Parse one future result row using the existing P23A authority contract."""
+
+    return _future_result(row)
+
+
 def _load_feature_authority(
     repository_root: Path,
 ) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any], tuple[FutureFeatureRow, ...]]:
@@ -415,6 +427,15 @@ def _validate_no_training_overlap(
         raise ValueError("P23A training/evaluation overlap detected")
 
 
+def validate_no_training_overlap(
+    repository_root: str | Path,
+    feature_rows: Sequence[FutureFeatureRow],
+) -> None:
+    """Fail closed when a future cohort overlaps the committed P22A training rows."""
+
+    _validate_no_training_overlap(Path(repository_root), feature_rows)
+
+
 def _snapshot_for_future_feature(row: FutureFeatureRow) -> MoneylineFeatureSnapshot:
     schedule_source_id = sha256(
         f"p23f2:{row.provider_game_id}:{row.scheduled_start_utc}".encode("utf-8")
@@ -489,12 +510,18 @@ def pair_predictions_with_results(
     challenger_model_fingerprint: str,
     incumbent_model_id: str,
     incumbent_model_fingerprint: str,
+    fold_id: str = P23A_FOLD_ID,
 ) -> tuple[PairedMoneylineComparison, ...]:
     """Join frozen predictions to results without changing prediction values."""
 
     feature_by_id = {row.provider_game_id: row for row in feature_rows}
     result_by_id = {row.provider_game_id: row for row in result_rows}
-    if set(feature_by_id) != set(predictions) or set(feature_by_id) != set(result_by_id):
+    if (
+        len(feature_by_id) != len(feature_rows)
+        or len(result_by_id) != len(result_rows)
+        or set(feature_by_id) != set(predictions)
+        or not set(feature_by_id).issubset(result_by_id)
+    ):
         raise ValueError("P23A cohort identities are incomplete or mismatched")
     rows = []
     for feature in sorted(
@@ -504,7 +531,7 @@ def pair_predictions_with_results(
         challenger_probability, incumbent_probability = predictions[feature.provider_game_id]
         rows.append(
             build_comparison_row(
-                fold_id=P23A_FOLD_ID,
+                fold_id=fold_id,
                 feature_row=feature.projection(),
                 result_row=result_by_id[feature.provider_game_id].projection(),
                 challenger_model_id=challenger_model_id,
@@ -515,9 +542,54 @@ def pair_predictions_with_results(
                 incumbent_home_probability=incumbent_probability,
             )
         )
-    if len(rows) != 23:
-        raise ValueError("P23A must emit exactly 23 comparison rows")
+    if len(rows) != len(feature_rows):
+        raise ValueError("comparison stream dropped a cohort row")
     return tuple(rows)
+
+
+def load_p23a_future_fold_authority(
+    repository_root: str | Path,
+) -> tuple[
+    dict[str, Any],
+    dict[str, Any],
+    dict[str, Any],
+    tuple[FutureFeatureRow, ...],
+    tuple[FutureResultRow, ...],
+]:
+    """Load and validate the committed P23F2/P23A future-fold authority."""
+
+    root = Path(repository_root)
+    summary, manifest, source_manifest, feature_rows = _load_feature_authority(root)
+    result_rows = _load_and_validate_results(
+        root,
+        summary=summary,
+        manifest=manifest,
+        source_manifest=source_manifest,
+        feature_rows=feature_rows,
+    )
+    return summary, manifest, source_manifest, feature_rows, result_rows
+
+
+def load_frozen_challenger_authority(
+    repository_root: str | Path,
+) -> tuple[MoneylineModelArtifact, str, dict[str, Any]]:
+    """Load the P22B challenger through the existing P23A authority checks."""
+
+    return _load_challenger(Path(repository_root))
+
+
+def load_incumbent_authority(
+    repository_root: str | Path,
+) -> tuple[
+    MoneylineModelArtifact,
+    dict[str, Any],
+    MoneylineWalkForwardFold,
+    ReconstructedWalkForwardModel,
+    str,
+]:
+    """Reconstruct and self-verify the committed P23A incumbent authority."""
+
+    return _load_incumbent(Path(repository_root))
 
 
 def evaluate_moneyline_challenger_oos(
@@ -663,7 +735,13 @@ __all__ = (
     "P23A_INCUMBENT_FIDELITY_ROUTE",
     "P23A_SOURCE_DATASET_FINGERPRINT",
     "evaluate_moneyline_challenger_oos",
+    "load_frozen_challenger_authority",
+    "load_incumbent_authority",
+    "load_p23a_future_fold_authority",
+    "parse_future_feature_projection",
+    "parse_future_result_projection",
     "pair_predictions_with_results",
     "predict_feature_rows",
+    "validate_no_training_overlap",
     "run_deterministic_moneyline_challenger_oos",
 )

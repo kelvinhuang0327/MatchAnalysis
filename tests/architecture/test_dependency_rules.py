@@ -120,7 +120,10 @@ AUTHORIZED_SOURCE_PATHS = {
     "baseball/domain/moneyline_oos_comparison.py",
     "application/use_cases/evaluate_moneyline_challenger_oos.py",
     "application/use_cases/moneyline_oos_comparison_artifacts.py",
+    "application/use_cases/evaluate_multifold_moneyline_oos.py",
+    "application/use_cases/multifold_moneyline_oos_artifacts.py",
     "interfaces/cli/evaluate_moneyline_challenger_oos.py",
+    "interfaces/cli/evaluate_multifold_moneyline_oos.py",
 }
 
 MLB_SCHEDULE_PAYLOAD_ADAPTER_RUNTIME_PATHS = (

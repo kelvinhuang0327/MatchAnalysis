@@ -1,0 +1,153 @@
+{
+  "evaluable_game_count": 17,
+  "external_source": true,
+  "feature_as_of_range": [
+    "2026-06-10T17:09:59.999999Z",
+    "2026-06-11T23:04:59.999999Z"
+  ],
+  "feature_fingerprint": "dc2dcde7d8ec51493bf05d04d917f2c23a14cea23b7b0ba752d9772a5494d470",
+  "feature_names": [
+    "recent_win_rate_delta",
+    "starter_era_delta"
+  ],
+  "feature_unavailable": [
+    {
+      "affected_starters": [
+        {
+          "qualifying_prior_start_count": 1,
+          "required_prior_start_count": 2,
+          "side": "home",
+          "starter_id": 687473,
+          "starter_name": "Ryan Gusto",
+          "team": "Miami Marlins"
+        }
+      ],
+      "deterministic_exclusion_identity": "5f3c86ce3c96df70bb91b4f020397e05553ea6a2d9ef7ca55c8015b42487de50",
+      "feature_name": "starter_era_delta",
+      "fold_id": "wf_005",
+      "game_id": "823856",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+      "scheduled_start": "2026-06-10T22:40:00Z",
+      "status": "FEATURE_UNAVAILABLE"
+    },
+    {
+      "affected_starters": [
+        {
+          "qualifying_prior_start_count": 0,
+          "required_prior_start_count": 2,
+          "side": "away",
+          "starter_id": 702474,
+          "starter_name": "Mike Paredes",
+          "team": "Minnesota Twins"
+        }
+      ],
+      "deterministic_exclusion_identity": "75da742566eb777369e618b96e9da81f18d5a0449b4689bec4be3d9e66bc8dd2",
+      "feature_name": "starter_era_delta",
+      "fold_id": "wf_005",
+      "game_id": "824266",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+      "scheduled_start": "2026-06-10T22:40:00Z",
+      "status": "FEATURE_UNAVAILABLE"
+    },
+    {
+      "affected_starters": [
+        {
+          "qualifying_prior_start_count": 1,
+          "required_prior_start_count": 2,
+          "side": "home",
+          "starter_id": 681810,
+          "starter_name": "Austin Warren",
+          "team": "New York Mets"
+        }
+      ],
+      "deterministic_exclusion_identity": "da47aa5e5f256beadf2d9563639bca2374226a8a53802ab73774c0d60fc7a5c3",
+      "feature_name": "starter_era_delta",
+      "fold_id": "wf_005",
+      "game_id": "823618",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+      "scheduled_start": "2026-06-10T23:10:00Z",
+      "status": "FEATURE_UNAVAILABLE"
+    },
+    {
+      "affected_starters": [
+        {
+          "qualifying_prior_start_count": 1,
+          "required_prior_start_count": 2,
+          "side": "home",
+          "starter_id": 678022,
+          "starter_name": "Jack Perkins",
+          "team": "Athletics"
+        }
+      ],
+      "deterministic_exclusion_identity": "a3961df67b1eaf8033985d2c23b07d0c8f665f83ea6ade7793dbc9000121c53e",
+      "feature_name": "starter_era_delta",
+      "fold_id": "wf_005",
+      "game_id": "824996",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+      "scheduled_start": "2026-06-11T01:05:00Z",
+      "status": "FEATURE_UNAVAILABLE"
+    },
+    {
+      "affected_starters": [
+        {
+          "qualifying_prior_start_count": 1,
+          "required_prior_start_count": 2,
+          "side": "away",
+          "starter_id": 690928,
+          "starter_name": "Hunter Dobbins",
+          "team": "St. Louis Cardinals"
+        }
+      ],
+      "deterministic_exclusion_identity": "7434a8836590eb3780c1b83ca7b6f49ede35edbdd3b7fadf676332af130615b0",
+      "feature_name": "starter_era_delta",
+      "fold_id": "wf_005",
+      "game_id": "823619",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+      "scheduled_start": "2026-06-11T17:10:00Z",
+      "status": "FEATURE_UNAVAILABLE"
+    }
+  ],
+  "feature_unavailable_count": 5,
+  "fold_fingerprint": "2fb192124847fa21556321e1bd8c34b2c95159873eba8e5662d00a4565ae781b",
+  "fold_id": "wf_005",
+  "game_count": 17,
+  "model_evaluated": false,
+  "model_promoted": false,
+  "production_ready": false,
+  "raw_game_count": 22,
+  "raw_game_ids": [
+    "822970",
+    "824428",
+    "823215",
+    "823287",
+    "824831",
+    "823372",
+    "823856",
+    "824266",
+    "822804",
+    "823618",
+    "824103",
+    "824590",
+    "824348",
+    "824996",
+    "824022",
+    "823619",
+    "823855",
+    "824265",
+    "824101",
+    "824346",
+    "823371",
+    "824827"
+  ],
+  "result_fingerprint": "ab7841cc513af49c029eda90e71ac6393455c3fd0b63e04c41494502c82e0f1a",
+  "scheduled_start_range": [
+    "2026-06-10T17:10:00Z",
+    "2026-06-11T23:05:00Z"
+  ],
+  "schema_version": "p23f2.future_evaluation_fold.v1",
+  "source_manifest_fingerprint": "eec56c5c1a9c71fa6dcd3c4e7db0c7c8cc045bd99b5742da0474638d508d3c96",
+  "strict_future": true,
+  "training_information_boundary_utc": "2026-03-12T06:29:35.016973Z",
+  "validation_end": "2026-06-11",
+  "validation_start": "2026-06-10"
+}

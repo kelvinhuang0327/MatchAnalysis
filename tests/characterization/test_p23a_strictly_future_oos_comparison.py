@@ -7,6 +7,9 @@ import unittest
 from match_analysis.application.use_cases.evaluate_moneyline_challenger_oos import (
     run_deterministic_moneyline_challenger_oos,
 )
+from match_analysis.application.use_cases.evaluate_multifold_moneyline_oos import (
+    run_deterministic_multifold_moneyline_oos,
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -68,6 +71,27 @@ class P23AStrictlyFutureOOSComparisonTests(unittest.TestCase):
         self.assertEqual(summary["validation_start"], "2026-06-08")
         self.assertEqual(summary["validation_end"], "2026-06-09")
         self.assertTrue(summary["strict_future"])
+
+    def test_p23b_preserves_raw_games_and_evaluates_only_shared_cohort(self) -> None:
+        result = run_deterministic_multifold_moneyline_oos(ROOT)
+        self.assertEqual(result.summary["total_raw_game_count"], 75)
+        self.assertEqual(result.summary["total_evaluable_game_count"], 65)
+        self.assertEqual(result.summary["total_feature_unavailable_count"], 10)
+        self.assertEqual(result.summary["pooled_evaluation_coverage"], "0.8666666666666666666666666667")
+        wf005 = next(row for row in result.per_fold_summary if row["fold_id"] == "wf_005")
+        self.assertEqual(
+            (wf005["raw_game_count"], wf005["evaluable_game_count"], wf005["feature_unavailable_count"]),
+            (22, 17, 5),
+        )
+        unavailable = next(
+            row for row in wf005["feature_unavailable"] if row["game_id"] == "824266"
+        )
+        self.assertEqual(unavailable["status"], "FEATURE_UNAVAILABLE")
+        self.assertEqual(unavailable["reason"], "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY")
+        self.assertEqual(unavailable["affected_starters"][0]["starter_id"], 702474)
+        self.assertNotIn("824266", {row["provider_game_id"] for row in result.comparison_rows})
+        self.assertTrue(result.summary["deterministic_replay_verified"])
+        self.assertTrue(result.summary["input_order_invariance_verified"])
 
 
 if __name__ == "__main__":
