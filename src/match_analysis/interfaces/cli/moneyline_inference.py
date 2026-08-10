@@ -1,4 +1,4 @@
-"""CLI for deterministic P19A Moneyline inference."""
+"""CLI for deterministic paper-only Moneyline inference."""
 
 import argparse
 from pathlib import Path
@@ -14,6 +14,14 @@ from ...application.use_cases.moneyline_inference_artifacts import (
 )
 
 
+DEFAULT_PAPER_MONEYLINE_MODEL_ARTIFACT_PATH = (
+    Path(__file__).resolve().parents[4]
+    / "report"
+    / "p22b_moneyline_challenger"
+    / "model_artifact.json"
+)
+
+
 def main(argv: list[str] | None = None) -> int:
     """Run local Moneyline inference without provider, database, or runtime state."""
 
@@ -21,7 +29,15 @@ def main(argv: list[str] | None = None) -> int:
         description="Generate deterministic pregame Moneyline predictions."
     )
     parser.add_argument("--feature-snapshots", required=True, type=Path)
-    parser.add_argument("--model-artifact", required=True, type=Path)
+    parser.add_argument(
+        "--model-artifact",
+        type=Path,
+        default=DEFAULT_PAPER_MONEYLINE_MODEL_ARTIFACT_PATH,
+        help=(
+            "Paper-only model artifact path; defaults to the frozen P22B "
+            "challenger artifact."
+        ),
+    )
     parser.add_argument("--prediction-generated-at-utc", required=True)
     parser.add_argument("--response-received-at-utc", required=True)
     parser.add_argument("--ingested-at-utc", required=True)
