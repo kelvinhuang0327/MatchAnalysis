@@ -1,0 +1,113 @@
+{
+  "acquisition_timestamp_utc": "2026-08-11T00:00:00Z",
+  "authority_reference_counts": {
+    "cohort_window_all_tsl_blob3rd_rows": 295,
+    "cohort_window_exact_two_way_pregame_nonempty_code_rows": 38,
+    "cohort_window_exact_two_way_pregame_rows": 46,
+    "exact_file_rows": 2941,
+    "exact_source_tsl_blob3rd_rows": 2917
+  },
+  "batch_id": "7e8fe78950140f8e165872a83712b6b7d15d60edd671c344a70b3c65d203ea6e",
+  "cohort_scope": {
+    "game_time_end_date": "2026-05-24",
+    "game_time_start_date": "2026-05-18",
+    "selection_rule": "bounded seven-day TSL game_time local-date cohort"
+  },
+  "fixture_scope": "EXACT_TWO_WAY_PREGAME_TSL_ROWS",
+  "fixture_selection_rule": "TSL_BLOB3RD rows in the frozen cohort with exactly one two-outcome MNL market and fetched_at before game_time; empty team codes retained for explicit crosswalk accounting",
+  "inference_model_fingerprint": "5b7b5daa3928cfabc1a7d9cef68709668ff3bb004acd413a62a0241fa9f6db9d",
+  "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+  "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+  "normalized_hashes": {
+    "pitcher_game_logs.jsonl": "0a1ba7b3b92ab50234ba9aaea5c667879c438d4334b8af971eff987a49e535c3",
+    "schedule.jsonl": "1dc9c7115b5fcb52e4928d505a2edfb557b7484545fa70ab69f6cc5dd32eaf0c",
+    "target_boxscores.jsonl": "a1b177927d08fcd0645e31572677c2fa2e8c810b67a0221a6db09f8d3c03e898"
+  },
+  "p28ab_cohort": {
+    "crosswalk_status_counts": {
+      "MATCHED_FINAL": 31,
+      "NO_CANONICAL_TEAM_CODE": 8,
+      "POSTPONED_OR_NON_FINAL": 7
+    },
+    "edge_semantics": "DESCRIPTIVE_MODEL_MINUS_SIMPLE_TWO_WAY_NORMALIZED_IMPLIED_PROBABILITY",
+    "fixture_row_count": 46,
+    "fold_id": "wf_008",
+    "game_time_end_date": "2026-05-24",
+    "game_time_start_date": "2026-05-18",
+    "matched_final_official_game_ids": [
+      "822738",
+      "822977",
+      "823138",
+      "823548",
+      "823704",
+      "823708",
+      "823862",
+      "823865",
+      "824112",
+      "824114",
+      "824192",
+      "824273",
+      "824518",
+      "824674",
+      "824677",
+      "824680"
+    ],
+    "normalization": "SIMPLE_TWO_WAY_NORMALIZATION",
+    "prediction_cutoff_rule": "fetched_at < official scheduled_start_utc",
+    "price_selection_rule": "LATEST_PRE_CUTOFF"
+  },
+  "records": [
+    {
+      "path": "data/fixtures/p23f2_official_2026_history/normalized/schedule.jsonl",
+      "scope": "official MLB schedule history used for canonical crosswalk and prior-form features",
+      "sha256": "1dc9c7115b5fcb52e4928d505a2edfb557b7484545fa70ab69f6cc5dd32eaf0c",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026"
+    },
+    {
+      "path": "data/fixtures/p28ab_tsl_aligned_moneyline_edge/normalized/target_boxscores.jsonl",
+      "scope": "official MLB target-game boxscores and probable starters",
+      "sha256": "a1b177927d08fcd0645e31572677c2fa2e8c810b67a0221a6db09f8d3c03e898",
+      "url": "https://statsapi.mlb.com/api/v1/game/{game_pk}/boxscore"
+    },
+    {
+      "path": "data/fixtures/p28ab_tsl_aligned_moneyline_edge/normalized/pitcher_game_logs.jsonl",
+      "scope": "official MLB 2026 regular-season pitcher game logs used for same-season PIT starter ERA",
+      "sha256": "0a1ba7b3b92ab50234ba9aaea5c667879c438d4334b8af971eff987a49e535c3",
+      "url": "https://statsapi.mlb.com/api/v1/people/{player_id}/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    }
+  ],
+  "schema_version": "p28ab.tsl_aligned_edge.source_manifest.v1",
+  "source_authority": "MLB_STATS_API",
+  "source_domains": [
+    "mlb.com"
+  ],
+  "source_manifest_fingerprint": "6575121d1c0520828c4174163e7503e058207daa4114d5787eee4473430d77c9",
+  "target_game_ids": [
+    "822738",
+    "822977",
+    "823138",
+    "823548",
+    "823704",
+    "823708",
+    "823862",
+    "823865",
+    "824112",
+    "824114",
+    "824192",
+    "824273",
+    "824518",
+    "824674",
+    "824677",
+    "824680"
+  ],
+  "tsl_authority": {
+    "authority_label": "TSL_BLOB3RD",
+    "blob_id": "d1654141691b08e074b18506cc8a48fb2266013c",
+    "exact_path": "data/tsl_odds_history.jsonl",
+    "exact_ref": "03b2fcf4de1a13ee9929afcef803d61955c9f41b",
+    "legacy_repository": "Betting-pool",
+    "raw_sha256": "1741e2a84eb8342f8752a498d2c478a9309a971a57b3b4f6966132188e52168a",
+    "retrieval_mode": "direct Git object read; no legacy checkout mutation"
+  },
+  "tsl_fixture_sha256": "8415b8769885207f7baa6a064efec7223ed3dc8cf2a6842bd67c1ecf8ff62107"
+}
