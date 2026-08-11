@@ -2,6 +2,7 @@
 
 __all__ = (
     "historical_feedback_replay",
+    "settle_paper_moneyline_batch",
     "materialize_moneyline_training_dataset",
     "multifold_historical_candidate_replay",
     "prediction_learning_candidate_gate",
