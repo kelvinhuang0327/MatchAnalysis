@@ -9,4 +9,5 @@ __all__ = (
     "train_moneyline_challenger",
     "evaluate_moneyline_challenger_oos",
     "evaluate_multifold_moneyline_oos",
+    "replay_moneyline_market_movement",
 )

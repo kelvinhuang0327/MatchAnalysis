@@ -1,0 +1,72 @@
+{
+  "claims": {
+    "decision_policy_used": false,
+    "diagnostic_only": true,
+    "historical_shadow": true,
+    "paper_only": true,
+    "production_ready": false,
+    "profitability_claim": false,
+    "real_betting_recommendation": false,
+    "staking_implemented": false
+  },
+  "closing_price_available_count": 0,
+  "closing_price_coverage_ratio": "0",
+  "closing_price_unavailable_count": 9,
+  "closing_selection_rule": "LATEST_PREGAME_TSL_OBSERVATION_STRICTLY_AFTER_ENTRY_AND_AT_OR_BEFORE_GAME_START",
+  "decision_policy_used": false,
+  "deterministic_replay_verified": true,
+  "diagnostic_name": "legacy_moneyline_closing_price_clv",
+  "entry_cutoff_rule": "strict fetched_at < official scheduled_start_utc",
+  "entry_price_selection_rule": "LATEST_PRE_CUTOFF",
+  "input_order_invariance_verified": true,
+  "legacy_formula_source": {
+    "formula_authority": "scripts/generate_clv_records_6u.py:_build_clv_record",
+    "legacy_artifact_path": "data/wbc_backend/reports/clv_validation_records_6u_2026-04-30.jsonl",
+    "legacy_artifact_sha256": "09ea49e359558f6cc4df6c0d4dbf6dbffa8bebe9730b7581bce4900b6a9f8517",
+    "legacy_cohort_row_count": 14,
+    "parity_tolerance": "0.000002",
+    "pregame_closing_authority": "wbc_backend/mlb_data/live_odds_collector.py:backfill_slots"
+  },
+  "market_movement_row_count": 0,
+  "metric_formula": "closing_raw_implied_probability - entry_raw_implied_probability",
+  "metric_name": "CLV",
+  "metric_sides_preserved": [
+    "HOME",
+    "AWAY"
+  ],
+  "moneyline_model_promoted": true,
+  "moneyline_promotion_scope": "paper_only",
+  "normalization": "SIMPLE_TWO_WAY_NORMALIZATION",
+  "outcome_independent": true,
+  "p28ab_batch_id": "7e8fe78950140f8e165872a83712b6b7d15d60edd671c344a70b3c65d203ea6e",
+  "p28ab_crosswalked_official_game_count": 17,
+  "p28ab_edge_row_count": 18,
+  "p28ab_evaluable_prediction_count": 9,
+  "p28ab_feature_unavailable_count": 7,
+  "p28ab_final_official_game_count": 16,
+  "p28ab_raw_source_row_count": 46,
+  "p28ab_schema_version": "p28ab.tsl_aligned_moneyline_edge.v1",
+  "p28ab_selected_price_count": 16,
+  "p28ab_source_manifest_fingerprint": "6575121d1c0520828c4174163e7503e058207daa4114d5787eee4473430d77c9",
+  "paired_p28ab_game_count": 9,
+  "production_ready": false,
+  "profitability_claim": false,
+  "real_betting_recommendation": false,
+  "required_negative_tests_verified": {
+    "closing_price_mutation_isolated_from_p28ab_prediction": true,
+    "impossible_chronology_rejected": true,
+    "outcome_mutation_isolated": true,
+    "postgame_observation_rejected": true
+  },
+  "schema_version": "p29a.moneyline_market_movement.v1",
+  "staking_implemented": false,
+  "tsl_authority": {
+    "authority_label": "TSL_BLOB3RD",
+    "blob_id": "d1654141691b08e074b18506cc8a48fb2266013c",
+    "exact_path": "data/tsl_odds_history.jsonl",
+    "exact_ref": "03b2fcf4de1a13ee9929afcef803d61955c9f41b",
+    "fixture_sha256": "8415b8769885207f7baa6a064efec7223ed3dc8cf2a6842bd67c1ecf8ff62107",
+    "raw_sha256": "1741e2a84eb8342f8752a498d2c478a9309a971a57b3b4f6966132188e52168a"
+  },
+  "tsl_input_row_count": 46
+}

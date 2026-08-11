@@ -133,6 +133,9 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/use_cases/multifold_moneyline_oos_artifacts.py",
     "interfaces/cli/evaluate_moneyline_challenger_oos.py",
     "interfaces/cli/evaluate_multifold_moneyline_oos.py",
+    "application/use_cases/generate_moneyline_market_movement.py",
+    "application/use_cases/moneyline_market_movement_artifacts.py",
+    "interfaces/cli/replay_moneyline_market_movement.py",
 }
 
 MLB_SCHEDULE_PAYLOAD_ADAPTER_RUNTIME_PATHS = (

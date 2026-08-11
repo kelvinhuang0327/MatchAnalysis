@@ -1,0 +1,31 @@
+{
+  "schema_version": "p29a.legacy_moneyline_clv_parity_manifest.v1",
+  "legacy_repository": "Betting-pool",
+  "legacy_ref": "03b2fcf4de1a13ee9929afcef803d61955c9f41b",
+  "legacy_tree": "56a849bc68234db63da7a38f1643fa664217c5d0",
+  "legacy_path": "data/wbc_backend/reports/clv_validation_records_6u_2026-04-30.jsonl",
+  "legacy_artifact_sha256": "09ea49e359558f6cc4df6c0d4dbf6dbffa8bebe9730b7581bce4900b6a9f8517",
+  "projection_sha256": "b1297629f69df8cbf0715c75f7f3bd776870c24063224364d74b3f1c9b79b5e8",
+  "cohort_rule": "all 14 rows in committed legacy artifact, preserving file order",
+  "row_count": 14,
+  "metric_name": "CLV",
+  "formula": "closing_implied_probability - implied_probability_at_prediction",
+  "parity_tolerance": "0.000002",
+  "projection_fields": [
+    "row_index",
+    "clv_record_id",
+    "prediction_id",
+    "canonical_match_id",
+    "selection",
+    "market_odds_at_prediction",
+    "implied_probability_at_prediction",
+    "closing_odds",
+    "closing_implied_probability",
+    "clv_value",
+    "odds_snapshot_time_utc",
+    "prediction_time_utc",
+    "closing_odds_time_utc",
+    "event_start_time_utc",
+    "closing_odds_source"
+  ]
+}
