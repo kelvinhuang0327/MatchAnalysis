@@ -9,6 +9,8 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 from .generate_tsl_moneyline_edge_batch import (
+    P28AB_COHORT_END_DATE,
+    P28AB_COHORT_START_DATE,
     P28AB_EDGE_SEMANTICS,
     P28AB_MARKET_NORMALIZATION,
     P28AB_PRICE_SELECTION_RULE,
@@ -432,6 +434,11 @@ def _summary(
     }
     if summary["raw_game_count"] != sum(structural_status_counts.values()):
         raise _stop("structural status accounting is incomplete")
+    generalization_window = p28ab_result.source_manifest.get(
+        "p31a_generalization_window"
+    )
+    if isinstance(generalization_window, Mapping):
+        summary["p31a_generalization_window"] = deepcopy(dict(generalization_window))
     return summary
 
 
@@ -445,6 +452,11 @@ def run_moneyline_paper_analysis(
     source_manifest: Mapping[str, Any],
     tsl_raw_sha256: str | None = None,
     offline_replay_verified: bool,
+    cohort_start_date: str = P28AB_COHORT_START_DATE,
+    cohort_end_date: str = P28AB_COHORT_END_DATE,
+    requested_game_ids: Sequence[str] | None = None,
+    allow_missing_starter_identity: bool = False,
+    allow_insufficient_evaluable: bool = False,
 ) -> MoneylinePaperAnalysisRunResult:
     """Build one outcome-blind P30A run from the existing P28AB service."""
 
@@ -457,6 +469,11 @@ def run_moneyline_paper_analysis(
         source_manifest=source_manifest,
         tsl_raw_sha256=tsl_raw_sha256,
         offline_replay_verified=offline_replay_verified,
+        cohort_start_date=cohort_start_date,
+        cohort_end_date=cohort_end_date,
+        requested_game_ids=requested_game_ids,
+        allow_missing_starter_identity=allow_missing_starter_identity,
+        allow_insufficient_evaluable=allow_insufficient_evaluable,
     )
     second = generate_tsl_moneyline_edge_batch(
         repository_root=repository_root,
@@ -467,6 +484,11 @@ def run_moneyline_paper_analysis(
         source_manifest=source_manifest,
         tsl_raw_sha256=tsl_raw_sha256,
         offline_replay_verified=offline_replay_verified,
+        cohort_start_date=cohort_start_date,
+        cohort_end_date=cohort_end_date,
+        requested_game_ids=requested_game_ids,
+        allow_missing_starter_identity=allow_missing_starter_identity,
+        allow_insufficient_evaluable=allow_insufficient_evaluable,
     )
     replay_equal = _p28ab_projection(first) == _p28ab_projection(second)
     if offline_replay_verified and not replay_equal:

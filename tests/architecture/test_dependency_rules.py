@@ -63,6 +63,7 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/use_cases/generate_moneyline_predictions.py",
     "application/use_cases/generate_paper_moneyline_batch.py",
     "application/use_cases/generate_tsl_moneyline_edge_batch.py",
+    "application/use_cases/build_moneyline_paper_source_bundle.py",
     "application/use_cases/run_moneyline_paper_analysis.py",
     "application/use_cases/moneyline_paper_analysis_artifacts.py",
     "application/use_cases/moneyline_inference_artifacts.py",
@@ -80,6 +81,8 @@ AUTHORIZED_SOURCE_PATHS = {
     "infrastructure/mlb_schedule/__init__.py",
     "infrastructure/mlb_schedule/explicit_payload_source.py",
     "infrastructure/providers/mlb_official_historical_source.py",
+    "infrastructure/sources/__init__.py",
+    "infrastructure/sources/tsl_moneyline_history.py",
     "interfaces/__init__.py",
     "interfaces/cli/__init__.py",
     "interfaces/cli/prospective_prediction_admission.py",
@@ -445,6 +448,12 @@ class DependencyRuleTests(unittest.TestCase):
             / "use_cases"
             / "acquire_future_moneyline_history.py"
         )
+        p31a_source_bundle = (
+            PACKAGE_ROOT
+            / "application"
+            / "use_cases"
+            / "build_moneyline_paper_source_bundle.py"
+        )
         violations = []
         for path in paths:
             for target, line_number in imported_modules(path):
@@ -453,9 +462,14 @@ class DependencyRuleTests(unittest.TestCase):
                     and target
                     == "match_analysis.infrastructure.providers.mlb_official_historical_source"
                 )
+                is_allowlisted_p31a_source = (
+                    path == p31a_source_bundle
+                    and target
+                    == "match_analysis.infrastructure.sources.tsl_moneyline_history"
+                )
                 if target.startswith(
                     ("match_analysis.infrastructure", "match_analysis.interfaces")
-                ) and not is_allowlisted_p23f2_source:
+                ) and not (is_allowlisted_p23f2_source or is_allowlisted_p31a_source):
                     relative = path.relative_to(REPOSITORY_ROOT)
                     violations.append(f"{relative}:{line_number} -> {target}")
         self.assertEqual(violations, [])

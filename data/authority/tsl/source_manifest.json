@@ -1,0 +1,12 @@
+{
+  "migration_task_id": "P31A",
+  "migrated_path": "data/authority/tsl/tsl_odds_history.jsonl",
+  "original_git_blob": "d1654141691b08e074b18506cc8a48fb2266013c",
+  "original_path": "data/tsl_odds_history.jsonl",
+  "original_ref": "03b2fcf4de1a13ee9929afcef803d61955c9f41b",
+  "original_repository": "Betting-pool",
+  "original_tree": "56a849bc68234db63da7a38f1643fa664217c5d0",
+  "raw_sha256": "1741e2a84eb8342f8752a498d2c478a9309a971a57b3b4f6966132188e52168a",
+  "source_label": "TSL_BLOB3RD",
+  "timestamp_semantics": "Source timestamps inside the records, not Git commit time, determine pregame price availability."
+}

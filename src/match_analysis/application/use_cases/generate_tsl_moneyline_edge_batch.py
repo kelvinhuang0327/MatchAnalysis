@@ -178,6 +178,8 @@ def _validate_source_manifest(
     source_manifest: Mapping[str, Any],
     *,
     tsl_raw_sha256: str | None,
+    cohort_start_date: str = P28AB_COHORT_START_DATE,
+    cohort_end_date: str = P28AB_COHORT_END_DATE,
 ) -> dict[str, Any]:
     manifest = deepcopy(dict(source_manifest))
     if manifest.get("schema_version") != P28AB_SOURCE_MANIFEST_SCHEMA_VERSION:
@@ -207,7 +209,7 @@ def _validate_source_manifest(
     if not isinstance(scope, Mapping) or (
         scope.get("game_time_start_date"),
         scope.get("game_time_end_date"),
-    ) != (P28AB_COHORT_START_DATE, P28AB_COHORT_END_DATE):
+    ) != (cohort_start_date, cohort_end_date):
         raise RuntimeError(STOP_TSL_AUTHORITY_DRIFT)
     if manifest.get("fixture_scope") != "EXACT_TWO_WAY_PREGAME_TSL_ROWS":
         raise RuntimeError(STOP_TSL_AUTHORITY_DRIFT)
@@ -263,6 +265,8 @@ def _crosswalk(
     *,
     tsl_rows: Sequence[Mapping[str, Any]],
     schedule_rows: Sequence[Mapping[str, Any]],
+    cohort_start_date: str = P28AB_COHORT_START_DATE,
+    cohort_end_date: str = P28AB_COHORT_END_DATE,
 ) -> tuple[_CrosswalkObservation, ...]:
     official_rows = tuple(schedule_rows)
     observations: list[_CrosswalkObservation] = []
@@ -274,9 +278,9 @@ def _crosswalk(
         game_time = _parse_utc(str(row["game_time"]))
         local_game_date = game_time.astimezone(P28AB_UTC_OFFSET).date()
         if not (
-            date.fromisoformat(P28AB_COHORT_START_DATE)
+            date.fromisoformat(cohort_start_date)
             <= local_game_date
-            <= date.fromisoformat(P28AB_COHORT_END_DATE)
+            <= date.fromisoformat(cohort_end_date)
         ):
             raise RuntimeError(STOP_TSL_AUTHORITY_DRIFT)
         fetched_at = _parse_utc(str(row["fetched_at"]))
@@ -495,6 +499,8 @@ def _batch_id(
     source_manifest_fingerprint: str,
     model_id: str,
     model_fingerprint: str,
+    cohort_start_date: str = P28AB_COHORT_START_DATE,
+    cohort_end_date: str = P28AB_COHORT_END_DATE,
 ) -> str:
     membership = [
         {
@@ -510,8 +516,8 @@ def _batch_id(
         canonical_json_bytes(
             {
                 "schema_version": P28AB_SCHEMA_VERSION,
-                "cohort_start_date": P28AB_COHORT_START_DATE,
-                "cohort_end_date": P28AB_COHORT_END_DATE,
+                "cohort_start_date": cohort_start_date,
+                "cohort_end_date": cohort_end_date,
                 "source_manifest_fingerprint": source_manifest_fingerprint,
                 "raw_source_membership": membership,
                 "target_game_ids": list(target_ids),
@@ -530,6 +536,25 @@ def _feature_unavailable_rows(
     rows: list[dict[str, Any]] = []
     for source_row in eligibility.feature_unavailable_rows:
         affected = [dict(item) for item in source_row["affected_starters"]]
+        affected_starter_ids = [
+            int(item["starter_id"])
+            for item in affected
+            if item.get("starter_id") is not None
+        ]
+        prior_history = [
+            {
+                "starter_id": int(item["starter_id"]),
+                "count": int(item["qualifying_prior_start_count"]),
+                "required": int(item["required_prior_start_count"]),
+            }
+            for item in affected
+            if item.get("starter_id") is not None
+        ]
+        required_history_count = [
+            int(item["required_prior_start_count"])
+            for item in affected
+            if item.get("required_prior_start_count") is not None
+        ]
         rows.append(
             {
                 "schema_version": P28AB_SCHEMA_VERSION,
@@ -541,18 +566,11 @@ def _feature_unavailable_rows(
                 "status": "FEATURE_UNAVAILABLE",
                 "reason": str(source_row["reason"]),
                 "affected_feature": str(source_row["feature_name"]),
-                "affected_starter_ids": [int(item["starter_id"]) for item in affected],
+                "affected_starter_ids": affected_starter_ids,
                 "affected_starters": affected,
-                "prior_qualifying_history": [
-                    {
-                        "starter_id": int(item["starter_id"]),
-                        "count": int(item["qualifying_prior_start_count"]),
-                        "required": int(item["required_prior_start_count"]),
-                    }
-                    for item in affected
-                ],
-                "required_history_count": max(
-                    int(item["required_prior_start_count"]) for item in affected
+                "prior_qualifying_history": prior_history,
+                "required_history_count": (
+                    max(required_history_count) if required_history_count else None
                 ),
                 "generated_from_historical_shadow": True,
             }
@@ -729,20 +747,42 @@ def _assemble(
     artifact: MoneylineModelArtifact,
     artifact_fingerprint: str,
     batch_id: str,
+    cohort_start_date: str = P28AB_COHORT_START_DATE,
+    cohort_end_date: str = P28AB_COHORT_END_DATE,
+    requested_game_ids: Sequence[str] | None = None,
+    allow_missing_starter_identity: bool = False,
+    allow_insufficient_evaluable: bool = False,
 ) -> _Assembly:
-    crosswalk = _crosswalk(tsl_rows=tsl_rows, schedule_rows=schedule_rows)
-    target_officials = {
-        str(item.official["provider_game_id"])
-        for item in crosswalk
-        if item.status == "MATCHED_FINAL" and item.official is not None
-    }
+    crosswalk = _crosswalk(
+        tsl_rows=tsl_rows,
+        schedule_rows=schedule_rows,
+        cohort_start_date=cohort_start_date,
+        cohort_end_date=cohort_end_date,
+    )
+    if requested_game_ids is None:
+        target_officials = {
+            str(item.official["provider_game_id"])
+            for item in crosswalk
+            if item.status == "MATCHED_FINAL" and item.official is not None
+        }
+    else:
+        target_officials = {str(game_id) for game_id in requested_game_ids}
     if len(target_officials) < 2:
         raise RuntimeError(STOP_CROSSWALK_UNRESOLVED)
-    target_schedule_by_id = {
-        str(item.official["provider_game_id"]): item.official
-        for item in crosswalk
-        if item.status == "MATCHED_FINAL" and item.official is not None
-    }
+    if requested_game_ids is None:
+        target_schedule_by_id = {
+            str(item.official["provider_game_id"]): item.official
+            for item in crosswalk
+            if item.status == "MATCHED_FINAL" and item.official is not None
+        }
+    else:
+        target_schedule_by_id = {
+            str(row["provider_game_id"]): row
+            for row in schedule_rows
+            if str(row["provider_game_id"]) in target_officials
+        }
+    if set(target_schedule_by_id) != target_officials:
+        raise RuntimeError(STOP_CROSSWALK_UNRESOLVED)
     target_schedule = tuple(target_schedule_by_id.values())
     official_start = min(str(row["official_date"]) for row in target_schedule)
     official_end = max(str(row["official_date"]) for row in target_schedule)
@@ -767,22 +807,28 @@ def _assemble(
         fold_id=P28AB_FOLD_ID,
         validation_start=official_start,
         validation_end=official_end,
+        allow_missing_starter_identity=allow_missing_starter_identity,
     )
-    fold = materialize_future_moneyline_fold(
-        schedule_rows=blind_schedule,
-        target_boxscore_rows=tuple(target_boxscore_rows),
-        pitcher_game_log_rows=tuple(pitcher_game_log_rows),
-        source_manifest_fingerprint=source_manifest_fingerprint,
-        fold_id=P28AB_FOLD_ID,
-        validation_start=official_start,
-        validation_end=official_end,
-        evaluable_game_ids=frozenset(eligibility.evaluable_game_ids),
-        raw_game_ids=eligibility.raw_game_ids,
-        feature_unavailable_rows=eligibility.feature_unavailable_rows,
-    )
-    snapshots = tuple(
-        _snapshot_for_feature_row(row, batch_id=batch_id) for row in fold.feature_rows
-    )
+    if not eligibility.evaluable_game_ids and allow_insufficient_evaluable:
+        snapshots = ()
+    else:
+        fold = materialize_future_moneyline_fold(
+            schedule_rows=blind_schedule,
+            target_boxscore_rows=tuple(target_boxscore_rows),
+            pitcher_game_log_rows=tuple(pitcher_game_log_rows),
+            source_manifest_fingerprint=source_manifest_fingerprint,
+            fold_id=P28AB_FOLD_ID,
+            validation_start=official_start,
+            validation_end=official_end,
+            evaluable_game_ids=frozenset(eligibility.evaluable_game_ids),
+            raw_game_ids=eligibility.raw_game_ids,
+            feature_unavailable_rows=eligibility.feature_unavailable_rows,
+            allow_insufficient_evaluable=allow_insufficient_evaluable,
+        )
+        snapshots = tuple(
+            _snapshot_for_feature_row(row, batch_id=batch_id)
+            for row in fold.feature_rows
+        )
     predictions = _prediction_rows(
         snapshots,
         artifact=artifact,
@@ -833,14 +879,16 @@ def _manifest_for_fingerprint(
     *,
     crosswalk: Sequence[_CrosswalkObservation],
     target_game_ids: Sequence[str],
+    cohort_start_date: str = P28AB_COHORT_START_DATE,
+    cohort_end_date: str = P28AB_COHORT_END_DATE,
 ) -> dict[str, Any]:
     manifest = deepcopy(dict(source_manifest))
     manifest.pop("source_manifest_fingerprint", None)
     status_counts = Counter(item.status for item in crosswalk)
     manifest["p28ab_cohort"] = {
         "fold_id": P28AB_FOLD_ID,
-        "game_time_start_date": P28AB_COHORT_START_DATE,
-        "game_time_end_date": P28AB_COHORT_END_DATE,
+        "game_time_start_date": cohort_start_date,
+        "game_time_end_date": cohort_end_date,
         "fixture_row_count": len(crosswalk),
         "crosswalk_status_counts": dict(sorted(status_counts.items())),
         "matched_final_official_game_ids": list(sorted(target_game_ids)),
@@ -862,12 +910,19 @@ def generate_tsl_moneyline_edge_batch(
     source_manifest: Mapping[str, Any],
     tsl_raw_sha256: str | None = None,
     offline_replay_verified: bool,
+    cohort_start_date: str = P28AB_COHORT_START_DATE,
+    cohort_end_date: str = P28AB_COHORT_END_DATE,
+    requested_game_ids: Sequence[str] | None = None,
+    allow_missing_starter_identity: bool = False,
+    allow_insufficient_evaluable: bool = False,
 ) -> TslMoneylineEdgeBatchResult:
     """Build one deterministic, outcome-blind P28AB edge slice."""
 
     manifest = _validate_source_manifest(
         source_manifest,
         tsl_raw_sha256=tsl_raw_sha256,
+        cohort_start_date=cohort_start_date,
+        cohort_end_date=cohort_end_date,
     )
     # The caller supplies repository_root for deterministic resolution; keep
     # this separate from the source manifest so the manifest remains portable.
@@ -880,8 +935,13 @@ def generate_tsl_moneyline_edge_batch(
     if artifact.model_id != P22B_MODEL_ID or artifact_fingerprint != P22B_ARTIFACT_FINGERPRINT:
         raise RuntimeError(STOP_DEFAULT_MODEL_DRIFT)
 
-    initial_crosswalk = _crosswalk(tsl_rows=tsl_rows, schedule_rows=schedule_rows)
-    target_ids = tuple(
+    initial_crosswalk = _crosswalk(
+        tsl_rows=tsl_rows,
+        schedule_rows=schedule_rows,
+        cohort_start_date=cohort_start_date,
+        cohort_end_date=cohort_end_date,
+    )
+    matched_target_ids = tuple(
         sorted(
             {
                 str(item.official["provider_game_id"])
@@ -890,10 +950,17 @@ def generate_tsl_moneyline_edge_batch(
             }
         )
     )
+    target_ids = (
+        tuple(sorted(str(game_id) for game_id in requested_game_ids))
+        if requested_game_ids is not None
+        else matched_target_ids
+    )
     manifest_for_fingerprint = _manifest_for_fingerprint(
         manifest,
         crosswalk=initial_crosswalk,
         target_game_ids=target_ids,
+        cohort_start_date=cohort_start_date,
+        cohort_end_date=cohort_end_date,
     )
     source_manifest_fingerprint = sha256_bytes(
         canonical_json_bytes(manifest_for_fingerprint)
@@ -904,6 +971,8 @@ def generate_tsl_moneyline_edge_batch(
         source_manifest_fingerprint=source_manifest_fingerprint,
         model_id=artifact.model_id,
         model_fingerprint=artifact_fingerprint,
+        cohort_start_date=cohort_start_date,
+        cohort_end_date=cohort_end_date,
     )
     base = _assemble(
         tsl_rows=tsl_rows,
@@ -915,6 +984,11 @@ def generate_tsl_moneyline_edge_batch(
         artifact=artifact,
         artifact_fingerprint=artifact_fingerprint,
         batch_id=batch_id,
+        cohort_start_date=cohort_start_date,
+        cohort_end_date=cohort_end_date,
+        requested_game_ids=requested_game_ids,
+        allow_missing_starter_identity=allow_missing_starter_identity,
+        allow_insufficient_evaluable=allow_insufficient_evaluable,
     )
     replay = _assemble(
         tsl_rows=tsl_rows,
@@ -926,6 +1000,11 @@ def generate_tsl_moneyline_edge_batch(
         artifact=artifact,
         artifact_fingerprint=artifact_fingerprint,
         batch_id=batch_id,
+        cohort_start_date=cohort_start_date,
+        cohort_end_date=cohort_end_date,
+        requested_game_ids=requested_game_ids,
+        allow_missing_starter_identity=allow_missing_starter_identity,
+        allow_insufficient_evaluable=allow_insufficient_evaluable,
     )
     replay_equal = (
         base.raw_cohort == replay.raw_cohort
@@ -952,6 +1031,11 @@ def generate_tsl_moneyline_edge_batch(
         artifact=artifact,
         artifact_fingerprint=artifact_fingerprint,
         batch_id=batch_id,
+        cohort_start_date=cohort_start_date,
+        cohort_end_date=cohort_end_date,
+        requested_game_ids=requested_game_ids,
+        allow_missing_starter_identity=allow_missing_starter_identity,
+        allow_insufficient_evaluable=allow_insufficient_evaluable,
     )
     outcome_isolation = (
         base.prices == outcome_mutation.prices
@@ -971,6 +1055,8 @@ def generate_tsl_moneyline_edge_batch(
         ),
         None,
     )
+    if priced_prediction is None and not base.predictions and base.prices:
+        priced_prediction = base.prices[0]
     if priced_prediction is not None:
         mutated_tsl = _mutated_price_rows(
             tsl_rows,
@@ -986,11 +1072,18 @@ def generate_tsl_moneyline_edge_batch(
             artifact=artifact,
             artifact_fingerprint=artifact_fingerprint,
             batch_id=batch_id,
+            cohort_start_date=cohort_start_date,
+            cohort_end_date=cohort_end_date,
+            requested_game_ids=requested_game_ids,
+            allow_missing_starter_identity=allow_missing_starter_identity,
+            allow_insufficient_evaluable=allow_insufficient_evaluable,
         )
-        price_isolation = (
-            base.predictions == price_mutation.predictions
-            and base.edges != price_mutation.edges
+        price_isolation = base.predictions == price_mutation.predictions and (
+            base.edges != price_mutation.edges
+            or (not base.predictions and base.prices != price_mutation.prices)
         )
+    elif not base.prices and not base.edges:
+        price_isolation = True
     if not price_isolation:
         raise RuntimeError(STOP_TSL_AUTHORITY_DRIFT)
 
@@ -1017,8 +1110,8 @@ def generate_tsl_moneyline_edge_batch(
         "schema_version": P28AB_SCHEMA_VERSION,
         "batch_id": batch_id,
         "fold_id": P28AB_FOLD_ID,
-        "cohort_start_date": P28AB_COHORT_START_DATE,
-        "cohort_end_date": P28AB_COHORT_END_DATE,
+        "cohort_start_date": cohort_start_date,
+        "cohort_end_date": cohort_end_date,
         "raw_source_row_count": len(base.raw_cohort),
         "crosswalk_status_counts": dict(sorted(status_counts.items())),
         "crosswalked_source_row_count": sum(

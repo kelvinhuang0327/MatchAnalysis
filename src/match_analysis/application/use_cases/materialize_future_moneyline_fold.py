@@ -35,6 +35,7 @@ getcontext().prec = 28
 FEATURE_EVALUABLE = "EVALUABLE"
 FEATURE_UNAVAILABLE = "FEATURE_UNAVAILABLE"
 FEATURE_UNAVAILABLE_REASON = "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY"
+FEATURE_UNAVAILABLE_STARTER_IDENTITY_REASON = "OFFICIAL_STARTER_IDENTITY_UNAVAILABLE"
 REQUIRED_STARTER_HISTORY = 2
 
 
@@ -113,6 +114,31 @@ def _eligibility_identity(
     return sha256(canonical).hexdigest()
 
 
+def _feature_unavailable_row(
+    *,
+    fold_id: str,
+    game: Mapping[str, Any],
+    reason: str,
+    affected_starters: tuple[Mapping[str, Any], ...],
+) -> dict[str, Any]:
+    return {
+        "fold_id": fold_id,
+        "game_id": str(game["provider_game_id"]),
+        "scheduled_start": str(game["scheduled_start_utc"]),
+        "status": FEATURE_UNAVAILABLE,
+        "reason": reason,
+        "feature_name": "starter_era_delta",
+        "affected_starters": [dict(item) for item in affected_starters],
+        "deterministic_exclusion_identity": _eligibility_identity(
+            fold_id=fold_id,
+            game_id=str(game["provider_game_id"]),
+            scheduled_start=str(game["scheduled_start_utc"]),
+            feature_name="starter_era_delta",
+            reason=reason,
+        ),
+    }
+
+
 def classify_future_feature_eligibility(
     *,
     schedule_rows: tuple[Mapping[str, Any], ...],
@@ -121,6 +147,7 @@ def classify_future_feature_eligibility(
     fold_id: str,
     validation_start: str,
     validation_end: str,
+    allow_missing_starter_identity: bool = False,
 ) -> FutureFeatureEligibility:
     """Classify raw games from pregame inputs without reading outcome fields."""
 
@@ -144,15 +171,36 @@ def classify_future_feature_eligibility(
         game_id = str(game["provider_game_id"])
         box = boxes.get(game_id)
         if box is None:
-            raise RuntimeError("STOP_MATCHANALYSIS_P23F2_STARTER_IDENTITY_UNRESOLVED")
+            if not allow_missing_starter_identity:
+                raise RuntimeError("STOP_MATCHANALYSIS_P23F2_STARTER_IDENTITY_UNRESOLVED")
+            raw_game_ids.append(game_id)
+            unavailable_rows.append(
+                _feature_unavailable_row(
+                    fold_id=fold_id,
+                    game=game,
+                    reason=FEATURE_UNAVAILABLE_STARTER_IDENTITY_REASON,
+                    affected_starters=(
+                        {"side": "home", "starter_identity": "UNAVAILABLE"},
+                        {"side": "away", "starter_identity": "UNAVAILABLE"},
+                    ),
+                )
+            )
+            continue
         raw_game_ids.append(game_id)
         affected_starters: list[dict[str, Any]] = []
+        missing_starter_identity = False
         for side in ("home", "away"):
-            starter = box[f"{side}_starter"]
+            starter = box.get(f"{side}_starter")
             if not isinstance(starter, Mapping):
-                raise RuntimeError(
-                    "STOP_MATCHANALYSIS_P23F2_STARTER_IDENTITY_UNRESOLVED"
+                if not allow_missing_starter_identity:
+                    raise RuntimeError(
+                        "STOP_MATCHANALYSIS_P23F2_STARTER_IDENTITY_UNRESOLVED"
+                    )
+                missing_starter_identity = True
+                affected_starters.append(
+                    {"side": side, "starter_identity": "UNAVAILABLE"}
                 )
+                continue
             count = _qualifying_same_season_starts(
                 logs_tuple,
                 int(starter["player_id"]),
@@ -169,27 +217,26 @@ def classify_future_feature_eligibility(
                         "required_prior_start_count": REQUIRED_STARTER_HISTORY,
                     }
                 )
+        if missing_starter_identity:
+            unavailable_rows.append(
+                _feature_unavailable_row(
+                    fold_id=fold_id,
+                    game=game,
+                    reason=FEATURE_UNAVAILABLE_STARTER_IDENTITY_REASON,
+                    affected_starters=tuple(affected_starters),
+                )
+            )
+            continue
         if not affected_starters:
             evaluable_game_ids.append(game_id)
             continue
-        reason = FEATURE_UNAVAILABLE_REASON
         unavailable_rows.append(
-            {
-                "fold_id": fold_id,
-                "game_id": game_id,
-                "scheduled_start": str(game["scheduled_start_utc"]),
-                "status": FEATURE_UNAVAILABLE,
-                "reason": reason,
-                "feature_name": "starter_era_delta",
-                "affected_starters": affected_starters,
-                "deterministic_exclusion_identity": _eligibility_identity(
-                    fold_id=fold_id,
-                    game_id=game_id,
-                    scheduled_start=str(game["scheduled_start_utc"]),
-                    feature_name="starter_era_delta",
-                    reason=reason,
-                ),
-            }
+            _feature_unavailable_row(
+                fold_id=fold_id,
+                game=game,
+                reason=FEATURE_UNAVAILABLE_REASON,
+                affected_starters=tuple(affected_starters),
+            )
         )
     return FutureFeatureEligibility(
         raw_game_ids=tuple(raw_game_ids),
@@ -265,6 +312,7 @@ def materialize_future_moneyline_fold(
     evaluable_game_ids: frozenset[str] | None = None,
     raw_game_ids: tuple[str, ...] | None = None,
     feature_unavailable_rows: tuple[Mapping[str, Any], ...] = (),
+    allow_insufficient_evaluable: bool = False,
 ) -> FutureEvaluationFold:
     """Materialize one future cohort, freezing features before results are joined."""
 
@@ -292,7 +340,7 @@ def materialize_future_moneyline_fold(
         evaluable_ids = frozenset(str(game_id) for game_id in evaluable_game_ids)
         if not evaluable_ids <= set(target_game_ids):
             raise ValueError("evaluable game identities must be raw fold games")
-    if len(evaluable_ids) < 2:
+    if len(evaluable_ids) < 2 and not allow_insufficient_evaluable:
         raise RuntimeError("STOP_MATCHANALYSIS_P23B_INSUFFICIENT_EVALUABLE_GAMES")
     feature_games = tuple(
         game for game in target_games if str(game["provider_game_id"]) in evaluable_ids
@@ -422,6 +470,7 @@ __all__ = (
     "FEATURE_EVALUABLE",
     "FEATURE_UNAVAILABLE",
     "FEATURE_UNAVAILABLE_REASON",
+    "FEATURE_UNAVAILABLE_STARTER_IDENTITY_REASON",
     "FutureFeatureEligibility",
     "classify_future_feature_eligibility",
     "materialize_from_normalized_dir",
