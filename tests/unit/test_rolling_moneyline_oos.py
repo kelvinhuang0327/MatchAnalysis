@@ -2,7 +2,9 @@
 
 from pathlib import Path
 import unittest
+from unittest.mock import patch
 
+from match_analysis.application.use_cases import rolling_moneyline_oos
 from match_analysis.application.use_cases.rolling_moneyline_oos import (
     run_deterministic_rolling_moneyline_oos,
 )
@@ -112,6 +114,51 @@ class RollingMoneylineOOSTests(unittest.TestCase):
         self.assertEqual(baseline["holdout_fold_ids"], ["wf_005", "wf_006"])
         self.assertEqual(baseline["holdout_evaluable_row_count"], 42)
         self.assertEqual(len(self.result.model_artifacts), 3)
+
+    def test_future_targets_are_consumed_only_after_each_window_prediction(self) -> None:
+        authorities = rolling_moneyline_oos._load_authoritative_future_folds(ROOT)
+        game_to_fold = {
+            game_id: fold_id
+            for fold_id, authority in authorities.items()
+            for game_id in authority.raw_game_ids
+        }
+        events: list[tuple[str, str]] = []
+        original_target = rolling_moneyline_oos._target_from_result
+        original_predict = rolling_moneyline_oos.predict_feature_rows
+
+        def traced_target(result):
+            events.append(("target", game_to_fold[result.provider_game_id]))
+            return original_target(result)
+
+        def traced_predict(feature_rows, challenger, champion):
+            folds = {game_to_fold[row.provider_game_id] for row in feature_rows}
+            self.assertEqual(len(folds), 1)
+            events.append(("predict", next(iter(folds))))
+            return original_predict(feature_rows, challenger, champion)
+
+        with patch.object(
+            rolling_moneyline_oos,
+            "_target_from_result",
+            side_effect=traced_target,
+        ), patch.object(
+            rolling_moneyline_oos,
+            "predict_feature_rows",
+            side_effect=traced_predict,
+        ):
+            rolling_moneyline_oos.evaluate_rolling_moneyline_oos(
+                ROOT,
+                fit_runtime=FIT_RUNTIME,
+            )
+
+        prediction_seen: set[str] = set()
+        target_folds: set[str] = set()
+        for event_kind, fold_id in events:
+            if event_kind == "predict":
+                prediction_seen.add(fold_id)
+            else:
+                self.assertIn(fold_id, prediction_seen)
+                target_folds.add(fold_id)
+        self.assertEqual(target_folds, {"wf_004", "wf_005"})
 
 
 if __name__ == "__main__":

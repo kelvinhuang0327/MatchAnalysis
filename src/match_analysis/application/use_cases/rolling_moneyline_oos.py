@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
-from collections.abc import Mapping, Sequence
+from collections.abc import Iterator, Mapping, Sequence
 from dataclasses import dataclass
 from decimal import Decimal
 from hashlib import sha256
@@ -490,14 +490,13 @@ def _validate_authority(
         raise ValueError("P37A P22A and future authorities overlap")
 
 
-def _build_windows(
+def _iter_rolling_windows(
     *,
     p22a_dataset: Any,
     p22a_observations: tuple[RollingTrainingObservation, ...],
     p22a_summary: Mapping[str, Any],
     future_authorities: Mapping[str, RollingFoldAuthority],
-) -> tuple[RollingWindow, ...]:
-    windows: list[RollingWindow] = []
+) -> Iterator[RollingWindow]:
     prior_observations = list(p22a_observations)
     prior_raw_game_ids = [row.provider_game_id for row in p22a_observations]
     prior_fold_ids = list(P37A_SEED_TRAINING_FOLD_IDS)
@@ -530,27 +529,29 @@ def _build_windows(
         if not training_dates or not holdout_dates or max(training_dates) >= min(holdout_dates):
             raise ValueError(f"P37A training dates are not strictly before {holdout_fold_id}")
         excluded_for_window = tuple(training_excluded_rows)
-        windows.append(
-            RollingWindow(
-                evaluation_window_id=f"window_{order:03d}_holdout_{holdout_fold_id}",
-                evaluation_window_order=order,
-                holdout=holdout,
-                train_fold_ids=tuple(prior_fold_ids),
-                training_observations=training_observations,
-                training_raw_game_ids=tuple(sorted(training_game_ids)),
-                training_excluded_rows=excluded_for_window,
-                training_authority_fingerprints=tuple(prior_authority_fingerprints),
-                p22a_dataset_fingerprint=str(p22a_dataset.dataset_fingerprint),
-                p22a_dataset_sha256=str(p22a_dataset.training_examples_jsonl_sha256),
-            )
+        yield RollingWindow(
+            evaluation_window_id=f"window_{order:03d}_holdout_{holdout_fold_id}",
+            evaluation_window_order=order,
+            holdout=holdout,
+            train_fold_ids=tuple(prior_fold_ids),
+            training_observations=training_observations,
+            training_raw_game_ids=tuple(sorted(training_game_ids)),
+            training_excluded_rows=excluded_for_window,
+            training_authority_fingerprints=tuple(prior_authority_fingerprints),
+            p22a_dataset_fingerprint=str(p22a_dataset.dataset_fingerprint),
+            p22a_dataset_sha256=str(p22a_dataset.training_examples_jsonl_sha256),
         )
+
+        # Do not consume this holdout's final outcomes until its predictions
+        # have been frozen and the caller has paired the current window.
+        if order == len(P37A_EVALUATION_FOLD_IDS):
+            return
         fold_observations = _future_observations(holdout)
         prior_observations.extend(fold_observations)
         prior_raw_game_ids.extend(holdout.raw_game_ids)
         prior_fold_ids.append(holdout_fold_id)
         prior_authority_fingerprints.append((holdout_fold_id, holdout.fold_fingerprint))
         training_excluded_rows.extend(holdout.feature_unavailable_rows)
-    return tuple(windows)
 
 
 def _log_loss_component(probability: Decimal, target: int) -> Decimal:
@@ -887,6 +888,7 @@ def _window_summary(
     challenger_projection: Mapping[str, Any],
     training_basis_fingerprint: str,
     training_observation_fingerprint: str,
+    outcome_isolation_verified: bool,
 ) -> dict[str, Any]:
     training_dates = [row.official_date for row in window.training_observations]
     holdout_dates = [row.official_date for row in window.holdout.feature_rows]
@@ -984,7 +986,7 @@ def _window_summary(
                 < parse_canonical_utc(row.scheduled_start_utc)
                 for row in window.holdout.feature_rows
             ),
-            "outcome_isolation_verified": True,
+            "outcome_isolation_verified": outcome_isolation_verified,
             "no_aggregate_oos_tuning": True,
             "accuracy_delta": str(
                 Decimal(challenger_metrics["accuracy"])
@@ -1137,14 +1139,12 @@ def evaluate_rolling_moneyline_oos(
         p22a_summary,
         future_authorities,
     )
-    windows = _build_windows(
+    windows = _iter_rolling_windows(
         p22a_dataset=p22a_dataset,
         p22a_observations=p22a_observations,
         p22a_summary=p22a_summary,
         future_authorities=future_authorities,
     )
-    if len(windows) < 2:
-        raise ValueError("P37A_INSUFFICIENT_WALK_FORWARD_AUTHORITY_STOP")
 
     champion, champion_fingerprint, champion_projection = load_frozen_challenger_authority(
         root
@@ -1156,7 +1156,9 @@ def evaluate_rolling_moneyline_oos(
     comparison_rows: list[dict[str, Any]] = []
     per_window_summary: list[dict[str, Any]] = []
     input_order_invariance_verified = True
+    window_count = 0
     for window in windows:
+        window_count += 1
         training_basis_fingerprint, training_observation_fingerprint = _training_basis(
             window
         )
@@ -1204,6 +1206,7 @@ def evaluate_rolling_moneyline_oos(
         )
         if predictions != reversed_predictions:
             input_order_invariance_verified = False
+        predictions_frozen = True
         rows = pair_predictions_with_results(
             feature_rows=window.holdout.feature_rows,
             predictions=predictions,
@@ -1224,6 +1227,7 @@ def evaluate_rolling_moneyline_oos(
             challenger_projection=challenger_projection,
             training_basis_fingerprint=training_basis_fingerprint,
             training_observation_fingerprint=training_observation_fingerprint,
+            outcome_isolation_verified=predictions_frozen,
         )
         per_window_summary.append(window_summary)
         comparison_rows.extend(
@@ -1237,6 +1241,9 @@ def evaluate_rolling_moneyline_oos(
             )
             for row in rows
         )
+
+    if window_count < 2:
+        raise ValueError("P37A_INSUFFICIENT_WALK_FORWARD_AUTHORITY_STOP")
 
     per_window_summary.sort(key=lambda row: int(row["evaluation_window_order"]))
     comparison_rows.sort(
@@ -1392,7 +1399,7 @@ def evaluate_rolling_moneyline_oos(
             **repetition,
         },
         "verification": {
-            "valid_window_count": len(windows),
+            "valid_window_count": window_count,
             "chronological_fold_order_verified": True,
             "train_holdout_game_id_disjointness_verified": all(
                 row["comparison"]["train_holdout_disjoint_verified"]
