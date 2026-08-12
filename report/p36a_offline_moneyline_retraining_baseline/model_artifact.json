@@ -1,0 +1,107 @@
+{
+  "artifact_fingerprint": "823ff583c8b41b8e9617f7c0b702fb7e9466eb753e7591af3ba6afdefa57e78c",
+  "artifact_kind": "bounded_deterministic_fixture",
+  "artifact_role": "CHALLENGER",
+  "artifact_schema_version": "p36a.offline_moneyline_retraining_baseline_artifact.v1",
+  "claims": {
+    "model_promoted": false,
+    "out_of_sample_evaluated": false,
+    "production_ready": false,
+    "profitability_claim": false,
+    "real_betting_recommendation": false,
+    "training_authorized": true,
+    "training_performed": true
+  },
+  "coefficients": [
+    "0.0736145824369015",
+    "-0.24008545008206078"
+  ],
+  "feature_names": [
+    "recent_win_rate_delta",
+    "starter_era_delta"
+  ],
+  "fit_configuration": {
+    "max_iter": 1000,
+    "model_type": "logistic_regression",
+    "solver": "lbfgs"
+  },
+  "fitted_state_fingerprint": "34de51238a6404e2c6a7728c12408389188877f257d8b2f7ff9eac083f0194d1",
+  "fixture_basis_id": "9d5a2c070fe004275c10fad6e15c52d81915789c84b9b1ccf169f64b8ca32140",
+  "fixture_compatibility_note": "P19A requires a bounded fixture expectation field; P36A uses the same inference artifact contract and does not use that placeholder for selection.",
+  "fixture_expected_home_probability": "0.5",
+  "fixture_expected_probability_tolerance": "0.5",
+  "holdout_start_date": "2026-06-10",
+  "intercept": "0.16900402242356696",
+  "label_distribution": {
+    "0": 321,
+    "1": 379
+  },
+  "label_semantics": "target_home_win=1 iff committed FINAL home_score is greater than away_score; target_home_win=0 iff away_score is greater",
+  "legacy_source_commit": "57bc77a950865bb2b335ba35b17593596703b655",
+  "legacy_source_paths": [
+    "report/p22a_game_level_training_dataset/training_examples.jsonl",
+    "report/p22a_game_level_training_dataset/summary.json",
+    "report/p23f2_official_future_fold/feature_rows.jsonl",
+    "report/p23f2_official_future_fold/results.jsonl",
+    "data/fixtures/p23b_future_folds/wf_005/feature_rows.jsonl",
+    "data/fixtures/p23b_future_folds/wf_005/results.jsonl",
+    "data/fixtures/p23b_future_folds/wf_006/feature_rows.jsonl",
+    "data/fixtures/p23b_future_folds/wf_006/results.jsonl",
+    "src/match_analysis/application/use_cases/offline_moneyline_retraining_baseline.py",
+    "src/match_analysis/application/use_cases/train_moneyline_challenger.py",
+    "src/match_analysis/application/use_cases/offline_moneyline_retraining_artifacts.py"
+  ],
+  "legacy_source_repository": "/Users/kelvin/VibeCoding-WorkSpace/MatchAnalysis",
+  "legacy_source_tree": "f24502f1215021c8e0e2de5401fa912ce5f61537",
+  "model_id": "p36a_moneyline_logistic_retraining_challenger_v1_9d5a2c070fe00427",
+  "model_role": "CHALLENGER",
+  "model_version": "p36a.moneyline_logistic_retraining_challenger.v1",
+  "scaler_fitted_state": {
+    "means": [
+      "-0.01085714285714286",
+      "0.09492472225806586"
+    ],
+    "scales": [
+      "0.20602718707505296",
+      "1.6812485910738266"
+    ]
+  },
+  "scaler_means": [
+    "-0.01085714285714286",
+    "0.09492472225806586"
+  ],
+  "scaler_stds": [
+    "0.20602718707505296",
+    "1.6812485910738266"
+  ],
+  "schema_version": "p19a.moneyline_model_artifact.v1",
+  "source_dataset_authority": {
+    "p22a_dataset_fingerprint": "05f9b31c608e1630a40b2369ac45ada8b103b2c1131b0cedcaa2c7fc91ba7750",
+    "p22a_dataset_sha256": "1f692332ee050f7c132d05e7f1e8d94bd0a7dd0658f3b91d053b4cc44f865bf3",
+    "training_feature_fingerprint": "8d69b9c8bbbf1c4107d7bb5979fee1118bdf7a637529ec9775c6f3dd469b3deb",
+    "training_fold_fingerprint": "50b56eac672a83b03877d7581a250ea123ce27f598075c1d12ca28e5e0cf3c7e",
+    "training_fold_id": "wf_004",
+    "training_observation_fingerprint": "bd15ebbe0e1ff92f265cf878b983fa7c17d0539ca1b8f33a36708c395f01ba1f",
+    "training_result_fingerprint": "f17471b1ceaa6b85e2037a228c8224f063b024a187d4c14922b54e81eb476677"
+  },
+  "source_dataset_fingerprint": "9d5a2c070fe004275c10fad6e15c52d81915789c84b9b1ccf169f64b8ca32140",
+  "training_code_contract": "p36a.offline_moneyline_retraining_baseline_artifact.v1",
+  "training_code_paths": [
+    "src/match_analysis/application/use_cases/offline_moneyline_retraining_baseline.py",
+    "src/match_analysis/application/use_cases/train_moneyline_challenger.py",
+    "src/match_analysis/application/use_cases/offline_moneyline_retraining_artifacts.py"
+  ],
+  "training_cutoff_date": "2026-06-09",
+  "training_date_range": [
+    "2025-07-01",
+    "2026-06-09"
+  ],
+  "training_example_count": 700,
+  "training_last_scheduled_start_utc": "2026-06-10T02:05:00Z",
+  "training_runtime": {
+    "executable": "/usr/bin/python3",
+    "numpy_version": "1.26.2",
+    "python_version": "3.9.6",
+    "sklearn_version": "1.3.2"
+  }
+}

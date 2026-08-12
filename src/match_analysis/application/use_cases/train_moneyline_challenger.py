@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
+from collections.abc import Sequence
 from dataclasses import dataclass
 from decimal import Decimal
 from hashlib import sha256
@@ -218,25 +219,34 @@ class FittedChallengerState:
         }
 
 
-def fit_moneyline_challenger(
-    dataset: P22ATrainingDataset,
+def fit_moneyline_feature_rows(
+    feature_rows: Sequence[Sequence[Any]],
+    labels: Sequence[int],
     *,
     fit_runtime: str | Path = P22B_DEFAULT_FIT_RUNTIME,
 ) -> FittedChallengerState:
-    """Fit one P13-standardized logistic model in an existing local runtime."""
+    """Fit one P13-standardized logistic model from ordered feature rows."""
+
+    if not feature_rows or len(feature_rows) != len(labels):
+        raise ValueError("feature_rows and labels must be non-empty and aligned")
+    normalized_feature_rows: list[list[str]] = []
+    for row in feature_rows:
+        if len(row) != len(MONEYLINE_FEATURE_NAMES):
+            raise ValueError("feature row does not match the Moneyline feature schema")
+        normalized_feature_rows.append([str(value) for value in row])
+    normalized_labels = [int(label) for label in labels]
+    if any(label not in (0, 1) for label in normalized_labels):
+        raise ValueError("Moneyline labels must be binary home-win targets")
 
     runtime = Path(fit_runtime)
     if not runtime.is_file():
         raise RuntimeError(f"{P22B_STOP_FIT_RUNTIME_UNAVAILABLE}: {runtime}")
-    payload = {
-        "feature_rows": [
-            [str(value) for value in example.feature_values]
-            for example in dataset.ordered_examples
-        ],
-        "labels": [example.target_home_win for example in dataset.ordered_examples],
-    }
     environment = os.environ.copy()
     environment["PYTHONDONTWRITEBYTECODE"] = "1"
+    payload = {
+        "feature_rows": normalized_feature_rows,
+        "labels": normalized_labels,
+    }
     try:
         result = subprocess.run(
             [str(runtime), "-c", _P13_FIT_SCRIPT],
@@ -279,6 +289,20 @@ def fit_moneyline_challenger(
     return state
 
 
+def fit_moneyline_challenger(
+    dataset: P22ATrainingDataset,
+    *,
+    fit_runtime: str | Path = P22B_DEFAULT_FIT_RUNTIME,
+) -> FittedChallengerState:
+    """Fit one P13-standardized logistic model for the committed P22A dataset."""
+
+    return fit_moneyline_feature_rows(
+        [example.feature_values for example in dataset.ordered_examples],
+        [example.target_home_win for example in dataset.ordered_examples],
+        fit_runtime=fit_runtime,
+    )
+
+
 def train_moneyline_challenger(
     dataset_path: str | Path,
     summary_path: str | Path,
@@ -315,6 +339,7 @@ __all__ = (
     "P22B_TRAINING_CODE_CONTRACT",
     "P22ATrainingDataset",
     "fit_moneyline_challenger",
+    "fit_moneyline_feature_rows",
     "load_p22a_training_dataset",
     "train_moneyline_challenger",
 )
