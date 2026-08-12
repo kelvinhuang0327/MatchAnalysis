@@ -143,12 +143,43 @@ def _select_target_slate(
     schedule_rows: tuple[dict[str, Any], ...],
     *,
     started_at_utc: datetime,
+    requested_target_date: str | None = None,
 ) -> tuple[str, tuple[dict[str, Any], ...]]:
     """Choose the earliest future local slate from official MLB timing only."""
 
     started = _utc(started_at_utc)
     local_today = started.astimezone(TSL_LOCAL_TIMEZONE).date()
     latest_date = local_today + timedelta(days=P32A_MAX_TARGET_DATE_OFFSET_DAYS)
+    if requested_target_date is not None:
+        try:
+            requested_date = date.fromisoformat(requested_target_date)
+        except ValueError as exc:
+            raise ValueError("target_date must be YYYY-MM-DD") from exc
+        if not local_today <= requested_date <= latest_date:
+            raise RuntimeError(STOP_P32A_NO_TARGET_SLATE)
+        requested_rows = tuple(
+            sorted(
+                (
+                    dict(row)
+                    for row in schedule_rows
+                    if requested_date.isoformat()
+                    == _parse_utc(str(row["scheduled_start_utc"]))
+                    .astimezone(TSL_LOCAL_TIMEZONE)
+                    .date()
+                    .isoformat()
+                    and started < _parse_utc(str(row["scheduled_start_utc"]))
+                ),
+                key=lambda row: (
+                    str(row["scheduled_start_utc"]),
+                    int(row["game_number"]),
+                    int(row["game_pk"]),
+                ),
+            )
+        )
+        if len(requested_rows) < 2:
+            raise RuntimeError(STOP_P32A_NO_TARGET_SLATE)
+        return requested_date.isoformat(), requested_rows
+
     by_local_date: dict[date, list[dict[str, Any]]] = {}
     for row in schedule_rows:
         scheduled = _parse_utc(str(row["scheduled_start_utc"]))
@@ -178,6 +209,7 @@ def acquire_tsl_moneyline_snapshot(
     *,
     repository_root: str | Path,
     runtime_root: str | Path = P32A_RUNTIME_ROOT,
+    target_date: str | None = None,
     clock: Clock = lambda: datetime.now(UTC),
     schedule_opener: JsonOpener | None = None,
     tsl_fetcher: Callable[[str], bytes] | None = None,
@@ -213,6 +245,7 @@ def acquire_tsl_moneyline_snapshot(
     target_date, target_rows = _select_target_slate(
         schedule_rows,
         started_at_utc=started_at,
+        requested_target_date=target_date,
     )
 
     client = (

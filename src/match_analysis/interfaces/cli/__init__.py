@@ -11,4 +11,5 @@ __all__ = (
     "evaluate_multifold_moneyline_oos",
     "replay_moneyline_market_movement",
     "run_moneyline_paper_analysis",
+    "run_daily_moneyline_paper_analysis",
 )
