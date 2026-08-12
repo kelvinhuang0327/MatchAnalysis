@@ -1,0 +1,20 @@
+{
+  "scoped_source_row_count": 843,
+  "scoped_status_counts": {
+    "POST_START": 7,
+    "VALID_PREGAME": 836
+  },
+  "source_blob_at_head": "d1654141691b08e074b18506cc8a48fb2266013c",
+  "source_branch": "task/p242a-result-only-paper-workflow-bundle-runner",
+  "source_head": "03b2fcf4de1a13ee9929afcef803d61955c9f41b",
+  "source_path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/tsl_odds_history.jsonl",
+  "source_relative_path": "data/tsl_odds_history.jsonl",
+  "source_repository": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool",
+  "source_row_count": 11400,
+  "source_sha256": "5604e41f817f87617956b54c4b664bbf562d496eb1c8618bd174888ef87c8efc",
+  "source_stable": true,
+  "source_status": "# branch.oid 03b2fcf4de1a13ee9929afcef803d61955c9f41b\n# branch.head task/p242a-result-only-paper-workflow-bundle-runner\n# branch.upstream origin/task/p242a-result-only-paper-workflow-bundle-runner\n# branch.ab +0 -0\n1 .M N... 100644 100644 100644 d1654141691b08e074b18506cc8a48fb2266013c d1654141691b08e074b18506cc8a48fb2266013c data/tsl_odds_history.jsonl",
+  "source_tree": "56a849bc68234db63da7a38f1643fa664217c5d0",
+  "timestamp_semantics_basis": "Legacy row fetched_at is the local fetch/market-observation time; legacy row game_time is the scheduled start; no provider-side observation timestamp is present.",
+  "timestamp_semantics_trusted": true
+}

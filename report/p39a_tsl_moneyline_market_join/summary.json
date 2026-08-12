@@ -1,0 +1,74 @@
+{
+  "ambiguous_rows": 0,
+  "claims": {
+    "bet_pass": "NOT_RUN",
+    "calibration": "NOT_RUN",
+    "model_promotion": "NOT_RUN",
+    "outcome_based_snapshot_selection": false,
+    "roi_profitability": "NOT_RUN",
+    "staking_bankroll_kelly": "NOT_RUN"
+  },
+  "conclusion": "MARKET_JOIN_PARTIAL",
+  "conclusion_rule": "MARKET_JOIN_READY iff every P37 evaluable target has one usable pregame snapshot; MARKET_JOIN_PARTIAL iff at least one but fewer than all targets are usable; MARKET_AUTHORITY_INSUFFICIENT iff zero targets are usable or timestamp/source authority is not trustworthy.",
+  "deterministic_rerun_verified": true,
+  "edge_ready_count": 62,
+  "exact_identity_match_count": 62,
+  "malformed_or_incomplete_price_rows": 0,
+  "market_join_fingerprint": "4855e1efa9a45adb68a9a559f67d421adf4c0a349224a6e747ac0d36a17850b5",
+  "missing_or_untrusted_timestamp_rows": 0,
+  "no_market_rows": 3,
+  "not_pregame_rejected_rows": 0,
+  "p37_evaluable_target_count": 65,
+  "p37_manifest": {
+    "authority_base_head": "0ada15d8c198815d40fef6db60ba9885ccc421f0",
+    "authority_base_tree": "d0c373d5027e14742c8562a7c2a6dcd127664731",
+    "comparisons_path": "report/p37a_rolling_walk_forward_oos/comparisons.jsonl",
+    "comparisons_sha256": "23cc15d308a90c08da0d1a4c6cbb9289af3add2c5d151808833e73a660639eb4",
+    "evaluable_row_count": 65,
+    "excluded_row_count": 10,
+    "feature_and_schedule_sha256": {
+      "data/fixtures/p23b_future_folds/wf_005/feature_rows.jsonl": "dc2dcde7d8ec51493bf05d04d917f2c23a14cea23b7b0ba752d9772a5494d470",
+      "data/fixtures/p23b_future_folds/wf_005/normalized/schedule.jsonl": "9e58f11ed66e32276e2bfb6b70ff3e1f3e841949b59fa5568a0245ce10b4aaf2",
+      "data/fixtures/p23b_future_folds/wf_006/feature_rows.jsonl": "390d0cde0e5b28cff87d44b924f7c1924084eed197fc1c88b5a6af1538788fb6",
+      "data/fixtures/p23b_future_folds/wf_006/normalized/schedule.jsonl": "1125bd324be7222b16f6aae3df056182078d733ae101d76adaa446e5752af424",
+      "data/fixtures/p23f2_official_2026_history/normalized/schedule.jsonl": "1dc9c7115b5fcb52e4928d505a2edfb557b7484545fa70ab69f6cc5dd32eaf0c",
+      "report/p23f2_official_future_fold/feature_rows.jsonl": "8d69b9c8bbbf1c4107d7bb5979fee1118bdf7a637529ec9775c6f3dd469b3deb"
+    },
+    "fold_counts": {
+      "wf_004": 23,
+      "wf_005": 17,
+      "wf_006": 25
+    },
+    "raw_row_count": 75,
+    "summary_path": "report/p37a_rolling_walk_forward_oos/summary.json",
+    "summary_sha256": "f8fe76adbadbccd81ff19d7edcfe1c5ff0ac1107678db53021ba248a00249e75"
+  },
+  "post_start_rejected_rows": 0,
+  "schema_version": "p39a.p37_oos_moneyline_market_join.v1",
+  "selected_snapshot_count": 62,
+  "selected_snapshot_fingerprint": "16f5c34626bf395d687f0dadaa75d4dab8fb9facc65469f80252834d924845c3",
+  "selected_snapshot_rule": "LATEST_TRUSTWORTHY_PREGAME_OBSERVATION_STRICTLY_BEFORE_SCHEDULED_START;_TIES_BY_SOURCE_ROW_FINGERPRINT",
+  "source_manifest": {
+    "scoped_source_row_count": 843,
+    "scoped_status_counts": {
+      "POST_START": 7,
+      "VALID_PREGAME": 836
+    },
+    "source_blob_at_head": "d1654141691b08e074b18506cc8a48fb2266013c",
+    "source_branch": "task/p242a-result-only-paper-workflow-bundle-runner",
+    "source_head": "03b2fcf4de1a13ee9929afcef803d61955c9f41b",
+    "source_path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/tsl_odds_history.jsonl",
+    "source_relative_path": "data/tsl_odds_history.jsonl",
+    "source_repository": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool",
+    "source_row_count": 11400,
+    "source_sha256": "5604e41f817f87617956b54c4b664bbf562d496eb1c8618bd174888ef87c8efc",
+    "source_stable": true,
+    "source_status": "# branch.oid 03b2fcf4de1a13ee9929afcef803d61955c9f41b\n# branch.head task/p242a-result-only-paper-workflow-bundle-runner\n# branch.upstream origin/task/p242a-result-only-paper-workflow-bundle-runner\n# branch.ab +0 -0\n1 .M N... 100644 100644 100644 d1654141691b08e074b18506cc8a48fb2266013c d1654141691b08e074b18506cc8a48fb2266013c data/tsl_odds_history.jsonl",
+    "source_tree": "56a849bc68234db63da7a38f1643fa664217c5d0",
+    "timestamp_semantics_basis": "Legacy row fetched_at is the local fetch/market-observation time; legacy row game_time is the scheduled start; no provider-side observation timestamp is present.",
+    "timestamp_semantics_trusted": true
+  },
+  "task_id": "P39A",
+  "timestamp_semantics": "SOURCE_GAME_TIME_IS_SCHEDULED_START;SOURCE_FETCHED_AT_IS_LOCAL_MARKET_OBSERVATION_TIME;PROVIDER_SIDE_TIMESTAMP_UNAVAILABLE",
+  "usable_pregame_market_rows": 62
+}
