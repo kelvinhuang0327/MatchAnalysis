@@ -82,6 +82,7 @@ AUTHORIZED_SOURCE_PATHS = {
     "infrastructure/mlb_schedule/explicit_payload_source.py",
     "infrastructure/providers/mlb_official_historical_source.py",
     "infrastructure/sources/__init__.py",
+    "infrastructure/sources/tsl_moneyline_acquisition.py",
     "infrastructure/sources/tsl_moneyline_history.py",
     "interfaces/__init__.py",
     "interfaces/cli/__init__.py",
@@ -122,6 +123,7 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/use_cases/assess_prediction_learning_candidates.py",
     "application/use_cases/prediction_learning_candidate_artifacts.py",
     "application/use_cases/acquire_future_moneyline_history.py",
+    "application/use_cases/acquire_tsl_moneyline_snapshot.py",
     "application/use_cases/materialize_future_moneyline_fold.py",
     "application/use_cases/future_moneyline_fold_artifacts.py",
     "application/use_cases/materialize_moneyline_training_dataset.py",
@@ -454,6 +456,12 @@ class DependencyRuleTests(unittest.TestCase):
             / "use_cases"
             / "build_moneyline_paper_source_bundle.py"
         )
+        p32a_tsl_acquisition = (
+            PACKAGE_ROOT
+            / "application"
+            / "use_cases"
+            / "acquire_tsl_moneyline_snapshot.py"
+        )
         violations = []
         for path in paths:
             for target, line_number in imported_modules(path):
@@ -467,9 +475,21 @@ class DependencyRuleTests(unittest.TestCase):
                     and target
                     == "match_analysis.infrastructure.sources.tsl_moneyline_history"
                 )
+                is_allowlisted_p32a_source = (
+                    path == p32a_tsl_acquisition
+                    and target
+                    in {
+                        "match_analysis.infrastructure.providers.mlb_official_historical_source",
+                        "match_analysis.infrastructure.sources.tsl_moneyline_acquisition",
+                    }
+                )
                 if target.startswith(
                     ("match_analysis.infrastructure", "match_analysis.interfaces")
-                ) and not (is_allowlisted_p23f2_source or is_allowlisted_p31a_source):
+                ) and not (
+                    is_allowlisted_p23f2_source
+                    or is_allowlisted_p31a_source
+                    or is_allowlisted_p32a_source
+                ):
                     relative = path.relative_to(REPOSITORY_ROOT)
                     violations.append(f"{relative}:{line_number} -> {target}")
         self.assertEqual(violations, [])

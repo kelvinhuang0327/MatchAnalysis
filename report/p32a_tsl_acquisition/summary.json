@@ -1,0 +1,58 @@
+{
+  "canonical_history_mutated": false,
+  "diagnostic_only": true,
+  "fetched_at_utc": "2026-08-11T23:59:57.413773Z",
+  "official_overlap_game_count": 6,
+  "official_target_game_count": 6,
+  "operation": "ACQUIRE_TSL_MONEYLINE_SNAPSHOT",
+  "paper_only": true,
+  "paper_smoke": {
+    "edge_available_count": 0,
+    "feature_unavailable_count": 6,
+    "paper_only": true,
+    "price_unavailable_pre_cutoff_count": 0,
+    "raw_game_count": 6,
+    "real_betting_recommendation": false,
+    "run_id": "e0fe462fd1e6d232367ad5b5aa86fa3d8bd17e1ac0dc64b82619ef916ca45c0f",
+    "structural_status_counts": {
+      "CROSSWALK_UNRESOLVED": 0,
+      "EDGE_AVAILABLE": 0,
+      "FEATURE_UNAVAILABLE": 6,
+      "PRICE_UNAVAILABLE_PRE_CUTOFF": 0
+    }
+  },
+  "profitability_claim": false,
+  "qualified_non_overlap_count": 4,
+  "qualified_observation_count": 10,
+  "real_betting_recommendation": false,
+  "rejected_row_count": 5,
+  "rejection_reason_counts": {
+    "OUT_OF_SCOPE": 4,
+    "POST_START": 1
+  },
+  "requested_game_ids": [
+    "823186",
+    "823264",
+    "823917",
+    "823997",
+    "824970",
+    "825046"
+  ],
+  "runtime_capture_paths": [
+    "/tmp/matchanalysis-p32a-tsl-acquisition/attempt7/capture/tsl_live_games.json",
+    "/tmp/matchanalysis-p32a-tsl-acquisition/attempt7/capture/tsl_sports.json",
+    "/tmp/matchanalysis-p32a-tsl-acquisition/attempt7/capture/tsl_pre_games_34731.1_zh.json"
+  ],
+  "schedule_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-08-11&endDate=2026-08-19&gameType=R&hydrate=team",
+  "schema_version": "p32a.tsl_moneyline_acquisition.v1",
+  "selection_started_at_utc": "2026-08-11T23:59:52.522079Z",
+  "source": "TSL_BLOB3RD",
+  "source_payload_sha256": {
+    "https://blob3rd.sportslottery.com.tw/apidata/Live/Games.zh.json": "8ac98931f839409ddbeae58956ca40c2f62dca4e192d0a6d8dc140c35a48a1d0",
+    "https://blob3rd.sportslottery.com.tw/apidata/Pre/34731.1-Games.zh.json": "08547c05962da67bece25635c451ccfefac0420f03a36f56490916d6ffc1b858",
+    "https://blob3rd.sportslottery.com.tw/apidata/Pre/Sports.zh.json": "fb83338cec6a8f2d4f6902808a21926b4d1b81ad3bf0ca428d528d630d3f32e9"
+  },
+  "source_row_count": 15,
+  "staking_implemented": false,
+  "target_date": "2026-08-12"
+}
