@@ -1,0 +1,1398 @@
+{
+  "admitted_evaluation_fold_ids": [
+    "wf_004",
+    "wf_005",
+    "wf_006"
+  ],
+  "aggregate": {
+    "challenger": {
+      "artifact_fingerprints": [
+        "99cd8805d04390ed4654a432e30f42219f1797454b84e07b1e8c9b4dd658747f",
+        "b70e27e613f3d5281da5eb2454642fbf516d77d7d09f5c5821056bd20b50c720",
+        "ebabde9c5c31df1d968be695c4b5d2eb5ba8fda50b5e6644789864e531d8626c"
+      ],
+      "metrics": {
+        "accuracy": "0.6769230769230769230769230769",
+        "brier_score": "0.2313831777277822686393046858",
+        "calibration": {
+          "bin_count": 4,
+          "bins": [
+            {
+              "absolute_gap": null,
+              "bin": "0.00-0.25",
+              "count": 0,
+              "mean_predicted_probability": null,
+              "observed_home_win_rate": null
+            },
+            {
+              "absolute_gap": "0.1681146145733148204804650162",
+              "bin": "0.25-0.50",
+              "count": 19,
+              "mean_predicted_probability": "0.4312725093101569257436229109",
+              "observed_home_win_rate": "0.2631578947368421052631578947"
+            },
+            {
+              "absolute_gap": "0.0895334227762109130362702859",
+              "bin": "0.50-0.75",
+              "count": 46,
+              "mean_predicted_probability": "0.5626404902672673478332949315",
+              "observed_home_win_rate": "0.6521739130434782608695652174"
+            },
+            {
+              "absolute_gap": null,
+              "bin": "0.75-1.00",
+              "count": 0,
+              "mean_predicted_probability": null,
+              "observed_home_win_rate": null
+            }
+          ],
+          "expected_calibration_error": "0.1125033096092105167507272071"
+        },
+        "coverage": "0.8666666666666666666666666667",
+        "log_loss": "0.6553779842799703123736428102",
+        "row_count": 65
+      },
+      "model_count": 3,
+      "model_ids": [
+        "p37a_moneyline_logistic_rolling_challenger_v1_wf_004_4b3939438b00f135",
+        "p37a_moneyline_logistic_rolling_challenger_v1_wf_005_96fea425bf72f45b",
+        "p37a_moneyline_logistic_rolling_challenger_v1_wf_006_96bc3e12abd60616"
+      ],
+      "model_role": "CHALLENGER"
+    },
+    "champion": {
+      "artifact_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "metrics": {
+        "accuracy": "0.6615384615384615384615384615",
+        "brier_score": "0.2315416168638198232432961914",
+        "calibration": {
+          "bin_count": 4,
+          "bins": [
+            {
+              "absolute_gap": null,
+              "bin": "0.00-0.25",
+              "count": 0,
+              "mean_predicted_probability": null,
+              "observed_home_win_rate": null
+            },
+            {
+              "absolute_gap": "0.1626698764064487439937273674",
+              "bin": "0.25-0.50",
+              "count": 18,
+              "mean_predicted_probability": "0.4404476541842265217715051452",
+              "observed_home_win_rate": "0.2777777777777777777777777778"
+            },
+            {
+              "absolute_gap": "0.0803444099267472632689435323",
+              "bin": "0.50-0.75",
+              "count": 47,
+              "mean_predicted_probability": "0.5579534624136782686459500847",
+              "observed_home_win_rate": "0.6382978723404255319148936170"
+            },
+            {
+              "absolute_gap": null,
+              "bin": "0.75-1.00",
+              "count": 0,
+              "mean_predicted_probability": null,
+              "observed_home_win_rate": null
+            }
+          ],
+          "expected_calibration_error": "0.1031422314134338271619605943"
+        },
+        "coverage": "0.8666666666666666666666666667",
+        "log_loss": "0.6557111877723201715938736175",
+        "row_count": 65
+      },
+      "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "model_role": "CHAMPION"
+    },
+    "comparison_set_fingerprint": "0eebca184bcfabea96b2e6f6d4105251b3f3d463e99865197f4fb8542676787a",
+    "coverage": "0.8666666666666666666666666667",
+    "evaluable_row_count": 65,
+    "excluded_row_count": 10,
+    "metrics_population": "MODEL_EVALUABLE_GAMES",
+    "raw_row_count": 75
+  },
+  "authority": {
+    "base_head": "0ada15d8c198815d40fef6db60ba9885ccc421f0",
+    "base_tree": "d0c373d5027e14742c8562a7c2a6dcd127664731",
+    "current_champion_artifact_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+    "current_champion_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+    "p22a_dataset_fingerprint": "05f9b31c608e1630a40b2369ac45ada8b103b2c1131b0cedcaa2c7fc91ba7750",
+    "p22a_dataset_path": "report/p22a_game_level_training_dataset/training_examples.jsonl",
+    "p22a_dataset_sha256": "1f692332ee050f7c132d05e7f1e8d94bd0a7dd0658f3b91d053b4cc44f865bf3",
+    "repository": "/Users/kelvin/VibeCoding-WorkSpace/MatchAnalysis"
+  },
+  "challenger_models": [
+    {
+      "artifact_fingerprint": "99cd8805d04390ed4654a432e30f42219f1797454b84e07b1e8c9b4dd658747f",
+      "evaluation_window_id": "window_001_holdout_wf_004",
+      "evaluation_window_order": 1,
+      "holdout_fold_id": "wf_004",
+      "model_id": "p37a_moneyline_logistic_rolling_challenger_v1_wf_004_4b3939438b00f135",
+      "model_role": "CHALLENGER",
+      "training_basis_fingerprint": "4b3939438b00f135240d41b5b41ccb7280b828240eda4ffdcddbfff2eb2e4eb0",
+      "training_cutoff_date": "2025-08-31",
+      "training_example_count": 677,
+      "training_fold_ids": [
+        "wf_002",
+        "wf_003"
+      ],
+      "training_observation_fingerprint": "58db33cddc4fdab6a13f6915660c2d10f321091288c1e2d7f643a23c630cd4b7"
+    },
+    {
+      "artifact_fingerprint": "b70e27e613f3d5281da5eb2454642fbf516d77d7d09f5c5821056bd20b50c720",
+      "evaluation_window_id": "window_002_holdout_wf_005",
+      "evaluation_window_order": 2,
+      "holdout_fold_id": "wf_005",
+      "model_id": "p37a_moneyline_logistic_rolling_challenger_v1_wf_005_96fea425bf72f45b",
+      "model_role": "CHALLENGER",
+      "training_basis_fingerprint": "96fea425bf72f45bcf6634c061f9f1c66f2271d2b46eac3a697dbd97543447ee",
+      "training_cutoff_date": "2026-06-09",
+      "training_example_count": 700,
+      "training_fold_ids": [
+        "wf_002",
+        "wf_003",
+        "wf_004"
+      ],
+      "training_observation_fingerprint": "fb61e7b86947392c528101217cf066245a7465b71fd94da0b8357006191d4481"
+    },
+    {
+      "artifact_fingerprint": "ebabde9c5c31df1d968be695c4b5d2eb5ba8fda50b5e6644789864e531d8626c",
+      "evaluation_window_id": "window_003_holdout_wf_006",
+      "evaluation_window_order": 3,
+      "holdout_fold_id": "wf_006",
+      "model_id": "p37a_moneyline_logistic_rolling_challenger_v1_wf_006_96bc3e12abd60616",
+      "model_role": "CHALLENGER",
+      "training_basis_fingerprint": "96bc3e12abd606167f659711c0143d1eb2da199b55b9387145199f79d0b69e26",
+      "training_cutoff_date": "2026-06-11",
+      "training_example_count": 717,
+      "training_fold_ids": [
+        "wf_002",
+        "wf_003",
+        "wf_004",
+        "wf_005"
+      ],
+      "training_observation_fingerprint": "f7baf59b985aee4a6db588fed21f9d3720c2ec5a9ca7207c0fe6dff3ee2f6782"
+    }
+  ],
+  "champion": {
+    "artifact_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+    "artifact_path": "report/p22b_moneyline_challenger/model_artifact.json",
+    "frozen": true,
+    "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+    "model_role": "CHAMPION"
+  },
+  "claims": {
+    "bet_or_pass_claim": false,
+    "model_promoted": false,
+    "multi_window_evaluated": true,
+    "out_of_sample_evaluated": true,
+    "p20b_historical_runtime_compliance": "REMAINS_REFUTED",
+    "production_ready": false,
+    "profitability_claim": false,
+    "promotion_authorized": false,
+    "real_betting_recommendation": false,
+    "training_performed": true
+  },
+  "comparison": {
+    "aggregate_accuracy_delta": "0.0153846153846153846153846154",
+    "aggregate_brier_delta": "-0.0001584391360375546039915056",
+    "aggregate_calibration_ece_delta": "0.0093610781957766895887666128",
+    "aggregate_log_loss_delta": "-0.0003332034923498592202308073",
+    "aggregate_verdict": "CHALLENGER_BETTER",
+    "conclusion": "MIXED_OR_INCONCLUSIVE",
+    "decision_rule": "CHALLENGER_BETTER iff challenger accuracy is higher and both challenger Brier score and log loss are lower; CHAMPION_RETAINS is the symmetric champion result; otherwise INCONCLUSIVE.",
+    "per_window_metric_deltas": {
+      "wf_004": {
+        "accuracy_delta": "0E-28",
+        "brier_delta": "-4.5764826417E-18",
+        "calibration_ece_delta": "-4.5168820787E-18",
+        "log_loss_delta": "-9.5251092787E-18"
+      },
+      "wf_005": {
+        "accuracy_delta": "0E-28",
+        "brier_delta": "0.0007311820817816424305716438",
+        "calibration_ece_delta": "0.0037124683245839313520153781",
+        "log_loss_delta": "0.0012646682922835723600429141"
+      },
+      "wf_006": {
+        "accuracy_delta": "0.04",
+        "brier_delta": "-0.0009091455693091546128026016",
+        "calibration_ece_delta": "0.02814550378719281945897510339",
+        "log_loss_delta": "-0.001726303518862454414328744"
+      }
+    },
+    "per_window_verdicts": {
+      "wf_004": "INCONCLUSIVE",
+      "wf_005": "INCONCLUSIVE",
+      "wf_006": "CHALLENGER_BETTER"
+    },
+    "repetition_threshold_window_count": 2,
+    "windows_equal_brier": [],
+    "windows_with_challenger_better_verdict": [
+      "wf_006"
+    ],
+    "windows_with_challenger_lower_brier": [
+      "wf_004",
+      "wf_006"
+    ],
+    "windows_with_champion_lower_brier": [
+      "wf_005"
+    ],
+    "windows_with_champion_retains_verdict": [],
+    "windows_with_inconclusive_verdict": [
+      "wf_004",
+      "wf_005"
+    ]
+  },
+  "deterministic_rerun_verified": true,
+  "evaluation_windows": [
+    {
+      "challenger": {
+        "artifact_fingerprint": "99cd8805d04390ed4654a432e30f42219f1797454b84e07b1e8c9b4dd658747f",
+        "metrics": {
+          "accuracy": "0.7826086956521739130434782609",
+          "brier_score": "0.2138127101219392078925210790",
+          "calibration": {
+            "bin_count": 4,
+            "bins": [
+              {
+                "absolute_gap": null,
+                "bin": "0.00-0.25",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              },
+              {
+                "absolute_gap": "0.4331512060533031890027502429",
+                "bin": "0.25-0.50",
+                "count": 7,
+                "mean_predicted_probability": "0.4331512060533031890027502429",
+                "observed_home_win_rate": "0"
+              },
+              {
+                "absolute_gap": "0.1274792060103769604543040061",
+                "bin": "0.50-0.75",
+                "count": 16,
+                "mean_predicted_probability": "0.5600207939896230395456959939",
+                "observed_home_win_rate": "0.6875"
+              },
+              {
+                "absolute_gap": null,
+                "bin": "0.75-1.00",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              }
+            ],
+            "expected_calibration_error": "0.2205098147190936387081789478"
+          },
+          "coverage": "1",
+          "log_loss": "0.6196695765352917536001311343",
+          "row_count": 23
+        },
+        "model_id": "p37a_moneyline_logistic_rolling_challenger_v1_wf_004_4b3939438b00f135",
+        "model_role": "CHALLENGER"
+      },
+      "champion": {
+        "artifact_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+        "metrics": {
+          "accuracy": "0.7826086956521739130434782609",
+          "brier_score": "0.2138127101219392124690037207",
+          "calibration": {
+            "bin_count": 4,
+            "bins": [
+              {
+                "absolute_gap": null,
+                "bin": "0.00-0.25",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              },
+              {
+                "absolute_gap": "0.4331512060533032038636233656",
+                "bin": "0.25-0.50",
+                "count": 7,
+                "mean_predicted_probability": "0.4331512060533032038636233656",
+                "observed_home_win_rate": "0"
+              },
+              {
+                "absolute_gap": "0.1274792060103769604456900032",
+                "bin": "0.50-0.75",
+                "count": 16,
+                "mean_predicted_probability": "0.5600207939896230395543099968",
+                "observed_home_win_rate": "0.6875"
+              },
+              {
+                "absolute_gap": null,
+                "bin": "0.75-1.00",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              }
+            ],
+            "expected_calibration_error": "0.2205098147190936432250610265"
+          },
+          "coverage": "1",
+          "log_loss": "0.6196695765352917631252404130",
+          "row_count": 23
+        },
+        "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+        "model_role": "CHAMPION"
+      },
+      "comparison": {
+        "accuracy_delta": "0E-28",
+        "brier_delta": "-4.5764826417E-18",
+        "calibration_ece_delta": "-4.5168820787E-18",
+        "decision_rule": "CHALLENGER_BETTER iff challenger accuracy is higher and both challenger Brier score and log loss are lower; CHAMPION_RETAINS is the symmetric champion result; otherwise INCONCLUSIVE.",
+        "log_loss_delta": "-9.5251092787E-18",
+        "no_aggregate_oos_tuning": true,
+        "outcome_isolation_verified": true,
+        "point_in_time_features_verified": true,
+        "same_holdout": {
+          "challenger_row_ids": [
+            "822805",
+            "822806",
+            "822969",
+            "822972",
+            "823214",
+            "823218",
+            "823289",
+            "823290",
+            "823374",
+            "823620",
+            "823858",
+            "824023",
+            "824025",
+            "824105",
+            "824267",
+            "824347",
+            "824427",
+            "824429",
+            "824591",
+            "824829",
+            "824830",
+            "824998",
+            "824999"
+          ],
+          "champion_row_ids": [
+            "822805",
+            "822806",
+            "822969",
+            "822972",
+            "823214",
+            "823218",
+            "823289",
+            "823290",
+            "823374",
+            "823620",
+            "823858",
+            "824023",
+            "824025",
+            "824105",
+            "824267",
+            "824347",
+            "824427",
+            "824429",
+            "824591",
+            "824829",
+            "824830",
+            "824998",
+            "824999"
+          ],
+          "row_count": 23
+        },
+        "same_holdout_verified": true,
+        "strict_train_before_holdout_verified": true,
+        "train_holdout_disjoint_verified": true,
+        "train_holdout_game_id_overlap": [],
+        "verdict": "INCONCLUSIVE"
+      },
+      "evaluation_window_id": "window_001_holdout_wf_004",
+      "evaluation_window_order": 1,
+      "holdout": {
+        "coverage": "1",
+        "date_range": [
+          "2026-06-08",
+          "2026-06-09"
+        ],
+        "evaluable_game_ids": [
+          "822805",
+          "822806",
+          "822969",
+          "822972",
+          "823214",
+          "823218",
+          "823289",
+          "823290",
+          "823374",
+          "823620",
+          "823858",
+          "824023",
+          "824025",
+          "824105",
+          "824267",
+          "824347",
+          "824427",
+          "824429",
+          "824591",
+          "824829",
+          "824830",
+          "824998",
+          "824999"
+        ],
+        "evaluable_row_count": 23,
+        "excluded_game_ids": [],
+        "excluded_reason_distribution": {},
+        "excluded_row_count": 0,
+        "excluded_rows": [],
+        "feature_fingerprint": "8d69b9c8bbbf1c4107d7bb5979fee1118bdf7a637529ec9775c6f3dd469b3deb",
+        "fold_fingerprint": "50b56eac672a83b03877d7581a250ea123ce27f598075c1d12ca28e5e0cf3c7e",
+        "fold_id": "wf_004",
+        "raw_game_ids": [
+          "822805",
+          "822806",
+          "822969",
+          "822972",
+          "823214",
+          "823218",
+          "823289",
+          "823290",
+          "823374",
+          "823620",
+          "823858",
+          "824023",
+          "824025",
+          "824105",
+          "824267",
+          "824347",
+          "824427",
+          "824429",
+          "824591",
+          "824829",
+          "824830",
+          "824998",
+          "824999"
+        ],
+        "raw_row_count": 23,
+        "result_fingerprint": "f17471b1ceaa6b85e2037a228c8224f063b024a187d4c14922b54e81eb476677",
+        "source_manifest_fingerprint": "94aae2435bc4cb0f97ce77cb83c0a370a86392268e4d4ec1b2f130ca1f4e0447"
+      },
+      "holdout_fold_id": "wf_004",
+      "train_fold_ids": [
+        "wf_002",
+        "wf_003"
+      ],
+      "training": {
+        "basis_fingerprint": "4b3939438b00f135240d41b5b41ccb7280b828240eda4ffdcddbfff2eb2e4eb0",
+        "cutoff_date": "2025-08-31",
+        "date_range": [
+          "2025-07-01",
+          "2025-08-31"
+        ],
+        "eligible_row_count": 677,
+        "excluded_reason_distribution": {},
+        "excluded_row_count": 0,
+        "fold_ids": [
+          "wf_002",
+          "wf_003"
+        ],
+        "game_id_count": 677,
+        "game_id_fingerprint": "eaf2f35bc3c726468de509f19b05dc1fccf16f0808cefaf7e24044987cc865e9",
+        "label_distribution": {
+          "0": 309,
+          "1": 368
+        },
+        "last_scheduled_start_utc": "2025-08-31T17:57:00Z",
+        "observation_fingerprint": "58db33cddc4fdab6a13f6915660c2d10f321091288c1e2d7f643a23c630cd4b7",
+        "raw_row_count": 677
+      }
+    },
+    {
+      "challenger": {
+        "artifact_fingerprint": "b70e27e613f3d5281da5eb2454642fbf516d77d7d09f5c5821056bd20b50c720",
+        "metrics": {
+          "accuracy": "0.6470588235294117647058823529",
+          "brier_score": "0.2363256219673267139829349482",
+          "calibration": {
+            "bin_count": 4,
+            "bins": [
+              {
+                "absolute_gap": null,
+                "bin": "0.00-0.25",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              },
+              {
+                "absolute_gap": "0.0960993660783848197564234848",
+                "bin": "0.25-0.50",
+                "count": 4,
+                "mean_predicted_probability": "0.4039006339216151802435765152",
+                "observed_home_win_rate": "0.5"
+              },
+              {
+                "absolute_gap": "0.1323455534748373571802543629",
+                "bin": "0.50-0.75",
+                "count": 13,
+                "mean_predicted_probability": "0.5599621388328549505120533294",
+                "observed_home_win_rate": "0.6923076923076923076923076923"
+              },
+              {
+                "absolute_gap": null,
+                "bin": "0.75-1.00",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              }
+            ],
+            "expected_calibration_error": "0.1238170387933191130805294504"
+          },
+          "coverage": "0.7727272727272727272727272727",
+          "log_loss": "0.6650635301896911119371176841",
+          "row_count": 17
+        },
+        "model_id": "p37a_moneyline_logistic_rolling_challenger_v1_wf_005_96fea425bf72f45b",
+        "model_role": "CHALLENGER"
+      },
+      "champion": {
+        "artifact_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+        "metrics": {
+          "accuracy": "0.6470588235294117647058823529",
+          "brier_score": "0.2355944398855450715523633044",
+          "calibration": {
+            "bin_count": 4,
+            "bins": [
+              {
+                "absolute_gap": null,
+                "bin": "0.00-0.25",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              },
+              {
+                "absolute_gap": "0.0699267945304772733685887725",
+                "bin": "0.25-0.50",
+                "count": 4,
+                "mean_predicted_probability": "0.4300732054695227266314112275",
+                "observed_home_win_rate": "0.5"
+              },
+              {
+                "absolute_gap": "0.1355438861420453073777218568",
+                "bin": "0.50-0.75",
+                "count": 13,
+                "mean_predicted_probability": "0.5567638061656470003145858355",
+                "observed_home_win_rate": "0.6923076923076923076923076923"
+              },
+              {
+                "absolute_gap": null,
+                "bin": "0.75-1.00",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              }
+            ],
+            "expected_calibration_error": "0.1201045704687351817285140723"
+          },
+          "coverage": "0.7727272727272727272727272727",
+          "log_loss": "0.66379886189740753957707477",
+          "row_count": 17
+        },
+        "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+        "model_role": "CHAMPION"
+      },
+      "comparison": {
+        "accuracy_delta": "0E-28",
+        "brier_delta": "0.0007311820817816424305716438",
+        "calibration_ece_delta": "0.0037124683245839313520153781",
+        "decision_rule": "CHALLENGER_BETTER iff challenger accuracy is higher and both challenger Brier score and log loss are lower; CHAMPION_RETAINS is the symmetric champion result; otherwise INCONCLUSIVE.",
+        "log_loss_delta": "0.0012646682922835723600429141",
+        "no_aggregate_oos_tuning": true,
+        "outcome_isolation_verified": true,
+        "point_in_time_features_verified": true,
+        "same_holdout": {
+          "challenger_row_ids": [
+            "822804",
+            "822970",
+            "823215",
+            "823287",
+            "823371",
+            "823372",
+            "823855",
+            "824022",
+            "824101",
+            "824103",
+            "824265",
+            "824346",
+            "824348",
+            "824428",
+            "824590",
+            "824827",
+            "824831"
+          ],
+          "champion_row_ids": [
+            "822804",
+            "822970",
+            "823215",
+            "823287",
+            "823371",
+            "823372",
+            "823855",
+            "824022",
+            "824101",
+            "824103",
+            "824265",
+            "824346",
+            "824348",
+            "824428",
+            "824590",
+            "824827",
+            "824831"
+          ],
+          "row_count": 17
+        },
+        "same_holdout_verified": true,
+        "strict_train_before_holdout_verified": true,
+        "train_holdout_disjoint_verified": true,
+        "train_holdout_game_id_overlap": [],
+        "verdict": "INCONCLUSIVE"
+      },
+      "evaluation_window_id": "window_002_holdout_wf_005",
+      "evaluation_window_order": 2,
+      "holdout": {
+        "coverage": "0.7727272727272727272727272727",
+        "date_range": [
+          "2026-06-10",
+          "2026-06-11"
+        ],
+        "evaluable_game_ids": [
+          "822804",
+          "822970",
+          "823215",
+          "823287",
+          "823371",
+          "823372",
+          "823855",
+          "824022",
+          "824101",
+          "824103",
+          "824265",
+          "824346",
+          "824348",
+          "824428",
+          "824590",
+          "824827",
+          "824831"
+        ],
+        "evaluable_row_count": 17,
+        "excluded_game_ids": [
+          "823618",
+          "823619",
+          "823856",
+          "824266",
+          "824996"
+        ],
+        "excluded_reason_distribution": {
+          "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY": 5
+        },
+        "excluded_row_count": 5,
+        "excluded_rows": [
+          {
+            "affected_starters": [
+              {
+                "qualifying_prior_start_count": 1,
+                "required_prior_start_count": 2,
+                "side": "home",
+                "starter_id": 687473,
+                "starter_name": "Ryan Gusto",
+                "team": "Miami Marlins"
+              }
+            ],
+            "deterministic_exclusion_identity": "5f3c86ce3c96df70bb91b4f020397e05553ea6a2d9ef7ca55c8015b42487de50",
+            "feature_name": "starter_era_delta",
+            "fold_id": "wf_005",
+            "game_id": "823856",
+            "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+            "scheduled_start": "2026-06-10T22:40:00Z",
+            "status": "FEATURE_UNAVAILABLE"
+          },
+          {
+            "affected_starters": [
+              {
+                "qualifying_prior_start_count": 0,
+                "required_prior_start_count": 2,
+                "side": "away",
+                "starter_id": 702474,
+                "starter_name": "Mike Paredes",
+                "team": "Minnesota Twins"
+              }
+            ],
+            "deterministic_exclusion_identity": "75da742566eb777369e618b96e9da81f18d5a0449b4689bec4be3d9e66bc8dd2",
+            "feature_name": "starter_era_delta",
+            "fold_id": "wf_005",
+            "game_id": "824266",
+            "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+            "scheduled_start": "2026-06-10T22:40:00Z",
+            "status": "FEATURE_UNAVAILABLE"
+          },
+          {
+            "affected_starters": [
+              {
+                "qualifying_prior_start_count": 1,
+                "required_prior_start_count": 2,
+                "side": "home",
+                "starter_id": 681810,
+                "starter_name": "Austin Warren",
+                "team": "New York Mets"
+              }
+            ],
+            "deterministic_exclusion_identity": "da47aa5e5f256beadf2d9563639bca2374226a8a53802ab73774c0d60fc7a5c3",
+            "feature_name": "starter_era_delta",
+            "fold_id": "wf_005",
+            "game_id": "823618",
+            "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+            "scheduled_start": "2026-06-10T23:10:00Z",
+            "status": "FEATURE_UNAVAILABLE"
+          },
+          {
+            "affected_starters": [
+              {
+                "qualifying_prior_start_count": 1,
+                "required_prior_start_count": 2,
+                "side": "home",
+                "starter_id": 678022,
+                "starter_name": "Jack Perkins",
+                "team": "Athletics"
+              }
+            ],
+            "deterministic_exclusion_identity": "a3961df67b1eaf8033985d2c23b07d0c8f665f83ea6ade7793dbc9000121c53e",
+            "feature_name": "starter_era_delta",
+            "fold_id": "wf_005",
+            "game_id": "824996",
+            "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+            "scheduled_start": "2026-06-11T01:05:00Z",
+            "status": "FEATURE_UNAVAILABLE"
+          },
+          {
+            "affected_starters": [
+              {
+                "qualifying_prior_start_count": 1,
+                "required_prior_start_count": 2,
+                "side": "away",
+                "starter_id": 690928,
+                "starter_name": "Hunter Dobbins",
+                "team": "St. Louis Cardinals"
+              }
+            ],
+            "deterministic_exclusion_identity": "7434a8836590eb3780c1b83ca7b6f49ede35edbdd3b7fadf676332af130615b0",
+            "feature_name": "starter_era_delta",
+            "fold_id": "wf_005",
+            "game_id": "823619",
+            "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+            "scheduled_start": "2026-06-11T17:10:00Z",
+            "status": "FEATURE_UNAVAILABLE"
+          }
+        ],
+        "feature_fingerprint": "dc2dcde7d8ec51493bf05d04d917f2c23a14cea23b7b0ba752d9772a5494d470",
+        "fold_fingerprint": "2fb192124847fa21556321e1bd8c34b2c95159873eba8e5662d00a4565ae781b",
+        "fold_id": "wf_005",
+        "raw_game_ids": [
+          "822804",
+          "822970",
+          "823215",
+          "823287",
+          "823371",
+          "823372",
+          "823618",
+          "823619",
+          "823855",
+          "823856",
+          "824022",
+          "824101",
+          "824103",
+          "824265",
+          "824266",
+          "824346",
+          "824348",
+          "824428",
+          "824590",
+          "824827",
+          "824831",
+          "824996"
+        ],
+        "raw_row_count": 22,
+        "result_fingerprint": "ab7841cc513af49c029eda90e71ac6393455c3fd0b63e04c41494502c82e0f1a",
+        "source_manifest_fingerprint": "eec56c5c1a9c71fa6dcd3c4e7db0c7c8cc045bd99b5742da0474638d508d3c96"
+      },
+      "holdout_fold_id": "wf_005",
+      "train_fold_ids": [
+        "wf_002",
+        "wf_003",
+        "wf_004"
+      ],
+      "training": {
+        "basis_fingerprint": "96fea425bf72f45bcf6634c061f9f1c66f2271d2b46eac3a697dbd97543447ee",
+        "cutoff_date": "2026-06-09",
+        "date_range": [
+          "2025-07-01",
+          "2026-06-09"
+        ],
+        "eligible_row_count": 700,
+        "excluded_reason_distribution": {},
+        "excluded_row_count": 0,
+        "fold_ids": [
+          "wf_002",
+          "wf_003",
+          "wf_004"
+        ],
+        "game_id_count": 700,
+        "game_id_fingerprint": "12f68940156750356b6045ea141699326110a63e69ea411c0233063508eda4f8",
+        "label_distribution": {
+          "0": 321,
+          "1": 379
+        },
+        "last_scheduled_start_utc": "2026-06-10T02:05:00Z",
+        "observation_fingerprint": "fb61e7b86947392c528101217cf066245a7465b71fd94da0b8357006191d4481",
+        "raw_row_count": 700
+      }
+    },
+    {
+      "challenger": {
+        "artifact_fingerprint": "ebabde9c5c31df1d968be695c4b5d2eb5ba8fda50b5e6644789864e531d8626c",
+        "metrics": {
+          "accuracy": "0.6",
+          "brier_score": "0.2441871458422676616926770260",
+          "calibration": {
+            "bin_count": 4,
+            "bins": [
+              {
+                "absolute_gap": null,
+                "bin": "0.00-0.25",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              },
+              {
+                "absolute_gap": "0.0683145873541748181419096934",
+                "bin": "0.25-0.50",
+                "count": 8,
+                "mean_predicted_probability": "0.4433145873541748181419096934",
+                "observed_home_win_rate": "0.375"
+              },
+              {
+                "absolute_gap": "0.0210810562568697052386036673",
+                "bin": "0.50-0.75",
+                "count": 17,
+                "mean_predicted_probability": "0.5671542378607773535849257445",
+                "observed_home_win_rate": "0.5882352941176470588235294118"
+              },
+              {
+                "absolute_gap": null,
+                "bin": "0.75-1.00",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              }
+            ],
+            "expected_calibration_error": "0.03619578620800734136766159565"
+          },
+          "coverage": "0.8333333333333333333333333333",
+          "log_loss": "0.681643548186464442742110638",
+          "row_count": 25
+        },
+        "model_id": "p37a_moneyline_logistic_rolling_challenger_v1_wf_006_96bc3e12abd60616",
+        "model_role": "CHALLENGER"
+      },
+      "champion": {
+        "artifact_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+        "metrics": {
+          "accuracy": "0.56",
+          "brier_score": "0.2450962914115768163054796276",
+          "calibration": {
+            "bin_count": 4,
+            "bins": [
+              {
+                "absolute_gap": null,
+                "bin": "0.00-0.25",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              },
+              {
+                "absolute_gap": "0.0251009301521234369022977353",
+                "bin": "0.25-0.50",
+                "count": 7,
+                "mean_predicted_probability": "0.4536723587235520083308691639",
+                "observed_home_win_rate": "0.4285714285714285714285714286"
+              },
+              {
+                "absolute_gap": "0.0014194749697499438556154533",
+                "bin": "0.50-0.75",
+                "count": 18,
+                "mean_predicted_probability": "0.5569750305253054994111710089",
+                "observed_home_win_rate": "0.5555555555555555555555555556"
+              },
+              {
+                "absolute_gap": null,
+                "bin": "0.75-1.00",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              }
+            ],
+            "expected_calibration_error": "0.008050282420814521908686492260"
+          },
+          "coverage": "0.8333333333333333333333333333",
+          "log_loss": "0.683369851705326897156439382",
+          "row_count": 25
+        },
+        "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+        "model_role": "CHAMPION"
+      },
+      "comparison": {
+        "accuracy_delta": "0.04",
+        "brier_delta": "-0.0009091455693091546128026016",
+        "calibration_ece_delta": "0.02814550378719281945897510339",
+        "decision_rule": "CHALLENGER_BETTER iff challenger accuracy is higher and both challenger Brier score and log loss are lower; CHAMPION_RETAINS is the symmetric champion result; otherwise INCONCLUSIVE.",
+        "log_loss_delta": "-0.001726303518862454414328744",
+        "no_aggregate_oos_tuning": true,
+        "outcome_isolation_verified": true,
+        "point_in_time_features_verified": true,
+        "same_holdout": {
+          "challenger_row_ids": [
+            "822725",
+            "822726",
+            "822802",
+            "822803",
+            "823211",
+            "823213",
+            "823369",
+            "823370",
+            "823617",
+            "823694",
+            "823695",
+            "823776",
+            "824019",
+            "824100",
+            "824102",
+            "824425",
+            "824426",
+            "824507",
+            "824508",
+            "824587",
+            "824588",
+            "824749",
+            "824752",
+            "824826",
+            "824828"
+          ],
+          "champion_row_ids": [
+            "822725",
+            "822726",
+            "822802",
+            "822803",
+            "823211",
+            "823213",
+            "823369",
+            "823370",
+            "823617",
+            "823694",
+            "823695",
+            "823776",
+            "824019",
+            "824100",
+            "824102",
+            "824425",
+            "824426",
+            "824507",
+            "824508",
+            "824587",
+            "824588",
+            "824749",
+            "824752",
+            "824826",
+            "824828"
+          ],
+          "row_count": 25
+        },
+        "same_holdout_verified": true,
+        "strict_train_before_holdout_verified": true,
+        "train_holdout_disjoint_verified": true,
+        "train_holdout_game_id_overlap": [],
+        "verdict": "CHALLENGER_BETTER"
+      },
+      "evaluation_window_id": "window_003_holdout_wf_006",
+      "evaluation_window_order": 3,
+      "holdout": {
+        "coverage": "0.8333333333333333333333333333",
+        "date_range": [
+          "2026-06-12",
+          "2026-06-13"
+        ],
+        "evaluable_game_ids": [
+          "822725",
+          "822726",
+          "822802",
+          "822803",
+          "823211",
+          "823213",
+          "823369",
+          "823370",
+          "823617",
+          "823694",
+          "823695",
+          "823776",
+          "824019",
+          "824100",
+          "824102",
+          "824425",
+          "824426",
+          "824507",
+          "824508",
+          "824587",
+          "824588",
+          "824749",
+          "824752",
+          "824826",
+          "824828"
+        ],
+        "evaluable_row_count": 25,
+        "excluded_game_ids": [
+          "823616",
+          "823778",
+          "824020",
+          "824995",
+          "824997"
+        ],
+        "excluded_reason_distribution": {
+          "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY": 5
+        },
+        "excluded_row_count": 5,
+        "excluded_rows": [
+          {
+            "affected_starters": [
+              {
+                "qualifying_prior_start_count": 0,
+                "required_prior_start_count": 2,
+                "side": "away",
+                "starter_id": 621383,
+                "starter_name": "Tanner Banks",
+                "team": "Philadelphia Phillies"
+              }
+            ],
+            "deterministic_exclusion_identity": "f2ac0c5f441601a1ca1fcf7eeb185a64faad0d5c8c39523fef95ab019ace54f3",
+            "feature_name": "starter_era_delta",
+            "fold_id": "wf_006",
+            "game_id": "823778",
+            "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+            "scheduled_start": "2026-06-12T23:40:00Z",
+            "status": "FEATURE_UNAVAILABLE"
+          },
+          {
+            "affected_starters": [
+              {
+                "qualifying_prior_start_count": 1,
+                "required_prior_start_count": 2,
+                "side": "home",
+                "starter_id": 691951,
+                "starter_name": "Sam Aldegheri",
+                "team": "Los Angeles Angels"
+              }
+            ],
+            "deterministic_exclusion_identity": "f9591161f4194206c1e69f2fb6f4deaefd96dced3a4503bcc9a7f17d5383b85d",
+            "feature_name": "starter_era_delta",
+            "fold_id": "wf_006",
+            "game_id": "824020",
+            "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+            "scheduled_start": "2026-06-13T01:38:00Z",
+            "status": "FEATURE_UNAVAILABLE"
+          },
+          {
+            "affected_starters": [
+              {
+                "qualifying_prior_start_count": 0,
+                "required_prior_start_count": 2,
+                "side": "away",
+                "starter_id": 807743,
+                "starter_name": "Sean Sullivan",
+                "team": "Colorado Rockies"
+              }
+            ],
+            "deterministic_exclusion_identity": "624084960982675b65306cd5ab7a08ca887f86cdbe2d410a4d4d4a9906c5ec86",
+            "feature_name": "starter_era_delta",
+            "fold_id": "wf_006",
+            "game_id": "824997",
+            "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+            "scheduled_start": "2026-06-13T02:05:00Z",
+            "status": "FEATURE_UNAVAILABLE"
+          },
+          {
+            "affected_starters": [
+              {
+                "qualifying_prior_start_count": 0,
+                "required_prior_start_count": 2,
+                "side": "home",
+                "starter_id": 640455,
+                "starter_name": "Sean Manaea",
+                "team": "New York Mets"
+              }
+            ],
+            "deterministic_exclusion_identity": "b33aeb70011321fa1eaab0168751969a34630437918f82baf73a9274db416a0e",
+            "feature_name": "starter_era_delta",
+            "fold_id": "wf_006",
+            "game_id": "823616",
+            "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+            "scheduled_start": "2026-06-13T20:10:00Z",
+            "status": "FEATURE_UNAVAILABLE"
+          },
+          {
+            "affected_starters": [
+              {
+                "qualifying_prior_start_count": 0,
+                "required_prior_start_count": 2,
+                "side": "home",
+                "starter_id": 683155,
+                "starter_name": "Joey Estes",
+                "team": "Athletics"
+              }
+            ],
+            "deterministic_exclusion_identity": "453eef51cf3252ddb8cde3e995ec010ace6a2e71a4fee49e01de754450e2c890",
+            "feature_name": "starter_era_delta",
+            "fold_id": "wf_006",
+            "game_id": "824995",
+            "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY",
+            "scheduled_start": "2026-06-14T02:05:00Z",
+            "status": "FEATURE_UNAVAILABLE"
+          }
+        ],
+        "feature_fingerprint": "390d0cde0e5b28cff87d44b924f7c1924084eed197fc1c88b5a6af1538788fb6",
+        "fold_fingerprint": "8d5e35dda3b82dfc60200464029a034a4529b14b4c88563f484e259b04d4db94",
+        "fold_id": "wf_006",
+        "raw_game_ids": [
+          "822725",
+          "822726",
+          "822802",
+          "822803",
+          "823211",
+          "823213",
+          "823369",
+          "823370",
+          "823616",
+          "823617",
+          "823694",
+          "823695",
+          "823776",
+          "823778",
+          "824019",
+          "824020",
+          "824100",
+          "824102",
+          "824425",
+          "824426",
+          "824507",
+          "824508",
+          "824587",
+          "824588",
+          "824749",
+          "824752",
+          "824826",
+          "824828",
+          "824995",
+          "824997"
+        ],
+        "raw_row_count": 30,
+        "result_fingerprint": "a55cef6f7db8a8af41bcedb8fc5aead061dbf74b959feefd75617c232f547ad6",
+        "source_manifest_fingerprint": "3ba7e35c1dfa1acdeec9480554baad70b022fefbbfa3d90cd3a74ba07100b374"
+      },
+      "holdout_fold_id": "wf_006",
+      "train_fold_ids": [
+        "wf_002",
+        "wf_003",
+        "wf_004",
+        "wf_005"
+      ],
+      "training": {
+        "basis_fingerprint": "96bc3e12abd606167f659711c0143d1eb2da199b55b9387145199f79d0b69e26",
+        "cutoff_date": "2026-06-11",
+        "date_range": [
+          "2025-07-01",
+          "2026-06-11"
+        ],
+        "eligible_row_count": 717,
+        "excluded_reason_distribution": {
+          "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY": 5
+        },
+        "excluded_row_count": 5,
+        "fold_ids": [
+          "wf_002",
+          "wf_003",
+          "wf_004",
+          "wf_005"
+        ],
+        "game_id_count": 722,
+        "game_id_fingerprint": "d6c02e194cf3dfff4f359c1547544b11ab144f70e20298fa0bb25687292e8154",
+        "label_distribution": {
+          "0": 327,
+          "1": 390
+        },
+        "last_scheduled_start_utc": "2026-06-11T23:05:00Z",
+        "observation_fingerprint": "f7baf59b985aee4a6db588fed21f9d3720c2ec5a9ca7207c0fe6dff3ee2f6782",
+        "raw_row_count": 722
+      }
+    }
+  ],
+  "historical_fold_chronology": [
+    {
+      "authority_kind": "P20A_P21B_HISTORICAL_FOLD",
+      "fold_id": "wf_001",
+      "p37a_admission": "NOT_ADMITTED_LEGACY_WF001",
+      "p37a_holdout_capable": false,
+      "p37a_train_capable": false,
+      "raw_holdout_row_count": 2,
+      "source_feature_names": [
+        "indep_recent_win_rate_delta",
+        "indep_starter_era_delta"
+      ],
+      "train_as_of": "2025-05-31",
+      "training_row_count": 566,
+      "validation_end": "2025-06-30",
+      "validation_start": "2025-06-01"
+    },
+    {
+      "authority_kind": "P20A_P21B_HISTORICAL_FOLD",
+      "fold_id": "wf_002",
+      "p37a_admission": "SEED_TRAINING_AUTHORITY_FROM_P22A",
+      "p37a_holdout_capable": false,
+      "p37a_train_capable": true,
+      "raw_holdout_row_count": 319,
+      "source_feature_names": [
+        "indep_recent_win_rate_delta",
+        "indep_starter_era_delta"
+      ],
+      "train_as_of": "2025-06-30",
+      "training_row_count": 893,
+      "validation_end": "2025-07-31",
+      "validation_start": "2025-07-01"
+    },
+    {
+      "authority_kind": "P20A_P21B_HISTORICAL_FOLD",
+      "fold_id": "wf_003",
+      "p37a_admission": "SEED_TRAINING_AUTHORITY_FROM_P22A",
+      "p37a_holdout_capable": false,
+      "p37a_train_capable": true,
+      "raw_holdout_row_count": 358,
+      "source_feature_names": [
+        "indep_recent_win_rate_delta",
+        "indep_starter_era_delta"
+      ],
+      "train_as_of": "2025-07-31",
+      "training_row_count": 1212,
+      "validation_end": "2025-08-31",
+      "validation_start": "2025-08-01"
+    },
+    {
+      "authority_kind": "P23F2_CURRENT_FEATURE_RESULT_FOLD",
+      "evaluable_holdout_row_count": 23,
+      "feature_fingerprint": "8d69b9c8bbbf1c4107d7bb5979fee1118bdf7a637529ec9775c6f3dd469b3deb",
+      "feature_unavailable_count": 0,
+      "fold_fingerprint": "50b56eac672a83b03877d7581a250ea123ce27f598075c1d12ca28e5e0cf3c7e",
+      "fold_id": "wf_004",
+      "p37a_admission": "CURRENT_FEATURE_RESULT_AUTHORITY",
+      "p37a_holdout_capable": true,
+      "p37a_train_capable": true,
+      "raw_holdout_row_count": 23,
+      "result_fingerprint": "f17471b1ceaa6b85e2037a228c8224f063b024a187d4c14922b54e81eb476677",
+      "source_feature_names": [
+        "recent_win_rate_delta",
+        "starter_era_delta"
+      ],
+      "train_as_of": null,
+      "training_row_count": null,
+      "validation_end": "2026-06-09",
+      "validation_start": "2026-06-08"
+    },
+    {
+      "authority_kind": "P23F2_CURRENT_FEATURE_RESULT_FOLD",
+      "evaluable_holdout_row_count": 17,
+      "feature_fingerprint": "dc2dcde7d8ec51493bf05d04d917f2c23a14cea23b7b0ba752d9772a5494d470",
+      "feature_unavailable_count": 5,
+      "fold_fingerprint": "2fb192124847fa21556321e1bd8c34b2c95159873eba8e5662d00a4565ae781b",
+      "fold_id": "wf_005",
+      "p37a_admission": "CURRENT_FEATURE_RESULT_AUTHORITY",
+      "p37a_holdout_capable": true,
+      "p37a_train_capable": true,
+      "raw_holdout_row_count": 22,
+      "result_fingerprint": "ab7841cc513af49c029eda90e71ac6393455c3fd0b63e04c41494502c82e0f1a",
+      "source_feature_names": [
+        "recent_win_rate_delta",
+        "starter_era_delta"
+      ],
+      "train_as_of": null,
+      "training_row_count": null,
+      "validation_end": "2026-06-11",
+      "validation_start": "2026-06-10"
+    },
+    {
+      "authority_kind": "P23F2_CURRENT_FEATURE_RESULT_FOLD",
+      "evaluable_holdout_row_count": 25,
+      "feature_fingerprint": "390d0cde0e5b28cff87d44b924f7c1924084eed197fc1c88b5a6af1538788fb6",
+      "feature_unavailable_count": 5,
+      "fold_fingerprint": "8d5e35dda3b82dfc60200464029a034a4529b14b4c88563f484e259b04d4db94",
+      "fold_id": "wf_006",
+      "p37a_admission": "CURRENT_FEATURE_RESULT_AUTHORITY",
+      "p37a_holdout_capable": true,
+      "p37a_train_capable": true,
+      "raw_holdout_row_count": 30,
+      "result_fingerprint": "a55cef6f7db8a8af41bcedb8fc5aead061dbf74b959feefd75617c232f547ad6",
+      "source_feature_names": [
+        "recent_win_rate_delta",
+        "starter_era_delta"
+      ],
+      "train_as_of": null,
+      "training_row_count": null,
+      "validation_end": "2026-06-13",
+      "validation_start": "2026-06-12"
+    }
+  ],
+  "input_order_invariance_verified": true,
+  "operation": "ROLLING_WALK_FORWARD_MONEYLINE_OOS_EVALUATION",
+  "p36a_baseline_preserved": {
+    "challenger_accuracy": "0.6190476190476190476190476190",
+    "challenger_brier": "0.2409542612751445629346755433",
+    "challenger_ece": "0.05373421488154330306429538093",
+    "challenger_log_loss": "0.6748400665006979300167290164",
+    "champion_accuracy": "0.5952380952380952380952380952",
+    "champion_brier": "0.2412503038891353958101706395",
+    "champion_ece": "0.04382191993924131051589468869",
+    "champion_log_loss": "0.6754482605925976333743156102",
+    "holdout_evaluable_row_count": 42,
+    "holdout_fold_ids": [
+      "wf_005",
+      "wf_006"
+    ],
+    "summary_path": "report/p36a_offline_moneyline_retraining_baseline/summary.json",
+    "task_id": "P36A",
+    "training_fold_id": "wf_004",
+    "unchanged_verified": true
+  },
+  "schema_version": "p37a.rolling_moneyline_oos_summary.v1",
+  "task_id": "P37A",
+  "training_code_contract": "p37a.rolling_walk_forward_moneyline_oos.v1",
+  "verification": {
+    "aggregate_oos_tuning_performed": false,
+    "aggregate_true_oos_rows_verified": true,
+    "calibration_fitted_on_aggregate_oos": false,
+    "chronological_fold_order_verified": true,
+    "deterministic_rerun_verified": true,
+    "input_order_invariance_verified": true,
+    "metric_calculation_verified": true,
+    "model_promotion_occurred": false,
+    "outcome_isolation_verified": true,
+    "point_in_time_features_verified": true,
+    "same_holdout_rows_verified": true,
+    "strict_train_before_holdout_verified": true,
+    "train_holdout_game_id_disjointness_verified": true,
+    "valid_window_count": 3
+  }
+}

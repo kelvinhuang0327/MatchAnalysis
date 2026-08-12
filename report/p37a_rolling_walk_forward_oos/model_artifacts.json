@@ -1,0 +1,56 @@
+{
+  "artifacts": [
+    {
+      "artifact_fingerprint": "99cd8805d04390ed4654a432e30f42219f1797454b84e07b1e8c9b4dd658747f",
+      "evaluation_window_id": "window_001_holdout_wf_004",
+      "evaluation_window_order": 1,
+      "holdout_fold_id": "wf_004",
+      "model_id": "p37a_moneyline_logistic_rolling_challenger_v1_wf_004_4b3939438b00f135",
+      "model_role": "CHALLENGER",
+      "training_basis_fingerprint": "4b3939438b00f135240d41b5b41ccb7280b828240eda4ffdcddbfff2eb2e4eb0",
+      "training_cutoff_date": "2025-08-31",
+      "training_example_count": 677,
+      "training_fold_ids": [
+        "wf_002",
+        "wf_003"
+      ],
+      "training_observation_fingerprint": "58db33cddc4fdab6a13f6915660c2d10f321091288c1e2d7f643a23c630cd4b7"
+    },
+    {
+      "artifact_fingerprint": "b70e27e613f3d5281da5eb2454642fbf516d77d7d09f5c5821056bd20b50c720",
+      "evaluation_window_id": "window_002_holdout_wf_005",
+      "evaluation_window_order": 2,
+      "holdout_fold_id": "wf_005",
+      "model_id": "p37a_moneyline_logistic_rolling_challenger_v1_wf_005_96fea425bf72f45b",
+      "model_role": "CHALLENGER",
+      "training_basis_fingerprint": "96fea425bf72f45bcf6634c061f9f1c66f2271d2b46eac3a697dbd97543447ee",
+      "training_cutoff_date": "2026-06-09",
+      "training_example_count": 700,
+      "training_fold_ids": [
+        "wf_002",
+        "wf_003",
+        "wf_004"
+      ],
+      "training_observation_fingerprint": "fb61e7b86947392c528101217cf066245a7465b71fd94da0b8357006191d4481"
+    },
+    {
+      "artifact_fingerprint": "ebabde9c5c31df1d968be695c4b5d2eb5ba8fda50b5e6644789864e531d8626c",
+      "evaluation_window_id": "window_003_holdout_wf_006",
+      "evaluation_window_order": 3,
+      "holdout_fold_id": "wf_006",
+      "model_id": "p37a_moneyline_logistic_rolling_challenger_v1_wf_006_96bc3e12abd60616",
+      "model_role": "CHALLENGER",
+      "training_basis_fingerprint": "96bc3e12abd606167f659711c0143d1eb2da199b55b9387145199f79d0b69e26",
+      "training_cutoff_date": "2026-06-11",
+      "training_example_count": 717,
+      "training_fold_ids": [
+        "wf_002",
+        "wf_003",
+        "wf_004",
+        "wf_005"
+      ],
+      "training_observation_fingerprint": "f7baf59b985aee4a6db588fed21f9d3720c2ec5a9ca7207c0fe6dff3ee2f6782"
+    }
+  ],
+  "schema_version": "p37a.rolling_moneyline_oos_challenger_artifact.v1"
+}
