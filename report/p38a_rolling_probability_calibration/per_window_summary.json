@@ -1,0 +1,695 @@
+{
+  "schema_version": "p38a.rolling_probability_calibration_per_window.v1",
+  "windows": [
+    {
+      "calibrated_challenger": {
+        "calibrator_method": "PLATT_LOGISTIC_RAW_PROBABILITY_LOGIT",
+        "metrics": {
+          "accuracy": "0.4705882352941176470588235294",
+          "brier_score": "0.3038423382484724881515290718",
+          "calibration": {
+            "bin_count": 4,
+            "bins": [
+              {
+                "absolute_gap": "0.4528031243673699372068399852",
+                "bin": "0.00-0.25",
+                "count": 4,
+                "mean_predicted_probability": "0.0471968756326300627931600148",
+                "observed_home_win_rate": "0.5"
+              },
+              {
+                "absolute_gap": "0.6050417636629292647780953273",
+                "bin": "0.25-0.50",
+                "count": 3,
+                "mean_predicted_probability": "0.3949582363370707352219046727",
+                "observed_home_win_rate": "1"
+              },
+              {
+                "absolute_gap": "0.1148356744324405634891864512",
+                "bin": "0.50-0.75",
+                "count": 6,
+                "mean_predicted_probability": "0.6148356744324405634891864512",
+                "observed_home_win_rate": "0.5"
+              },
+              {
+                "absolute_gap": "0.1242726581182978800565151998",
+                "bin": "0.75-1.00",
+                "count": 4,
+                "mean_predicted_probability": "0.8742726581182978800565151998",
+                "observed_home_win_rate": "0.75"
+              }
+            ],
+            "expected_calibration_error": "0.2830848510309472026072250253"
+          },
+          "coverage": "0.7727272727272727272727272727",
+          "log_loss": "0.9267522021742132148507003318",
+          "row_count": 17
+        },
+        "model_id": "p37a_moneyline_logistic_rolling_challenger_v1_wf_005_96fea425bf72f45b:calibrated"
+      },
+      "calibration": {
+        "calibrator_fit_rows_evaluation_rows_disjoint_verified": true,
+        "method": {
+          "fit_iterations": 8,
+          "intercept": "-0.81301265306898441127506518148329157559934137655394",
+          "l2_penalty": "0.0001",
+          "method": "PLATT_LOGISTIC_RAW_PROBABILITY_LOGIT",
+          "method_version": "p38a.platt_probability_calibrator.v1",
+          "probability_epsilon": "0.000001",
+          "sample_count": 23,
+          "slope": "6.5518605489751858448604047670767185203932561851506"
+        },
+        "method_selection_uses_target_labels": false,
+        "source_comparison_row_ids": [
+          "5359e68aa4a7d9b57603e24a385a46e023513b2d02b8119f1479bdd7379a628f",
+          "abef69bde69b759629cd8b2d3a5c17942955fbe6d9557290cb1d8efd9044a2d9",
+          "0fe27eff176142be1ff21ddabc19600f995a79d579064e340b426692546dc29d",
+          "b11bc001d8a9481037c9c7b03b1705e8ee01c87e3574eeceae890d17362ca783",
+          "1aee7e1b1fa04d3fb41cece43c664d1450a0d0f890d91adb7789b715952fbf4b",
+          "5cc97c38a49eb73373c4564e78ce4c376057df0606b7a9c0bbce963439de3214",
+          "6d7b2b7c158ce7d3cfa637c337c4cb700a3c575a6d066c47fd70eccb71a0fc38",
+          "36bc1152940b5593d6b6fd98f79bbe12cbc32a2df9cd8f7856acb269aa09bce1",
+          "d2dbced497a15c6969ba431738f8064387f146a2ee0fbdb7e32cdd911edd9de6",
+          "429a4ddef9b0c2d0379b34441e20012798941a161b81592869ddf1c84a5244a0",
+          "3850e27d86340ad585f3c0954e35d1c45aa1551ca97384079e6d30082b096035",
+          "287e94f2169437a12024e9fd7a679d2d6054d6a549079a045d8cce9cfbf745b0",
+          "211bbc59414c1b4f0826eda4800acdc261e2eac5a8e017f886c9e4846c93a5b5",
+          "b9b7a6a369eee8d144dd5a3553c2afdf6c43ce4961cf6cd781f02d8b068d15c5",
+          "32f16ba7fd1e366dd6eeb30c273b776bee63e672f6ae89c16006c690dc59d715",
+          "42888992307e05e77c53901cf6ff20d3ab8bed5f5035ba36a3967530ce048b16",
+          "849071500b75aec24defc976d11954a8bf86d8789dc464411003c155b3aa7665",
+          "eaf1fd4491413309fdfe5c4e6af840683eb9a7b7a24065972d3aea60e595cd33",
+          "e46cea326d3aca7321632f87babc35c0c191df8874b4dbbdc141c56274a40acd",
+          "db630657a89342f0549ea600e3eab1dc5ec96399ff2455ea02e4c197bfcecaaf",
+          "6a9fa02e229d27eb674faeda3c214a8081babd3f43c3e1f35f485414a86cfa01",
+          "485825834c8ce0a832a39eb1964e691dd3a4afdf921d6142802fac123dfbdf59",
+          "b608262385458bd68be9977b21376010061e8b48b5eb5317d96a7848898c8d90"
+        ],
+        "source_date_range": [
+          "2026-06-08T22:35:00Z",
+          "2026-06-10T02:05:00Z"
+        ],
+        "source_fold_ids": [
+          "wf_004"
+        ],
+        "source_max_start_utc": "2026-06-10T02:05:00Z",
+        "source_row_count": 23,
+        "source_target_game_id_disjoint_verified": true,
+        "strict_source_before_target_verified": true,
+        "target_comparison_row_ids": [
+          "f499fbf49f670db1676a0e8baa89953950f4083fe124653c4ae646e1d19c2431",
+          "ff3a4500129a6ecca2cced493d3e296d9b96c5b8cf203b39e683ab5f65dfc6be",
+          "23c21ad447e7991e49f0b1fa36cbbc4b339ba9dec4879a1d5c3e9adaf9e6b281",
+          "e0bf96ef71873e74bb025c636417e59bca248deda7d6d90d5b2c269e9e76535c",
+          "6128af974eadc3772c83dd330586d30c772a723272e2b282cfeb2e06ea19d646",
+          "382ff2b7a40f35488e9f448d57966e8234b726f2a20f3e3db7306682e7f215b3",
+          "151a714b0096d162024f847332adf4e9eaef4aae1f633c55d357b36e8085bcc5",
+          "1e3d4f034bd3b148568df8ddee9f87a1246a36633f109c5c6ad6d2c0ce856e18",
+          "db6309669e026a878f045bb47dbeec5c3a44aad7737da242a3e531534cb63735",
+          "e4d10f18548c78fba6179b54192ac6da29ff2b247c592f8c8ea343ae2998bedf",
+          "a3849d0e87fb4d97c8ab2d1677de3eed1efefe54c884841a8d86f399383d1da4",
+          "30bc7be716ff22eb5e8577c4eccaf935a3817956c35de20500796ea413f3b991",
+          "4cefc133af81372a543ba7c7d0a8e441454e06b8c11fde627085a6d1020a5bc2",
+          "88d9e97a23ea30b6fdf53446713eb1c9f9b9857e295a8292b819ed076692cec3",
+          "68d865f1b70dceb206beff48473e21d62d282ff90bbe17322e1431b38dda4761",
+          "f011f93ebfe014991349b8048b49ecc820b4d9d8ae83edc2224c4fa6e76c8f63",
+          "044df0ae1af2d6602074a676577db12b5e94d828baaae5d91b69757f8a153b90"
+        ],
+        "target_holdout_labels_used_for_fit": false,
+        "target_holdout_min_start_utc": "2026-06-10T17:10:00Z"
+      },
+      "champion": {
+        "metrics": {
+          "accuracy": "0.6470588235294117647058823529",
+          "brier_score": "0.2355944398855450715523633044",
+          "calibration": {
+            "bin_count": 4,
+            "bins": [
+              {
+                "absolute_gap": null,
+                "bin": "0.00-0.25",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              },
+              {
+                "absolute_gap": "0.0699267945304772733685887725",
+                "bin": "0.25-0.50",
+                "count": 4,
+                "mean_predicted_probability": "0.4300732054695227266314112275",
+                "observed_home_win_rate": "0.5"
+              },
+              {
+                "absolute_gap": "0.1355438861420453073777218568",
+                "bin": "0.50-0.75",
+                "count": 13,
+                "mean_predicted_probability": "0.5567638061656470003145858355",
+                "observed_home_win_rate": "0.6923076923076923076923076923"
+              },
+              {
+                "absolute_gap": null,
+                "bin": "0.75-1.00",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              }
+            ],
+            "expected_calibration_error": "0.1201045704687351817285140723"
+          },
+          "coverage": "0.7727272727272727272727272727",
+          "log_loss": "0.66379886189740753957707477",
+          "row_count": 17
+        },
+        "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+        "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630"
+      },
+      "comparison": {
+        "accuracy_change_explanation": "The calibrated challenger accuracy uses the calibrated probability threshold of 0.5; it can differ from raw challenger accuracy when the monotone Platt map shifts a raw probability across 0.5.",
+        "accuracy_changed_by_calibration": true,
+        "calibrated_vs_champion": {
+          "accuracy_delta": "-0.1764705882352941176470588235",
+          "brier_delta": "0.0682478983629274165991657674",
+          "calibration_ece_delta": "0.1629802805622120208787109530",
+          "log_loss_delta": "0.2629533402768056752736255618"
+        },
+        "prediction_rule": "calibrated_challenger_correct iff calibrated probability is at least 0.5 and target_home_win is 1, or below 0.5 and target_home_win is 0",
+        "raw_vs_calibrated": {
+          "accuracy_delta": "-0.1764705882352941176470588235",
+          "brier_delta": "0.0675167162811457741685941236",
+          "calibration_ece_delta": "0.1592678122376280895266955749",
+          "log_loss_delta": "0.2616886719845221029135826477"
+        },
+        "same_target_rows_verified": true
+      },
+      "evaluation_window_id": "window_002_holdout_wf_005",
+      "evaluation_window_order": 2,
+      "holdout": {
+        "coverage": "0.7727272727272727272727272727",
+        "date_range": [
+          "2026-06-10",
+          "2026-06-11"
+        ],
+        "evaluable_game_ids": [
+          "822804",
+          "822970",
+          "823215",
+          "823287",
+          "823371",
+          "823372",
+          "823855",
+          "824022",
+          "824101",
+          "824103",
+          "824265",
+          "824346",
+          "824348",
+          "824428",
+          "824590",
+          "824827",
+          "824831"
+        ],
+        "evaluable_row_count": 17,
+        "excluded_game_ids": [
+          "823618",
+          "823619",
+          "823856",
+          "824266",
+          "824996"
+        ],
+        "excluded_row_count": 5,
+        "exclusion_semantics_preserved": true,
+        "fold_id": "wf_005",
+        "raw_game_ids": [
+          "822804",
+          "822970",
+          "823215",
+          "823287",
+          "823371",
+          "823372",
+          "823618",
+          "823619",
+          "823855",
+          "823856",
+          "824022",
+          "824101",
+          "824103",
+          "824265",
+          "824266",
+          "824346",
+          "824348",
+          "824428",
+          "824590",
+          "824827",
+          "824831",
+          "824996"
+        ],
+        "raw_row_count": 22
+      },
+      "holdout_fold_id": "wf_005",
+      "raw_challenger": {
+        "metrics": {
+          "accuracy": "0.6470588235294117647058823529",
+          "brier_score": "0.2363256219673267139829349482",
+          "calibration": {
+            "bin_count": 4,
+            "bins": [
+              {
+                "absolute_gap": null,
+                "bin": "0.00-0.25",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              },
+              {
+                "absolute_gap": "0.0960993660783848197564234848",
+                "bin": "0.25-0.50",
+                "count": 4,
+                "mean_predicted_probability": "0.4039006339216151802435765152",
+                "observed_home_win_rate": "0.5"
+              },
+              {
+                "absolute_gap": "0.1323455534748373571802543629",
+                "bin": "0.50-0.75",
+                "count": 13,
+                "mean_predicted_probability": "0.5599621388328549505120533294",
+                "observed_home_win_rate": "0.6923076923076923076923076923"
+              },
+              {
+                "absolute_gap": null,
+                "bin": "0.75-1.00",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              }
+            ],
+            "expected_calibration_error": "0.1238170387933191130805294504"
+          },
+          "coverage": "0.7727272727272727272727272727",
+          "log_loss": "0.6650635301896911119371176841",
+          "row_count": 17
+        },
+        "model_fingerprint": "b70e27e613f3d5281da5eb2454642fbf516d77d7d09f5c5821056bd20b50c720",
+        "model_id": "p37a_moneyline_logistic_rolling_challenger_v1_wf_005_96fea425bf72f45b"
+      },
+      "schema_version": "p38a.rolling_probability_calibration_per_window.v1",
+      "train_fold_ids": [
+        "wf_002",
+        "wf_003",
+        "wf_004"
+      ],
+      "training": {
+        "basis_fingerprint": "96fea425bf72f45bcf6634c061f9f1c66f2271d2b46eac3a697dbd97543447ee",
+        "cutoff_date": "2026-06-09",
+        "date_range": [
+          "2025-07-01",
+          "2026-06-09"
+        ],
+        "eligible_row_count": 700,
+        "excluded_reason_distribution": {},
+        "excluded_row_count": 0,
+        "fold_ids": [
+          "wf_002",
+          "wf_003",
+          "wf_004"
+        ],
+        "game_id_count": 700,
+        "game_id_fingerprint": "12f68940156750356b6045ea141699326110a63e69ea411c0233063508eda4f8",
+        "label_distribution": {
+          "0": 321,
+          "1": 379
+        },
+        "last_scheduled_start_utc": "2026-06-10T02:05:00Z",
+        "observation_fingerprint": "fb61e7b86947392c528101217cf066245a7465b71fd94da0b8357006191d4481",
+        "raw_row_count": 700
+      }
+    },
+    {
+      "calibrated_challenger": {
+        "calibrator_method": "PLATT_LOGISTIC_RAW_PROBABILITY_LOGIT",
+        "metrics": {
+          "accuracy": "0.6",
+          "brier_score": "0.2578319227407989933971403955",
+          "calibration": {
+            "bin_count": 4,
+            "bins": [
+              {
+                "absolute_gap": "0.3634905821278415321098381177",
+                "bin": "0.00-0.25",
+                "count": 2,
+                "mean_predicted_probability": "0.1365094178721584678901618823",
+                "observed_home_win_rate": "0.5"
+              },
+              {
+                "absolute_gap": "0.0487654343460523066971927752",
+                "bin": "0.25-0.50",
+                "count": 6,
+                "mean_predicted_probability": "0.3820987676793856400305261085",
+                "observed_home_win_rate": "0.3333333333333333333333333333"
+              },
+              {
+                "absolute_gap": "0.0105716475612256267002490359",
+                "bin": "0.50-0.75",
+                "count": 14,
+                "mean_predicted_probability": "0.6534287904183684838431061788",
+                "observed_home_win_rate": "0.6428571428571428571428571429"
+              },
+              {
+                "absolute_gap": "0.4832492184660599011681745720",
+                "bin": "0.75-1.00",
+                "count": 3,
+                "mean_predicted_probability": "0.8165825517993932345015079053",
+                "observed_home_win_rate": "0.3333333333333333333333333333"
+              }
+            ],
+            "expected_calibration_error": "0.1046929796634934152684337242"
+          },
+          "coverage": "0.8333333333333333333333333333",
+          "log_loss": "0.7250777635807386469537879248",
+          "row_count": 25
+        },
+        "model_id": "p37a_moneyline_logistic_rolling_challenger_v1_wf_006_96bc3e12abd60616:calibrated"
+      },
+      "calibration": {
+        "calibrator_fit_rows_evaluation_rows_disjoint_verified": true,
+        "method": {
+          "fit_iterations": 7,
+          "intercept": "-0.081924401172812695911437863455115393784370799095508",
+          "l2_penalty": "0.0001",
+          "method": "PLATT_LOGISTIC_RAW_PROBABILITY_LOGIT",
+          "method_version": "p38a.platt_probability_calibrator.v1",
+          "probability_epsilon": "0.000001",
+          "sample_count": 40,
+          "slope": "3.2394987624904794103721247290360611615881430015591"
+        },
+        "method_selection_uses_target_labels": false,
+        "source_comparison_row_ids": [
+          "5359e68aa4a7d9b57603e24a385a46e023513b2d02b8119f1479bdd7379a628f",
+          "abef69bde69b759629cd8b2d3a5c17942955fbe6d9557290cb1d8efd9044a2d9",
+          "0fe27eff176142be1ff21ddabc19600f995a79d579064e340b426692546dc29d",
+          "b11bc001d8a9481037c9c7b03b1705e8ee01c87e3574eeceae890d17362ca783",
+          "1aee7e1b1fa04d3fb41cece43c664d1450a0d0f890d91adb7789b715952fbf4b",
+          "5cc97c38a49eb73373c4564e78ce4c376057df0606b7a9c0bbce963439de3214",
+          "6d7b2b7c158ce7d3cfa637c337c4cb700a3c575a6d066c47fd70eccb71a0fc38",
+          "36bc1152940b5593d6b6fd98f79bbe12cbc32a2df9cd8f7856acb269aa09bce1",
+          "d2dbced497a15c6969ba431738f8064387f146a2ee0fbdb7e32cdd911edd9de6",
+          "429a4ddef9b0c2d0379b34441e20012798941a161b81592869ddf1c84a5244a0",
+          "3850e27d86340ad585f3c0954e35d1c45aa1551ca97384079e6d30082b096035",
+          "287e94f2169437a12024e9fd7a679d2d6054d6a549079a045d8cce9cfbf745b0",
+          "211bbc59414c1b4f0826eda4800acdc261e2eac5a8e017f886c9e4846c93a5b5",
+          "b9b7a6a369eee8d144dd5a3553c2afdf6c43ce4961cf6cd781f02d8b068d15c5",
+          "32f16ba7fd1e366dd6eeb30c273b776bee63e672f6ae89c16006c690dc59d715",
+          "42888992307e05e77c53901cf6ff20d3ab8bed5f5035ba36a3967530ce048b16",
+          "849071500b75aec24defc976d11954a8bf86d8789dc464411003c155b3aa7665",
+          "eaf1fd4491413309fdfe5c4e6af840683eb9a7b7a24065972d3aea60e595cd33",
+          "e46cea326d3aca7321632f87babc35c0c191df8874b4dbbdc141c56274a40acd",
+          "db630657a89342f0549ea600e3eab1dc5ec96399ff2455ea02e4c197bfcecaaf",
+          "6a9fa02e229d27eb674faeda3c214a8081babd3f43c3e1f35f485414a86cfa01",
+          "485825834c8ce0a832a39eb1964e691dd3a4afdf921d6142802fac123dfbdf59",
+          "b608262385458bd68be9977b21376010061e8b48b5eb5317d96a7848898c8d90",
+          "f499fbf49f670db1676a0e8baa89953950f4083fe124653c4ae646e1d19c2431",
+          "ff3a4500129a6ecca2cced493d3e296d9b96c5b8cf203b39e683ab5f65dfc6be",
+          "23c21ad447e7991e49f0b1fa36cbbc4b339ba9dec4879a1d5c3e9adaf9e6b281",
+          "e0bf96ef71873e74bb025c636417e59bca248deda7d6d90d5b2c269e9e76535c",
+          "6128af974eadc3772c83dd330586d30c772a723272e2b282cfeb2e06ea19d646",
+          "382ff2b7a40f35488e9f448d57966e8234b726f2a20f3e3db7306682e7f215b3",
+          "151a714b0096d162024f847332adf4e9eaef4aae1f633c55d357b36e8085bcc5",
+          "1e3d4f034bd3b148568df8ddee9f87a1246a36633f109c5c6ad6d2c0ce856e18",
+          "db6309669e026a878f045bb47dbeec5c3a44aad7737da242a3e531534cb63735",
+          "e4d10f18548c78fba6179b54192ac6da29ff2b247c592f8c8ea343ae2998bedf",
+          "a3849d0e87fb4d97c8ab2d1677de3eed1efefe54c884841a8d86f399383d1da4",
+          "30bc7be716ff22eb5e8577c4eccaf935a3817956c35de20500796ea413f3b991",
+          "4cefc133af81372a543ba7c7d0a8e441454e06b8c11fde627085a6d1020a5bc2",
+          "88d9e97a23ea30b6fdf53446713eb1c9f9b9857e295a8292b819ed076692cec3",
+          "68d865f1b70dceb206beff48473e21d62d282ff90bbe17322e1431b38dda4761",
+          "f011f93ebfe014991349b8048b49ecc820b4d9d8ae83edc2224c4fa6e76c8f63",
+          "044df0ae1af2d6602074a676577db12b5e94d828baaae5d91b69757f8a153b90"
+        ],
+        "source_date_range": [
+          "2026-06-08T22:35:00Z",
+          "2026-06-11T23:05:00Z"
+        ],
+        "source_fold_ids": [
+          "wf_004",
+          "wf_005"
+        ],
+        "source_max_start_utc": "2026-06-11T23:05:00Z",
+        "source_row_count": 40,
+        "source_target_game_id_disjoint_verified": true,
+        "strict_source_before_target_verified": true,
+        "target_comparison_row_ids": [
+          "f27a81ec9b19566f3258f77c4f11eee738ae3964f0c85931650783ea6d478a7a",
+          "331cf0de5d1e0e8375e019dbebc5fc7481bc7d89cf125a10c4643d7b6f73d994",
+          "2e8067e430f100ffcbff8db020f9c0beba93da452e53c41ac63ee8267f9e79c4",
+          "9651f97f99b621e5a80888e435a7ce770ae7dfbdd9a7f88e2a8febeb76431551",
+          "047cd7f7c54f5f2c370f5bdba93ee0d182d7eb28121c9c565212101fc613f87d",
+          "2f0be9e67b6114f7daf442ac4b711730bde69901ecac24f359754f2821be250d",
+          "0911bca6488d99df789de18fd66022ecea96866e0e5abe5671e7ba576208955d",
+          "59714cb7bd359d2f77491d3c048cbcadcd184ca3579424b9b69da30068a1ae32",
+          "81698dc58030c4565d408d7acc3c93204887f9ee3434ee6a4ceebaa100cab168",
+          "2e2d73dca858b3027a165e6c9f17932d76fd0430a13758e99b22ea7ff2ad95bb",
+          "e0c20100b58d9ef1dbdfdb94d8bdeb3ef928c9dbd15a5e6ec5e517580d70690d",
+          "c030ba8bdd1c9644a9cf9259d416b548292259d92dc30919828bfbfbfac43d0c",
+          "5fc3601e0c201ce9e26b23e5c088fc74e6df1c03647e3ec88f1048ef1a072e2a",
+          "8a427c8722419f2bb03683bf63d52d72ae9e2cb7a4c9016f6270dd89d65f8b4a",
+          "e7f5ef0e159a8d4f84cf24e1a57eff0ec85da03d4b135cbbc901f1f79086e144",
+          "cb6dd325c8f6d1a91025ecc3a0fb23e771b2cfe1ea9a3f48807db49b36eb8c0b",
+          "729c3ae857aa21b1637709af82e136376bdae6d49517f4b2b770c40ddf04041a",
+          "7bd9c83ce0d8a54a56281d9dec76562e6bb608a1c6fdbb520efa4f6dc91ae079",
+          "649cf11f76788fe9c0fcd4154ebc4243c340b99f830909615424c94897859274",
+          "7a44ac3a021b0c21ef1c80ed2baf48ad22936cb2f0e627ca0b9987ec43b1ae2f",
+          "d4aeeb1ace8638ab76792e90d3fd7f780857980e10d6b79ebf8f5c1b7f165cd2",
+          "8a061b2736b31b65e914a14c5cb15db86baedb17b5b413fd549cc5eb17610c4f",
+          "7e6194ec4eb77b8ca0863e56be04c1cca8dd04bc860b9f998505666fcec1408c",
+          "03bae45d88e4b9144a70beef0fff32fcb548c9ae025998b0911ec2104dee6309",
+          "a694d05a5905adc5bcc7f61e99bc298b6a68f5f2fdeed2c06343fde534ac4e23"
+        ],
+        "target_holdout_labels_used_for_fit": false,
+        "target_holdout_min_start_utc": "2026-06-12T22:40:00Z"
+      },
+      "champion": {
+        "metrics": {
+          "accuracy": "0.56",
+          "brier_score": "0.2450962914115768163054796276",
+          "calibration": {
+            "bin_count": 4,
+            "bins": [
+              {
+                "absolute_gap": null,
+                "bin": "0.00-0.25",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              },
+              {
+                "absolute_gap": "0.0251009301521234369022977353",
+                "bin": "0.25-0.50",
+                "count": 7,
+                "mean_predicted_probability": "0.4536723587235520083308691639",
+                "observed_home_win_rate": "0.4285714285714285714285714286"
+              },
+              {
+                "absolute_gap": "0.0014194749697499438556154533",
+                "bin": "0.50-0.75",
+                "count": 18,
+                "mean_predicted_probability": "0.5569750305253054994111710089",
+                "observed_home_win_rate": "0.5555555555555555555555555556"
+              },
+              {
+                "absolute_gap": null,
+                "bin": "0.75-1.00",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              }
+            ],
+            "expected_calibration_error": "0.008050282420814521908686492260"
+          },
+          "coverage": "0.8333333333333333333333333333",
+          "log_loss": "0.683369851705326897156439382",
+          "row_count": 25
+        },
+        "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+        "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630"
+      },
+      "comparison": {
+        "accuracy_change_explanation": "The calibrated challenger accuracy uses the calibrated probability threshold of 0.5; it can differ from raw challenger accuracy when the monotone Platt map shifts a raw probability across 0.5.",
+        "accuracy_changed_by_calibration": false,
+        "calibrated_vs_champion": {
+          "accuracy_delta": "0.04",
+          "brier_delta": "0.0127356313292221770916607679",
+          "calibration_ece_delta": "0.09664269724267889335974723194",
+          "log_loss_delta": "0.0417079118754117497973485428"
+        },
+        "prediction_rule": "calibrated_challenger_correct iff calibrated probability is at least 0.5 and target_home_win is 1, or below 0.5 and target_home_win is 0",
+        "raw_vs_calibrated": {
+          "accuracy_delta": "0.0",
+          "brier_delta": "0.0136447768985313317044633695",
+          "calibration_ece_delta": "0.06849719345548607390077212855",
+          "log_loss_delta": "0.0434342153942742042116772868"
+        },
+        "same_target_rows_verified": true
+      },
+      "evaluation_window_id": "window_003_holdout_wf_006",
+      "evaluation_window_order": 3,
+      "holdout": {
+        "coverage": "0.8333333333333333333333333333",
+        "date_range": [
+          "2026-06-12",
+          "2026-06-13"
+        ],
+        "evaluable_game_ids": [
+          "822725",
+          "822726",
+          "822802",
+          "822803",
+          "823211",
+          "823213",
+          "823369",
+          "823370",
+          "823617",
+          "823694",
+          "823695",
+          "823776",
+          "824019",
+          "824100",
+          "824102",
+          "824425",
+          "824426",
+          "824507",
+          "824508",
+          "824587",
+          "824588",
+          "824749",
+          "824752",
+          "824826",
+          "824828"
+        ],
+        "evaluable_row_count": 25,
+        "excluded_game_ids": [
+          "823616",
+          "823778",
+          "824020",
+          "824995",
+          "824997"
+        ],
+        "excluded_row_count": 5,
+        "exclusion_semantics_preserved": true,
+        "fold_id": "wf_006",
+        "raw_game_ids": [
+          "822725",
+          "822726",
+          "822802",
+          "822803",
+          "823211",
+          "823213",
+          "823369",
+          "823370",
+          "823616",
+          "823617",
+          "823694",
+          "823695",
+          "823776",
+          "823778",
+          "824019",
+          "824020",
+          "824100",
+          "824102",
+          "824425",
+          "824426",
+          "824507",
+          "824508",
+          "824587",
+          "824588",
+          "824749",
+          "824752",
+          "824826",
+          "824828",
+          "824995",
+          "824997"
+        ],
+        "raw_row_count": 30
+      },
+      "holdout_fold_id": "wf_006",
+      "raw_challenger": {
+        "metrics": {
+          "accuracy": "0.6",
+          "brier_score": "0.2441871458422676616926770260",
+          "calibration": {
+            "bin_count": 4,
+            "bins": [
+              {
+                "absolute_gap": null,
+                "bin": "0.00-0.25",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              },
+              {
+                "absolute_gap": "0.0683145873541748181419096934",
+                "bin": "0.25-0.50",
+                "count": 8,
+                "mean_predicted_probability": "0.4433145873541748181419096934",
+                "observed_home_win_rate": "0.375"
+              },
+              {
+                "absolute_gap": "0.0210810562568697052386036673",
+                "bin": "0.50-0.75",
+                "count": 17,
+                "mean_predicted_probability": "0.5671542378607773535849257445",
+                "observed_home_win_rate": "0.5882352941176470588235294118"
+              },
+              {
+                "absolute_gap": null,
+                "bin": "0.75-1.00",
+                "count": 0,
+                "mean_predicted_probability": null,
+                "observed_home_win_rate": null
+              }
+            ],
+            "expected_calibration_error": "0.03619578620800734136766159565"
+          },
+          "coverage": "0.8333333333333333333333333333",
+          "log_loss": "0.681643548186464442742110638",
+          "row_count": 25
+        },
+        "model_fingerprint": "ebabde9c5c31df1d968be695c4b5d2eb5ba8fda50b5e6644789864e531d8626c",
+        "model_id": "p37a_moneyline_logistic_rolling_challenger_v1_wf_006_96bc3e12abd60616"
+      },
+      "schema_version": "p38a.rolling_probability_calibration_per_window.v1",
+      "train_fold_ids": [
+        "wf_002",
+        "wf_003",
+        "wf_004",
+        "wf_005"
+      ],
+      "training": {
+        "basis_fingerprint": "96bc3e12abd606167f659711c0143d1eb2da199b55b9387145199f79d0b69e26",
+        "cutoff_date": "2026-06-11",
+        "date_range": [
+          "2025-07-01",
+          "2026-06-11"
+        ],
+        "eligible_row_count": 717,
+        "excluded_reason_distribution": {
+          "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY": 5
+        },
+        "excluded_row_count": 5,
+        "fold_ids": [
+          "wf_002",
+          "wf_003",
+          "wf_004",
+          "wf_005"
+        ],
+        "game_id_count": 722,
+        "game_id_fingerprint": "d6c02e194cf3dfff4f359c1547544b11ab144f70e20298fa0bb25687292e8154",
+        "label_distribution": {
+          "0": 327,
+          "1": 390
+        },
+        "last_scheduled_start_utc": "2026-06-11T23:05:00Z",
+        "observation_fingerprint": "f7baf59b985aee4a6db588fed21f9d3720c2ec5a9ca7207c0fe6dff3ee2f6782",
+        "raw_row_count": 722
+      }
+    }
+  ]
+}
