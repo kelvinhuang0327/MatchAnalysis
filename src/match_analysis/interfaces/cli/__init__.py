@@ -12,4 +12,5 @@ __all__ = (
     "replay_moneyline_market_movement",
     "run_moneyline_paper_analysis",
     "run_daily_moneyline_paper_analysis",
+    "settle_daily_moneyline_paper_run",
 )
