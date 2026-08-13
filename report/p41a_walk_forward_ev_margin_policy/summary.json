@@ -1,0 +1,77 @@
+{
+  "candidate_thresholds": [
+    "0.00",
+    "0.01",
+    "0.02",
+    "0.03",
+    "0.05"
+  ],
+  "claims": {
+    "bankroll_management": false,
+    "calibration": false,
+    "expected_future_roi": false,
+    "external_market_acquisition": false,
+    "kelly": false,
+    "model_promotion": false,
+    "real_betting": false,
+    "staking_optimization": false,
+    "training": false
+  },
+  "conclusion": "EV_MARGIN_POLICY_IMPROVED",
+  "conclusion_rule": "EV_MARGIN_POLICY_IMPROVED iff selected net units > zero-EV net units and selected maximum drawdown <= zero-EV maximum drawdown; ZERO_EV_BASELINE_RETAINS iff zero-EV net units >= selected net units and zero-EV maximum drawdown <= selected maximum drawdown; otherwise MIXED_OR_INCONCLUSIVE.",
+  "deterministic_rerun_verified": true,
+  "identical_target_universe_verified": true,
+  "p37_p38_p39_p40_inputs_read_only": true,
+  "policy_oos_target_rows": 40,
+  "schema_version": "p41a.walk_forward_ev_margin_policy_summary.v1",
+  "selected_policy": {
+    "bet_count": 8,
+    "descriptive_paper_roi": "0.39375",
+    "edge_ready_rows": 40,
+    "loss_count": 3,
+    "maximum_paper_drawdown": "1.00",
+    "net_paper_units": "3.15",
+    "pass_count": 32,
+    "push_count": 0,
+    "row_count": 40,
+    "total_paper_units_risked": "8.0",
+    "win_count": 5
+  },
+  "selected_threshold_per_target_window": {
+    "window_002_holdout_wf_005": "0.05",
+    "window_003_holdout_wf_006": "0.03"
+  },
+  "selection_objective": "HIGHEST_CUMULATIVE_PRIOR_NET_PAPER_UNITS",
+  "selection_tie_break": "LARGER_EV_THRESHOLD",
+  "skipped_windows_without_prior_policy_training": [
+    "window_001_holdout_wf_004"
+  ],
+  "target_outcome_isolation_verified": true,
+  "target_windows": [
+    "window_002_holdout_wf_005",
+    "window_003_holdout_wf_006"
+  ],
+  "task_id": "P41A",
+  "threshold_selection_counts": {
+    "0.00": 0,
+    "0.01": 0,
+    "0.02": 0,
+    "0.03": 1,
+    "0.05": 1
+  },
+  "total_target_windows": 2,
+  "true_oos_verified": true,
+  "zero_ev_baseline": {
+    "bet_count": 12,
+    "descriptive_paper_roi": "0.21833333333333333333333333333333333333333333333333",
+    "edge_ready_rows": 40,
+    "loss_count": 5,
+    "maximum_paper_drawdown": "2.00",
+    "net_paper_units": "2.62",
+    "pass_count": 28,
+    "push_count": 0,
+    "row_count": 40,
+    "total_paper_units_risked": "12.0",
+    "win_count": 7
+  }
+}

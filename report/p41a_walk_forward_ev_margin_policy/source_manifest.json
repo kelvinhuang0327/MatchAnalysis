@@ -1,0 +1,56 @@
+{
+  "candidate_thresholds": [
+    "0.00",
+    "0.01",
+    "0.02",
+    "0.03",
+    "0.05"
+  ],
+  "champion_policy": {
+    "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+    "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+    "model_role": "CHAMPION_PRIMARY",
+    "policy_id": "P41A_WALK_FORWARD_EV_MARGIN_V1"
+  },
+  "claims": {
+    "bankroll_management": false,
+    "calibration": false,
+    "expected_future_roi": false,
+    "external_market_acquisition": false,
+    "kelly": false,
+    "model_promotion": false,
+    "real_betting": false,
+    "staking_optimization": false,
+    "training": false
+  },
+  "p40a": {
+    "artifact_sha256": {
+      "decisions.jsonl": "77bb709eb16c2c2340432fdf4cdb7754e92fb000c8df05cd580ef2fe89f59195",
+      "report.md": "8192f1b94718b06edd0aaefe65211df57bfb946f5906c2ac62dda31515fb4615",
+      "settlements.jsonl": "b1fca0a91df3e2359cbf4b626c08d5a130dd6e90de34197e7461d162dfe67487",
+      "source_manifest.json": "978d8d66e256c4c1bb1d6bd52473883ba585ad961e2c6525fc961f1dfdbae720",
+      "summary.json": "1b1940c1680c49e163e2eba412e163f59fb1f6b7bf87a99661cd8cbd438cbb8c"
+    },
+    "p37_comparisons_sha256": "23cc15d308a90c08da0d1a4c6cbb9289af3add2c5d151808833e73a660639eb4",
+    "p37_summary_sha256": "f8fe76adbadbccd81ff19d7edcfe1c5ff0ac1107678db53021ba248a00249e75",
+    "p38_comparisons_sha256": "4716485a64c453179da7c2caf4109ad5bb23b02cba95fc62dd9618ccc32e752c",
+    "p38_summary_sha256": "810f62c8ecfc938e7d047437d858d66b070c7340232c31a2afa1a6bf47ee3e34",
+    "p39_market_join_sha256": "4855e1efa9a45adb68a9a559f67d421adf4c0a349224a6e747ac0d36a17850b5",
+    "p39_source_manifest_sha256": "d66192bcb532fd8d2812f6a6750082b52ef631b5ea03337a87e168a8863fbc7c",
+    "p39_summary_sha256": "da63c06d806d9d2d2694354f5a64ee9b49808a3b8fd71b237f37276004138d08",
+    "report_path": "report/p40a_moneyline_paper_bet_pass"
+  },
+  "repository_root": "/Users/kelvin/VibeCoding-WorkSpace/MatchAnalysis-p41a",
+  "schema_version": "p41a.walk_forward_ev_margin_policy_source_manifest.v1",
+  "selection_objective": "HIGHEST_CUMULATIVE_PRIOR_NET_PAPER_UNITS",
+  "selection_tie_break": "LARGER_EV_THRESHOLD",
+  "settlement_rule": {
+    "losing_net_units": "-1",
+    "paper_stake_convention": "1.0 PAPER UNIT for every BET; PASS risks zero",
+    "pass_net_units": "0",
+    "push_or_cancelled_policy": "NOT APPLICABLE: existing final-result authority is HOME/AWAY-only and rejects tied finals",
+    "winning_net_units": "decimal_odds - 1"
+  },
+  "target_outcome_isolation": "TARGET_OUTCOMES_ATTACHED_ONLY_AFTER_SELECTED_THRESHOLD_IS_FROZEN",
+  "task_id": "P41A"
+}
