@@ -153,6 +153,7 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/use_cases/rolling_moneyline_oos_artifacts.py",
     "application/use_cases/join_p37_oos_market_snapshots.py",
     "application/use_cases/p39a_market_join_artifacts.py",
+    "application/use_cases/p40a_moneyline_paper_bet_pass.py",
     "application/use_cases/moneyline_probability_calibration.py",
     "application/use_cases/p38a_probability_calibration.py",
     "application/use_cases/p38a_probability_calibration_artifacts.py",
@@ -162,9 +163,11 @@ AUTHORIZED_SOURCE_PATHS = {
     "interfaces/cli/rolling_moneyline_oos.py",
     "interfaces/cli/p38a_probability_calibration.py",
     "interfaces/cli/join_p37_oos_market_snapshots.py",
+    "interfaces/cli/run_p40a_moneyline_paper_bet_pass.py",
     "application/use_cases/generate_moneyline_market_movement.py",
     "application/use_cases/moneyline_market_movement_artifacts.py",
     "interfaces/cli/replay_moneyline_market_movement.py",
+    "baseball/domain/paper_moneyline_bet_pass.py",
 }
 
 MLB_SCHEDULE_PAYLOAD_ADAPTER_RUNTIME_PATHS = (

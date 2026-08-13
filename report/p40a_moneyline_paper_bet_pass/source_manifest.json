@@ -1,0 +1,66 @@
+{
+  "claims": {
+    "bankroll_management": false,
+    "calibration": false,
+    "external_market_acquisition": false,
+    "kelly": false,
+    "model_promotion": false,
+    "real_betting": false,
+    "staking_optimization": false,
+    "threshold_optimization": false,
+    "training": false
+  },
+  "decision_rule": {
+    "additional_threshold": "NONE",
+    "candidate_side": "the side with the larger expected value",
+    "decision": "BET iff max(EV_home, EV_away) > 0; otherwise PASS",
+    "ev_away": "p_away * away_decimal_odds - 1",
+    "ev_home": "p_home * home_decimal_odds - 1",
+    "odds_source": "actual offered P39A decimal price",
+    "p_away": "1 - p_home",
+    "p_home": "model pregame home-win probability",
+    "policy_id": "P40A_ZERO_EV_MONEYLINE_BET_PASS_V1"
+  },
+  "outcome_authority": "P37A_COMMITTED_TRUE_OOS_COMPARISON_ACTUAL_WINNER",
+  "p37a": {
+    "champion_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+    "champion_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+    "evaluable_count": 65,
+    "folds": [
+      "wf_004",
+      "wf_005",
+      "wf_006"
+    ],
+    "p37_comparisons_sha256": "23cc15d308a90c08da0d1a4c6cbb9289af3add2c5d151808833e73a660639eb4",
+    "p37_summary_sha256": "f8fe76adbadbccd81ff19d7edcfe1c5ff0ac1107678db53021ba248a00249e75",
+    "report_path": "report/p37a_rolling_walk_forward_oos"
+  },
+  "p38a": {
+    "p38_comparisons_sha256": "4716485a64c453179da7c2caf4109ad5bb23b02cba95fc62dd9618ccc32e752c",
+    "p38_summary_sha256": "810f62c8ecfc938e7d047437d858d66b070c7340232c31a2afa1a6bf47ee3e34",
+    "report_path": "report/p38a_rolling_probability_calibration",
+    "used_for_decisions": false
+  },
+  "p39a": {
+    "edge_ready_count": 62,
+    "legacy_source_sha256": "5604e41f817f87617956b54c4b664bbf562d496eb1c8618bd174888ef87c8efc",
+    "market_join_fingerprint": "4855e1efa9a45adb68a9a559f67d421adf4c0a349224a6e747ac0d36a17850b5",
+    "no_market_count": 3,
+    "p39_market_join_sha256": "4855e1efa9a45adb68a9a559f67d421adf4c0a349224a6e747ac0d36a17850b5",
+    "p39_market_snapshots_sha256": "16f5c34626bf395d687f0dadaa75d4dab8fb9facc65469f80252834d924845c3",
+    "p39_source_manifest_sha256": "d66192bcb532fd8d2812f6a6750082b52ef631b5ea03337a87e168a8863fbc7c",
+    "p39_summary_sha256": "da63c06d806d9d2d2694354f5a64ee9b49808a3b8fd71b237f37276004138d08",
+    "report_path": "report/p39a_tsl_moneyline_market_join",
+    "selected_snapshot_fingerprint": "16f5c34626bf395d687f0dadaa75d4dab8fb9facc65469f80252834d924845c3",
+    "target_count": 65
+  },
+  "schema_version": "p40a.moneyline_paper_bet_pass_source_manifest.v1",
+  "settlement_rule": {
+    "losing_net_units": "-1",
+    "paper_stake_convention": "1.0 PAPER UNIT for every BET; PASS risks zero",
+    "pass_net_units": "0",
+    "push_or_cancelled_policy": "NOT APPLICABLE: existing final-result authority is HOME/AWAY-only and rejects tied finals",
+    "winning_net_units": "decimal_odds - 1"
+  },
+  "task_id": "P40A"
+}
