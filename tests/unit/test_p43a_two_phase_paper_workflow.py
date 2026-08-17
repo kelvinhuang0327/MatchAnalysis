@@ -12,6 +12,7 @@ import tempfile
 import unittest
 
 from match_analysis.application.use_cases.p40a_moneyline_paper_bet_pass import (
+    P37A_REPORT_RELATIVE_PATH,
     P40A_CHAMPION_ROLE,
 )
 from match_analysis.application.use_cases.p42a_offline_end_to_end_paper_workflow import (
@@ -396,6 +397,18 @@ class P43ATwoPhaseWorkflowTests(unittest.TestCase):
             P43A_REPORT_RELATIVE_PATH.as_posix(),
             "report/p43a_two_phase_paper_workflow",
         )
+
+    def test_default_prediction_source_path_is_repo_relative(self) -> None:
+        result = _freeze(persist=False)
+        expected = (P37A_REPORT_RELATIVE_PATH / "comparisons.jsonl").as_posix()
+        persisted = result.source_manifest["p37a"]["prediction_source_path"]
+        self.assertEqual(persisted, expected)
+        self.assertFalse(Path(persisted).is_absolute())
+        self.assertNotIn(str(REPOSITORY_ROOT), persisted)
+        authority = load_p43a_pregame_authority(
+            REPOSITORY_ROOT, pregame_input=_historical_pregame()
+        )
+        self.assertEqual(authority.source_manifest["p37a"]["prediction_source_path"], expected)
 
 
 if __name__ == "__main__":

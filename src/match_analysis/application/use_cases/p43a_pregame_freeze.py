@@ -140,6 +140,17 @@ def read_jsonl_objects(path: Path) -> list[dict[str, Any]]:
     return rows
 
 
+def repo_relative_path(root: Path, path: Path) -> str:
+    """Persist in-repo paths as portable posix relatives, never a worktree absolute."""
+
+    resolved_root = Path(root).resolve()
+    resolved_path = Path(path).resolve()
+    try:
+        return resolved_path.relative_to(resolved_root).as_posix()
+    except ValueError:
+        return resolved_path.as_posix()
+
+
 def write_bytes_idempotent(path: Path, content: bytes) -> str:
     """Write content, or recognize an already-identical freeze artifact."""
 
@@ -491,6 +502,7 @@ __all__ = (
     "freeze_p43a_pregame_decisions",
     "load_p43a_pregame_authority",
     "read_json_object",
+    "repo_relative_path",
     "read_jsonl_objects",
     "run_p43a_pregame_freeze",
     "write_bytes_idempotent",

@@ -44,6 +44,7 @@ from .p43a_pregame_freeze import (
     P43A_TASK_ID,
     P43A_WORKFLOW_KIND,
     P43A_WORKFLOW_LABEL,
+    repo_relative_path,
 )
 from .p44a_normalized_workflow_input import (
     NormalizedPregameInput,
@@ -257,7 +258,7 @@ def adapt_historical_pregame(
             "champion_model_fingerprint": champion_fingerprint,
             "p37_summary_sha256": _sha256_path(root / P37A_REPORT_RELATIVE_PATH / "summary.json"),
             "p37_comparisons_sha256": comparisons_sha256,
-            "prediction_source_path": str(path),
+            "prediction_source_path": repo_relative_path(root, path),
         },
         "p38a": {
             "report_path": str(P38A_REPORT_RELATIVE_PATH),
