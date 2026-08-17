@@ -1,0 +1,32 @@
+{
+  "consumed_authorities": {
+    "p37a": "report/p37a_rolling_walk_forward_oos",
+    "p38a_read_only_unused_for_decisions": "report/p38a_rolling_probability_calibration",
+    "p39a": "report/p39a_tsl_moneyline_market_join",
+    "p40a": "report/p40a_moneyline_paper_bet_pass",
+    "p41a_research_only": "report/p41a_walk_forward_ev_margin_policy"
+  },
+  "network_required": false,
+  "p40_policy_id": "P40A_ZERO_EV_MONEYLINE_BET_PASS_V1",
+  "p40_rule_changed": false,
+  "protected_authority_hashes": {
+    "p37_comparisons": "23cc15d308a90c08da0d1a4c6cbb9289af3add2c5d151808833e73a660639eb4",
+    "p37_summary": "f8fe76adbadbccd81ff19d7edcfe1c5ff0ac1107678db53021ba248a00249e75",
+    "p38_comparisons": "4716485a64c453179da7c2caf4109ad5bb23b02cba95fc62dd9618ccc32e752c",
+    "p38_summary": "810f62c8ecfc938e7d047437d858d66b070c7340232c31a2afa1a6bf47ee3e34",
+    "p39_market_join": "4855e1efa9a45adb68a9a559f67d421adf4c0a349224a6e747ac0d36a17850b5",
+    "p39_market_snapshots": "16f5c34626bf395d687f0dadaa75d4dab8fb9facc65469f80252834d924845c3",
+    "p39_source_manifest": "d66192bcb532fd8d2812f6a6750082b52ef631b5ea03337a87e168a8863fbc7c",
+    "p39_summary": "da63c06d806d9d2d2694354f5a64ee9b49808a3b8fd71b237f37276004138d08",
+    "p40_decisions": "77bb709eb16c2c2340432fdf4cdb7754e92fb000c8df05cd580ef2fe89f59195",
+    "p40_settlements": "b1fca0a91df3e2359cbf4b626c08d5a130dd6e90de34197e7461d162dfe67487",
+    "p40_source_manifest": "978d8d66e256c4c1bb1d6bd52473883ba585ad961e2c6525fc961f1dfdbae720",
+    "p40_summary": "1b1940c1680c49e163e2eba412e163f59fb1f6b7bf87a99661cd8cbd438cbb8c",
+    "p41_policy_evaluations": "2325fd36135e8e4d8cadf1c36d5816b375fae3df24d453533dd7c8cf65ea6749",
+    "p41_summary": "7188f34541d5175baca00655f3081db453f9f053718e0766db27e63dd47564b1"
+  },
+  "schema_version": "p42a.offline_end_to_end_paper_workflow_source_manifest.v1",
+  "task_id": "P42A",
+  "workflow_kind": "OFFLINE_HISTORICAL_PAPER_REHEARSAL",
+  "workflow_label": "OFFLINE_HISTORICAL_PAPER_REHEARSAL"
+}
