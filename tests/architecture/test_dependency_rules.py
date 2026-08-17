@@ -179,6 +179,8 @@ AUTHORIZED_SOURCE_PATHS = {
     "interfaces/cli/adapt_p35a_pregame_input.py",
     "application/use_cases/p47a_external_bundle_admission.py",
     "interfaces/cli/admit_external_p35a_bundle.py",
+    "application/use_cases/p48a_atomic_prospective_pregame_intake.py",
+    "interfaces/cli/prospective_pregame_intake.py",
     "application/use_cases/generate_moneyline_market_movement.py",
     "application/use_cases/moneyline_market_movement_artifacts.py",
     "interfaces/cli/replay_moneyline_market_movement.py",
