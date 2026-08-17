@@ -175,6 +175,8 @@ AUTHORIZED_SOURCE_PATHS = {
     "interfaces/cli/run_p43a_two_phase_paper_workflow.py",
     "application/use_cases/p45a_paper_run_ledger.py",
     "interfaces/cli/run_p45a_paper_lifecycle.py",
+    "application/use_cases/p46a_p35a_pregame_adapter.py",
+    "interfaces/cli/adapt_p35a_pregame_input.py",
     "application/use_cases/generate_moneyline_market_movement.py",
     "application/use_cases/moneyline_market_movement_artifacts.py",
     "interfaces/cli/replay_moneyline_market_movement.py",
