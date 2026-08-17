@@ -158,6 +158,8 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/use_cases/p42a_offline_end_to_end_paper_workflow.py",
     "application/use_cases/p43a_pregame_freeze.py",
     "application/use_cases/p43a_postgame_settle.py",
+    "application/use_cases/p44a_historical_source_adapter.py",
+    "application/use_cases/p44a_normalized_workflow_input.py",
     "application/use_cases/moneyline_probability_calibration.py",
     "application/use_cases/p38a_probability_calibration.py",
     "application/use_cases/p38a_probability_calibration_artifacts.py",

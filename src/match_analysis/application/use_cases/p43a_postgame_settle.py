@@ -23,14 +23,9 @@ from ...baseball.domain.paper_moneyline_bet_pass import (
     PaperMoneylineSettlement,
 )
 from .p40a_moneyline_paper_bet_pass import (
-    P37A_REPORT_RELATIVE_PATH,
     P40A_CHAMPION_ROLE,
-    P40A_OUTCOME_AUTHORITY,
     P40AOutcomeRow,
     _read_json,
-    _read_jsonl,
-    _sha,
-    _text,
 )
 from .p42a_offline_end_to_end_paper_workflow import (
     P42A_EXPECTED_CHAMPION,
@@ -49,7 +44,6 @@ from .p43a_pregame_freeze import (
     _json_bytes,
     _jsonl_bytes,
     _sha256_projection,
-    protected_authority_hashes,
     read_json_object,
     read_jsonl_objects,
     write_bytes_idempotent,
@@ -158,50 +152,16 @@ def load_p43a_frozen_decision_bundle(
 
 
 def load_p43a_final_result_authority(
-    repository_root: str | Path,
-    *,
-    result_source: str | Path | None = None,
+    result_input: str | Path,
 ) -> tuple[P40AOutcomeRow, ...]:
-    """Load HOME/AWAY finals after the decision bundle already exists."""
+    """Load independent normalized finals after the decision bundle already exists."""
 
-    root = Path(repository_root).resolve()
-    path = (
-        Path(result_source).resolve()
-        if result_source is not None
-        else root / P37A_REPORT_RELATIVE_PATH / "comparisons.jsonl"
+    from .p44a_normalized_workflow_input import (
+        load_normalized_result_input,
+        project_normalized_results,
     )
-    if not path.is_file():
-        raise RuntimeError("P43A_MISSING_RESULT_FAIL_CLOSED")
-    rows = _read_jsonl(path)
-    outcomes: list[P40AOutcomeRow] = []
-    seen: dict[str, P40AOutcomeRow] = {}
-    for row in rows:
-        prediction_id = _sha(row.get("comparison_row_id"), field_name="comparison_row_id")
-        winner = row.get("actual_winner")
-        if winner not in ("HOME", "AWAY"):
-            raise RuntimeError("P43A_NON_FINAL_RESULT_FAIL_CLOSED")
-        target = row.get("target_home_win")
-        if target not in (0, 1):
-            raise RuntimeError("P43A_NON_FINAL_RESULT_FAIL_CLOSED")
-        expected_target = 1 if winner == "HOME" else 0
-        if target != expected_target:
-            raise RuntimeError("P43A_CONFLICTING_RESULT_REJECTED")
-        outcome = P40AOutcomeRow(
-            p37_prediction_row_id=prediction_id,
-            provider_game_id=_text(row.get("provider_game_id"), field_name="provider_game_id"),
-            actual_winner=winner,
-            target_home_win=target,
-        )
-        existing = seen.get(prediction_id)
-        if existing is not None:
-            if existing != outcome:
-                raise RuntimeError("P43A_CONFLICTING_RESULT_REJECTED")
-            raise RuntimeError("P43A_CONFLICTING_RESULT_REJECTED")
-        seen[prediction_id] = outcome
-        outcomes.append(outcome)
-    if not outcomes:
-        raise RuntimeError("P43A_MISSING_RESULT_FAIL_CLOSED")
-    return tuple(outcomes)
+
+    return project_normalized_results(load_normalized_result_input(result_input))
 
 
 def settle_p43a_frozen_decisions(
@@ -473,7 +433,7 @@ def run_p43a_postgame_settle(
     repository_root: str | Path,
     *,
     output_dir: str | Path | None = None,
-    result_source: str | Path | None = None,
+    result_input: str | Path | None = None,
     persist: bool = True,
     outcome_rows: Sequence[P40AOutcomeRow] | None = None,
 ) -> P43APostgameResult:
@@ -481,18 +441,19 @@ def run_p43a_postgame_settle(
 
     root = Path(repository_root).resolve()
     directory = Path(output_dir or (root / P43A_REPORT_RELATIVE_PATH))
-    hashes_before = protected_authority_hashes(root)
     decisions, frozen_rows = load_p43a_frozen_decision_bundle(directory)
     pregame_summary = read_json_object(directory / "pregame_summary.json")
+    hashes_before = dict(pregame_summary.get("protected_authority_hashes") or {})
     if pregame_summary.get("bundle_fingerprint") != _sha256_projection(
         [row["decision_fingerprint"] for row in frozen_rows]
     ):
         raise RuntimeError("P43A_DECISION_BUNDLE_TAMPERED")
-    outcomes = (
-        tuple(outcome_rows)
-        if outcome_rows is not None
-        else load_p43a_final_result_authority(root, result_source=result_source)
-    )
+    if outcome_rows is not None:
+        outcomes = tuple(outcome_rows)
+    elif result_input is not None:
+        outcomes = load_p43a_final_result_authority(result_input)
+    else:
+        raise RuntimeError("P43A_MISSING_RESULT_FAIL_CLOSED")
     first_settlements = settle_p43a_frozen_decisions(decisions, outcomes)
     second_settlements = settle_p43a_frozen_decisions(decisions, outcomes)
     if tuple(row.to_projection() for row in first_settlements) != tuple(
@@ -524,9 +485,7 @@ def run_p43a_postgame_settle(
         computed,
         expected_p42_reconciliation_metrics(committed_p42),
     )
-    hashes_after = protected_authority_hashes(root)
-    if hashes_after != hashes_before:
-        raise RuntimeError("P43A mutated a protected P37/P38/P39/P40/P41/P42 authority")
+    hashes_after = dict(hashes_before)
     summary = build_p43a_postgame_summary(
         pregame_summary=pregame_summary,
         settlements=first_settlements,

@@ -30,8 +30,16 @@ from match_analysis.application.use_cases.p43a_pregame_freeze import (
     P43A_REPORT_RELATIVE_PATH,
     freeze_p43a_pregame_decisions,
     load_p43a_pregame_authority,
-    protected_authority_hashes,
     run_p43a_pregame_freeze,
+)
+from match_analysis.application.use_cases.p44a_historical_source_adapter import (
+    adapt_historical_pregame,
+    adapt_historical_results,
+    protected_authority_hashes,
+)
+from match_analysis.application.use_cases.p44a_normalized_workflow_input import (
+    project_normalized_results,
+    write_normalized_result_input,
 )
 from match_analysis.baseball.domain.paper_moneyline_bet_pass import (
     DECISION_BET,
@@ -89,6 +97,36 @@ def _strip_outcome_fields(source: Path, destination: Path) -> None:
     )
 
 
+def _historical_pregame(comparisons_path: Path | None = None):
+    return adapt_historical_pregame(
+        REPOSITORY_ROOT, comparisons_path=comparisons_path
+    )
+
+
+def _historical_outcomes():
+    return project_normalized_results(adapt_historical_results(REPOSITORY_ROOT))
+
+
+def _freeze(*, persist: bool = False, output_dir: Path | None = None, pregame_input=None):
+    return run_p43a_pregame_freeze(
+        REPOSITORY_ROOT,
+        pregame_input=pregame_input if pregame_input is not None else _historical_pregame(),
+        output_dir=output_dir,
+        persist=persist,
+    )
+
+
+def _settle(output_dir: Path, *, persist: bool = True, result_input=None, outcome_rows=None):
+    kwargs: dict = {"output_dir": output_dir, "persist": persist}
+    if outcome_rows is not None:
+        kwargs["outcome_rows"] = outcome_rows
+    elif result_input is not None:
+        kwargs["result_input"] = result_input
+    else:
+        kwargs["outcome_rows"] = _historical_outcomes()
+    return run_p43a_postgame_settle(REPOSITORY_ROOT, **kwargs)
+
+
 def _imported_roots(path: Path) -> set[str]:
     tree = ast.parse(path.read_text(encoding="utf-8"))
     imported: set[str] = set()
@@ -121,11 +159,10 @@ class P43ATwoPhaseWorkflowTests(unittest.TestCase):
                 row = json.loads(line)
                 self.assertNotIn("actual_winner", row)
                 self.assertNotIn("target_home_win", row)
-            result = run_p43a_pregame_freeze(
-                REPOSITORY_ROOT,
+            result = _freeze(
                 output_dir=directory / "out",
-                comparisons_path=stripped,
                 persist=True,
+                pregame_input=_historical_pregame(stripped),
             )
             self.assertEqual(result.summary["workflow_decision_count"], 62)
             self.assertEqual(result.summary["bet_count"], 22)
@@ -141,8 +178,8 @@ class P43ATwoPhaseWorkflowTests(unittest.TestCase):
             self.assertTrue(all(row.model_role == P40A_CHAMPION_ROLE for row in result.decisions))
 
     def test_pregame_fingerprint_is_deterministic_and_preserves_bet_pass(self) -> None:
-        first = run_p43a_pregame_freeze(REPOSITORY_ROOT, persist=False)
-        second = run_p43a_pregame_freeze(REPOSITORY_ROOT, persist=False)
+        first = _freeze(persist=False)
+        second = _freeze(persist=False)
         self.assertEqual(first.records, second.records)
         self.assertEqual(
             [row.to_projection() for row in first.decisions],
@@ -161,7 +198,9 @@ class P43ATwoPhaseWorkflowTests(unittest.TestCase):
                 self.assertEqual(decision.paper_stake_units, Decimal("1.0"))
 
     def test_shuffled_pregame_inputs_remain_deterministic(self) -> None:
-        authority = load_p43a_pregame_authority(REPOSITORY_ROOT)
+        authority = load_p43a_pregame_authority(
+            REPOSITORY_ROOT, pregame_input=_historical_pregame()
+        )
         decisions = freeze_p43a_pregame_decisions(authority)
         shuffled = replace(
             authority,
@@ -181,17 +220,9 @@ class P43ATwoPhaseWorkflowTests(unittest.TestCase):
     def test_phase2_consumes_frozen_bundle_and_does_not_recompute(self) -> None:
         with tempfile.TemporaryDirectory() as raw_directory:
             directory = Path(raw_directory)
-            pregame = run_p43a_pregame_freeze(
-                REPOSITORY_ROOT,
-                output_dir=directory,
-                persist=True,
-            )
+            pregame = _freeze(output_dir=directory, persist=True)
             frozen_bytes = (directory / "pregame_decisions.jsonl").read_bytes()
-            postgame = run_p43a_postgame_settle(
-                REPOSITORY_ROOT,
-                output_dir=directory,
-                persist=True,
-            )
+            postgame = _settle(directory, persist=True)
             self.assertEqual((directory / "pregame_decisions.jsonl").read_bytes(), frozen_bytes)
             self.assertEqual(
                 [row.decision_id for row in postgame.decisions],
@@ -212,7 +243,7 @@ class P43ATwoPhaseWorkflowTests(unittest.TestCase):
     def test_tampered_decision_bundle_is_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as raw_directory:
             directory = Path(raw_directory)
-            run_p43a_pregame_freeze(REPOSITORY_ROOT, output_dir=directory, persist=True)
+            _freeze(output_dir=directory, persist=True)
             path = directory / "pregame_decisions.jsonl"
             rows = [
                 json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()
@@ -225,27 +256,20 @@ class P43ATwoPhaseWorkflowTests(unittest.TestCase):
                 encoding="utf-8",
             )
             with self.assertRaisesRegex(RuntimeError, "P43A_DECISION_BUNDLE_TAMPERED"):
-                run_p43a_postgame_settle(REPOSITORY_ROOT, output_dir=directory, persist=False)
+                _settle(directory, persist=False)
             with self.assertRaisesRegex(RuntimeError, "P43A_DECISION_BUNDLE_TAMPERED"):
                 verify_p43a_pregame_record(rows[0])
 
     def test_missing_non_final_and_conflicting_results_fail_closed(self) -> None:
         with tempfile.TemporaryDirectory() as raw_directory:
             directory = Path(raw_directory)
-            pregame = run_p43a_pregame_freeze(
-                REPOSITORY_ROOT,
-                output_dir=directory,
-                persist=True,
-            )
+            pregame = _freeze(output_dir=directory, persist=True)
             missing = directory / "missing_results.jsonl"
             with self.assertRaisesRegex(RuntimeError, "P43A_MISSING_RESULT_FAIL_CLOSED"):
-                run_p43a_postgame_settle(
-                    REPOSITORY_ROOT,
-                    output_dir=directory,
-                    result_source=missing,
-                    persist=False,
-                )
-            outcomes = load_p43a_final_result_authority(REPOSITORY_ROOT)
+                _settle(directory, result_input=missing, persist=False)
+            result_path = directory / "normalized_results.jsonl"
+            write_normalized_result_input(result_path, adapt_historical_results(REPOSITORY_ROOT))
+            outcomes = load_p43a_final_result_authority(result_path)
             with self.assertRaisesRegex(RuntimeError, "P43A_MISSING_RESULT_FAIL_CLOSED"):
                 settle_p43a_frozen_decisions(pregame.decisions, outcomes[1:])
             broken = replace(outcomes[0], actual_winner="CANCELLED")
@@ -264,12 +288,8 @@ class P43ATwoPhaseWorkflowTests(unittest.TestCase):
     def test_changing_final_result_does_not_change_phase1_fingerprint(self) -> None:
         with tempfile.TemporaryDirectory() as raw_directory:
             directory = Path(raw_directory)
-            pregame = run_p43a_pregame_freeze(
-                REPOSITORY_ROOT,
-                output_dir=directory,
-                persist=True,
-            )
-            outcomes = load_p43a_final_result_authority(REPOSITORY_ROOT)
+            pregame = _freeze(output_dir=directory, persist=True)
+            outcomes = _historical_outcomes()
             mutated = tuple(
                 replace(
                     outcome,
@@ -301,18 +321,10 @@ class P43ATwoPhaseWorkflowTests(unittest.TestCase):
     def test_repeated_phase2_is_idempotent_and_lineage_is_one_to_one(self) -> None:
         with tempfile.TemporaryDirectory() as raw_directory:
             directory = Path(raw_directory)
-            run_p43a_pregame_freeze(REPOSITORY_ROOT, output_dir=directory, persist=True)
-            first = run_p43a_postgame_settle(
-                REPOSITORY_ROOT,
-                output_dir=directory,
-                persist=True,
-            )
+            _freeze(output_dir=directory, persist=True)
+            first = _settle(directory, persist=True)
             first_ledger = (directory / "workflow_ledger.jsonl").read_bytes()
-            second = run_p43a_postgame_settle(
-                REPOSITORY_ROOT,
-                output_dir=directory,
-                persist=True,
-            )
+            second = _settle(directory, persist=True)
             self.assertEqual((directory / "workflow_ledger.jsonl").read_bytes(), first_ledger)
             self.assertEqual(first.ledger_rows, second.ledger_rows)
             self.assertEqual(second.write_status["workflow_ledger.jsonl"], "RECOGNIZED_IDENTICAL")
@@ -328,12 +340,8 @@ class P43ATwoPhaseWorkflowTests(unittest.TestCase):
     def test_p42_reconciliation_and_historical_label(self) -> None:
         with tempfile.TemporaryDirectory() as raw_directory:
             directory = Path(raw_directory)
-            run_p43a_pregame_freeze(REPOSITORY_ROOT, output_dir=directory, persist=True)
-            postgame = run_p43a_postgame_settle(
-                REPOSITORY_ROOT,
-                output_dir=directory,
-                persist=True,
-            )
+            _freeze(output_dir=directory, persist=True)
+            postgame = _settle(directory, persist=True)
             computed = postgame.summary["p42_reconciliation"]["computed"]
             self.assertEqual(computed["eligible_universe"], 62)
             self.assertEqual(computed["bet_count"], 22)
@@ -374,8 +382,8 @@ class P43ATwoPhaseWorkflowTests(unittest.TestCase):
         hashed = protected_authority_hashes(REPOSITORY_ROOT)
         with tempfile.TemporaryDirectory() as raw_directory:
             directory = Path(raw_directory)
-            run_p43a_pregame_freeze(REPOSITORY_ROOT, output_dir=directory, persist=True)
-            run_p43a_postgame_settle(REPOSITORY_ROOT, output_dir=directory, persist=True)
+            _freeze(output_dir=directory, persist=True)
+            _settle(directory, persist=True)
         after = {
             path: hashlib.sha256(path.read_bytes()).hexdigest()
             for path in PROTECTED_PATHS

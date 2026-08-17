@@ -12,6 +12,14 @@ from ...application.use_cases.p43a_pregame_freeze import (
     P43A_REPORT_RELATIVE_PATH,
     run_p43a_pregame_freeze,
 )
+from ...application.use_cases.p44a_historical_source_adapter import (
+    adapt_historical_pregame,
+    adapt_historical_results,
+)
+from ...application.use_cases.p44a_normalized_workflow_input import (
+    P44A_REPORT_RELATIVE_PATH,
+    project_normalized_results,
+)
 
 
 def _require_native_output(repository_root: Path, output_dir: Path | None) -> Path:
@@ -25,14 +33,31 @@ def _require_native_output(repository_root: Path, output_dir: Path | None) -> Pa
     return resolved
 
 
+def _resolve_explicit_output(
+    repository_root: Path,
+    output_dir: Path | None,
+) -> Path:
+    if output_dir is not None:
+        return output_dir.resolve()
+    return (repository_root / P44A_REPORT_RELATIVE_PATH).resolve()
+
+
 def _run_pregame(args: argparse.Namespace) -> int:
     repository_root = args.repository_root.resolve()
     try:
-        output_dir = _require_native_output(repository_root, args.output_dir)
+        if args.pregame_input is not None:
+            pregame_input = args.pregame_input
+            output_dir = _resolve_explicit_output(repository_root, args.output_dir)
+        else:
+            pregame_input = adapt_historical_pregame(
+                repository_root,
+                comparisons_path=args.prediction_source,
+            )
+            output_dir = _require_native_output(repository_root, args.output_dir)
         result = run_p43a_pregame_freeze(
             repository_root,
+            pregame_input=pregame_input,
             output_dir=output_dir,
-            comparisons_path=args.prediction_source,
             persist=True,
         )
     except (OSError, RuntimeError, TypeError, ValueError, UnicodeDecodeError) as exc:
@@ -61,11 +86,30 @@ def _run_pregame(args: argparse.Namespace) -> int:
 def _run_postgame(args: argparse.Namespace) -> int:
     repository_root = args.repository_root.resolve()
     try:
-        output_dir = _require_native_output(repository_root, args.output_dir)
+        if args.pregame_input is not None or args.decision_bundle is not None:
+            output_dir = (
+                args.decision_bundle.resolve()
+                if args.decision_bundle is not None
+                else _resolve_explicit_output(repository_root, args.output_dir)
+            )
+        else:
+            output_dir = _require_native_output(
+                repository_root,
+                args.decision_bundle or args.output_dir,
+            )
+        outcome_rows = None
+        result_input = args.result_input
+        if result_input is None:
+            outcome_rows = project_normalized_results(
+                adapt_historical_results(
+                    repository_root, result_source=args.result_source
+                )
+            )
         result = run_p43a_postgame_settle(
             repository_root,
             output_dir=output_dir,
-            result_source=args.result_source,
+            result_input=result_input,
+            outcome_rows=outcome_rows,
             persist=True,
         )
     except (OSError, RuntimeError, TypeError, ValueError, UnicodeDecodeError) as exc:
@@ -112,25 +156,49 @@ def main(argv: list[str] | None = None) -> int:
             "--repository-root",
             type=Path,
             default=Path("."),
-            help="MatchAnalysis repository root containing committed P37/P38/P39/P40 authorities",
+            help="MatchAnalysis repository root containing committed authorities",
         )
         subparser.add_argument(
             "--output-dir",
             type=Path,
             default=None,
-            help="P43A artifact directory; must remain the repository-native report root",
+            help="Artifact directory; historical default remains the P43 report root",
         )
+    pregame.add_argument(
+        "--pregame-input",
+        type=Path,
+        default=None,
+        help="Normalized source-independent pregame input path",
+    )
     pregame.add_argument(
         "--prediction-source",
         type=Path,
         default=None,
-        help="Optional prediction-only comparisons file; default is committed P37 authority",
+        help="Historical-adapter-only P37-shaped comparisons override",
+    )
+    postgame.add_argument(
+        "--decision-bundle",
+        type=Path,
+        default=None,
+        help="Existing frozen pregame decision bundle directory",
+    )
+    postgame.add_argument(
+        "--result-input",
+        type=Path,
+        default=None,
+        help="Independent normalized final-result input path",
     )
     postgame.add_argument(
         "--result-source",
         type=Path,
         default=None,
-        help="Optional final-result authority file; default is committed P37 outcome columns",
+        help="Historical-adapter-only result authority override",
+    )
+    postgame.add_argument(
+        "--pregame-input",
+        type=Path,
+        default=None,
+        help=argparse.SUPPRESS,
     )
     pregame.set_defaults(handler=_run_pregame)
     postgame.set_defaults(handler=_run_postgame)

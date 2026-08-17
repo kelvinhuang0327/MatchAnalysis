@@ -1,0 +1,35 @@
+{
+  "schema_version": "p44a.source_agnostic_prospective_input.summary.v1",
+  "task_id": "P44A",
+  "workflow_label": "SOURCE_AGNOSTIC_PROSPECTIVE_INPUT_BOUNDARY",
+  "human_label": "P44A source-agnostic prospective paper-workflow input boundary",
+  "live": false,
+  "prospective": false,
+  "network_required": false,
+  "live_acquisition": "NOT RUN",
+  "p35a": "UNTOUCHED",
+  "normalized_pregame_boundary": "src/match_analysis/application/use_cases/p44a_normalized_workflow_input.py:NormalizedPregameInput",
+  "normalized_result_boundary": "src/match_analysis/application/use_cases/p44a_normalized_workflow_input.py:NormalizedResultRecord",
+  "historical_adapter": "src/match_analysis/application/use_cases/p44a_historical_source_adapter.py",
+  "historical_parity": {
+    "pregame_decisions": 62,
+    "bet": 22,
+    "pass": 40,
+    "settled_pregame": 0,
+    "settled_bet": 22,
+    "wins": 14,
+    "losses": 8,
+    "pushes": 0,
+    "units_risked": "22.0",
+    "net_paper_units": "5.90",
+    "feedback": 62,
+    "status": "RECONCILED"
+  },
+  "claims": {
+    "real_betting": false,
+    "live_acquisition": false,
+    "model_promotion": false,
+    "threshold_optimization": false,
+    "kelly": false
+  }
+}

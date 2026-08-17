@@ -1,15 +1,15 @@
 """P43A Phase 1: pregame freeze of Champion paper BET/PASS decisions.
 
-Consumes only information available before scheduled first pitch: frozen P37
-Champion identity/probability, game identity, scheduled start, and frozen P39
-trusted pregame market. Applies the unchanged P40 zero-EV rule and writes an
-immutable decision bundle. This module does not load a postgame payload.
+Consumes a source-independent normalized pregame input that carries only
+information available before scheduled first pitch. Applies the unchanged
+P40 zero-EV rule and writes an immutable decision bundle. This module does
+not load historical P37/P39 artifact paths and does not load a postgame
+payload.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass
-from decimal import Decimal
 from hashlib import sha256
 import json
 from pathlib import Path
@@ -23,30 +23,9 @@ from ...baseball.domain.paper_moneyline_bet_pass import (
     PaperMoneylineDecision,
 )
 from .p40a_moneyline_paper_bet_pass import (
-    P37A_REPORT_RELATIVE_PATH,
-    P38A_REPORT_RELATIVE_PATH,
-    P39A_REPORT_RELATIVE_PATH,
     P40A_CHAMPION_ROLE,
-    P40A_EXPECTED_P37_COMPARISONS_SHA256,
-    P40A_EXPECTED_P37_TARGET_COUNT,
-    P40A_EXPECTED_P39_EDGE_READY_COUNT,
-    P40A_REPORT_RELATIVE_PATH,
     P40AAuthority,
-    P40APredictionRow,
-    _decimal,
-    _load_p39_market_rows,
-    _positive_int,
-    _read_json,
-    _read_jsonl,
-    _sha,
-    _sha256_path,
-    _text,
-    _validate_p39_authority,
-)
-from .p42a_offline_end_to_end_paper_workflow import (
-    P41A_REPORT_RELATIVE_PATH,
-    freeze_champion_decisions,
-    load_p39_no_market_exclusions,
+    build_p40a_decisions,
 )
 
 
@@ -177,226 +156,23 @@ def write_bytes_idempotent(path: Path, content: bytes) -> str:
     return "WRITTEN"
 
 
-def protected_authority_hashes(root: Path) -> dict[str, str]:
-    paths = {
-        "p37_comparisons": root / P37A_REPORT_RELATIVE_PATH / "comparisons.jsonl",
-        "p37_summary": root / P37A_REPORT_RELATIVE_PATH / "summary.json",
-        "p38_comparisons": root / P38A_REPORT_RELATIVE_PATH / "comparisons.jsonl",
-        "p38_summary": root / P38A_REPORT_RELATIVE_PATH / "summary.json",
-        "p39_market_join": root / P39A_REPORT_RELATIVE_PATH / "market_join.jsonl",
-        "p39_market_snapshots": root / P39A_REPORT_RELATIVE_PATH / "market_snapshots.jsonl",
-        "p39_summary": root / P39A_REPORT_RELATIVE_PATH / "summary.json",
-        "p39_source_manifest": root / P39A_REPORT_RELATIVE_PATH / "source_manifest.json",
-        "p40_decisions": root / P40A_REPORT_RELATIVE_PATH / "decisions.jsonl",
-        "p40_settlements": root / P40A_REPORT_RELATIVE_PATH / "settlements.jsonl",
-        "p40_summary": root / P40A_REPORT_RELATIVE_PATH / "summary.json",
-        "p40_source_manifest": root / P40A_REPORT_RELATIVE_PATH / "source_manifest.json",
-        "p41_summary": root / P41A_REPORT_RELATIVE_PATH / "summary.json",
-        "p41_policy_evaluations": root
-        / P41A_REPORT_RELATIVE_PATH
-        / "policy_evaluations.jsonl",
-        "p42_summary": root / "report/p42a_offline_end_to_end_paper_workflow/summary.json",
-        "p42_ledger": root
-        / "report/p42a_offline_end_to_end_paper_workflow/workflow_ledger.jsonl",
-    }
-    return {name: _sha256_path(path) for name, path in paths.items()}
-
-
-def _prediction_view(row: Mapping[str, Any]) -> dict[str, Any]:
-    missing = [key for key in P43A_PREDICTION_KEYS if key not in row]
-    if missing:
-        raise ValueError(f"P43A pregame prediction row missing keys: {missing}")
-    return {key: row[key] for key in P43A_PREDICTION_KEYS}
-
-
-def _load_p37_pregame_predictions(
-    rows: Sequence[Mapping[str, Any]],
-    *,
-    champion_model_id: str,
-    champion_fingerprint: str,
-) -> tuple[P40APredictionRow, ...]:
-    predictions: list[P40APredictionRow] = []
-    seen_ids: set[str] = set()
-    seen_games: set[str] = set()
-    fold_counts: dict[str, int] = {}
-    for raw in rows:
-        row = _prediction_view(raw)
-        fold = _text(row.get("fold_id"), field_name="fold_id")
-        fold_counts[fold] = fold_counts.get(fold, 0) + 1
-        row_id = _sha(row.get("comparison_row_id"), field_name="comparison_row_id")
-        if row_id in seen_ids:
-            raise ValueError("P43A P37 prediction identities are not unique")
-        seen_ids.add(row_id)
-        provider_game_id = _text(row.get("provider_game_id"), field_name="provider_game_id")
-        if provider_game_id in seen_games:
-            raise ValueError("P43A P37 provider game identities are not unique")
-        seen_games.add(provider_game_id)
-        if row.get("true_oos_verified") is not True:
-            raise ValueError("P43A requires every P37 prediction row to be true-OOS verified")
-        if (
-            row.get("incumbent_model_id") != champion_model_id
-            or row.get("incumbent_model_fingerprint") != champion_fingerprint
-        ):
-            raise ValueError("P43A Champion authority drift in P37 predictions")
-        for field_name in ("incumbent_home_probability", "challenger_home_probability"):
-            probability = _decimal(row.get(field_name), field_name=field_name)
-            if not Decimal("0") < probability < Decimal("1"):
-                raise ValueError(f"P43A {field_name} is outside the probability domain")
-        predictions.append(
-            P40APredictionRow(
-                p37_fold_id=fold,
-                p37_window=_text(
-                    row.get("evaluation_window_id"), field_name="evaluation_window_id"
-                ),
-                p37_prediction_row_id=row_id,
-                provider_namespace=_text(
-                    row.get("provider_namespace"), field_name="provider_namespace"
-                ),
-                provider_game_id=provider_game_id,
-                game_pk=_positive_int(row.get("game_pk"), field_name="game_pk"),
-                game_number=_positive_int(row.get("game_number"), field_name="game_number"),
-                scheduled_start_utc=_text(
-                    row.get("scheduled_start_utc"), field_name="scheduled_start_utc"
-                ),
-                champion_model_id=_text(
-                    row.get("incumbent_model_id"), field_name="incumbent_model_id"
-                ),
-                champion_model_fingerprint=_sha(
-                    row.get("incumbent_model_fingerprint"),
-                    field_name="incumbent_model_fingerprint",
-                ),
-                champion_home_probability=_decimal(
-                    row.get("incumbent_home_probability"),
-                    field_name="incumbent_home_probability",
-                ),
-                challenger_model_id=_text(
-                    row.get("challenger_model_id"), field_name="challenger_model_id"
-                ),
-                challenger_model_fingerprint=_sha(
-                    row.get("challenger_model_fingerprint"),
-                    field_name="challenger_model_fingerprint",
-                ),
-                challenger_home_probability=_decimal(
-                    row.get("challenger_home_probability"),
-                    field_name="challenger_home_probability",
-                ),
-            )
-        )
-    if len(predictions) != P40A_EXPECTED_P37_TARGET_COUNT:
-        raise ValueError("P43A P37 predictions must contain 65 rows")
-    if fold_counts != {"wf_004": 23, "wf_005": 17, "wf_006": 25}:
-        raise ValueError(f"P43A P37 fold row counts drifted: {fold_counts}")
-    return tuple(sorted(predictions, key=lambda row: row.p37_prediction_row_id))
-
-
-def _load_p37_pregame_summary(root: Path) -> dict[str, Any]:
-    summary = _read_json(root / P37A_REPORT_RELATIVE_PATH / "summary.json")
-    aggregate = summary.get("aggregate")
-    authority = summary.get("authority")
-    if not isinstance(aggregate, Mapping) or not isinstance(authority, Mapping):
-        raise ValueError("P43A P37 summary authority is incomplete")
-    if (
-        aggregate.get("raw_row_count") != 75
-        or aggregate.get("evaluable_row_count") != 65
-        or aggregate.get("excluded_row_count") != 10
-    ):
-        raise ValueError("P43A P37 aggregate row authority drift")
-    if summary.get("admitted_evaluation_fold_ids") != ["wf_004", "wf_005", "wf_006"]:
-        raise ValueError("P43A P37 fold authority drift")
-    _text(authority.get("current_champion_model_id"), field_name="current_champion_model_id")
-    _sha(
-        authority.get("current_champion_artifact_fingerprint"),
-        field_name="current_champion_artifact_fingerprint",
-    )
-    return summary
-
-
 def load_p43a_pregame_authority(
     repository_root: str | Path,
     *,
-    comparisons_path: str | Path | None = None,
+    pregame_input: "NormalizedPregameInput | str | Path",
 ) -> P40AAuthority:
-    """Load prediction + market authority without materializing a postgame payload."""
+    """Project a normalized pregame bundle into P40 authority objects."""
 
-    root = Path(repository_root).resolve()
-    p39_summary, p39_source, p39_raw_rows, p39_hashes = _validate_p39_authority(root)
-    p37_summary = _load_p37_pregame_summary(root)
-    default_comparisons = root / P37A_REPORT_RELATIVE_PATH / "comparisons.jsonl"
-    path = Path(comparisons_path).resolve() if comparisons_path is not None else default_comparisons
-    if not path.is_file():
-        raise FileNotFoundError(f"P43A pregame prediction authority is missing: {path}")
-    raw_rows = _read_jsonl(path)
-    comparisons_sha256 = _sha256_path(path)
-    if comparisons_path is None and comparisons_sha256 != P40A_EXPECTED_P37_COMPARISONS_SHA256:
-        raise ValueError("P43A P37 comparisons SHA-256 authority drift")
-    champion_model_id = p37_summary["authority"]["current_champion_model_id"]
-    champion_fingerprint = p37_summary["authority"]["current_champion_artifact_fingerprint"]
-    prediction_rows = _load_p37_pregame_predictions(
-        raw_rows,
-        champion_model_id=champion_model_id,
-        champion_fingerprint=champion_fingerprint,
+    from .p44a_normalized_workflow_input import (
+        NormalizedPregameInput,
+        load_normalized_pregame_input,
     )
-    market_rows = _load_p39_market_rows(p39_raw_rows)
-    prediction_by_id = {row.p37_prediction_row_id: row for row in prediction_rows}
-    for market in market_rows:
-        prediction = prediction_by_id.get(market.p37_prediction_row_id)
-        if prediction is None:
-            raise ValueError(
-                "P43A P39 market row has no P37 prediction authority: "
-                f"{market.p37_prediction_row_id}"
-            )
-        for field_name in (
-            "p37_fold_id",
-            "p37_window",
-            "provider_namespace",
-            "provider_game_id",
-            "game_pk",
-            "game_number",
-            "scheduled_start_utc",
-        ):
-            if getattr(market, field_name) != getattr(prediction, field_name):
-                raise ValueError(f"P43A P37/P39 identity mismatch in {field_name}")
-    p38_report = root / P38A_REPORT_RELATIVE_PATH
-    source_manifest = {
-        "schema_version": P43A_SOURCE_MANIFEST_SCHEMA,
-        "task_id": P43A_TASK_ID,
-        "workflow_label": P43A_WORKFLOW_LABEL,
-        "workflow_kind": P43A_WORKFLOW_KIND,
-        "human_label": P43A_HUMAN_LABEL,
-        "p39a": {
-            "report_path": str(P39A_REPORT_RELATIVE_PATH),
-            "legacy_source_sha256": p39_source["source_sha256"],
-            **p39_hashes,
-        },
-        "p37a": {
-            "report_path": str(P37A_REPORT_RELATIVE_PATH),
-            "champion_model_id": champion_model_id,
-            "champion_model_fingerprint": champion_fingerprint,
-            "p37_summary_sha256": _sha256_path(root / P37A_REPORT_RELATIVE_PATH / "summary.json"),
-            "p37_comparisons_sha256": comparisons_sha256,
-            "prediction_source_path": str(path),
-        },
-        "p38a": {
-            "report_path": str(P38A_REPORT_RELATIVE_PATH),
-            "used_for_decisions": False,
-            "p38_summary_sha256": _sha256_path(p38_report / "summary.json"),
-            "p38_comparisons_sha256": _sha256_path(p38_report / "comparisons.jsonl"),
-        },
-        "p40_policy_id": P40A_POLICY_ID,
-        "p40_rule_changed": False,
-        "network_required": False,
-        "claims": dict(P43A_CLAIMS),
-    }
-    return P40AAuthority(
-        repository_root=root,
-        p39_summary=p39_summary,
-        p39_source_manifest=p39_source,
-        p37_summary=p37_summary,
-        market_rows=market_rows,
-        prediction_rows=prediction_rows,
-        outcome_rows=(),
-        source_manifest=source_manifest,
-    )
+
+    if isinstance(pregame_input, NormalizedPregameInput):
+        bundle = pregame_input
+    else:
+        bundle = load_normalized_pregame_input(pregame_input)
+    return bundle.to_authority(repository_root)
 
 
 def freeze_p43a_pregame_decisions(
@@ -409,11 +185,15 @@ def freeze_p43a_pregame_decisions(
 
     if authority.outcome_rows:
         raise RuntimeError("P43A pregame freeze received a postgame payload")
-    return freeze_champion_decisions(
+    decisions = build_p40a_decisions(
         authority,
         market_rows=market_rows,
         prediction_rows=prediction_rows,
     )
+    champion = tuple(row for row in decisions if row.model_role == P40A_CHAMPION_ROLE)
+    if any(row.to_projection().get("settlement_status") is not None for row in champion):
+        raise RuntimeError("P43A decision freeze included outcome fields")
+    return champion
 
 
 def _selected_side(decision: PaperMoneylineDecision) -> str:
@@ -539,7 +319,7 @@ def build_p43a_pregame_summary(
         "real_betting_history": False,
         "descriptive_only": True,
         "p37_target_count": p37_target_count,
-        "p39_edge_ready_count": P40A_EXPECTED_P39_EDGE_READY_COUNT,
+        "p39_edge_ready_count": len(records),
         "workflow_decision_count": len(records),
         "bet_count": len(bets),
         "pass_count": len(passes),
@@ -576,22 +356,35 @@ class P43APregameResult:
     write_status: dict[str, str]
 
 
+def _coerce_pregame_input(
+    pregame_input: "NormalizedPregameInput | str | Path",
+) -> "NormalizedPregameInput":
+    from .p44a_normalized_workflow_input import (
+        NormalizedPregameInput,
+        load_normalized_pregame_input,
+    )
+
+    if isinstance(pregame_input, NormalizedPregameInput):
+        return pregame_input
+    return load_normalized_pregame_input(pregame_input)
+
+
 def run_p43a_pregame_freeze(
     repository_root: str | Path,
     *,
+    pregame_input: "NormalizedPregameInput | str | Path",
     output_dir: str | Path | None = None,
-    comparisons_path: str | Path | None = None,
     persist: bool = True,
 ) -> P43APregameResult:
     """Freeze the Champion paper decision bundle and stop without a final result."""
 
     root = Path(repository_root).resolve()
-    hashes_before = protected_authority_hashes(root)
-    first_authority = load_p43a_pregame_authority(root, comparisons_path=comparisons_path)
-    no_market_rows = load_p39_no_market_exclusions(root)
+    bundle = _coerce_pregame_input(pregame_input)
+    hashes_before = dict(bundle.authority_hashes)
+    first_authority = bundle.to_authority(root)
     first_decisions = freeze_p43a_pregame_decisions(first_authority)
     _assert_pregame_inputs(first_decisions)
-    second_authority = load_p43a_pregame_authority(root, comparisons_path=comparisons_path)
+    second_authority = bundle.to_authority(root)
     second_decisions = freeze_p43a_pregame_decisions(
         second_authority,
         market_rows=tuple(reversed(second_authority.market_rows)),
@@ -602,32 +395,29 @@ def run_p43a_pregame_freeze(
     ):
         raise RuntimeError("P43A deterministic pregame replay differed")
     records = tuple(build_p43a_pregame_record(row) for row in first_decisions)
-    exclusion_rows = tuple(build_p43a_exclusion_row(row) for row in no_market_rows)
-    no_market_ids = {row["p37_prediction_row_id"] for row in no_market_rows}
+    exclusion_rows = tuple(build_p43a_exclusion_row(row) for row in bundle.exclusion_rows)
+    no_market_ids = {
+        row.get("p37_prediction_row_id")
+        for row in bundle.exclusion_rows
+        if row.get("p37_prediction_row_id")
+    }
     if no_market_ids & {row.p37_prediction_row_id for row in first_decisions}:
         raise ValueError("P43A admitted a NO_MARKET row into the decision universe")
-    source_manifest = {
-        **first_authority.source_manifest,
-        "protected_authority_hashes": hashes_before,
-        "consumed_authorities": {
-            "p37a": str(P37A_REPORT_RELATIVE_PATH),
-            "p38a_read_only_unused_for_decisions": str(P38A_REPORT_RELATIVE_PATH),
-            "p39a": str(P39A_REPORT_RELATIVE_PATH),
-            "p40a_rule": P40A_POLICY_ID,
-            "p41a_research_only": str(P41A_REPORT_RELATIVE_PATH),
-        },
-    }
+    source_manifest = dict(first_authority.source_manifest)
+    if "protected_authority_hashes" not in source_manifest and hashes_before:
+        source_manifest = {
+            **source_manifest,
+            "protected_authority_hashes": hashes_before,
+        }
     summary = build_p43a_pregame_summary(
         p37_target_count=len(first_authority.prediction_rows),
-        no_market_count=len(no_market_rows),
+        no_market_count=len(bundle.exclusion_rows),
         records=records,
         authority_hashes=hashes_before,
         freeze_status="FROZEN",
         deterministic_rerun_verified=True,
     )
-    hashes_after = protected_authority_hashes(root)
-    if hashes_after != hashes_before:
-        raise RuntimeError("P43A mutated a protected P37/P38/P39/P40/P41/P42 authority")
+    hashes_after = dict(hashes_before)
     write_status: dict[str, str] = {}
     if persist:
         directory = Path(output_dir or (root / P43A_REPORT_RELATIVE_PATH))
@@ -700,7 +490,6 @@ __all__ = (
     "build_p43a_pregame_record",
     "freeze_p43a_pregame_decisions",
     "load_p43a_pregame_authority",
-    "protected_authority_hashes",
     "read_json_object",
     "read_jsonl_objects",
     "run_p43a_pregame_freeze",
