@@ -26,7 +26,7 @@
     "champion_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
     "p37_comparisons_sha256": "23cc15d308a90c08da0d1a4c6cbb9289af3add2c5d151808833e73a660639eb4",
     "p37_summary_sha256": "f8fe76adbadbccd81ff19d7edcfe1c5ff0ac1107678db53021ba248a00249e75",
-    "prediction_source_path": "/Users/kelvin/VibeCoding-WorkSpace/MatchAnalysis-p43a/report/p37a_rolling_walk_forward_oos/comparisons.jsonl",
+    "prediction_source_path": "report/p37a_rolling_walk_forward_oos/comparisons.jsonl",
     "report_path": "report/p37a_rolling_walk_forward_oos"
   },
   "p38a": {
