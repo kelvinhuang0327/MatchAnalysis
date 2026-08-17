@@ -1,0 +1,39 @@
+{
+  "schema_version": "p45a.prospective_paper_run_ledger.summary.v1",
+  "task_id": "P45A",
+  "workflow_label": "PROSPECTIVE_PAPER_RUN_LEDGER_AND_LIFECYCLE",
+  "human_label": "P45A prospective paper run ledger and lifecycle",
+  "live": false,
+  "prospective": false,
+  "network_required": false,
+  "live_acquisition": "NOT RUN",
+  "p35a": "UNTOUCHED",
+  "run_manifest_schema": "p45a.paper_run_manifest.v1",
+  "settlement_summary_schema": "p45a.paper_run_settlement_summary.v1",
+  "ledger_record_schema": "p45a.forward_paper_ledger_record.v1",
+  "forward_summary_schema": "p45a.cumulative_forward_paper_summary.v1",
+  "historical_rehearsal_parity": {
+    "target_universe": 65,
+    "eligible_decisions": 62,
+    "bet_count": 22,
+    "pass_count": 40,
+    "settled_bet_count": 22,
+    "settled_pass_count": 40,
+    "wins": 14,
+    "losses": 8,
+    "pushes": 0,
+    "units_risked": "22.0",
+    "net_paper_units": "5.90",
+    "descriptive_roi": "0.26818181818181818181818181818181818181818181818182",
+    "feedback_count": 62,
+    "forward_sample_count": 0,
+    "status": "RECONCILED"
+  },
+  "claims": {
+    "real_betting": false,
+    "live_acquisition": false,
+    "model_promotion": false,
+    "threshold_optimization": false,
+    "kelly": false
+  }
+}

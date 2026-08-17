@@ -173,6 +173,8 @@ AUTHORIZED_SOURCE_PATHS = {
     "interfaces/cli/run_p41a_walk_forward_ev_margin_policy.py",
     "interfaces/cli/run_p42a_offline_end_to_end_paper_workflow.py",
     "interfaces/cli/run_p43a_two_phase_paper_workflow.py",
+    "application/use_cases/p45a_paper_run_ledger.py",
+    "interfaces/cli/run_p45a_paper_lifecycle.py",
     "application/use_cases/generate_moneyline_market_movement.py",
     "application/use_cases/moneyline_market_movement_artifacts.py",
     "interfaces/cli/replay_moneyline_market_movement.py",
