@@ -64,6 +64,14 @@ class P43ATwoPhaseWorkflowCliTests(unittest.TestCase):
             for name in pregame_names
         }
         summary = json.loads((REPORT_ROOT / "pregame_summary.json").read_text(encoding="utf-8"))
+        manifest = json.loads((REPORT_ROOT / "source_manifest.json").read_text(encoding="utf-8"))
+        prediction_source = manifest["p37a"]["prediction_source_path"]
+        self.assertEqual(
+            prediction_source,
+            "report/p37a_rolling_walk_forward_oos/comparisons.jsonl",
+        )
+        self.assertFalse(Path(prediction_source).is_absolute())
+        self.assertNotIn(str(REPOSITORY_ROOT), prediction_source)
         self.assertEqual(summary["human_label"], HUMAN_LABEL)
         self.assertEqual(summary["settled_bet_count"], 0)
         self.assertFalse(summary["live"])
