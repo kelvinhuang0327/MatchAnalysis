@@ -10,10 +10,6 @@ import unittest
 
 from match_analysis.application.use_cases.p40a_moneyline_paper_bet_pass import (
     P40APredictionRow,
-    P40AMarketRow,
-)
-from match_analysis.application.use_cases.p40a_moneyline_paper_bet_pass import (
-    P40APredictionRow,
 )
 from match_analysis.application.use_cases.p44a_historical_source_adapter import (
     adapt_historical_pregame,
