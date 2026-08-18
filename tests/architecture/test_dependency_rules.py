@@ -184,6 +184,8 @@ AUTHORIZED_SOURCE_PATHS = {
     "application/use_cases/p49a_external_final_result_admission.py",
     "interfaces/cli/prospective_postgame_intake.py",
     "interfaces/cli/admit_external_final_result_bundle.py",
+    "application/use_cases/p50c_prediction_run_ledger.py",
+    "interfaces/cli/run_p50c_prediction_lifecycle.py",
     "application/use_cases/generate_moneyline_market_movement.py",
     "application/use_cases/moneyline_market_movement_artifacts.py",
     "interfaces/cli/replay_moneyline_market_movement.py",
