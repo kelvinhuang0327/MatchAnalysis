@@ -186,6 +186,8 @@ AUTHORIZED_SOURCE_PATHS = {
     "interfaces/cli/admit_external_final_result_bundle.py",
     "application/use_cases/p50c_prediction_run_ledger.py",
     "interfaces/cli/run_p50c_prediction_lifecycle.py",
+    "application/use_cases/p52a_daily_prediction_freeze.py",
+    "interfaces/cli/run_p52a_daily_prediction_freeze.py",
     "application/use_cases/generate_moneyline_market_movement.py",
     "application/use_cases/moneyline_market_movement_artifacts.py",
     "interfaces/cli/replay_moneyline_market_movement.py",
@@ -508,6 +510,12 @@ class DependencyRuleTests(unittest.TestCase):
             / "use_cases"
             / "acquire_tsl_moneyline_snapshot.py"
         )
+        p52a_prediction_freeze = (
+            PACKAGE_ROOT
+            / "application"
+            / "use_cases"
+            / "p52a_daily_prediction_freeze.py"
+        )
         violations = []
         for path in paths:
             for target, line_number in imported_modules(path):
@@ -529,12 +537,18 @@ class DependencyRuleTests(unittest.TestCase):
                         "match_analysis.infrastructure.sources.tsl_moneyline_acquisition",
                     }
                 )
+                is_allowlisted_p52a_source = (
+                    path == p52a_prediction_freeze
+                    and target
+                    == "match_analysis.infrastructure.providers.mlb_official_historical_source"
+                )
                 if target.startswith(
                     ("match_analysis.infrastructure", "match_analysis.interfaces")
                 ) and not (
                     is_allowlisted_p23f2_source
                     or is_allowlisted_p31a_source
                     or is_allowlisted_p32a_source
+                    or is_allowlisted_p52a_source
                 ):
                     relative = path.relative_to(REPOSITORY_ROOT)
                     violations.append(f"{relative}:{line_number} -> {target}")
