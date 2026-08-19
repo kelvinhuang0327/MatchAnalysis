@@ -463,6 +463,102 @@ class TestP52ADailyMoneylinePredictionFreeze(unittest.TestCase):
         self.assertEqual(res2.run_id, res1.run_id)
         self.assertEqual(res2.pending_count, res1.pending_count)
 
+    def test_empty_pitcher_stats_exclusion_regression(self) -> None:
+        """MLB stats API returning empty stats list must not crash and must exclude game for insufficient starter history."""
+        as_of_utc = "2026-08-19T01:00:00Z"
+        target_date = "2026-08-19"
+        target_start = "2026-08-19T23:05:00Z"
+
+        sched = _build_mock_schedule_payload(
+            target_date=target_date,
+            target_start_utc=target_start,
+            home_starter_id=101,
+            away_starter_id=201,
+        )
+        p_map = {
+            101: {"stats": []},  # Empty stats list from MLB stats API
+            201: _build_mock_pitcher_log_payload(201, start_count=5),
+        }
+        mock_opener = MockMLBOpener(sched, p_map)
+
+        result = execute_daily_moneyline_prediction_freeze(
+            target_date=target_date,
+            as_of_utc=as_of_utc,
+            repository_root=REPOSITORY_ROOT,
+            output_root=self.output_root,
+            opener=mock_opener,
+        )
+
+        self.assertEqual(result.target_games_count, 1)
+        self.assertEqual(result.eligible_predictions_count, 0)
+        self.assertEqual(result.exclusion_count, 1)
+        self.assertEqual(result.freeze_status, "NO_ELIGIBLE_PREDICTIONS")
+        self.assertIsNone(result.run_id)
+        self.assertTrue(
+            result.exclusions[0]["reason"].startswith(EXCLUSION_INSUFFICIENT_STARTER_HISTORY)
+        )
+        self.assertIn("(starts=0)", result.exclusions[0]["reason"])
+
+    def test_empty_pitcher_stats_multi_game_partial_exclusion(self) -> None:
+        """Empty pitcher stats on one game excludes that game but allows other eligible games to be frozen."""
+        as_of_utc = "2026-08-19T01:00:00Z"
+        target_date = "2026-08-19"
+
+        # Build schedule with 2 target games
+        base_sched = _build_mock_schedule_payload(
+            target_date=target_date,
+            target_start_utc="2026-08-19T20:00:00Z",
+            home_starter_id=101,
+            away_starter_id=201,
+        )
+        # Add second target game
+        base_sched["dates"][-1]["games"].append(
+            {
+                "gamePk": 999002,
+                "gameNumber": 1,
+                "gameDate": "2026-08-19T23:05:00Z",
+                "status": {"abstractGameState": "Preview", "detailedState": "Scheduled"},
+                "teams": {
+                    "home": {
+                        "team": {"id": 10, "name": "New York Yankees", "abbreviation": "NYY"},
+                        "probablePitcher": {"id": 102, "fullName": "Nestor Cortes"},
+                    },
+                    "away": {
+                        "team": {"id": 20, "name": "Los Angeles Dodgers", "abbreviation": "LAD"},
+                        "probablePitcher": {"id": 202, "fullName": "Yoshinobu Yamamoto"},
+                    },
+                },
+            }
+        )
+
+        p_map = {
+            101: {"stats": []},  # Empty stats for Game 1 home starter
+            201: _build_mock_pitcher_log_payload(201, start_count=5),
+            102: _build_mock_pitcher_log_payload(102, start_count=4),
+            202: _build_mock_pitcher_log_payload(202, start_count=4),
+        }
+        mock_opener = MockMLBOpener(base_sched, p_map)
+
+        result = execute_daily_moneyline_prediction_freeze(
+            target_date=target_date,
+            as_of_utc=as_of_utc,
+            repository_root=REPOSITORY_ROOT,
+            output_root=self.output_root,
+            opener=mock_opener,
+        )
+
+        self.assertEqual(result.target_games_count, 2)
+        self.assertEqual(result.eligible_predictions_count, 1)
+        self.assertEqual(result.exclusion_count, 1)
+        self.assertEqual(result.freeze_status, "CREATED")
+        self.assertIsNotNone(result.run_id)
+        self.assertEqual(result.pending_count, 1)
+        self.assertEqual(result.exclusions[0]["game_pk"], 999001)
+        self.assertTrue(
+            result.exclusions[0]["reason"].startswith(EXCLUSION_INSUFFICIENT_STARTER_HISTORY)
+        )
+        self.assertEqual(result.predictions[0]["game_pk"], 999002)
+
 
 if __name__ == "__main__":
     unittest.main()

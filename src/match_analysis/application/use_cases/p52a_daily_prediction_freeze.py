@@ -38,7 +38,10 @@ from ...infrastructure.providers.mlb_official_historical_source import (
     parse_utc,
     sha256_bytes,
 )
-from .p45a_paper_run_ledger import get_p45a_forward_summary
+from .p45a_paper_run_ledger import (
+    P45A_REPORT_RELATIVE_PATH,
+    get_p45a_forward_summary,
+)
 from .p50c_prediction_run_ledger import (
     CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
     FORBIDDEN_PREGAME_BETTING_FIELDS,
@@ -225,7 +228,8 @@ def fetch_pitcher_game_logs(
         raw_bytes, req_url = fetch_json_bytes(url, query=query, opener=actual_opener, timeout=timeout)
         pitcher_sources[str(pid)] = {"url": req_url, "sha256": sha256_bytes(raw_bytes)}
         p_data = json.loads(raw_bytes.decode("utf-8"))
-        splits = p_data.get("stats", [{}])[0].get("splits", [])
+        stats_list = p_data.get("stats") or []
+        splits = (stats_list[0].get("splits") or []) if stats_list else []
         for s in splits:
             stat = s.get("stat", {})
             pitcher_logs[pid].append(
@@ -561,8 +565,18 @@ def execute_daily_moneyline_prediction_freeze(
         pending_count = status_dict.get("pending_count", len(prediction_rows))
 
     # Step 8: Retrieve Forward Summaries
-    p50c_summary = get_p50c_forward_summary(repo_root)
-    p45a_summary = get_p45a_forward_summary(repo_root)
+    p50c_summary = get_p50c_forward_summary(
+        repo_root,
+        ledger_root=out_root / P50C_REPORT_RELATIVE_PATH / "ledger"
+        if output_root is not None
+        else None,
+    )
+    p45a_summary = get_p45a_forward_summary(
+        repo_root,
+        ledger_root=out_root / P45A_REPORT_RELATIVE_PATH / "ledger"
+        if output_root is not None
+        else None,
+    )
 
     return DailyPredictionFreezeResult(
         target_date=target_date,
