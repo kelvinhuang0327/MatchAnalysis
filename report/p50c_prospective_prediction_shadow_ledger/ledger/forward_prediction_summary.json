@@ -1,0 +1,19 @@
+{
+  "PREDICTION_FORWARD_SAMPLE_COUNT": 5,
+  "accuracy": "0.4",
+  "brier_score": "0.2430182907252608128898709726",
+  "correct_count": 2,
+  "expected_calibration_error": "0.29833854",
+  "first_target_date": "2026-08-18",
+  "frozen_prediction_count": 5,
+  "incorrect_count": 3,
+  "last_target_date": "2026-08-18",
+  "log_loss": "0.6784060056716",
+  "pending_count": 0,
+  "run_count": 1,
+  "run_ids": [
+    "p50c_run_fa367308eedb4c623680d7d2667273b0"
+  ],
+  "schema_version": "p50c.cumulative_forward_prediction_summary.v1",
+  "settled_prediction_count": 5
+}

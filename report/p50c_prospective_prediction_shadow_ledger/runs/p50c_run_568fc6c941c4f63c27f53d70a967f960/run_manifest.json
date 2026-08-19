@@ -1,0 +1,40 @@
+{
+  "claims": {
+    "calibration_fitting": false,
+    "ev_or_bet_pass_selection": false,
+    "kelly": false,
+    "model_promotion": false,
+    "model_retraining": false,
+    "odds_or_market_dependent": false,
+    "real_betting": false,
+    "threshold_optimization": false,
+    "tsl_access": false
+  },
+  "created_at_utc": "2026-08-18T13:37:42Z",
+  "eligible_prediction_count": 11,
+  "exclusion_count": 4,
+  "lifecycle_state": "FROZEN",
+  "model_role": "CHAMPION",
+  "normalized_input_fingerprint": "3a2e1f0e5c0b1940651361d41dd4c488888b41b5ad06f1b7e853a075f0f6b53b",
+  "pending_count": 11,
+  "prediction_bundle_fingerprint": "7a484ff5bb9ca8a6e07eeb6ee00bbb4dcc6d4ae4e9fbae4e6ebbf482fcedadbc",
+  "prediction_fingerprints": [
+    "10fc90d5839587c806be956aadd282411a19695c0f31fb2690f1e412f78c6a48",
+    "dcbd233e8856847de596409cf1734858e04aafc79d666d4a65bcf9f5e762a128",
+    "79114396a14f8a531124cbb14b5e858310eaed44fd7eb64c76acbc75e98b40ff",
+    "a70ec438aef12f5410905dc1658366dc652dae026763ca575f8a2f959950b222",
+    "8c75ceac7e1825f1dea992eb53a3fbaa9d7177e7ca9a5cf3fe048a4fb25420cb",
+    "4aa630cbfb9bc21d94ead44678b021a5512ba7707b29b0b7eecccecfdced26b6",
+    "3182a83e913d3b5a54a925d61920ed482c57558eb36e06288fc35609aeebe0d1",
+    "4467e8d19541127fa20c456d9fe17351566be09261e988e0dc95197345cf67fb",
+    "93be4246c0d023d5093e06fe998b2cf46d8dacb29f0e576b2f387e3d3df84d17",
+    "4d920e5a6416515318a8ba478c5643f0472d434e31c7fb46094a3071c174e526",
+    "25118b9c56002bab964a16dfe129436a4ec0ccf0c4a07d2b4d333ff23b5042ce"
+  ],
+  "run_classification": "PROSPECTIVE_FORWARD_PREDICTION",
+  "run_id": "p50c_run_568fc6c941c4f63c27f53d70a967f960",
+  "schema_version": "p50c.prediction_run_manifest.v1",
+  "settled_total_count": 0,
+  "target_universe_count": 15,
+  "task_id": "P50C"
+}

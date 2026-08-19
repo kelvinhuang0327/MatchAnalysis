@@ -1,0 +1,6 @@
+{"feature_name":"starter_era_delta","game_pk":823664,"official_date":"2026-08-19","provider_game_id":"823664","reason":"INSUFFICIENT_SAME_SEASON_STARTER_HISTORY (starts=1)","scheduled_start_utc":"2026-08-19T17:40:00Z"}
+{"feature_name":"starter_era_delta","game_pk":824640,"official_date":"2026-08-19","provider_game_id":"824640","reason":"OFFICIAL_STARTER_IDENTITY_UNAVAILABLE","scheduled_start_utc":"2026-08-19T18:20:00Z"}
+{"feature_name":"starter_era_delta","game_pk":824394,"official_date":"2026-08-19","provider_game_id":"824394","reason":"OFFICIAL_STARTER_IDENTITY_UNAVAILABLE","scheduled_start_utc":"2026-08-19T22:40:00Z"}
+{"feature_name":"starter_era_delta","game_pk":824076,"official_date":"2026-08-19","provider_game_id":"824076","reason":"OFFICIAL_STARTER_IDENTITY_UNAVAILABLE","scheduled_start_utc":"2026-08-19T23:40:00Z"}
+{"feature_name":"starter_era_delta","game_pk":822860,"official_date":"2026-08-19","provider_game_id":"822860","reason":"OFFICIAL_STARTER_IDENTITY_UNAVAILABLE","scheduled_start_utc":"2026-08-20T00:05:00Z"}
+{"feature_name":"starter_era_delta","game_pk":824155,"official_date":"2026-08-19","provider_game_id":"824155","reason":"INSUFFICIENT_SAME_SEASON_STARTER_HISTORY (starts=0)","scheduled_start_utc":"2026-08-20T00:10:00Z"}

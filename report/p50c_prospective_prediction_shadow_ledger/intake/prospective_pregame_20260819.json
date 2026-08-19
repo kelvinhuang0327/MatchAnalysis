@@ -1,0 +1,308 @@
+{
+  "exclusions": [
+    {
+      "feature_name": "starter_era_delta",
+      "game_pk": 823664,
+      "official_date": "2026-08-19",
+      "provider_game_id": "823664",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY (starts=1)",
+      "scheduled_start_utc": "2026-08-19T17:40:00Z"
+    },
+    {
+      "feature_name": "starter_era_delta",
+      "game_pk": 824640,
+      "official_date": "2026-08-19",
+      "provider_game_id": "824640",
+      "reason": "OFFICIAL_STARTER_IDENTITY_UNAVAILABLE",
+      "scheduled_start_utc": "2026-08-19T18:20:00Z"
+    },
+    {
+      "feature_name": "starter_era_delta",
+      "game_pk": 824394,
+      "official_date": "2026-08-19",
+      "provider_game_id": "824394",
+      "reason": "OFFICIAL_STARTER_IDENTITY_UNAVAILABLE",
+      "scheduled_start_utc": "2026-08-19T22:40:00Z"
+    },
+    {
+      "feature_name": "starter_era_delta",
+      "game_pk": 824076,
+      "official_date": "2026-08-19",
+      "provider_game_id": "824076",
+      "reason": "OFFICIAL_STARTER_IDENTITY_UNAVAILABLE",
+      "scheduled_start_utc": "2026-08-19T23:40:00Z"
+    },
+    {
+      "feature_name": "starter_era_delta",
+      "game_pk": 822860,
+      "official_date": "2026-08-19",
+      "provider_game_id": "822860",
+      "reason": "OFFICIAL_STARTER_IDENTITY_UNAVAILABLE",
+      "scheduled_start_utc": "2026-08-20T00:05:00Z"
+    },
+    {
+      "feature_name": "starter_era_delta",
+      "game_pk": 824155,
+      "official_date": "2026-08-19",
+      "provider_game_id": "824155",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY (starts=0)",
+      "scheduled_start_utc": "2026-08-20T00:10:00Z"
+    }
+  ],
+  "predictions": [
+    {
+      "challenger_home_probability": "0.6126759998431017663469117227",
+      "challenger_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "challenger_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "champion_home_probability": "0.6126759998431017663469117227",
+      "champion_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "champion_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "game_number": 1,
+      "game_pk": 823342,
+      "p37_fold_id": "prospective_2026_08_19",
+      "p37_prediction_row_id": "20482d7557d759efc6420fcf5b560aac4306ffce2bdaf8020d5bdcf01321b4f8",
+      "p37_window": "window_2026_08_19",
+      "provider_game_id": "823342",
+      "provider_namespace": "MLB_STATS_API",
+      "scheduled_start_utc": "2026-08-19T16:35:00Z"
+    },
+    {
+      "challenger_home_probability": "0.4568045716413058146332648236",
+      "challenger_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "challenger_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "champion_home_probability": "0.4568045716413058146332648236",
+      "champion_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "champion_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "game_number": 1,
+      "game_pk": 823587,
+      "p37_fold_id": "prospective_2026_08_19",
+      "p37_prediction_row_id": "fb453a24283096b6509b139b527b4fb6396e0bc6956c5bf97fb84a8a317b8d6f",
+      "p37_window": "window_2026_08_19",
+      "provider_game_id": "823587",
+      "provider_namespace": "MLB_STATS_API",
+      "scheduled_start_utc": "2026-08-19T17:10:00Z"
+    },
+    {
+      "challenger_home_probability": "0.5096384484392328268739276508",
+      "challenger_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "challenger_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "champion_home_probability": "0.5096384484392328268739276508",
+      "champion_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "champion_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "game_number": 1,
+      "game_pk": 824722,
+      "p37_fold_id": "prospective_2026_08_19",
+      "p37_prediction_row_id": "24f41764e2e6c16415938a6272b3002df4b29eb38ccfae0621d918c410fae393",
+      "p37_window": "window_2026_08_19",
+      "provider_game_id": "824722",
+      "provider_namespace": "MLB_STATS_API",
+      "scheduled_start_utc": "2026-08-19T20:10:00Z"
+    },
+    {
+      "challenger_home_probability": "0.4925452026309615474307345567",
+      "challenger_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "challenger_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "champion_home_probability": "0.4925452026309615474307345567",
+      "champion_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "champion_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "game_number": 1,
+      "game_pk": 823424,
+      "p37_fold_id": "prospective_2026_08_19",
+      "p37_prediction_row_id": "0a46353b9a76576376b755f94bb6b7bc4628cef3be1bfbaef38b011d642dc5de",
+      "p37_window": "window_2026_08_19",
+      "provider_game_id": "823424",
+      "provider_namespace": "MLB_STATS_API",
+      "scheduled_start_utc": "2026-08-19T22:05:00Z"
+    },
+    {
+      "challenger_home_probability": "0.5101747852336012884799725636",
+      "challenger_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "challenger_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "champion_home_probability": "0.5101747852336012884799725636",
+      "champion_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "champion_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "game_number": 1,
+      "game_pk": 824801,
+      "p37_fold_id": "prospective_2026_08_19",
+      "p37_prediction_row_id": "0b3f06a008c990cb540ddebf221b510438419084f14ec4bb2f279345ebf910bd",
+      "p37_window": "window_2026_08_19",
+      "provider_game_id": "824801",
+      "provider_namespace": "MLB_STATS_API",
+      "scheduled_start_utc": "2026-08-19T22:35:00Z"
+    },
+    {
+      "challenger_home_probability": "0.5943794998605511909980975736",
+      "challenger_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "challenger_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "champion_home_probability": "0.5943794998605511909980975736",
+      "champion_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "champion_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "game_number": 1,
+      "game_pk": 824476,
+      "p37_fold_id": "prospective_2026_08_19",
+      "p37_prediction_row_id": "73678e11b667e0bd6999937b587f225bf1a525f03645125ca4b29ef9fcf4c071",
+      "p37_window": "window_2026_08_19",
+      "provider_game_id": "824476",
+      "provider_namespace": "MLB_STATS_API",
+      "scheduled_start_utc": "2026-08-19T22:40:00Z"
+    },
+    {
+      "challenger_home_probability": "0.6433548949261888850156017503",
+      "challenger_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "challenger_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "champion_home_probability": "0.6433548949261888850156017503",
+      "champion_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "champion_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "game_number": 1,
+      "game_pk": 822937,
+      "p37_fold_id": "prospective_2026_08_19",
+      "p37_prediction_row_id": "e6dbeb833d3cd2e60c605f1222e221818ec05a554f29da261ccc911136d468d1",
+      "p37_window": "window_2026_08_19",
+      "provider_game_id": "822937",
+      "provider_namespace": "MLB_STATS_API",
+      "scheduled_start_utc": "2026-08-19T22:40:00Z"
+    },
+    {
+      "challenger_home_probability": "0.5400086564834044408873504211",
+      "challenger_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "challenger_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "champion_home_probability": "0.5400086564834044408873504211",
+      "champion_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "champion_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "game_number": 1,
+      "game_pk": 823748,
+      "p37_fold_id": "prospective_2026_08_19",
+      "p37_prediction_row_id": "04e449e5d3aefe81db9affebe6ade97d42137eec051e2281ec8e019aa2620131",
+      "p37_window": "window_2026_08_19",
+      "provider_game_id": "823748",
+      "provider_namespace": "MLB_STATS_API",
+      "scheduled_start_utc": "2026-08-19T23:40:00Z"
+    },
+    {
+      "challenger_home_probability": "0.4866766860011758176233547642",
+      "challenger_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "challenger_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "champion_home_probability": "0.4866766860011758176233547642",
+      "champion_model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+      "champion_model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+      "game_number": 1,
+      "game_pk": 824318,
+      "p37_fold_id": "prospective_2026_08_19",
+      "p37_prediction_row_id": "4cc52febfce1667289d723101dacde9e2a6de3823fafac40edab0023cd31c19c",
+      "p37_window": "window_2026_08_19",
+      "provider_game_id": "824318",
+      "provider_namespace": "MLB_STATS_API",
+      "scheduled_start_utc": "2026-08-20T00:40:00Z"
+    }
+  ],
+  "schema_version": "p50c.pregame_input.v1",
+  "source_identity": "MLB_OFFICIAL_STATS_API_PROSPECTIVE_FEED",
+  "source_manifest": {
+    "fetched_at_utc": "2026-08-19T01:32:24Z",
+    "pitcher_sources": {
+      "453286": {
+        "sha256": "79f783543cbfe63d5ccd180c4421d6ddad5061ca899a0a8115b293c79defd397",
+        "url": "https://statsapi.mlb.com/api/v1/people/453286/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "476594": {
+        "sha256": "3fa10ebe3be2c0e5872e6838f1e013d8d9c6493a147bb029c289cf76cc483b2d",
+        "url": "https://statsapi.mlb.com/api/v1/people/476594/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "605135": {
+        "sha256": "c1857056796677856dc52f2230c9310830ad70c9e997a2039e6bf925821044d0",
+        "url": "https://statsapi.mlb.com/api/v1/people/605135/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "605280": {
+        "sha256": "d65415b5e039c719185e390eb16c437be7f992945aad3f8b8fc1d59652082715",
+        "url": "https://statsapi.mlb.com/api/v1/people/605280/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "605400": {
+        "sha256": "ae00d1383505b5b90a24236250760146168916466cb7da392d6ee0f830456c29",
+        "url": "https://statsapi.mlb.com/api/v1/people/605400/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "607536": {
+        "sha256": "459433742c925e7df60d4f4963e9fdd2f4d62eeb4b2ac3bb81cde3f7d66120a7",
+        "url": "https://statsapi.mlb.com/api/v1/people/607536/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "645261": {
+        "sha256": "d7e7770622e6044dc665670ddca99851c55558099d128af064aef42a7ea26d93",
+        "url": "https://statsapi.mlb.com/api/v1/people/645261/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "650633": {
+        "sha256": "425dd979c23ea2973add94babad6b7d9e5273042b52bc7a172d57edee2b77fb9",
+        "url": "https://statsapi.mlb.com/api/v1/people/650633/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "656876": {
+        "sha256": "5cb9d21c9e8d9df7219c9aef9f46d8d6d267a465d44b596deb7f6e3a5b7dd32b",
+        "url": "https://statsapi.mlb.com/api/v1/people/656876/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "669160": {
+        "sha256": "02e74d0d6c9e9089501a6c76916b90937bab0d0b5ade30047601108170b3a61b",
+        "url": "https://statsapi.mlb.com/api/v1/people/669160/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "669302": {
+        "sha256": "3da2aefa346f20e5dd5c15900dff33d10287afd43c06db2cfb77c877a25e4403",
+        "url": "https://statsapi.mlb.com/api/v1/people/669302/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "669461": {
+        "sha256": "f52197330f961f436ff832696821e01bfa71db2dfcbc66a6bfb35668d7866a7f",
+        "url": "https://statsapi.mlb.com/api/v1/people/669461/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "671737": {
+        "sha256": "13285648ee781371b28531084b02ec821b2d7b30409b6ddeebf1721ef568ce1c",
+        "url": "https://statsapi.mlb.com/api/v1/people/671737/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "676917": {
+        "sha256": "b5466eeea359e49dc918eb646c20445ea1fa1b06b05095697f0bf39ded3eab12",
+        "url": "https://statsapi.mlb.com/api/v1/people/676917/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "694297": {
+        "sha256": "7d95632f8e249a5a61b60033ef03d668b2eb7c1ec474cc65607b65a3dcb61293",
+        "url": "https://statsapi.mlb.com/api/v1/people/694297/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "694973": {
+        "sha256": "b9bc7d82342d3a8005677b8da24ba9810eef85354f451473837adeb2934a7175",
+        "url": "https://statsapi.mlb.com/api/v1/people/694973/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "695505": {
+        "sha256": "41027fdd8ab2bd10aca1a68afc85b52e413ba95d12b2624f3f1ea102fc201766",
+        "url": "https://statsapi.mlb.com/api/v1/people/695505/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "695549": {
+        "sha256": "4a3001a1d701aa52989341982359c060c1050a9d3a7246cfbc175040c10e7fe8",
+        "url": "https://statsapi.mlb.com/api/v1/people/695549/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "700363": {
+        "sha256": "afe4922d065303adff75c479a1d141c3347e2acba2123729306eb4946f9bbe8c",
+        "url": "https://statsapi.mlb.com/api/v1/people/700363/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "700712": {
+        "sha256": "748d984c7be8d2df7d9faf0a252541d380614e69441271a0b0ad5059a276f7a7",
+        "url": "https://statsapi.mlb.com/api/v1/people/700712/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "701542": {
+        "sha256": "a66b803936a357761de07eb72ef8bed28fdbabf52493e55e435cd2011d2a0dbf",
+        "url": "https://statsapi.mlb.com/api/v1/people/701542/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "800048": {
+        "sha256": "79a017bbe1b0b05173c0463f4c6192163ee0284730f45a60d177a016e4a2c2b6",
+        "url": "https://statsapi.mlb.com/api/v1/people/800048/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "801139": {
+        "sha256": "db7e32d61c8206fed5937774f3966d988e68c60de8b8b8fb360649d052a8521e",
+        "url": "https://statsapi.mlb.com/api/v1/people/801139/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "808963": {
+        "sha256": "94a517bfc046b142339c9bbf825a9504e59f57be3a516a481dd488400fddd17c",
+        "url": "https://statsapi.mlb.com/api/v1/people/808963/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "814490": {
+        "sha256": "f8615992094a949312f8a27b4e129e9c14abd006b994818642110733e260d86f",
+        "url": "https://statsapi.mlb.com/api/v1/people/814490/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      }
+    },
+    "schedule_sha256": "0b7e49843368296f89d67278683467a133a29ea6b562d288c0b88627b038fb00",
+    "schedule_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-03-01&endDate=2026-08-19&hydrate=probablePitcher%28note%29%2Cteam",
+    "target_date": "2026-08-19"
+  }
+}
