@@ -174,6 +174,10 @@ def _authority(final_results: bytes) -> dict[str, object]:
 
 
 class P34ADailySettlementTests(unittest.TestCase):
+    @unittest.skipUnless(
+        P33A_BUNDLE.exists(),
+        "P33A live smoke bundle not present",
+    )
     def test_frozen_p33a_authority_is_loaded_without_regeneration(self) -> None:
         authority = load_p33a_authority(P33A_BUNDLE)
 
@@ -317,6 +321,10 @@ class P34ADailySettlementTests(unittest.TestCase):
         )
         self.assertIn("small", render_p34a_report(first).decode("utf-8"))
 
+    @unittest.skipUnless(
+        P33A_BUNDLE.exists(),
+        "P33A live smoke bundle not present",
+    )
     def test_actual_bundle_replay_materializes_zero_prediction_feedback(self) -> None:
         final_results = b""
         authority = _authority(final_results)
