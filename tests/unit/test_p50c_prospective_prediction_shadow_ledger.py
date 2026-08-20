@@ -486,6 +486,110 @@ class P50CProspectivePredictionShadowLedgerTests(unittest.TestCase):
             "Betting forward_sample_count was mutated by prediction workflow",
         )
 
+    def test_run_line_forward_evidence_in_shared_p50c_ledger(self) -> None:
+        """P50C forward ledger supports Run Line records alongside Moneyline without conflict."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            ledger_root = temp_path / "ledger"
+            ledger_root.mkdir(parents=True, exist_ok=True)
+            target_ledger = ledger_root / "prediction_forward_ledger.jsonl"
+
+            # 1. Moneyline record
+            ml_record = {
+                "ledger_record_id": "ml_001",
+                "schema_version": P50C_LEDGER_RECORD_SCHEMA,
+                "run_id": "p50c_run_ml",
+                "run_classification": CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                "market_id": "moneyline",
+                "prediction_identity": {
+                    "workflow_prediction_id": "p50c_pred_ml1",
+                    "prediction_fingerprint": "ml_fp1",
+                },
+                "game_identity": {
+                    "official_date": "2026-08-18",
+                    "home_team": "TEX",
+                    "away_team": "STL",
+                },
+                "model_identity": {
+                    "model_role": "CHAMPION",
+                    "model_id": "champion_ml",
+                    "model_probability": "0.60",
+                    "selection": "HOME",
+                },
+                "evaluation": {
+                    "selection": "HOME",
+                    "actual_winner": "HOME",
+                    "is_correct": True,
+                    "correctness_target": 1,
+                    "brier_component": "0.160000",
+                    "log_loss_component": "0.510825623766",
+                },
+            }
+
+            # 2. Run Line record
+            rl_record = {
+                "ledger_record_id": "rl_001",
+                "schema_version": P50C_LEDGER_RECORD_SCHEMA,
+                "run_id": "p50c_run_rl",
+                "run_classification": CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                "market_id": "run_line",
+                "line_value": -1.5,
+                "spread_home": -1.5,
+                "prediction_identity": {
+                    "workflow_prediction_id": "p61b_pred_rl1",
+                    "prediction_fingerprint": "rl_fp1",
+                    "market_id": "run_line",
+                    "line_value": -1.5,
+                },
+                "game_identity": {
+                    "official_date": "2026-08-18",
+                    "home_team": "TEX",
+                    "away_team": "STL",
+                },
+                "model_identity": {
+                    "model_role": "CHAMPION",
+                    "model_id": "poisson_team_rate_model",
+                    "model_version": "p226a.raw.v1",
+                    "market_id": "run_line",
+                    "spread_home": -1.5,
+                    "line_value": -1.5,
+                    "model_probability": "0.58",
+                    "selection": "HOME",
+                },
+                "evaluation": {
+                    "market_id": "run_line",
+                    "spread_home": -1.5,
+                    "line_value": -1.5,
+                    "selection": "HOME",
+                    "actual_result": "HOME",
+                    "actual_winner": "HOME",
+                    "is_push": False,
+                    "is_correct": True,
+                    "correctness_target": 1,
+                    "brier_component": "0.176400",
+                    "log_loss_component": "0.544727175436",
+                },
+            }
+
+            target_ledger.write_text(
+                json.dumps(ml_record, sort_keys=True) + "\n"
+                + json.dumps(rl_record, sort_keys=True) + "\n",
+                encoding="utf-8",
+            )
+
+            # Cumulative summary over both markets
+            fwd_rows = read_jsonl_objects(target_ledger)
+            self.assertEqual(len(fwd_rows), 2)
+            self.assertEqual(fwd_rows[0]["market_id"], "moneyline")
+            self.assertEqual(fwd_rows[1]["market_id"], "run_line")
+            self.assertEqual(fwd_rows[1]["line_value"], -1.5)
+
+            summary = get_p50c_forward_summary(REPOSITORY_ROOT, ledger_root=ledger_root)
+            self.assertEqual(summary["PREDICTION_FORWARD_SAMPLE_COUNT"], 2)
+            self.assertEqual(summary["run_count"], 2)
+            self.assertEqual(summary["correct_count"], 2)
+            self.assertEqual(summary["accuracy"], "1")
+
 
 if __name__ == "__main__":
     unittest.main()
