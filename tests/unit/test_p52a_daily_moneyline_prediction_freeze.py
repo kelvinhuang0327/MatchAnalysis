@@ -54,6 +54,7 @@ def _build_mock_schedule_payload(
                     {
                         "gamePk": 1000 + i,
                         "gameNumber": 1,
+                        "officialDate": day_str,
                         "gameDate": f"{day_str}T19:00:00Z",
                         "status": {"abstractGameState": "Final", "detailedState": "Final"},
                         "teams": {
@@ -70,6 +71,7 @@ def _build_mock_schedule_payload(
                     {
                         "gamePk": 2000 + i,
                         "gameNumber": 1,
+                        "officialDate": day_str,
                         "gameDate": f"{day_str}T19:05:00Z",
                         "status": {"abstractGameState": "Final", "detailedState": "Final"},
                         "teams": {
@@ -92,6 +94,7 @@ def _build_mock_schedule_payload(
         {
             "gamePk": 999001,
             "gameNumber": 1,
+            "officialDate": target_date,
             "gameDate": target_start_utc,
             "status": {"abstractGameState": "Preview", "detailedState": "Scheduled"},
             "teams": {
@@ -185,9 +188,9 @@ class TestP52ADailyMoneylinePredictionFreeze(unittest.TestCase):
         self.assertIsInstance(intercept, Decimal)
 
     def test_future_game_eligibility_and_freeze_success(self) -> None:
-        as_of_utc = "2026-08-18T13:00:00Z"
-        target_date = "2026-08-18"
-        target_start = "2026-08-18T23:05:00Z"
+        as_of_utc = "2026-08-21T13:00:00Z"
+        target_date = "2026-08-21"
+        target_start = "2026-08-22T00:10:00Z"
 
         sched = _build_mock_schedule_payload(
             target_date=target_date,
@@ -228,6 +231,7 @@ class TestP52ADailyMoneylinePredictionFreeze(unittest.TestCase):
         self.assertEqual(pregame_data["source_identity"], P52A_SOURCE_IDENTITY)
         self.assertEqual(len(pregame_data["predictions"]), 1)
         self.assertEqual(len(pregame_data["exclusions"]), 0)
+        self.assertEqual(pregame_data["predictions"][0]["official_date"], target_date)
 
         # Invariant: zero result contamination
         pred = pregame_data["predictions"][0]
@@ -242,7 +246,20 @@ class TestP52ADailyMoneylinePredictionFreeze(unittest.TestCase):
         self.assertEqual(manifest["lifecycle_state"], "FROZEN")
         self.assertEqual(manifest["eligible_prediction_count"], 1)
         self.assertEqual(manifest["created_at_utc"], as_of_utc)
+        self.assertEqual(manifest["target_date"], target_date)
         self.assertLess(manifest["created_at_utc"], target_start)
+        frozen = read_jsonl_objects(result.run_dir / "frozen_predictions.jsonl")
+        self.assertEqual(frozen[0]["game_identity"]["official_date"], target_date)
+        self.assertEqual(
+            frozen[0]["game_identity"]["scheduled_start_utc"],
+            "2026-08-22T00:10:00Z",
+        )
+
+    def test_missing_provider_official_date_fails_closed(self) -> None:
+        sched = _build_mock_schedule_payload()
+        del sched["dates"][-1]["games"][0]["officialDate"]
+        with self.assertRaisesRegex(ValueError, "P52A_CANONICAL_OFFICIAL_DATE_REQUIRED"):
+            parse_schedule_rows(sched)
 
     def test_past_cutoff_game_exclusion(self) -> None:
         """Target game whose scheduled start is <= as_of_utc must be excluded."""
@@ -516,6 +533,7 @@ class TestP52ADailyMoneylinePredictionFreeze(unittest.TestCase):
             {
                 "gamePk": 999002,
                 "gameNumber": 1,
+                "officialDate": target_date,
                 "gameDate": "2026-08-19T23:05:00Z",
                 "status": {"abstractGameState": "Preview", "detailedState": "Scheduled"},
                 "teams": {

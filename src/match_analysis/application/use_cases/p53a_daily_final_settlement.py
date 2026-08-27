@@ -146,9 +146,16 @@ def resolve_prediction_run(
             if not manifest_file.is_file() or not pred_file.is_file():
                 continue
             try:
+                manifest = read_json_object(manifest_file)
+                manifest_target_date = str(manifest.get("target_date") or "").strip()
+                if manifest_target_date:
+                    if manifest_target_date == clean_target:
+                        matching_runs.append(child.resolve())
+                    continue
                 preds = read_jsonl_objects(pred_file)
             except Exception:
                 continue
+            # Legacy manifests without target_date retain the smallest existing fallback.
             for p in preds:
                 g_id = p.get("game_identity", {})
                 off_date = str(g_id.get("official_date") or "").strip()
@@ -212,9 +219,9 @@ def acquire_official_final_results_for_run(
         if off_date:
             official_dates.add(off_date)
         else:
-            sched = str(game_id.get("scheduled_start_utc") or "")[:10]
-            if sched:
-                official_dates.add(sched)
+            raise RuntimeError(
+                "P53A_CANONICAL_OFFICIAL_DATE_REQUIRED: frozen prediction is missing provider official_date"
+            )
 
         target_by_game_key[(gid, gnum)] = pred
         target_by_pk[gpk] = pred
@@ -336,13 +343,18 @@ def execute_daily_moneyline_final_settlement(
     if not frozen_predictions:
         raise RuntimeError("P53A_EMPTY_FROZEN_PREDICTIONS: run contains no frozen predictions")
 
-    # Inferred target date from frozen predictions
+    # Prefer explicit manifest authority; legacy manifests fall back to frozen dates.
     dates = [
         str(p["game_identity"]["official_date"])
         for p in frozen_predictions
         if p.get("game_identity", {}).get("official_date")
     ]
-    slate_target_date = target_date or (dates[0] if dates else "UNKNOWN")
+    manifest_target_date = str(manifest.get("target_date") or "").strip()
+    if target_date and manifest_target_date and target_date != manifest_target_date:
+        raise ValueError(
+            "P53A_TARGET_DATE_MANIFEST_MISMATCH: requested target_date disagrees with run manifest"
+        )
+    slate_target_date = manifest_target_date or target_date or (dates[0] if dates else "UNKNOWN")
 
     # Capture betting forward sample count before settlement
     p45a_summary_before = get_p45a_forward_summary(repo_root)

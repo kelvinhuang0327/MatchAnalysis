@@ -152,8 +152,12 @@ def parse_schedule_rows(sched_data: Mapping[str, Any]) -> list[dict[str, Any]]:
     """Normalize schedule entries into standardized internal rows."""
     schedule_rows: list[dict[str, Any]] = []
     for d in sched_data.get("dates", []):
-        official_date = d.get("date")
         for g in d.get("games", []):
+            official_date = g.get("officialDate")
+            if not isinstance(official_date, str) or not official_date.strip():
+                raise ValueError(
+                    "P52A_CANONICAL_OFFICIAL_DATE_REQUIRED: MLB game is missing provider officialDate"
+                )
             home_wrapper = g.get("teams", {}).get("home", {})
             away_wrapper = g.get("teams", {}).get("away", {})
             home_team = home_wrapper.get("team", {})
@@ -510,6 +514,7 @@ def execute_daily_moneyline_prediction_freeze(
             "game_pk": gpk,
             "game_number": g.get("game_number", 1),
             "scheduled_start_utc": scheduled_start_str,
+            "official_date": g["official_date"],
             "champion_model_id": champion_model_id,
             "champion_model_fingerprint": champion_model_fp,
             "champion_home_probability": format(p_home, "f"),
@@ -556,6 +561,7 @@ def execute_daily_moneyline_prediction_freeze(
             run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
             run_root=out_root / P50C_REPORT_RELATIVE_PATH / "runs",
             created_at_utc=as_of_str,
+            target_date=target_date,
         )
         run_id = create_result.run_id
         freeze_status = create_result.status

@@ -60,6 +60,7 @@ def _make_sample_pregame_input(
                 "game_pk": gpk,
                 "game_number": 1,
                 "scheduled_start_utc": scheduled,
+                "official_date": target_date,
                 "champion_model_id": "p22b_moneyline_logistic_challenger_v1",
                 "champion_model_fingerprint": sha256(b"mock_model").hexdigest(),
                 "champion_home_probability": format(p_home, "f"),
@@ -422,6 +423,46 @@ class TestP53ADailyFinalSettlement(unittest.TestCase):
             runs_root=self.runs_root,
         )
         self.assertEqual(resolved_by_date, self.run_dir)
+
+        # Explicit manifest target_date is authoritative even when legacy row dates differ.
+        manifest_first_dir = self.runs_root / "manifest_first"
+        manifest_first_dir.mkdir()
+        (manifest_first_dir / "run_manifest.json").write_text(
+            json.dumps(
+                {
+                    "run_id": "manifest_first",
+                    "target_date": "2026-08-19",
+                    "created_at_utc": "2026-08-19T12:00:00Z",
+                }
+            ),
+            encoding="utf-8",
+        )
+        (manifest_first_dir / "frozen_predictions.jsonl").write_bytes(
+            (self.run_dir / "frozen_predictions.jsonl").read_bytes()
+        )
+        self.assertEqual(
+            resolve_prediction_run(
+                self.repo_root,
+                target_date="2026-08-19",
+                runs_root=self.runs_root,
+            ),
+            manifest_first_dir.resolve(),
+        )
+
+        # A legacy manifest without target_date remains readable via frozen authority.
+        manifest = read_json_object(self.run_dir / "run_manifest.json")
+        manifest.pop("target_date")
+        (self.run_dir / "run_manifest.json").write_text(
+            json.dumps(manifest), encoding="utf-8"
+        )
+        self.assertEqual(
+            resolve_prediction_run(
+                self.repo_root,
+                target_date="2026-08-18",
+                runs_root=self.runs_root,
+            ),
+            self.run_dir,
+        )
 
 
 if __name__ == "__main__":

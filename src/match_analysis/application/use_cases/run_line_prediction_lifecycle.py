@@ -60,9 +60,11 @@ from .p50c_prediction_run_ledger import (
     STATE_PARTIALLY_SETTLED,
     STATE_SETTLED,
     compute_forward_prediction_summary,
+    load_effective_forward_records,
     read_json_object,
     read_jsonl_objects,
     reject_pregame_contamination,
+    require_canonical_official_date,
 )
 
 
@@ -116,6 +118,7 @@ class RunLinePregameInputItem:
     home_team: str
     away_team: str
     scheduled_start_utc: str
+    official_date: str
     as_of_utc: str
     spread_home: float = DEFAULT_CANONICAL_SPREAD_HOME
     provider_namespace: str = "MLB_STATS_API"
@@ -141,6 +144,7 @@ class RunLineFrozenPrediction:
     home_team: str
     away_team: str
     scheduled_start_utc: str
+    official_date: str
     as_of_utc: str
     market_id: str
     spread_home: float
@@ -171,6 +175,7 @@ class RunLineFrozenPrediction:
             "home_team": self.home_team,
             "away_team": self.away_team,
             "scheduled_start_utc": self.scheduled_start_utc,
+            "official_date": self.official_date,
             "as_of_utc": self.as_of_utc,
             "market_id": self.market_id,
             "spread_home": self.spread_home,
@@ -190,7 +195,7 @@ class RunLineFrozenPrediction:
                 "game_pk": self.game_pk,
                 "game_number": self.game_number,
                 "scheduled_start_utc": self.scheduled_start_utc,
-                "official_date": self.scheduled_start_utc[:10],
+                "official_date": self.official_date,
                 "home_team": self.home_team,
                 "away_team": self.away_team,
                 "home_team_code": self.home_team,
@@ -223,6 +228,7 @@ def compute_prediction_fingerprint(
     home_team: str,
     away_team: str,
     scheduled_start_utc: str,
+    official_date: str,
     as_of_utc: str,
     spread_home: float,
     model_id: str,
@@ -235,7 +241,7 @@ def compute_prediction_fingerprint(
     """Compute deterministic SHA-256 fingerprint for a Run Line prediction."""
     payload = (
         f"{provider_game_id}:{home_team}:{away_team}:{scheduled_start_utc}:"
-        f"{as_of_utc}:{spread_home:.6f}:{model_id}:{model_version}:"
+        f"{official_date}:{as_of_utc}:{spread_home:.6f}:{model_id}:{model_version}:"
         f"{p_home_covers:.8f}:{p_away_covers:.8f}:{p_push:.8f}:{predicted_side}"
     )
     return sha256(payload.encode("utf-8")).hexdigest()
@@ -246,16 +252,39 @@ def freeze_run_line_predictions(
     history_records: Sequence[PriorGameRecord],
     *,
     run_id: str,
+    task_id: str = "P64B",
     classification: str = CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
     output_dir: Path | None = None,
     repository_root: str | Path | None = None,
     runs_root: str | Path | None = None,
     created_at_utc: str | None = None,
+    target_date: str | None = None,
 ) -> tuple[tuple[RunLineFrozenPrediction, ...], dict[str, Any]]:
     """Generate and freeze immutable Run Line predictions from pregame input and prior history."""
 
     if not pregame_inputs:
         raise ValueError("pregame_inputs must not be empty")
+
+    input_official_dates = [
+        require_canonical_official_date(
+            item.official_date,
+            field_name=f"Run Line game {item.provider_game_id} official_date",
+        )
+        for item in pregame_inputs
+    ]
+    unique_official_dates = sorted(set(input_official_dates))
+    if target_date is not None:
+        resolved_target_date = require_canonical_official_date(target_date, field_name="target_date")
+        if unique_official_dates != [resolved_target_date]:
+            raise ValueError(
+                "P61B_TARGET_DATE_OFFICIAL_DATE_MISMATCH: target_date must equal every prediction official_date"
+            )
+    elif len(unique_official_dates) == 1:
+        resolved_target_date = unique_official_dates[0]
+    else:
+        raise ValueError(
+            "P61B_TARGET_DATE_REQUIRED: a Run Line daily run must contain one canonical official_date"
+        )
 
     repo_root = Path(repository_root).resolve() if repository_root is not None else None
     if output_dir is not None:
@@ -312,6 +341,7 @@ def freeze_run_line_predictions(
             home_team=item.home_team,
             away_team=item.away_team,
             scheduled_start_utc=item.scheduled_start_utc,
+            official_date=item.official_date,
             as_of_utc=item.as_of_utc,
             spread_home=item.spread_home,
             model_id=MODEL_ID,
@@ -333,6 +363,7 @@ def freeze_run_line_predictions(
             home_team=item.home_team,
             away_team=item.away_team,
             scheduled_start_utc=item.scheduled_start_utc,
+            official_date=item.official_date,
             as_of_utc=item.as_of_utc,
             market_id=MARKET_ID,
             spread_home=float(item.spread_home),
@@ -356,11 +387,12 @@ def freeze_run_line_predictions(
 
     manifest = {
         "schema_version": P61B_RUN_MANIFEST_SCHEMA,
-        "task_id": "P64B",
+        "task_id": task_id,
         "run_id": run_id,
         "run_classification": classification,
         "lifecycle_state": STATE_FROZEN,
         "created_at_utc": creation_time,
+        "target_date": resolved_target_date,
         "model_role": "CHAMPION",
         "market_id": MARKET_ID,
         "prediction_count": len(predictions_tuple),
@@ -422,6 +454,10 @@ def _parse_run_line_frozen_dict(row: Mapping[str, Any]) -> RunLineFrozenPredicti
         home_team=str(game_id.get("home_team", row.get("home_team", "HOME"))),
         away_team=str(game_id.get("away_team", row.get("away_team", "AWAY"))),
         scheduled_start_utc=str(game_id.get("scheduled_start_utc", row.get("scheduled_start_utc", ""))),
+        official_date=require_canonical_official_date(
+            game_id.get("official_date", row.get("official_date")),
+            field_name="Run Line frozen prediction official_date",
+        ),
         as_of_utc=str(row.get("as_of_utc", "")),
         market_id=str(row.get("market_id", MARKET_ID)),
         spread_home=spread_home,
@@ -647,7 +683,7 @@ def settle_run_line_predictions(
                 "game_pk": pred.game_pk,
                 "game_number": pred.game_number,
                 "scheduled_start_utc": pred.scheduled_start_utc,
-                "official_date": pred.scheduled_start_utc[:10],
+                "official_date": pred.official_date,
                 "home_team": pred.home_team,
                 "away_team": pred.away_team,
                 "home_team_code": pred.home_team,
@@ -796,8 +832,7 @@ def settle_run_line_predictions(
                 f.write(_jsonl_bytes(rows_to_append))
 
         # Update forward prediction summary
-        forward_ledger_file = resolved_ledger_root / "prediction_forward_ledger.jsonl"
-        forward_rows = read_jsonl_objects(forward_ledger_file)
+        forward_rows = load_effective_forward_records(resolved_ledger_root)
         forward_summary = compute_forward_prediction_summary(forward_rows)
         (resolved_ledger_root / "forward_prediction_summary.json").write_bytes(_json_bytes(forward_summary))
 

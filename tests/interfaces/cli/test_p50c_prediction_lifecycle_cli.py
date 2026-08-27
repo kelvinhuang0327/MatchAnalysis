@@ -64,7 +64,14 @@ def _make_cli_pregame_fixture() -> NormalizedPregameInput:
         prediction_rows=(pred1, pred2),
         market_rows=(),
         exclusion_rows=(),
-        source_manifest={"adapter": "mlb_pregame_feed"},
+        source_manifest={
+            "adapter": "mlb_pregame_feed",
+            "target_date": "2026-08-18",
+            "official_dates_by_prediction_row_id": {
+                pred1.p37_prediction_row_id: "2026-08-18",
+                pred2.p37_prediction_row_id: "2026-08-18",
+            },
+        },
         authority_hashes={},
         p37_summary={},
         p39_summary={},

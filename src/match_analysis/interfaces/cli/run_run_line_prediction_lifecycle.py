@@ -54,6 +54,7 @@ def _load_pregame_inputs(path: Path) -> list[RunLinePregameInputItem]:
                 home_team=str(item["home_team"]),
                 away_team=str(item["away_team"]),
                 scheduled_start_utc=str(item["scheduled_start_utc"]),
+                official_date=str(item["official_date"]),
                 as_of_utc=str(item.get("as_of_utc") or item.get("scheduled_start_utc")),
                 spread_home=float(spread),
                 provider_namespace=str(item.get("provider_namespace", "MLB_STATS_API")),

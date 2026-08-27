@@ -40,6 +40,7 @@ class RunLineParityAndLifecycleTests(unittest.TestCase):
             home_team="TEX",
             away_team="STL",
             scheduled_start_utc="2026-04-02T19:05:00Z",
+            official_date="2026-04-02",
             as_of_utc="2026-04-02T12:00:00Z",
             spread_home=-1.5,
             game_pk=820001,
@@ -49,6 +50,7 @@ class RunLineParityAndLifecycleTests(unittest.TestCase):
             home_team="TEX",
             away_team="STL",
             scheduled_start_utc="2026-04-02T19:05:00Z",
+            official_date="2026-04-02",
             as_of_utc="2026-04-02T12:00:00Z",
             spread_home=1.5,
             game_pk=820001,
@@ -136,11 +138,37 @@ class RunLineParityAndLifecycleTests(unittest.TestCase):
             home_team="TEX",
             away_team="STL",
             scheduled_start_utc="2026-04-02T19:05:00Z",
+            official_date="2026-04-02",
             as_of_utc="2026-04-02T19:05:00Z",
             spread_home=-1.5,
         )
         with self.assertRaises(ValueError):
             freeze_run_line_predictions([late_item], self.history, run_id="r_late")
+
+    def test_cross_midnight_provider_official_date_is_preserved(self) -> None:
+        cross_midnight = RunLinePregameInputItem(
+            provider_game_id="824072",
+            home_team="TEX",
+            away_team="STL",
+            scheduled_start_utc="2026-08-22T00:10:00Z",
+            official_date="2026-08-21",
+            as_of_utc="2026-08-21T12:00:00Z",
+            spread_home=-1.5,
+            game_pk=824072,
+        )
+        predictions, manifest = freeze_run_line_predictions(
+            [cross_midnight],
+            self.history,
+            run_id="p66a_cross_midnight",
+            created_at_utc="2026-08-21T12:00:00Z",
+        )
+        payload = predictions[0].to_payload()
+        self.assertEqual(payload["game_identity"]["official_date"], "2026-08-21")
+        self.assertEqual(
+            payload["game_identity"]["scheduled_start_utc"],
+            "2026-08-22T00:10:00Z",
+        )
+        self.assertEqual(manifest["target_date"], "2026-08-21")
 
     def test_run_line_canonical_forward_integration_with_preexisting_moneyline_rows(self) -> None:
         """Temporary P50C runtime with pre-existing Moneyline rows receives Run Line evidence without mutating Moneyline rows."""
@@ -335,6 +363,7 @@ class RunLineParityAndLifecycleTests(unittest.TestCase):
                     "home_team": "TEX",
                     "away_team": "STL",
                     "scheduled_start_utc": "2026-04-02T19:05:00Z",
+                    "official_date": "2026-04-02",
                     "as_of_utc": "2026-04-02T12:00:00Z",
                     "spread_home": -1.5,
                 }

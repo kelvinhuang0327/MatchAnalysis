@@ -33,9 +33,11 @@ from match_analysis.application.use_cases.p50c_prediction_run_ledger import (
     P50C_LEDGER_RECORD_SCHEMA,
     P50C_RUN_MANIFEST_SCHEMA,
     P50C_SETTLEMENT_SUMMARY_SCHEMA,
+    P66A_OFFICIAL_DATE_CORRECTION_SCHEMA,
     STATE_FROZEN,
     STATE_PARTIALLY_SETTLED,
     STATE_SETTLED,
+    apply_official_date_corrections,
     build_frozen_prediction_record,
     calculate_log_loss,
     canonical_prediction_fingerprint,
@@ -89,7 +91,15 @@ def _make_prospective_pregame_fixture() -> NormalizedPregameInput:
         prediction_rows=(pred1, pred2),
         market_rows=(),
         exclusion_rows=(),
-        source_manifest={"adapter": "mlb_pregame_feed", "version": "1.0"},
+        source_manifest={
+            "adapter": "mlb_pregame_feed",
+            "version": "1.0",
+            "target_date": "2026-08-18",
+            "official_dates_by_prediction_row_id": {
+                pred1.p37_prediction_row_id: "2026-08-18",
+                pred2.p37_prediction_row_id: "2026-08-18",
+            },
+        },
         authority_hashes={},
         p37_summary={},
         p39_summary={},
@@ -138,7 +148,10 @@ class P50CProspectivePredictionShadowLedgerTests(unittest.TestCase):
         )
         self.assertEqual(len(norm_fp), 64)
 
-        pred_fps = [compute_prediction_row_fingerprint(r) for r in bundle.prediction_rows]
+        pred_fps = [
+            compute_prediction_row_fingerprint(r, official_date="2026-08-18")
+            for r in bundle.prediction_rows
+        ]
         self.assertEqual(len(pred_fps), 2)
         self.assertTrue(all(len(fp) == 64 for fp in pred_fps))
 
@@ -174,6 +187,7 @@ class P50CProspectivePredictionShadowLedgerTests(unittest.TestCase):
             run_id="p50c_run_test",
             run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
             created_at_utc="2026-08-18T12:00:00Z",
+            official_date="2026-08-18",
             home_team="New York Yankees",
             away_team="Boston Red Sox",
         )
@@ -245,6 +259,7 @@ class P50CProspectivePredictionShadowLedgerTests(unittest.TestCase):
             self.assertEqual(res1.status, "CREATED")
             self.assertEqual(res1.manifest["lifecycle_state"], STATE_FROZEN)
             self.assertEqual(res1.manifest["eligible_prediction_count"], 2)
+            self.assertEqual(res1.manifest["target_date"], "2026-08-18")
             self.assertEqual(res1.manifest["claims"], P50C_CLAIMS)
 
             # Re-running on identical inputs returns RECOGNIZED_IDENTICAL
@@ -279,6 +294,69 @@ class P50CProspectivePredictionShadowLedgerTests(unittest.TestCase):
                     created_at_utc="2026-08-18T12:00:00Z",
                 )
             self.assertIn("P50C_RUN_AUTHORITY_CONFLICT", str(cm.exception))
+
+    def test_missing_provider_official_date_fails_closed(self) -> None:
+        complete = _make_prospective_pregame_fixture()
+        missing_date_bundle = NormalizedPregameInput(
+            source_identity=complete.source_identity,
+            prediction_rows=complete.prediction_rows,
+            market_rows=(),
+            exclusion_rows=(),
+            source_manifest={"target_date": "2026-08-18"},
+            authority_hashes={},
+            p37_summary={},
+            p39_summary={},
+            p39_source_manifest={},
+        )
+        with tempfile.TemporaryDirectory() as temp_dir:
+            with self.assertRaisesRegex(ValueError, "P50C_CANONICAL_OFFICIAL_DATE_REQUIRED"):
+                create_p50c_prediction_run(
+                    REPOSITORY_ROOT,
+                    pregame_input=missing_date_bundle,
+                    run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                    run_root=Path(temp_dir) / "runs",
+                    created_at_utc="2026-08-18T12:00:00Z",
+                )
+
+    def test_official_date_overlay_is_validated_and_replay_idempotent(self) -> None:
+        raw = {
+            "ledger_record_id": "ledger_001",
+            "run_id": "run_001",
+            "prediction_identity": {
+                "workflow_prediction_id": "prediction_001",
+                "prediction_fingerprint": "fingerprint_001",
+            },
+            "game_identity": {
+                "game_pk": 824154,
+                "provider_game_id": "824154",
+                "game_number": 1,
+                "official_date": "2026-08-19",
+            },
+        }
+        correction = {
+            "schema_version": P66A_OFFICIAL_DATE_CORRECTION_SCHEMA,
+            "ledger_id": "ledger_001",
+            "run_id": "run_001",
+            "prediction_id": "prediction_001",
+            "official_game_pk": 824154,
+            "original_official_date": "2026-08-19",
+            "corrected_official_date": "2026-08-18",
+        }
+
+        first = apply_official_date_corrections([raw], [correction])
+        second = apply_official_date_corrections([raw], [correction])
+        self.assertEqual(first, second)
+        self.assertEqual(raw["game_identity"]["official_date"], "2026-08-19")
+        self.assertEqual(first[0]["game_identity"]["official_date"], "2026-08-18")
+        self.assertEqual(len(first), 1)
+
+        with self.assertRaisesRegex(ValueError, "P66A_DUPLICATE_CORRECTION_LEDGER_ID"):
+            apply_official_date_corrections([raw], [correction, correction])
+        with self.assertRaisesRegex(ValueError, "P66A_CORRECTION_GAME_PK_MISMATCH"):
+            apply_official_date_corrections(
+                [raw],
+                [{**correction, "official_game_pk": 999999}],
+            )
 
     def test_settle_prediction_run_partial_and_full_lifecycle(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

@@ -23,7 +23,9 @@ Strictly enforces:
 
 from __future__ import annotations
 
+from copy import deepcopy
 from dataclasses import dataclass
+from datetime import date
 from decimal import Decimal, localcontext
 from hashlib import sha256
 import json
@@ -51,6 +53,8 @@ P50C_SETTLEMENT_SUMMARY_SCHEMA = "p50c.prediction_run_settlement_summary.v1"
 P50C_LEDGER_RECORD_SCHEMA = "p50c.forward_prediction_ledger_record.v1"
 P50C_FORWARD_SUMMARY_SCHEMA = "p50c.cumulative_forward_prediction_summary.v1"
 P50C_REPORT_RELATIVE_PATH = Path("report/p50c_prospective_prediction_shadow_ledger")
+P66A_OFFICIAL_DATE_CORRECTION_SCHEMA = "p66a.official_date_correction.v1"
+P66A_OFFICIAL_DATE_CORRECTION_FILENAME = "p66a_official_date_correction_v1.jsonl"
 
 CLASSIFICATION_HISTORICAL_REHEARSAL = "HISTORICAL_REHEARSAL"
 CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION = "PROSPECTIVE_FORWARD_PREDICTION"
@@ -140,6 +144,23 @@ def _decimal_text(value: Any) -> str | None:
     if value is None:
         return None
     return format(value, "f") if hasattr(value, "is_finite") else str(value)
+
+
+def require_canonical_official_date(value: Any, *, field_name: str = "official_date") -> str:
+    """Return one canonical provider date or fail rather than infer it from UTC time."""
+    if not isinstance(value, str) or not value or value != value.strip():
+        raise ValueError(f"P50C_CANONICAL_OFFICIAL_DATE_REQUIRED: {field_name} must be a non-empty string")
+    try:
+        parsed = date.fromisoformat(value)
+    except ValueError as exc:
+        raise ValueError(
+            f"P50C_CANONICAL_OFFICIAL_DATE_REQUIRED: {field_name} must use YYYY-MM-DD"
+        ) from exc
+    if parsed.isoformat() != value:
+        raise ValueError(
+            f"P50C_CANONICAL_OFFICIAL_DATE_REQUIRED: {field_name} must use YYYY-MM-DD"
+        )
+    return value
 
 
 def _duplicate_rejecting_pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
@@ -271,13 +292,14 @@ def canonical_prediction_fingerprint(
 def compute_prediction_row_fingerprint(
     row: P40APredictionRow,
     *,
-    official_date: str = "",
+    official_date: str,
     home_team: str = "",
     away_team: str = "",
     home_team_code: str = "",
     away_team_code: str = "",
 ) -> str:
     """Compute deterministic SHA-256 fingerprint for one frozen prediction."""
+    canonical_official_date = require_canonical_official_date(official_date)
     p_home = row.champion_home_probability
     p_away = Decimal("1") - p_home
     selection = "HOME" if p_home >= Decimal("0.5") else "AWAY"
@@ -288,7 +310,7 @@ def compute_prediction_row_fingerprint(
         "game_pk": row.game_pk,
         "game_number": row.game_number,
         "scheduled_start_utc": row.scheduled_start_utc,
-        "official_date": official_date or row.scheduled_start_utc[:10],
+        "official_date": canonical_official_date,
         "home_team": home_team or "HOME",
         "away_team": away_team or "AWAY",
         "home_team_code": home_team_code or "HOME",
@@ -310,16 +332,17 @@ def build_frozen_prediction_record(
     run_id: str,
     run_classification: str,
     created_at_utc: str,
-    official_date: str = "",
+    official_date: str,
     home_team: str = "",
     away_team: str = "",
     home_team_code: str = "",
     away_team_code: str = "",
 ) -> dict[str, Any]:
     """Construct one immutable pregame prediction record with zero outcome/market fields."""
+    canonical_official_date = require_canonical_official_date(official_date)
     row_fp = compute_prediction_row_fingerprint(
         row,
-        official_date=official_date,
+        official_date=canonical_official_date,
         home_team=home_team,
         away_team=away_team,
         home_team_code=home_team_code,
@@ -342,7 +365,7 @@ def build_frozen_prediction_record(
             "game_pk": row.game_pk,
             "game_number": row.game_number,
             "scheduled_start_utc": row.scheduled_start_utc,
-            "official_date": official_date or row.scheduled_start_utc[:10],
+            "official_date": canonical_official_date,
             "home_team": ht,
             "away_team": at,
             "home_team_code": home_team_code or "HOME",
@@ -446,9 +469,30 @@ def load_p50c_pregame_input(source: NormalizedPregameInput | str | Path) -> Norm
             raise ValueError(f"no predictions found in pregame input {path}")
 
         parsed_predictions = []
+        source_manifest = dict(payload.get("source_manifest", {}))
+        official_dates_by_prediction_id = dict(
+            source_manifest.get("official_dates_by_prediction_row_id", {})
+        )
         for r in raw_predictions:
             reject_pregame_contamination(r)
-            parsed_predictions.append(_parse_prediction_row_dict(r))
+            parsed = _parse_prediction_row_dict(r)
+            parsed_predictions.append(parsed)
+            if "official_date" in r:
+                official_date = require_canonical_official_date(
+                    r.get("official_date"),
+                    field_name=f"prediction {parsed.p37_prediction_row_id} official_date",
+                )
+                existing = official_dates_by_prediction_id.get(parsed.p37_prediction_row_id)
+                if existing is not None and existing != official_date:
+                    raise ValueError(
+                        "P50C_CANONICAL_OFFICIAL_DATE_CONFLICT: prediction row and source manifest disagree"
+                    )
+                official_dates_by_prediction_id[parsed.p37_prediction_row_id] = official_date
+
+        if official_dates_by_prediction_id:
+            source_manifest["official_dates_by_prediction_row_id"] = dict(
+                sorted(official_dates_by_prediction_id.items())
+            )
 
         raw_exclusions = payload.get("exclusions", [])
         exclusions = [dict(x) for x in raw_exclusions] if isinstance(raw_exclusions, list) else []
@@ -460,12 +504,67 @@ def load_p50c_pregame_input(source: NormalizedPregameInput | str | Path) -> Norm
             prediction_rows=tuple(parsed_predictions),
             market_rows=(),
             exclusion_rows=tuple(exclusions),
-            source_manifest=dict(payload.get("source_manifest", {})),
+            source_manifest=source_manifest,
             authority_hashes={},
             p37_summary={},
             p39_summary={},
             p39_source_manifest={},
         )
+
+
+def _prediction_official_date(
+    row: P40APredictionRow,
+    bundle: NormalizedPregameInput,
+    market_by_prediction_id: Mapping[str, Any],
+) -> str:
+    market_row = market_by_prediction_id.get(row.p37_prediction_row_id)
+    if market_row is not None:
+        return require_canonical_official_date(
+            market_row.official_date,
+            field_name=f"market row {row.p37_prediction_row_id} official_date",
+        )
+
+    source_dates = bundle.source_manifest.get("official_dates_by_prediction_row_id", {})
+    if isinstance(source_dates, Mapping):
+        value = source_dates.get(row.p37_prediction_row_id)
+        if value is not None:
+            return require_canonical_official_date(
+                value,
+                field_name=f"prediction {row.p37_prediction_row_id} official_date",
+            )
+
+    raise ValueError(
+        "P50C_CANONICAL_OFFICIAL_DATE_REQUIRED: provider official_date is missing for "
+        f"prediction {row.p37_prediction_row_id}"
+    )
+
+
+def _resolve_run_target_date(
+    *,
+    requested_target_date: str | None,
+    source_manifest: Mapping[str, Any],
+    official_dates: Sequence[str],
+    run_classification: str,
+) -> str | None:
+    unique_official_dates = sorted(set(official_dates))
+    manifest_target = source_manifest.get("target_date")
+    candidate = requested_target_date if requested_target_date is not None else manifest_target
+
+    if candidate is not None:
+        resolved = require_canonical_official_date(candidate, field_name="target_date")
+        if unique_official_dates != [resolved]:
+            raise ValueError(
+                "P50C_TARGET_DATE_OFFICIAL_DATE_MISMATCH: target_date must equal every prediction official_date"
+            )
+        return resolved
+
+    if len(unique_official_dates) == 1:
+        return unique_official_dates[0]
+    if run_classification == CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION:
+        raise ValueError(
+            "P50C_TARGET_DATE_REQUIRED: prospective daily runs must contain one canonical official_date"
+        )
+    return None
 
 
 def create_p50c_prediction_run(
@@ -475,6 +574,7 @@ def create_p50c_prediction_run(
     run_classification: str = CLASSIFICATION_HISTORICAL_REHEARSAL,
     run_root: str | Path | None = None,
     created_at_utc: str = "2026-08-17T12:00:00Z",
+    target_date: str | None = None,
 ) -> P50CCreateRunResult:
     """Create and freeze an immutable prediction run strictly before scheduled game start."""
     root = Path(repository_root).resolve()
@@ -506,11 +606,21 @@ def create_p50c_prediction_run(
     ]
 
     market_by_pred_id = {m.p37_prediction_row_id: m for m in bundle.market_rows}
+    official_dates_by_pred_id = {
+        row.p37_prediction_row_id: _prediction_official_date(row, bundle, market_by_pred_id)
+        for row in bundle.prediction_rows
+    }
+    resolved_target_date = _resolve_run_target_date(
+        requested_target_date=target_date,
+        source_manifest=bundle.source_manifest,
+        official_dates=tuple(official_dates_by_pred_id.values()),
+        run_classification=run_classification,
+    )
 
     pred_fps = [
         compute_prediction_row_fingerprint(
             row,
-            official_date=market_by_pred_id[row.p37_prediction_row_id].official_date if row.p37_prediction_row_id in market_by_pred_id else "",
+            official_date=official_dates_by_pred_id[row.p37_prediction_row_id],
             home_team=market_by_pred_id[row.p37_prediction_row_id].home_team if row.p37_prediction_row_id in market_by_pred_id else "",
             away_team=market_by_pred_id[row.p37_prediction_row_id].away_team if row.p37_prediction_row_id in market_by_pred_id else "",
             home_team_code=market_by_pred_id[row.p37_prediction_row_id].home_team_code if row.p37_prediction_row_id in market_by_pred_id else "",
@@ -543,7 +653,7 @@ def create_p50c_prediction_run(
             run_id=run_id,
             run_classification=run_classification,
             created_at_utc=created_at_utc,
-            official_date=market_by_pred_id[row.p37_prediction_row_id].official_date if row.p37_prediction_row_id in market_by_pred_id else "",
+            official_date=official_dates_by_pred_id[row.p37_prediction_row_id],
             home_team=market_by_pred_id[row.p37_prediction_row_id].home_team if row.p37_prediction_row_id in market_by_pred_id else "",
             away_team=market_by_pred_id[row.p37_prediction_row_id].away_team if row.p37_prediction_row_id in market_by_pred_id else "",
             home_team_code=market_by_pred_id[row.p37_prediction_row_id].home_team_code if row.p37_prediction_row_id in market_by_pred_id else "",
@@ -561,6 +671,7 @@ def create_p50c_prediction_run(
         "run_classification": run_classification,
         "lifecycle_state": STATE_FROZEN,
         "created_at_utc": created_at_utc,
+        "target_date": resolved_target_date,
         "model_role": "CHAMPION",
         "target_universe_count": len(bundle.prediction_rows) + len(bundle.exclusion_rows),
         "eligible_prediction_count": len(frozen_records),
@@ -847,6 +958,82 @@ def compute_forward_prediction_summary(
     }
 
 
+def apply_official_date_corrections(
+    raw_records: Sequence[Mapping[str, Any]],
+    correction_records: Sequence[Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    """Apply the P66A overlay to an immutable raw ledger projection."""
+    effective_records = deepcopy([dict(row) for row in raw_records])
+    raw_by_ledger_id: dict[str, dict[str, Any]] = {}
+    effective_by_ledger_id: dict[str, dict[str, Any]] = {}
+
+    for raw_row, effective_row in zip(raw_records, effective_records, strict=True):
+        ledger_id = str(raw_row.get("ledger_record_id") or "").strip()
+        if not ledger_id:
+            raise ValueError("P66A_RAW_LEDGER_ID_REQUIRED: raw row is missing ledger_record_id")
+        if ledger_id in raw_by_ledger_id:
+            raise ValueError(f"P66A_DUPLICATE_RAW_LEDGER_ID: {ledger_id}")
+        raw_by_ledger_id[ledger_id] = dict(raw_row)
+        effective_by_ledger_id[ledger_id] = effective_row
+
+    seen_corrections: set[str] = set()
+    for correction in correction_records:
+        if correction.get("schema_version") != P66A_OFFICIAL_DATE_CORRECTION_SCHEMA:
+            raise ValueError("P66A_CORRECTION_SCHEMA_MISMATCH")
+        ledger_id = str(correction.get("ledger_id") or "").strip()
+        if not ledger_id:
+            raise ValueError("P66A_CORRECTION_LEDGER_ID_REQUIRED")
+        if ledger_id in seen_corrections:
+            raise ValueError(f"P66A_DUPLICATE_CORRECTION_LEDGER_ID: {ledger_id}")
+        seen_corrections.add(ledger_id)
+        if ledger_id not in raw_by_ledger_id:
+            raise ValueError(f"P66A_CORRECTION_UNKNOWN_LEDGER_ID: {ledger_id}")
+
+        raw_row = raw_by_ledger_id[ledger_id]
+        effective_row = effective_by_ledger_id[ledger_id]
+        raw_game_identity = raw_row.get("game_identity", {})
+        raw_prediction_identity = raw_row.get("prediction_identity", {})
+        expected_game_pk = raw_game_identity.get("game_pk")
+        if correction.get("official_game_pk") != expected_game_pk:
+            raise ValueError(f"P66A_CORRECTION_GAME_PK_MISMATCH: {ledger_id}")
+        if correction.get("run_id") != raw_row.get("run_id"):
+            raise ValueError(f"P66A_CORRECTION_RUN_ID_MISMATCH: {ledger_id}")
+        if correction.get("prediction_id") != raw_prediction_identity.get("workflow_prediction_id"):
+            raise ValueError(f"P66A_CORRECTION_PREDICTION_ID_MISMATCH: {ledger_id}")
+
+        original_date = require_canonical_official_date(
+            correction.get("original_official_date"),
+            field_name=f"correction {ledger_id} original_official_date",
+        )
+        corrected_date = require_canonical_official_date(
+            correction.get("corrected_official_date"),
+            field_name=f"correction {ledger_id} corrected_official_date",
+        )
+        if raw_game_identity.get("official_date") != original_date:
+            raise ValueError(f"P66A_CORRECTION_ORIGINAL_DATE_MISMATCH: {ledger_id}")
+        effective_row["game_identity"]["official_date"] = corrected_date
+
+    return effective_records
+
+
+def load_effective_forward_records(
+    ledger_root: str | Path,
+    *,
+    correction_path: str | Path | None = None,
+) -> list[dict[str, Any]]:
+    """Load raw forensic authority and project its validated effective date view."""
+    resolved_ledger_root = Path(ledger_root).resolve()
+    raw_path = resolved_ledger_root / "prediction_forward_ledger.jsonl"
+    raw_records = read_jsonl_objects(raw_path)
+    resolved_correction_path = (
+        Path(correction_path).resolve()
+        if correction_path is not None
+        else resolved_ledger_root.parent / "corrections" / P66A_OFFICIAL_DATE_CORRECTION_FILENAME
+    )
+    correction_records = read_jsonl_objects(resolved_correction_path)
+    return apply_official_date_corrections(raw_records, correction_records)
+
+
 def settle_p50c_prediction_run(
     repository_root: str | Path,
     *,
@@ -1045,8 +1232,7 @@ def settle_p50c_prediction_run(
             f.write(_jsonl_bytes(rows_to_append))
 
     # Update forward cumulative summary
-    forward_ledger_file = resolved_ledger_root / "prediction_forward_ledger.jsonl"
-    forward_rows = read_jsonl_objects(forward_ledger_file)
+    forward_rows = load_effective_forward_records(resolved_ledger_root)
     forward_summary = compute_forward_prediction_summary(forward_rows)
     (resolved_ledger_root / "forward_prediction_summary.json").write_bytes(_json_bytes(forward_summary))
 
@@ -1101,8 +1287,7 @@ def get_p50c_forward_summary(
     else:
         resolved_ledger_root = (root / P50C_REPORT_RELATIVE_PATH / "ledger").resolve()
 
-    forward_ledger_file = resolved_ledger_root / "prediction_forward_ledger.jsonl"
-    forward_rows = read_jsonl_objects(forward_ledger_file)
+    forward_rows = load_effective_forward_records(resolved_ledger_root)
     return compute_forward_prediction_summary(forward_rows)
 
 
@@ -1116,6 +1301,8 @@ __all__ = (
     "P50C_RUN_MANIFEST_SCHEMA",
     "P50C_SETTLEMENT_SUMMARY_SCHEMA",
     "P50C_TASK_ID",
+    "P66A_OFFICIAL_DATE_CORRECTION_FILENAME",
+    "P66A_OFFICIAL_DATE_CORRECTION_SCHEMA",
     "STATE_FROZEN",
     "STATE_PARTIALLY_SETTLED",
     "STATE_SETTLED",
@@ -1123,6 +1310,7 @@ __all__ = (
     "VALID_LIFECYCLE_STATES",
     "P50CCreateRunResult",
     "P50CSettleRunResult",
+    "apply_official_date_corrections",
     "build_frozen_prediction_record",
     "build_p50c_prediction_ledger_record",
     "calculate_log_loss",
@@ -1134,6 +1322,8 @@ __all__ = (
     "create_p50c_prediction_run",
     "get_p50c_forward_summary",
     "get_p50c_run_status",
+    "load_effective_forward_records",
+    "require_canonical_official_date",
     "settle_p50c_prediction_run",
     "validate_prediction_run_classification",
 )

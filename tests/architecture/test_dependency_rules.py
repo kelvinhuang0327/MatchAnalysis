@@ -198,6 +198,9 @@ AUTHORIZED_SOURCE_PATHS = {
     "interfaces/cli/run_p52a_daily_prediction_freeze.py",
     "application/use_cases/p53a_daily_final_settlement.py",
     "interfaces/cli/run_p53a_daily_final_settlement.py",
+    "application/use_cases/p65a_daily_run_line_prediction_freeze.py",
+    "interfaces/cli/run_p65a_daily_run_line_prediction_freeze.py",
+    "application/use_cases/p66a_official_date_correction.py",
     "application/use_cases/generate_moneyline_market_movement.py",
     "application/use_cases/moneyline_market_movement_artifacts.py",
     "interfaces/cli/replay_moneyline_market_movement.py",
@@ -532,6 +535,18 @@ class DependencyRuleTests(unittest.TestCase):
             / "use_cases"
             / "p53a_daily_final_settlement.py"
         )
+        p65a_prediction_freeze = (
+            PACKAGE_ROOT
+            / "application"
+            / "use_cases"
+            / "p65a_daily_run_line_prediction_freeze.py"
+        )
+        p66a_official_date_correction = (
+            PACKAGE_ROOT
+            / "application"
+            / "use_cases"
+            / "p66a_official_date_correction.py"
+        )
         violations = []
         for path in paths:
             for target, line_number in imported_modules(path):
@@ -563,6 +578,16 @@ class DependencyRuleTests(unittest.TestCase):
                     and target
                     == "match_analysis.infrastructure.providers.mlb_official_historical_source"
                 )
+                is_allowlisted_p65a_source = (
+                    path == p65a_prediction_freeze
+                    and target
+                    == "match_analysis.infrastructure.providers.mlb_official_historical_source"
+                )
+                is_allowlisted_p66a_source = (
+                    path == p66a_official_date_correction
+                    and target
+                    == "match_analysis.infrastructure.providers.mlb_official_historical_source"
+                )
                 if target.startswith(
                     ("match_analysis.infrastructure", "match_analysis.interfaces")
                 ) and not (
@@ -571,6 +596,8 @@ class DependencyRuleTests(unittest.TestCase):
                     or is_allowlisted_p32a_source
                     or is_allowlisted_p52a_source
                     or is_allowlisted_p53a_source
+                    or is_allowlisted_p65a_source
+                    or is_allowlisted_p66a_source
                 ):
                     relative = path.relative_to(REPOSITORY_ROOT)
                     violations.append(f"{relative}:{line_number} -> {target}")
