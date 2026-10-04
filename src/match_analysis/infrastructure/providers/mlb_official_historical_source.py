@@ -113,6 +113,9 @@ def normalize_schedule_payload(payload: Mapping[str, Any]) -> tuple[dict[str, An
             game_number = game.get("gameNumber")
             official_date = game.get("officialDate")
             scheduled = game.get("gameDate")
+            game_type = game.get("gameType")
+            if not isinstance(game_type, str) or not game_type.strip():
+                raise ValueError("schedule game is missing provider gameType")
             if (
                 not isinstance(game_pk, int)
                 or not isinstance(game_number, int)
@@ -138,6 +141,7 @@ def normalize_schedule_payload(payload: Mapping[str, Any]) -> tuple[dict[str, An
                     "provider_game_id": str(game_pk),
                     "game_pk": game_pk,
                     "game_number": game_number,
+                    "game_type": game_type,
                     "official_date": official_date,
                     "scheduled_start_utc": format_utc(start),
                     "status": status_name,

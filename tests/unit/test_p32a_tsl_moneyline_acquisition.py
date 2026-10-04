@@ -8,6 +8,8 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from urllib.parse import parse_qs, urlparse
+from unittest.mock import Mock
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPOSITORY_ROOT / "src"))
@@ -15,6 +17,7 @@ sys.path.insert(0, str(REPOSITORY_ROOT / "src"))
 from match_analysis.application.use_cases.acquire_tsl_moneyline_snapshot import (
     TslMoneylineSnapshotAcquisition,
     _select_target_slate,
+    acquire_tsl_moneyline_snapshot,
     run_tsl_moneyline_paper_smoke,
 )
 from match_analysis.infrastructure.sources.tsl_moneyline_acquisition import (
@@ -66,6 +69,7 @@ def _schedule_row(
         "provider_game_id": game_id,
         "game_pk": game_pk,
         "game_number": 1,
+        "game_type": "R",
         "official_date": "2026-08-11",
         "scheduled_start_utc": "2026-08-11T22:40:00Z",
         "status": "Scheduled",
@@ -78,6 +82,61 @@ def _schedule_row(
 
 
 class P32ATslMoneylineAcquisitionTests(unittest.TestCase):
+    def test_acquisition_requests_exact_provider_game_type_and_rejects_mismatch(self) -> None:
+        for requested, returned in (("R", "R"), ("F", "F"), ("P", "P"), ("F", "R")):
+            with self.subTest(requested=requested, returned=returned), tempfile.TemporaryDirectory() as temp_dir:
+                schedule_games = []
+                for game_pk, codes, names in (
+                    (9001, ("DET", "CLE"), ("Detroit Tigers", "Cleveland Guardians")),
+                    (9002, ("MIA", "PIT"), ("Miami Marlins", "Pittsburgh Pirates")),
+                ):
+                    schedule_games.append({
+                        "gamePk": game_pk, "gameNumber": 1, "gameType": returned,
+                        "officialDate": "2026-08-11", "gameDate": "2026-08-11T22:40:00Z",
+                        "status": {"detailedState": "Scheduled", "abstractGameState": "Preview"},
+                        "teams": {
+                            side: {"team": {"id": game_pk * 2 + index, "abbreviation": codes[index], "name": names[index]}}
+                            for index, side in enumerate(("home", "away"))
+                        },
+                    })
+                payloads = {
+                    TSL_BLOB3RD_LIVE_URL: [],
+                    TSL_BLOB3RD_SPORTS_URL: [{"id": "34731.1", "abb": "BSB"}],
+                    TSL_BLOB3RD_PRE_URL_TEMPLATE.format(sport_id="34731.1", language="zh"): [_fixture_game(), _second_fixture_game()],
+                }
+                calls = []
+                def schedule_opener(request, timeout):
+                    calls.append(request.full_url)
+                    return json.dumps({"dates": [{"games": schedule_games}]}).encode()
+                fetcher = Mock(side_effect=lambda url: json.dumps(payloads[url]).encode())
+                kwargs = dict(
+                    repository_root=REPOSITORY_ROOT, runtime_root=temp_dir,
+                    game_type=requested, clock=lambda: datetime(2026, 8, 11, 15, tzinfo=UTC),
+                    schedule_opener=schedule_opener, tsl_fetcher=fetcher,
+                )
+                if requested != returned:
+                    with self.assertRaisesRegex(RuntimeError, "P32A_GAME_TYPE_MISMATCH"):
+                        acquire_tsl_moneyline_snapshot(**kwargs)
+                    fetcher.assert_not_called()
+                else:
+                    acquisition = acquire_tsl_moneyline_snapshot(**kwargs)
+                    self.assertEqual(acquisition.requested_game_ids, ("9001", "9002"))
+                    self.assertTrue(all(row["game_type"] == requested for row in acquisition.target_schedule_rows))
+                    self.assertEqual(fetcher.call_count, 3)
+                self.assertEqual(parse_qs(urlparse(calls[0]).query)["gameType"], [requested])
+
+    def test_unknown_or_missing_game_type_does_not_fetch_or_default_to_r(self) -> None:
+        for invalid in (None, "", "UNKNOWN", "X", "R,F"):
+            with self.subTest(invalid=invalid), tempfile.TemporaryDirectory() as temp_dir:
+                opener = Mock()
+                with self.assertRaisesRegex(ValueError, "P32A_PROVIDER_GAME_TYPE_REQUIRED"):
+                    acquire_tsl_moneyline_snapshot(
+                        repository_root=REPOSITORY_ROOT, runtime_root=temp_dir,
+                        game_type=invalid, schedule_opener=opener,
+                    )
+                opener.assert_not_called()
+                self.assertEqual(list(Path(temp_dir).iterdir()), [])
+
     def test_fixture_matches_legacy_moneyline_semantics(self) -> None:
         result = normalize_tsl_moneyline_games(
             json.loads(FIXTURE_PATH.read_text(encoding="utf-8")),

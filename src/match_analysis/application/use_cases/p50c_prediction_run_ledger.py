@@ -55,6 +55,8 @@ P50C_FORWARD_SUMMARY_SCHEMA = "p50c.cumulative_forward_prediction_summary.v1"
 P50C_REPORT_RELATIVE_PATH = Path("report/p50c_prospective_prediction_shadow_ledger")
 P66A_OFFICIAL_DATE_CORRECTION_SCHEMA = "p66a.official_date_correction.v1"
 P66A_OFFICIAL_DATE_CORRECTION_FILENAME = "p66a_official_date_correction_v1.jsonl"
+REGULAR_SEASON_GAME_TYPE = "R"
+NON_R_MODEL_DOMAIN_STATUS = "POSTSEASON_OR_NON_R_DIAGNOSTIC"
 
 CLASSIFICATION_HISTORICAL_REHEARSAL = "HISTORICAL_REHEARSAL"
 CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION = "PROSPECTIVE_FORWARD_PREDICTION"
@@ -144,6 +146,29 @@ def _decimal_text(value: Any) -> str | None:
     if value is None:
         return None
     return format(value, "f") if hasattr(value, "is_finite") else str(value)
+
+
+def effective_game_type(record: Mapping[str, Any]) -> str:
+    """Read the exact provider game type, defaulting only legacy rows to R."""
+    identity = record.get("game_identity")
+    nested = identity.get("game_type") if isinstance(identity, Mapping) else None
+    top = record.get("game_type")
+    if top is not None and nested is not None and top != nested:
+        raise ValueError("P50C_GAME_TYPE_MISMATCH")
+    value = top if top is not None else nested
+    value = REGULAR_SEASON_GAME_TYPE if value is None else value
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError("P50C_INVALID_GAME_TYPE: expected a non-empty provider value")
+    return value
+
+
+def _prediction_game_type(row: P40APredictionRow) -> str:
+    value = row.game_type
+    if value is None:
+        return REGULAR_SEASON_GAME_TYPE
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError("P50C_INVALID_GAME_TYPE: expected a non-empty provider value")
+    return value
 
 
 def require_canonical_official_date(value: Any, *, field_name: str = "official_date") -> str:
@@ -323,6 +348,9 @@ def compute_prediction_row_fingerprint(
         "p_away": _decimal_text(p_away),
         "selection": selection,
     }
+    game_type = _prediction_game_type(row)
+    if game_type != REGULAR_SEASON_GAME_TYPE:
+        payload["game_type"] = game_type
     return _sha256_projection(payload)
 
 
@@ -389,6 +417,10 @@ def build_frozen_prediction_record(
             "run_classification": run_classification,
         },
     }
+    game_type = _prediction_game_type(row)
+    if game_type != REGULAR_SEASON_GAME_TYPE:
+        record["game_identity"]["game_type"] = game_type
+        record["model_identity"]["model_domain_status"] = NON_R_MODEL_DOMAIN_STATUS
     reject_pregame_contamination(record)
     return record
 
@@ -792,6 +824,11 @@ def build_p50c_prediction_ledger_record(
     p_home = Decimal(str(model_id_info["p_home"]))
     p_away = Decimal(str(model_id_info["p_away"]))
     model_prob = p_home if selection == "HOME" else p_away
+    game_type = effective_game_type(frozen_prediction)
+    result_game_type = getattr(result_record, "game_type", None)
+    result_game_type = REGULAR_SEASON_GAME_TYPE if result_game_type is None else result_game_type
+    if result_game_type != game_type:
+        raise ValueError("P50C_GAME_TYPE_MISMATCH: result and prediction game types differ")
 
     brier_component = (model_prob - Decimal(correctness_target)) ** 2
     log_loss_comp = calculate_log_loss(model_prob, correctness_target)
@@ -864,6 +901,9 @@ def build_p50c_prediction_ledger_record(
             "feedback_identity": feedback_identity,
         },
     }
+    if game_type != REGULAR_SEASON_GAME_TYPE:
+        payload_without_id["game_identity"]["game_type"] = game_type
+        payload_without_id["final_result_authority"]["game_type"] = game_type
 
     record_id = _sha256_projection(payload_without_id)
     return {
@@ -1303,6 +1343,8 @@ __all__ = (
     "P50C_TASK_ID",
     "P66A_OFFICIAL_DATE_CORRECTION_FILENAME",
     "P66A_OFFICIAL_DATE_CORRECTION_SCHEMA",
+    "NON_R_MODEL_DOMAIN_STATUS",
+    "REGULAR_SEASON_GAME_TYPE",
     "STATE_FROZEN",
     "STATE_PARTIALLY_SETTLED",
     "STATE_SETTLED",
@@ -1319,6 +1361,7 @@ __all__ = (
     "compute_expected_calibration_error",
     "compute_forward_prediction_summary",
     "compute_prediction_row_fingerprint",
+    "effective_game_type",
     "create_p50c_prediction_run",
     "get_p50c_forward_summary",
     "get_p50c_run_status",

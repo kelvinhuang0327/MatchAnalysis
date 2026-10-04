@@ -550,6 +550,7 @@ class NormalizedResultRecord:
     away_score: int
     result_observed_at_utc: str
     source_identity: str
+    game_type: str = "R"
 
     @property
     def actual_winner(self) -> str:
@@ -562,7 +563,7 @@ class NormalizedResultRecord:
         return 1 if self.actual_winner == "HOME" else 0
 
     def to_payload(self) -> dict[str, Any]:
-        return {
+        payload = {
             "schema_version": P44A_RESULT_INPUT_SCHEMA,
             "prediction_row_id": self.prediction_row_id,
             "provider_namespace": self.provider_namespace,
@@ -574,6 +575,9 @@ class NormalizedResultRecord:
             "result_observed_at_utc": self.result_observed_at_utc,
             "source_identity": self.source_identity,
         }
+        if self.game_type != "R":
+            payload["game_type"] = self.game_type
+        return payload
 
     def to_p40_outcome(self) -> P40AOutcomeRow:
         return P40AOutcomeRow(
@@ -612,6 +616,11 @@ def parse_normalized_result_payload(row: Mapping[str, Any]) -> NormalizedResultR
         row.get("result_observed_at_utc"), field_name="result_observed_at_utc"
     )
     parse_canonical_utc(observed_at)
+    game_type = row.get("game_type", row.get("gameType", "R"))
+    if "game_type" in row and "gameType" in row and row["game_type"] != row["gameType"]:
+        raise ValueError("normalized result game_type and gameType disagree")
+    if not isinstance(game_type, str) or not game_type.strip():
+        raise ValueError("normalized result game_type must be a non-empty provider value")
     return NormalizedResultRecord(
         prediction_row_id=_sha(row.get("prediction_row_id"), field_name="prediction_row_id"),
         provider_namespace=_text(
@@ -626,6 +635,7 @@ def parse_normalized_result_payload(row: Mapping[str, Any]) -> NormalizedResultR
         away_score=away_score,
         result_observed_at_utc=observed_at,
         source_identity=_text(row.get("source_identity"), field_name="source_identity"),
+        game_type=game_type,
     )
 
 
