@@ -149,7 +149,12 @@ def _decimal_text(value: Any) -> str | None:
 
 
 def effective_game_type(record: Mapping[str, Any]) -> str:
-    """Read a stored game type, interpreting pre-contract missing values as R."""
+    """Read stored types strictly; default only absent pre-contract values to R."""
+    identity = record.get("game_identity")
+    nested = identity.get("game_type") if isinstance(identity, Mapping) else None
+    top = record.get("game_type")
+    if top is not None and nested is not None and top != nested:
+        raise ValueError("P50C_GAME_TYPE_MISMATCH")
     if "game_type" in record:
         value = record["game_type"]
     else:
@@ -476,6 +481,10 @@ def build_frozen_prediction_record(
             "run_classification": run_classification,
         },
     }
+    game_type = _prediction_game_type(row)
+    if game_type != REGULAR_SEASON_GAME_TYPE:
+        record["game_identity"]["game_type"] = game_type
+        record["model_identity"]["model_domain_status"] = NON_R_MODEL_DOMAIN_STATUS
     reject_pregame_contamination(record)
     return record
 
@@ -1081,6 +1090,11 @@ def build_p50c_prediction_ledger_record(
     p_home = Decimal(str(model_id_info["p_home"]))
     p_away = Decimal(str(model_id_info["p_away"]))
     model_prob = p_home if selection == "HOME" else p_away
+    game_type = effective_game_type(frozen_prediction)
+    result_game_type = getattr(result_record, "game_type", None)
+    result_game_type = REGULAR_SEASON_GAME_TYPE if result_game_type is None else result_game_type
+    if result_game_type != game_type:
+        raise ValueError("P50C_GAME_TYPE_MISMATCH: result and prediction game types differ")
 
     brier_component = (model_prob - Decimal(correctness_target)) ** 2
     log_loss_comp = calculate_log_loss(model_prob, correctness_target)
@@ -1159,6 +1173,9 @@ def build_p50c_prediction_ledger_record(
         payload_without_id["model_identity"]["model_domain_status"] = model_id_info[
             "model_domain_status"
         ]
+    if game_type != REGULAR_SEASON_GAME_TYPE:
+        payload_without_id["game_identity"]["game_type"] = game_type
+        payload_without_id["final_result_authority"]["game_type"] = game_type
 
     record_id = _sha256_projection(payload_without_id)
     return {
@@ -1636,6 +1653,7 @@ __all__ = (
     "P50C_TASK_ID",
     "P66A_OFFICIAL_DATE_CORRECTION_FILENAME",
     "P66A_OFFICIAL_DATE_CORRECTION_SCHEMA",
+    "NON_R_MODEL_DOMAIN_STATUS",
     "REGULAR_SEASON_GAME_TYPE",
     "STATE_FROZEN",
     "STATE_PARTIALLY_SETTLED",

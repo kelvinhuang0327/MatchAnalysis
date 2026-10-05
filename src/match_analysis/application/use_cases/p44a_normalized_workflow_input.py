@@ -580,7 +580,7 @@ class NormalizedResultRecord:
         return 1 if self.actual_winner == "HOME" else 0
 
     def to_payload(self) -> dict[str, Any]:
-        return {
+        payload = {
             "schema_version": P44A_RESULT_INPUT_SCHEMA,
             "prediction_row_id": self.prediction_row_id,
             "provider_namespace": self.provider_namespace,
@@ -593,6 +593,7 @@ class NormalizedResultRecord:
             "source_identity": self.source_identity,
             "game_type": self.game_type,
         }
+        return payload
 
     def to_p40_outcome(self) -> P40AOutcomeRow:
         return P40AOutcomeRow(
@@ -632,7 +633,9 @@ def parse_normalized_result_payload(row: Mapping[str, Any]) -> NormalizedResultR
         row.get("result_observed_at_utc"), field_name="result_observed_at_utc"
     )
     parse_canonical_utc(observed_at)
-    game_type = row.get("game_type")
+    game_type = row.get("game_type", row.get("gameType"))
+    if "game_type" in row and "gameType" in row and row["game_type"] != row["gameType"]:
+        raise ValueError("normalized result game_type and gameType disagree")
     if not isinstance(game_type, str) or not game_type.strip():
         raise ValueError("normalized result game_type must be a non-empty provider value")
     return NormalizedResultRecord(

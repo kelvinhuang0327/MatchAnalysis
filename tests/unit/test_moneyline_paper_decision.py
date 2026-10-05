@@ -15,9 +15,11 @@ import unittest
 
 from match_analysis.application.use_cases.moneyline_paper_decision import (
     DATA_MODE_FIXTURE,
+    DATA_MODE_PROSPECTIVE,
     PAPER_POLICY_VERSION,
     PaperPolicyConfig,
     load_frozen_prediction_run,
+    run_moneyline_paper_decision,
     run_moneyline_paper_decision_from_paths,
 )
 from match_analysis.application.use_cases.p40a_moneyline_paper_bet_pass import (
@@ -29,7 +31,13 @@ from match_analysis.application.use_cases.p44a_normalized_workflow_input import 
 )
 from match_analysis.application.use_cases.p50c_prediction_run_ledger import (
     build_frozen_prediction_record,
+    build_p50c_prediction_ledger_record,
     compute_prediction_row_fingerprint,
+)
+from match_analysis.application.use_cases.p50c_market_comparison import (
+    MarketComparisonPolicy,
+    _load_quote_batch,
+    evaluate_p50c_market_comparison,
 )
 from match_analysis.interfaces.cli.moneyline_paper_decision import (
     _live_tsl_quotes,
@@ -561,6 +569,89 @@ class MoneylinePaperDecisionTests(unittest.TestCase):
         for game_type in ("R", "F", "P"):
             with self.subTest(game_type=game_type):
                 self._assert_live_adapter_bridge(game_type)
+
+    def test_prospective_p32a_paper_state_is_ingested_by_market_batch(self) -> None:
+        prediction = _prediction(906, game_type="F")
+        prediction["prediction_authority"]["run_classification"] = (
+            "PROSPECTIVE_FORWARD_PREDICTION"
+        )
+        runs_root = self.root / "runs"
+        run_dir = _prediction_run(runs_root, [prediction])
+        manifest = json.loads((run_dir / "run_manifest.json").read_text())
+        manifest["task_id"] = "P50C"
+        manifest["run_classification"] = "PROSPECTIVE_FORWARD_PREDICTION"
+        _write_json(run_dir / "run_manifest.json", manifest)
+        run = load_frozen_prediction_run(run_dir, data_mode=DATA_MODE_PROSPECTIVE)
+
+        quote = _quote(prediction)
+        quote["quote_source"] = "TSL_BLOB3RD"
+        quote["observed_at_utc"] = "2026-08-01T17:59:30Z"
+        quote["source_identity"] = {
+            "source_match_id": "p32a-fixture-906",
+            "source_game_time": prediction["game_identity"]["scheduled_start_utc"],
+            "source_row_fingerprint": "d" * 64,
+            "crosswalk_authority": "P28AB_NEAREST_TEAM_AND_START_WITHIN_3600_SECONDS",
+        }
+        state = run_moneyline_paper_decision(
+            run=run,
+            quote_snapshots=[quote],
+            output_dir=self.root / "market-batch-capture",
+            config=PaperPolicyConfig(Decimal("0.05"), 120, Decimal("0.02")),
+            decision_at_utc="2026-08-01T18:00:00Z",
+            settled_at_utc="2026-08-01T18:00:00Z",
+            data_mode=DATA_MODE_PROSPECTIVE,
+        )
+        self.assertEqual(state["decisions"][0]["decision"], "BET")
+        rows, source_files, rows_read, duplicates = _load_quote_batch(
+            self.root / "market-batch-capture" / "paper_state.json"
+        )
+        self.assertEqual(len(source_files), 1)
+        self.assertEqual(rows_read, 1)
+        self.assertEqual(duplicates, 0)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["quote_source"], "TSL_BLOB3RD")
+        self.assertEqual(rows[0]["observed_at_utc"], "2026-08-01T17:59:30Z")
+        self.assertEqual(rows[0]["game_identity"]["game_type"], "F")
+
+        game = prediction["game_identity"]
+        authority = prediction["prediction_authority"]
+        assert isinstance(game, dict) and isinstance(authority, dict)
+        result = NormalizedResultRecord(
+            prediction_row_id=str(authority["p37_prediction_row_id"]),
+            provider_namespace=str(game["provider_namespace"]),
+            provider_game_id=str(game["provider_game_id"]),
+            game_number=int(game["game_number"]),
+            status="FINAL",
+            home_score=5,
+            away_score=3,
+            result_observed_at_utc="2026-08-02T00:30:00Z",
+            source_identity="SYNTHETIC_OFFICIAL_FINAL",
+            game_type="F",
+        )
+        settled = build_p50c_prediction_ledger_record(
+            run_id=run.run_id,
+            run_classification=run.run_classification,
+            frozen_prediction=prediction,
+            result_record=result,
+            evaluated_at_utc="2026-08-02T00:31:00Z",
+        )
+        ledger_root = self.root / "ledger"
+        _write_jsonl(ledger_root / "prediction_forward_ledger.jsonl", [settled])
+        report = evaluate_p50c_market_comparison(
+            repository_root=self.root,
+            runs_root=runs_root,
+            ledger_root=ledger_root,
+            quote_snapshots=self.root / "market-batch-capture" / "paper_state.json",
+            policy=MarketComparisonPolicy(
+                min_net_ev=Decimal("0.05"),
+                max_quote_age_seconds=120,
+                paper_cost_per_unit=Decimal("0.02"),
+            ),
+        )
+        self.assertEqual(report["quote_status_counts"]["MATCHED"], 1)
+        self.assertEqual(report["matched_market_comparison"]["sample_count"], 1)
+        self.assertEqual(report["fixed_unit_paper_roi"]["bet_count"], 1)
+        self.assertEqual(report["fixed_unit_paper_roi"]["net_roi"], "0.58")
 
     def _assert_live_adapter_bridge(self, game_type: str) -> None:
         prediction = _prediction(901, game_type=game_type)
