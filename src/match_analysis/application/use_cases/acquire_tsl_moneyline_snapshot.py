@@ -34,6 +34,8 @@ P32A_DEFAULT_SOURCE_MANIFEST = Path(
     "data/fixtures/p28ab_tsl_aligned_moneyline_edge/source_manifest.json"
 )
 P32A_MAX_TARGET_DATE_OFFSET_DAYS = 7
+# Exact provider values published by MLB's /api/v1/gameTypes endpoint.
+MLB_PROVIDER_GAME_TYPES = frozenset({"S", "R", "F", "D", "L", "W", "C", "P", "A", "I", "E"})
 
 STOP_P32A_NO_TARGET_SLATE = "STOP_MATCHANALYSIS_P32A_NO_TARGET_SLATE_AVAILABLE"
 STOP_P32A_NO_QUALIFIED_OBSERVATIONS = (
@@ -210,6 +212,7 @@ def acquire_tsl_moneyline_snapshot(
     repository_root: str | Path,
     runtime_root: str | Path = P32A_RUNTIME_ROOT,
     target_date: str | None = None,
+    game_type: str = "R",
     clock: Clock = lambda: datetime.now(UTC),
     schedule_opener: JsonOpener | None = None,
     tsl_fetcher: Callable[[str], bytes] | None = None,
@@ -221,6 +224,8 @@ def acquire_tsl_moneyline_snapshot(
     tests; the default path records the actual post-response UTC time.
     """
 
+    if not isinstance(game_type, str) or game_type not in MLB_PROVIDER_GAME_TYPES:
+        raise ValueError("P32A_PROVIDER_GAME_TYPE_REQUIRED: unsupported or missing provider game_type")
     runtime_path = Path(runtime_root)
     started_at = _utc(clock())
     schedule_start = started_at.astimezone(TSL_LOCAL_TIMEZONE).date()
@@ -230,7 +235,7 @@ def acquire_tsl_moneyline_snapshot(
             "sportId": "1",
             "startDate": started_at.date().isoformat(),
             "endDate": schedule_end.isoformat(),
-            "gameType": "R",
+            "gameType": game_type,
             "hydrate": "team",
         }
     }
@@ -242,6 +247,8 @@ def acquire_tsl_moneyline_snapshot(
     _write_immutable_capture(runtime_path, "mlb_schedule.json", raw_schedule)
     schedule_payload = json.loads(raw_schedule.decode("utf-8"))
     schedule_rows = normalize_schedule_payload(schedule_payload)
+    if any(row["game_type"] != game_type for row in schedule_rows):
+        raise RuntimeError("P32A_GAME_TYPE_MISMATCH: official schedule disagrees with frozen game_type")
     target_date, target_rows = _select_target_slate(
         schedule_rows,
         started_at_utc=started_at,

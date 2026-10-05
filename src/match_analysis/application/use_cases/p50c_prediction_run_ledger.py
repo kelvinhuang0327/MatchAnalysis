@@ -24,7 +24,7 @@ Strictly enforces:
 from __future__ import annotations
 
 from copy import deepcopy
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import date
 from decimal import Decimal, localcontext
 from hashlib import sha256
@@ -55,6 +55,8 @@ P50C_FORWARD_SUMMARY_SCHEMA = "p50c.cumulative_forward_prediction_summary.v1"
 P50C_REPORT_RELATIVE_PATH = Path("report/p50c_prospective_prediction_shadow_ledger")
 P66A_OFFICIAL_DATE_CORRECTION_SCHEMA = "p66a.official_date_correction.v1"
 P66A_OFFICIAL_DATE_CORRECTION_FILENAME = "p66a_official_date_correction_v1.jsonl"
+REGULAR_SEASON_GAME_TYPE = "R"
+NON_R_MODEL_DOMAIN_STATUS = "POSTSEASON_OR_NON_R_DIAGNOSTIC"
 
 CLASSIFICATION_HISTORICAL_REHEARSAL = "HISTORICAL_REHEARSAL"
 CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION = "PROSPECTIVE_FORWARD_PREDICTION"
@@ -144,6 +146,74 @@ def _decimal_text(value: Any) -> str | None:
     if value is None:
         return None
     return format(value, "f") if hasattr(value, "is_finite") else str(value)
+
+
+def effective_game_type(record: Mapping[str, Any]) -> str:
+    """Read a stored game type, interpreting pre-contract missing values as R."""
+    if "game_type" in record:
+        value = record["game_type"]
+    else:
+        game_identity = record.get("game_identity")
+        if isinstance(game_identity, Mapping) and "game_type" in game_identity:
+            value = game_identity.get("game_type")
+        else:
+            return REGULAR_SEASON_GAME_TYPE
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError("P50C_INVALID_GAME_TYPE: expected a non-empty provider value")
+    return value
+
+
+def _prediction_game_type(row: P40APredictionRow) -> str:
+    """Return a prediction's type, treating an unset row as legacy R for identity checks."""
+    value = row.game_type
+    if value is None:
+        return REGULAR_SEASON_GAME_TYPE
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError("P50C_INVALID_GAME_TYPE: expected a non-empty provider value")
+    return value
+
+
+P50C_TEAM_IDENTITY_FIELDS = ("home_team", "away_team", "home_team_code", "away_team_code")
+
+
+def require_prediction_team_identity(identity: Mapping[str, Any]) -> dict[str, str]:
+    """Require actual canonical team names/codes for a fresh prediction freeze."""
+    for field in P50C_TEAM_IDENTITY_FIELDS:
+        value = identity.get(field)
+        if (
+            not isinstance(value, str)
+            or not value.strip()
+            or value != value.strip()
+            or value.upper() in ("HOME", "AWAY")
+        ):
+            raise ValueError(f"P50C_FRESH_TEAM_IDENTITY_REQUIRED: invalid {field}")
+    if identity["home_team_code"] == identity["away_team_code"]:
+        raise ValueError("P50C_FRESH_TEAM_IDENTITY_REQUIRED: home and away teams must differ")
+    return {field: identity[field] for field in P50C_TEAM_IDENTITY_FIELDS}
+
+
+def _prediction_team_identity(
+    row: P40APredictionRow,
+    bundle: NormalizedPregameInput,
+    market_by_prediction_id: Mapping[str, Any],
+) -> dict[str, str]:
+    identities = bundle.source_manifest.get("team_identities_by_prediction_row_id", {})
+    supplied = identities.get(row.p37_prediction_row_id) if isinstance(identities, Mapping) else None
+    market = market_by_prediction_id.get(row.p37_prediction_row_id)
+    market_identity = (
+        {field: getattr(market, field) for field in P50C_TEAM_IDENTITY_FIELDS}
+        if market is not None
+        else None
+    )
+    if supplied is not None:
+        if not isinstance(supplied, Mapping):
+            raise ValueError("P50C_FRESH_TEAM_IDENTITY_REQUIRED: expected a team identity object")
+        identity = require_prediction_team_identity(supplied)
+        if market_identity is not None and identity != market_identity:
+            raise ValueError("P50C_TEAM_IDENTITY_CONFLICT: prediction and market teams disagree")
+        return identity
+    # Preserve the original fingerprint projection for exact historical replays.
+    return market_identity or {field: "" for field in P50C_TEAM_IDENTITY_FIELDS}
 
 
 def require_canonical_official_date(value: Any, *, field_name: str = "official_date") -> str:
@@ -273,8 +343,17 @@ def canonical_prediction_fingerprint(
     source_manifest: Mapping[str, Any],
 ) -> str:
     """Compute canonical order-independent fingerprint of pregame predictions."""
+    prediction_payloads = []
+    for row in prediction_rows:
+        prediction_payload = prediction_row_to_payload(row)
+        game_type = _prediction_game_type(row)
+        prediction_payload["game_type"] = game_type
+        if game_type == REGULAR_SEASON_GAME_TYPE:
+            # R is the legacy default, so adding it must not change historical identity.
+            prediction_payload.pop("game_type", None)
+        prediction_payloads.append(prediction_payload)
     sorted_predictions = sorted(
-        [prediction_row_to_payload(row) for row in prediction_rows],
+        prediction_payloads,
         key=lambda r: (r["scheduled_start_utc"], r["game_number"], r["provider_game_id"]),
     )
     payload = {
@@ -323,6 +402,9 @@ def compute_prediction_row_fingerprint(
         "p_away": _decimal_text(p_away),
         "selection": selection,
     }
+    game_type = _prediction_game_type(row)
+    if game_type != REGULAR_SEASON_GAME_TYPE:
+        payload["game_type"] = game_type
     return _sha256_projection(payload)
 
 
@@ -355,6 +437,20 @@ def build_frozen_prediction_record(
     ht = home_team or "HOME"
     at = away_team or "AWAY"
     pred_winner = ht if selection == "HOME" else at
+    model_identity = {
+        "model_role": "CHAMPION",
+        "model_id": row.champion_model_id,
+        "model_fingerprint": row.champion_model_fingerprint,
+        "model_probability_source": "calibrated_p_home",
+        "p_home": _decimal_text(p_home),
+        "p_away": _decimal_text(p_away),
+        "selection": selection,
+        "predicted_winner": pred_winner,
+        "confidence_probability": _decimal_text(confidence),
+    }
+    game_type = _prediction_game_type(row)
+    if game_type != REGULAR_SEASON_GAME_TYPE:
+        model_identity["model_domain_status"] = NON_R_MODEL_DOMAIN_STATUS
 
     record = {
         "workflow_prediction_id": f"p50c_pred_{row_fp[:32]}",
@@ -364,6 +460,7 @@ def build_frozen_prediction_record(
             "provider_game_id": row.provider_game_id,
             "game_pk": row.game_pk,
             "game_number": row.game_number,
+            "game_type": game_type,
             "scheduled_start_utc": row.scheduled_start_utc,
             "official_date": canonical_official_date,
             "home_team": ht,
@@ -371,17 +468,7 @@ def build_frozen_prediction_record(
             "home_team_code": home_team_code or "HOME",
             "away_team_code": away_team_code or "AWAY",
         },
-        "model_identity": {
-            "model_role": "CHAMPION",
-            "model_id": row.champion_model_id,
-            "model_fingerprint": row.champion_model_fingerprint,
-            "model_probability_source": "calibrated_p_home",
-            "p_home": _decimal_text(p_home),
-            "p_away": _decimal_text(p_away),
-            "selection": selection,
-            "predicted_winner": pred_winner,
-            "confidence_probability": _decimal_text(confidence),
-        },
+        "model_identity": model_identity,
         "prediction_authority": {
             "p37_prediction_row_id": row.p37_prediction_row_id,
             "created_at_utc": created_at_utc,
@@ -435,38 +522,91 @@ class P50CCreateRunResult:
 
 
 def _parse_prediction_row_dict(row: Mapping[str, Any]) -> P40APredictionRow:
-    p_home = Decimal(str(row.get("champion_home_probability") or row.get("p_home") or "0.5"))
-    p_challenger = Decimal(str(row.get("challenger_home_probability") or row.get("p_home") or "0.5"))
+    normalized = dict(row)
+    if "game_type" in normalized and "gameType" in normalized:
+        if normalized["game_type"] != normalized["gameType"]:
+            raise ValueError("P50C_GAME_TYPE_CONFLICT: game_type and gameType disagree")
+    elif "gameType" in normalized:
+        normalized["game_type"] = normalized["gameType"]
+    if "game_type" in normalized and normalized["game_type"] is None:
+        raise ValueError("P50C_INVALID_GAME_TYPE: null is not a legacy missing-field value")
+    p_home = Decimal(str(normalized.get("champion_home_probability") or normalized.get("p_home") or "0.5"))
+    p_challenger = Decimal(str(normalized.get("challenger_home_probability") or normalized.get("p_home") or "0.5"))
     return P40APredictionRow(
-        p37_fold_id=str(row.get("p37_fold_id", "fold_0")),
-        p37_window=str(row.get("p37_window", "window_0")),
-        p37_prediction_row_id=str(row.get("p37_prediction_row_id") or row.get("prediction_row_id") or "0" * 64),
-        provider_namespace=str(row.get("provider_namespace", "mlb_official")),
-        provider_game_id=str(row.get("provider_game_id", "")),
-        game_pk=int(row.get("game_pk", 1)),
-        game_number=int(row.get("game_number", 1)),
-        scheduled_start_utc=str(row.get("scheduled_start_utc", "")),
-        champion_model_id=str(row.get("champion_model_id") or row.get("model_id") or "champion_model"),
-        champion_model_fingerprint=str(row.get("champion_model_fingerprint") or row.get("model_fingerprint") or "0" * 64),
+        p37_fold_id=str(normalized.get("p37_fold_id", "fold_0")),
+        p37_window=str(normalized.get("p37_window", "window_0")),
+        p37_prediction_row_id=str(normalized.get("p37_prediction_row_id") or normalized.get("prediction_row_id") or "0" * 64),
+        provider_namespace=str(normalized.get("provider_namespace", "mlb_official")),
+        provider_game_id=str(normalized.get("provider_game_id", "")),
+        game_pk=int(normalized.get("game_pk", 1)),
+        game_number=int(normalized.get("game_number", 1)),
+        scheduled_start_utc=str(normalized.get("scheduled_start_utc", "")),
+        champion_model_id=str(normalized.get("champion_model_id") or normalized.get("model_id") or "champion_model"),
+        champion_model_fingerprint=str(normalized.get("champion_model_fingerprint") or normalized.get("model_fingerprint") or "0" * 64),
         champion_home_probability=p_home,
-        challenger_model_id=str(row.get("challenger_model_id") or row.get("champion_model_id") or "challenger_model"),
-        challenger_model_fingerprint=str(row.get("challenger_model_fingerprint") or row.get("champion_model_fingerprint") or "0" * 64),
+        challenger_model_id=str(normalized.get("challenger_model_id") or normalized.get("champion_model_id") or "challenger_model"),
+        challenger_model_fingerprint=str(normalized.get("challenger_model_fingerprint") or normalized.get("champion_model_fingerprint") or "0" * 64),
         challenger_home_probability=p_challenger,
+        game_type=effective_game_type(normalized),
     )
 
 
-def load_p50c_pregame_input(source: NormalizedPregameInput | str | Path) -> NormalizedPregameInput:
-    """Load normalized pregame input or prediction-only pregame bundle."""
+def _preserve_input_team_identities(
+    bundle: NormalizedPregameInput,
+    raw_predictions: Sequence[Mapping[str, Any]],
+) -> NormalizedPregameInput:
+    """Carry prediction-only identities through either normalized input representation."""
+    identities = dict(bundle.source_manifest.get("team_identities_by_prediction_row_id", {}))
+    markets = {market.p37_prediction_row_id: market for market in bundle.market_rows}
+    for raw in raw_predictions:
+        if not any(field in raw for field in P50C_TEAM_IDENTITY_FIELDS):
+            continue
+        identity = require_prediction_team_identity(raw)
+        prediction_id = _parse_prediction_row_dict(raw).p37_prediction_row_id
+        if prediction_id in identities and identities[prediction_id] != identity:
+            raise ValueError("P50C_TEAM_IDENTITY_CONFLICT: prediction and source manifest disagree")
+        market = markets.get(prediction_id)
+        if market is not None:
+            if identity != {field: getattr(market, field) for field in P50C_TEAM_IDENTITY_FIELDS}:
+                raise ValueError("P50C_TEAM_IDENTITY_CONFLICT: prediction and market teams disagree")
+            # Existing market-backed R inputs keep their exact original projection.
+            continue
+        identities[prediction_id] = identity
+    if not identities:
+        return bundle
+    manifest = dict(bundle.source_manifest)
+    manifest["team_identities_by_prediction_row_id"] = dict(sorted(identities.items()))
+    return replace(bundle, source_manifest=manifest)
+
+
+def _load_p50c_pregame_input(
+    source: NormalizedPregameInput | str | Path,
+) -> tuple[NormalizedPregameInput, bool]:
+    """Load input and report whether its prediction rows used legacy missing-type fallback."""
     if isinstance(source, NormalizedPregameInput):
-        return source
+        missing_type = any(row.game_type is None for row in source.prediction_rows)
+        if not missing_type:
+            return source, False
+        legacy_rows = tuple(
+            replace(row, game_type=REGULAR_SEASON_GAME_TYPE)
+            if row.game_type is None
+            else row
+            for row in source.prediction_rows
+        )
+        return replace(source, prediction_rows=legacy_rows), True
     path = Path(source).resolve()
     try:
-        return load_normalized_pregame_input(path)
+        normalized_bundle = load_normalized_pregame_input(path)
     except Exception:
         payload = read_json_object(path)
         raw_predictions = payload.get("predictions", [])
         if not raw_predictions:
             raise ValueError(f"no predictions found in pregame input {path}")
+        legacy_missing_game_type = any(
+            not isinstance(row, Mapping)
+            or ("game_type" not in row and "gameType" not in row)
+            for row in raw_predictions
+        )
 
         parsed_predictions = []
         source_manifest = dict(payload.get("source_manifest", {}))
@@ -499,7 +639,7 @@ def load_p50c_pregame_input(source: NormalizedPregameInput | str | Path) -> Norm
         for x in exclusions:
             reject_pregame_contamination(x)
 
-        return NormalizedPregameInput(
+        bundle = NormalizedPregameInput(
             source_identity=str(payload.get("source_identity", "P50C_PREDICTION_SOURCE")),
             prediction_rows=tuple(parsed_predictions),
             market_rows=(),
@@ -510,12 +650,22 @@ def load_p50c_pregame_input(source: NormalizedPregameInput | str | Path) -> Norm
             p39_summary={},
             p39_source_manifest={},
         )
+        return _preserve_input_team_identities(bundle, raw_predictions), legacy_missing_game_type
+    return _preserve_input_team_identities(
+        normalized_bundle, read_json_object(path).get("predictions", [])
+    ), False
+
+
+def load_p50c_pregame_input(source: NormalizedPregameInput | str | Path) -> NormalizedPregameInput:
+    """Load normalized pregame input or a legacy prediction-only bundle for reading."""
+    return _load_p50c_pregame_input(source)[0]
 
 
 def _prediction_official_date(
     row: P40APredictionRow,
     bundle: NormalizedPregameInput,
     market_by_prediction_id: Mapping[str, Any],
+    legacy_official_dates: Mapping[str, str] | None = None,
 ) -> str:
     market_row = market_by_prediction_id.get(row.p37_prediction_row_id)
     if market_row is not None:
@@ -533,10 +683,96 @@ def _prediction_official_date(
                 field_name=f"prediction {row.p37_prediction_row_id} official_date",
             )
 
+    legacy_value = (legacy_official_dates or {}).get(row.p37_prediction_row_id)
+    if legacy_value is not None:
+        return require_canonical_official_date(
+            legacy_value,
+            field_name=f"stored legacy prediction {row.p37_prediction_row_id} official_date",
+        )
+
     raise ValueError(
         "P50C_CANONICAL_OFFICIAL_DATE_REQUIRED: provider official_date is missing for "
         f"prediction {row.p37_prediction_row_id}"
     )
+
+
+def _legacy_official_dates_from_matching_run(
+    run_root: Path,
+    *,
+    normalized_input_fingerprint: str,
+    run_classification: str,
+    target_universe: Sequence[Mapping[str, Any]],
+) -> dict[str, str]:
+    """Reuse provider dates only from one stored run with the same legacy input identity."""
+    expected_identity = {
+        (
+            int(row["game_pk"]),
+            int(row["game_number"]),
+            str(row["provider_game_id"]),
+            str(row["p37_prediction_row_id"]),
+        )
+        for row in target_universe
+    }
+    if not run_root.is_dir():
+        return {}
+
+    matches: list[dict[str, str]] = []
+    for run_dir in sorted(run_root.iterdir()):
+        manifest_path = run_dir / "run_manifest.json"
+        predictions_path = run_dir / "frozen_predictions.jsonl"
+        if not run_dir.is_dir() or not manifest_path.is_file() or not predictions_path.is_file():
+            continue
+        try:
+            manifest = read_json_object(manifest_path)
+            if (
+                manifest.get("normalized_input_fingerprint") != normalized_input_fingerprint
+                or manifest.get("run_classification") != run_classification
+            ):
+                continue
+            frozen_predictions = read_jsonl_objects(predictions_path)
+            dates: dict[str, str] = {}
+            stored_identity = set()
+            for prediction in frozen_predictions:
+                game = prediction.get("game_identity")
+                authority = prediction.get("prediction_authority")
+                if not isinstance(game, Mapping) or not isinstance(authority, Mapping):
+                    dates = {}
+                    break
+                prediction_id = str(authority.get("p37_prediction_row_id") or "")
+                official_date = require_canonical_official_date(
+                    game.get("official_date"),
+                    field_name=f"stored legacy prediction {prediction_id} official_date",
+                )
+                dates[prediction_id] = official_date
+                stored_identity.add(
+                    (
+                        int(game["game_pk"]),
+                        int(game["game_number"]),
+                        str(game["provider_game_id"]),
+                        prediction_id,
+                    )
+                )
+            if stored_identity == expected_identity and len(dates) == len(expected_identity):
+                matches.append(dates)
+        except (KeyError, OSError, TypeError, ValueError):
+            continue
+
+    if len(matches) > 1:
+        raise RuntimeError("P50C_LEGACY_OFFICIAL_DATE_AUTHORITY_AMBIGUOUS")
+    return matches[0] if matches else {}
+
+
+def _legacy_regular_game_type_projection(value: Any) -> Any:
+    """Ignore only explicit R tokens when comparing against pre-contract run rows."""
+    if isinstance(value, Mapping):
+        return {
+            key: _legacy_regular_game_type_projection(item)
+            for key, item in value.items()
+            if not (key == "game_type" and item == REGULAR_SEASON_GAME_TYPE)
+        }
+    if isinstance(value, list):
+        return [_legacy_regular_game_type_projection(item) for item in value]
+    return value
 
 
 def _resolve_run_target_date(
@@ -578,7 +814,7 @@ def create_p50c_prediction_run(
 ) -> P50CCreateRunResult:
     """Create and freeze an immutable prediction run strictly before scheduled game start."""
     root = Path(repository_root).resolve()
-    bundle = load_p50c_pregame_input(pregame_input)
+    bundle, legacy_missing_game_type = _load_p50c_pregame_input(pregame_input)
 
 
     validate_prediction_run_classification(
@@ -587,6 +823,11 @@ def create_p50c_prediction_run(
         source_identity=bundle.source_identity,
         created_at_utc=created_at_utc,
     )
+
+    game_types = {_prediction_game_type(row) for row in bundle.prediction_rows}
+    if len(game_types) != 1:
+        raise RuntimeError("P50C_MIXED_GAME_TYPE_RUN_REJECTED")
+    resolved_game_type = next(iter(game_types))
 
     norm_fp = canonical_prediction_fingerprint(
         source_identity=bundle.source_identity,
@@ -605,26 +846,60 @@ def create_p50c_prediction_run(
         for row in bundle.prediction_rows
     ]
 
+    if run_root is not None:
+        destination_root = Path(run_root).resolve()
+    else:
+        destination_root = (root / P50C_REPORT_RELATIVE_PATH / "runs").resolve()
+
     market_by_pred_id = {m.p37_prediction_row_id: m for m in bundle.market_rows}
-    official_dates_by_pred_id = {
-        row.p37_prediction_row_id: _prediction_official_date(row, bundle, market_by_pred_id)
+    teams_by_pred_id = {
+        row.p37_prediction_row_id: _prediction_team_identity(row, bundle, market_by_pred_id)
         for row in bundle.prediction_rows
     }
-    resolved_target_date = _resolve_run_target_date(
-        requested_target_date=target_date,
-        source_manifest=bundle.source_manifest,
-        official_dates=tuple(official_dates_by_pred_id.values()),
-        run_classification=run_classification,
+    source_dates = bundle.source_manifest.get("official_dates_by_prediction_row_id", {})
+    missing_official_dates = [
+        row
+        for row in bundle.prediction_rows
+        if row.p37_prediction_row_id not in market_by_pred_id
+        and not (
+            isinstance(source_dates, Mapping)
+            and source_dates.get(row.p37_prediction_row_id) is not None
+        )
+    ]
+    legacy_official_dates = (
+        _legacy_official_dates_from_matching_run(
+            destination_root,
+            normalized_input_fingerprint=norm_fp,
+            run_classification=run_classification,
+            target_universe=target_universe,
+        )
+        if missing_official_dates
+        else {}
     )
+    official_dates_by_pred_id = {
+        row.p37_prediction_row_id: _prediction_official_date(
+            row, bundle, market_by_pred_id, legacy_official_dates
+        )
+        for row in bundle.prediction_rows
+    }
+    legacy_official_date_set = set(official_dates_by_pred_id.values())
+    if legacy_official_dates and target_date is None and len(legacy_official_date_set) > 1:
+        # The matched pre-contract run used a null manifest target_date for a
+        # local slate whose authoritative provider official dates crossed UTC.
+        resolved_target_date = None
+    else:
+        resolved_target_date = _resolve_run_target_date(
+            requested_target_date=target_date,
+            source_manifest=bundle.source_manifest,
+            official_dates=tuple(official_dates_by_pred_id.values()),
+            run_classification=run_classification,
+        )
 
     pred_fps = [
         compute_prediction_row_fingerprint(
             row,
             official_date=official_dates_by_pred_id[row.p37_prediction_row_id],
-            home_team=market_by_pred_id[row.p37_prediction_row_id].home_team if row.p37_prediction_row_id in market_by_pred_id else "",
-            away_team=market_by_pred_id[row.p37_prediction_row_id].away_team if row.p37_prediction_row_id in market_by_pred_id else "",
-            home_team_code=market_by_pred_id[row.p37_prediction_row_id].home_team_code if row.p37_prediction_row_id in market_by_pred_id else "",
-            away_team_code=market_by_pred_id[row.p37_prediction_row_id].away_team_code if row.p37_prediction_row_id in market_by_pred_id else "",
+            **teams_by_pred_id[row.p37_prediction_row_id],
         )
         for row in bundle.prediction_rows
     ]
@@ -636,11 +911,6 @@ def create_p50c_prediction_run(
         prediction_bundle_fingerprint=pred_bundle_fp,
         target_universe=target_universe,
     )
-
-    if run_root is not None:
-        destination_root = Path(run_root).resolve()
-    else:
-        destination_root = (root / P50C_REPORT_RELATIVE_PATH / "runs").resolve()
 
     run_dir = destination_root / run_id
     manifest_path = run_dir / "run_manifest.json"
@@ -654,10 +924,7 @@ def create_p50c_prediction_run(
             run_classification=run_classification,
             created_at_utc=created_at_utc,
             official_date=official_dates_by_pred_id[row.p37_prediction_row_id],
-            home_team=market_by_pred_id[row.p37_prediction_row_id].home_team if row.p37_prediction_row_id in market_by_pred_id else "",
-            away_team=market_by_pred_id[row.p37_prediction_row_id].away_team if row.p37_prediction_row_id in market_by_pred_id else "",
-            home_team_code=market_by_pred_id[row.p37_prediction_row_id].home_team_code if row.p37_prediction_row_id in market_by_pred_id else "",
-            away_team_code=market_by_pred_id[row.p37_prediction_row_id].away_team_code if row.p37_prediction_row_id in market_by_pred_id else "",
+            **teams_by_pred_id[row.p37_prediction_row_id],
         )
         for row in bundle.prediction_rows
     )
@@ -669,6 +936,7 @@ def create_p50c_prediction_run(
         "task_id": P50C_TASK_ID,
         "run_id": run_id,
         "run_classification": run_classification,
+        "game_type": resolved_game_type,
         "lifecycle_state": STATE_FROZEN,
         "created_at_utc": created_at_utc,
         "target_date": resolved_target_date,
@@ -683,6 +951,8 @@ def create_p50c_prediction_run(
         "prediction_fingerprints": pred_fps,
         "claims": dict(P50C_CLAIMS),
     }
+    if resolved_game_type != REGULAR_SEASON_GAME_TYPE:
+        manifest_payload["model_domain_status"] = NON_R_MODEL_DOMAIN_STATUS
 
     # Idempotency and conflict check
     if manifest_path.is_file():
@@ -693,18 +963,37 @@ def create_p50c_prediction_run(
             and existing_manifest.get("normalized_input_fingerprint") == norm_fp
             and existing_manifest.get("run_classification") == run_classification
         ):
-            if predictions_path.is_file() and predictions_path.read_bytes() == _jsonl_bytes(frozen_records):
-                return P50CCreateRunResult(
-                    status="RECOGNIZED_IDENTICAL",
-                    run_id=run_id,
-                    run_dir=run_dir,
-                    manifest=existing_manifest,
-                    frozen_predictions=frozen_records,
-                    exclusions=exclusion_records,
-                )
+            if predictions_path.is_file():
+                try:
+                    existing_predictions = read_jsonl_objects(predictions_path)
+                except (OSError, ValueError):
+                    existing_predictions = []
+                if _legacy_regular_game_type_projection(existing_predictions) == _legacy_regular_game_type_projection(
+                    list(frozen_records)
+                ):
+                    if legacy_missing_game_type and "game_type" in existing_manifest:
+                        raise RuntimeError(
+                            "P50C_FRESH_GAME_TYPE_REQUIRED: missing game_type is compatible only with a matching pre-contract run"
+                        )
+                    return P50CCreateRunResult(
+                        status="RECOGNIZED_IDENTICAL",
+                        run_id=run_id,
+                        run_dir=run_dir,
+                        manifest=existing_manifest,
+                        frozen_predictions=frozen_records,
+                        exclusions=exclusion_records,
+                    )
         raise RuntimeError(
             "P50C_RUN_AUTHORITY_CONFLICT: existing prediction run manifest conflicts with incoming authority"
         )
+
+    if legacy_missing_game_type:
+        raise RuntimeError(
+            "P50C_FRESH_GAME_TYPE_REQUIRED: new prediction inputs must include the exact provider game_type"
+        )
+
+    for identity in teams_by_pred_id.values():
+        require_prediction_team_identity(identity)
 
     run_dir.mkdir(parents=True, exist_ok=True)
     manifest_path.write_bytes(_json_bytes(manifest_payload))
@@ -821,6 +1110,7 @@ def build_p50c_prediction_ledger_record(
             "provider_game_id": game_id_info["provider_game_id"],
             "game_pk": game_id_info["game_pk"],
             "game_number": game_id_info["game_number"],
+            "game_type": effective_game_type(frozen_prediction),
             "scheduled_start_utc": game_id_info["scheduled_start_utc"],
             "official_date": game_id_info["official_date"],
             "home_team": game_id_info["home_team"],
@@ -844,6 +1134,7 @@ def build_p50c_prediction_ledger_record(
         },
         "final_result_authority": {
             "status": result_record.status,
+            "game_type": result_record.game_type,
             "home_score": result_record.home_score,
             "away_score": result_record.away_score,
             "actual_winner": result_record.actual_winner,
@@ -864,6 +1155,10 @@ def build_p50c_prediction_ledger_record(
             "feedback_identity": feedback_identity,
         },
     }
+    if model_id_info.get("model_domain_status") is not None:
+        payload_without_id["model_identity"]["model_domain_status"] = model_id_info[
+            "model_domain_status"
+        ]
 
     record_id = _sha256_projection(payload_without_id)
     return {
@@ -885,15 +1180,9 @@ class P50CSettleRunResult:
     forward_summary: dict[str, Any]
 
 
-def compute_forward_prediction_summary(
-    forward_records: Sequence[Mapping[str, Any]],
+def _forward_metrics_for_cohort(
+    prospective_rows: Sequence[Mapping[str, Any]],
 ) -> dict[str, Any]:
-    """Compute cumulative forward evaluation metrics strictly over prospective prediction records."""
-    prospective_rows = [
-        row for row in forward_records
-        if row.get("run_classification") == CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION
-    ]
-
     distinct_runs = sorted({row["run_id"] for row in prospective_rows})
     total_settled = len(prospective_rows)
 
@@ -956,6 +1245,39 @@ def compute_forward_prediction_summary(
         "last_target_date": last_date,
         "PREDICTION_FORWARD_SAMPLE_COUNT": total_settled,
     }
+
+
+def compute_forward_prediction_summary(
+    forward_records: Sequence[Mapping[str, Any]],
+) -> dict[str, Any]:
+    """Report regular-season headline metrics and independently grouped cohorts."""
+    prospective_rows = [
+        row for row in forward_records
+        if row.get("run_classification") == CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION
+    ]
+    rows_by_game_type: dict[str, list[Mapping[str, Any]]] = {}
+    for row in prospective_rows:
+        rows_by_game_type.setdefault(effective_game_type(row), []).append(row)
+
+    regular_rows = rows_by_game_type.get(REGULAR_SEASON_GAME_TYPE, [])
+    summary = _forward_metrics_for_cohort(regular_rows)
+    cohorts = {
+        game_type: {
+            "effective_game_type": game_type,
+            "sample_count": len(rows),
+            **_forward_metrics_for_cohort(rows),
+        }
+        for game_type, rows in sorted(rows_by_game_type.items())
+    }
+    summary.update(
+        {
+            "schema_version": P50C_FORWARD_SUMMARY_SCHEMA,
+            "metric_game_type": REGULAR_SEASON_GAME_TYPE,
+            "game_type_cohorts": cohorts,
+            "total_prediction_forward_sample_count": len(prospective_rows),
+        }
+    )
+    return summary
 
 
 def apply_official_date_corrections(
@@ -1066,9 +1388,11 @@ def settle_p50c_prediction_run(
 
     # Index results by prediction_row_id and (provider_namespace, provider_game_id, game_number)
     results_by_pred_id: dict[str, NormalizedResultRecord] = {}
-    results_by_game_key: dict[tuple[str, str, int], NormalizedResultRecord] = {}
+    results_by_game_key: dict[tuple[str, str, int, str], NormalizedResultRecord] = {}
 
     for res in result_records:
+        if not isinstance(res.game_type, str) or not res.game_type.strip():
+            raise RuntimeError("P50C_RESULT_GAME_TYPE_REQUIRED: result needs exact provider game_type")
         if res.status != "FINAL":
             raise RuntimeError("P50C_NON_FINAL_RESULT_REJECTED: result status must be FINAL")
         if res.home_score == res.away_score:
@@ -1079,7 +1403,12 @@ def settle_p50c_prediction_run(
                 raise RuntimeError("P50C_CONFLICTING_RESULT_REJECTED: duplicate result for prediction")
             results_by_pred_id[res.prediction_row_id] = res
 
-        game_key = (res.provider_namespace, res.provider_game_id, res.game_number)
+        game_key = (
+            res.provider_namespace,
+            res.provider_game_id,
+            res.game_number,
+            res.game_type,
+        )
         if game_key in results_by_game_key:
             raise RuntimeError("P50C_CONFLICTING_RESULT_REJECTED: duplicate result for game identity")
         results_by_game_key[game_key] = res
@@ -1103,6 +1432,7 @@ def settle_p50c_prediction_run(
             game_id["provider_namespace"],
             game_id["provider_game_id"],
             game_id["game_number"],
+            effective_game_type(frozen_pred),
         )
 
         existing = existing_settled_by_pred_fp.get(pred_fp)
@@ -1111,6 +1441,8 @@ def settle_p50c_prediction_run(
         incoming_res = results_by_pred_id.get(pred_auth_id)
         if incoming_res is None:
             incoming_res = results_by_game_key.get(game_key)
+        elif incoming_res.game_type != effective_game_type(frozen_pred):
+            raise RuntimeError("P50C_GAME_TYPE_MISMATCH: result cohort disagrees with frozen prediction")
 
         if existing is not None:
             if incoming_res is not None:
@@ -1176,6 +1508,7 @@ def settle_p50c_prediction_run(
         "schema_version": P50C_SETTLEMENT_SUMMARY_SCHEMA,
         "run_id": run_id,
         "run_classification": run_classification,
+        "game_type": effective_game_type(frozen_predictions[0]),
         "lifecycle_state": new_state,
         "target_universe_count": manifest.get("target_universe_count", total_eligible),
         "eligible_prediction_count": total_eligible,
@@ -1303,6 +1636,7 @@ __all__ = (
     "P50C_TASK_ID",
     "P66A_OFFICIAL_DATE_CORRECTION_FILENAME",
     "P66A_OFFICIAL_DATE_CORRECTION_SCHEMA",
+    "REGULAR_SEASON_GAME_TYPE",
     "STATE_FROZEN",
     "STATE_PARTIALLY_SETTLED",
     "STATE_SETTLED",
@@ -1320,6 +1654,7 @@ __all__ = (
     "compute_forward_prediction_summary",
     "compute_prediction_row_fingerprint",
     "create_p50c_prediction_run",
+    "effective_game_type",
     "get_p50c_forward_summary",
     "get_p50c_run_status",
     "load_effective_forward_records",

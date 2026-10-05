@@ -156,6 +156,7 @@ def _sample_p35a_bundle() -> tuple[list[dict[str, Any]], list[dict[str, Any]], d
     schedule_rows = [
         {
             "schema_version": "p23f2.mlb_official_normalized.v1",
+            "game_type": "R",
             "provider_game_id": "824192",
             "game_pk": 824192,
             "game_number": 1,
@@ -170,6 +171,7 @@ def _sample_p35a_bundle() -> tuple[list[dict[str, Any]], list[dict[str, Any]], d
         },
         {
             "schema_version": "p23f2.mlb_official_normalized.v1",
+            "game_type": "R",
             "provider_game_id": "824114",
             "game_pk": 824114,
             "game_number": 1,
@@ -184,6 +186,7 @@ def _sample_p35a_bundle() -> tuple[list[dict[str, Any]], list[dict[str, Any]], d
         },
         {
             "schema_version": "p23f2.mlb_official_normalized.v1",
+            "game_type": "R",
             "provider_game_id": "822738",
             "game_pk": 822738,
             "game_number": 1,
@@ -234,6 +237,7 @@ class P46AP35APregameAdapterTests(unittest.TestCase):
         # Check prediction row mapping
         first_pred = adapted.prediction_rows[0]
         self.assertEqual(first_pred.provider_game_id, "824114")
+        self.assertEqual(first_pred.game_type, "R")
         self.assertEqual(first_pred.champion_home_probability, Decimal("0.5303627085439037814014483218"))
         self.assertEqual(first_pred.champion_model_id, "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630")
         self.assertEqual(first_pred.champion_model_fingerprint, "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e")
@@ -260,6 +264,18 @@ class P46AP35APregameAdapterTests(unittest.TestCase):
         self.assertEqual(len(reparsed.prediction_rows), 2)
         self.assertEqual(len(reparsed.market_rows), 2)
         self.assertEqual(len(reparsed.exclusion_rows), 1)
+
+    def test_productive_row_requires_exact_schedule_game_type(self) -> None:
+        analysis_rows, schedule_rows, source_manifest, run_manifest = _sample_p35a_bundle()
+        schedule_rows[0].pop("game_type")
+        with self.assertRaisesRegex(ValueError, "P44A_PROVIDER_GAME_TYPE_REQUIRED"):
+            adapt_p35a_pregame(
+                analysis_rows,
+                schedule_input=schedule_rows,
+                source_manifest_input=source_manifest,
+                run_manifest_input=run_manifest,
+                source_identity=P46A_CONTRACT_REHEARSAL_SOURCE_IDENTITY,
+            )
 
     def test_bundle_directory_and_file_adapter(self) -> None:
         analysis_rows, schedule_rows, source_manifest, run_manifest = _sample_p35a_bundle()

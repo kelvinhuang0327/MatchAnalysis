@@ -32,6 +32,7 @@ from ...infrastructure.providers.mlb_official_historical_source import (
     MLB_STATS_API_BASE,
     JsonOpener,
     _default_opener,
+    _team_projection,
     canonical_json_bytes,
     fetch_json_bytes,
     format_utc,
@@ -46,10 +47,13 @@ from .p50c_prediction_run_ledger import (
     CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
     FORBIDDEN_PREGAME_BETTING_FIELDS,
     FORBIDDEN_PREGAME_RESULT_FIELDS,
+    NON_R_MODEL_DOMAIN_STATUS,
+    REGULAR_SEASON_GAME_TYPE,
     create_p50c_prediction_run,
     get_p50c_forward_summary,
     get_p50c_run_status,
     reject_pregame_contamination,
+    require_prediction_team_identity,
 )
 
 getcontext().prec = 28
@@ -74,6 +78,7 @@ def _sha256_projection(value: Any) -> str:
 @dataclass(frozen=True, slots=True)
 class DailyPredictionFreezeResult:
     target_date: str
+    game_type: str
     as_of_utc: str
     target_games_count: int
     eligible_predictions_count: int
@@ -91,6 +96,12 @@ class DailyPredictionFreezeResult:
     def to_dict(self) -> dict[str, Any]:
         return {
             "target_date": self.target_date,
+            "game_type": self.game_type,
+            "model_domain_status": (
+                NON_R_MODEL_DOMAIN_STATUS
+                if self.game_type != REGULAR_SEASON_GAME_TYPE
+                else None
+            ),
             "as_of_utc": self.as_of_utc,
             "target_games_count": self.target_games_count,
             "eligible_predictions_count": self.eligible_predictions_count,
@@ -128,6 +139,7 @@ def fetch_mlb_schedule_data(
     start_date: str,
     end_date: str,
     *,
+    game_type: str = REGULAR_SEASON_GAME_TYPE,
     opener: JsonOpener | None = None,
     timeout: int = 30,
 ) -> tuple[dict[str, Any], str, str]:
@@ -135,12 +147,15 @@ def fetch_mlb_schedule_data(
 
     Returns (parsed_json, request_url, sha256_hash).
     """
+    if not isinstance(game_type, str) or not game_type.strip():
+        raise ValueError("P52A_PROVIDER_GAME_TYPE_REQUIRED: game_type must be a provider value")
     actual_opener = opener if opener is not None else _default_opener
     url = f"{MLB_STATS_API_BASE}/schedule"
     query = {
         "sportId": "1",
         "startDate": start_date,
         "endDate": end_date,
+        "gameType": game_type,
         "hydrate": "probablePitcher(note),team",
     }
     raw_bytes, req_url = fetch_json_bytes(url, query=query, opener=actual_opener, timeout=timeout)
@@ -158,10 +173,13 @@ def parse_schedule_rows(sched_data: Mapping[str, Any]) -> list[dict[str, Any]]:
                 raise ValueError(
                     "P52A_CANONICAL_OFFICIAL_DATE_REQUIRED: MLB game is missing provider officialDate"
                 )
+            game_type = g.get("gameType")
+            if not isinstance(game_type, str) or not game_type.strip():
+                raise ValueError("P52A_PROVIDER_GAME_TYPE_REQUIRED: schedule game is missing gameType")
             home_wrapper = g.get("teams", {}).get("home", {})
             away_wrapper = g.get("teams", {}).get("away", {})
-            home_team = home_wrapper.get("team", {})
-            away_team = away_wrapper.get("team", {})
+            home_team = _team_projection(home_wrapper, "home")
+            away_team = _team_projection(away_wrapper, "away")
             home_pitcher = home_wrapper.get("probablePitcher", {})
             away_pitcher = away_wrapper.get("probablePitcher", {})
             status = g.get("status", {})
@@ -172,6 +190,7 @@ def parse_schedule_rows(sched_data: Mapping[str, Any]) -> list[dict[str, Any]]:
                     "game_pk": g.get("gamePk"),
                     "game_number": g.get("gameNumber", 1),
                     "provider_game_id": str(g.get("gamePk")),
+                    "game_type": game_type,
                     "scheduled_start_utc": g.get("gameDate"),
                     "official_date": official_date,
                     "final": is_final,
@@ -236,11 +255,14 @@ def fetch_pitcher_game_logs(
         splits = (stats_list[0].get("splits") or []) if stats_list else []
         for s in splits:
             stat = s.get("stat", {})
+            game_type = s.get("gameType")
+            if not isinstance(game_type, str) or not game_type.strip():
+                raise ValueError("P52A_PROVIDER_GAME_TYPE_REQUIRED: pitcher split is missing gameType")
             pitcher_logs[pid].append(
                 {
                     "player_id": pid,
                     "date": s.get("date"),
-                    "game_type": "R",
+                    "game_type": game_type,
                     "games_started": stat.get("gamesStarted", 0),
                     "outs": stat.get("outs", 0),
                     "earned_runs": stat.get("earnedRuns", 0),
@@ -266,6 +288,7 @@ def compute_team_recent_win_rate_delta(
         r
         for r in schedule_rows
         if r.get("final")
+        and r.get("game_type", REGULAR_SEASON_GAME_TYPE) == REGULAR_SEASON_GAME_TYPE
         and r.get("scheduled_start_utc")
         and parse_utc(r["scheduled_start_utc"]) < cutoff_dt
     ]
@@ -307,7 +330,11 @@ def compute_starter_era(
     """
     logs = pitcher_logs.get(pitcher_id, [])
     prior_starts = [
-        r for r in logs if str(r.get("date")) < target_official_date and r.get("games_started") == 1
+        r
+        for r in logs
+        if r.get("game_type", REGULAR_SEASON_GAME_TYPE) == REGULAR_SEASON_GAME_TYPE
+        and str(r.get("date")) < target_official_date
+        and r.get("games_started") == 1
     ]
     if len(prior_starts) < 2:
         return (
@@ -322,6 +349,80 @@ def compute_starter_era(
     return era, None
 
 
+def _resolve_explicit_intake_path(output_root: Path, intake_path: str | Path) -> Path:
+    """Resolve an explicit intake file while keeping it inside P50C's intake directory."""
+    requested_path = Path(intake_path)
+    if ".." in requested_path.parts:
+        raise ValueError(
+            "P52A_INTAKE_PATH_TRAVERSAL_REJECTED: intake_path cannot contain '..'"
+        )
+
+    root = output_root.resolve()
+    intake_dir = root / P50C_REPORT_RELATIVE_PATH / "intake"
+    candidate = requested_path if requested_path.is_absolute() else root / requested_path
+    if candidate.parent != intake_dir:
+        raise ValueError(
+            "P52A_INTAKE_PATH_OUTSIDE_CANONICAL_DIRECTORY: intake_path must be a direct file under "
+            f"{intake_dir}"
+        )
+
+    for directory in (root / "report", root / P50C_REPORT_RELATIVE_PATH, intake_dir):
+        if directory.is_symlink():
+            raise ValueError(
+                "P52A_INTAKE_PATH_SYMLINK_DIRECTORY_REJECTED: canonical intake directories cannot be symlinks"
+            )
+        if directory.exists() and not directory.is_dir():
+            raise ValueError(
+                "P52A_INTAKE_PATH_PARENT_NOT_DIRECTORY: canonical intake parent is not a directory"
+            )
+
+    if candidate.is_symlink():
+        raise ValueError("P52A_INTAKE_PATH_SYMLINK_TARGET_REJECTED: intake target cannot be a symlink")
+    if candidate.is_dir():
+        raise ValueError("P52A_INTAKE_PATH_DIRECTORY_TARGET_REJECTED: intake target must be a file")
+    if candidate.exists():
+        raise RuntimeError(
+            f"P52A_EXPLICIT_INTAKE_TARGET_EXISTS: refusing to overwrite existing intake file {candidate}"
+        )
+    return candidate
+
+
+def _p52a_game_identity(game: Mapping[str, Any]) -> dict[str, Any]:
+    """Project one schedule row into the exact identity P50C freezes."""
+    home_team = game.get("home_team") or {}
+    away_team = game.get("away_team") or {}
+    return {
+        "provider_namespace": "MLB_STATS_API",
+        "provider_game_id": str(game.get("game_pk")),
+        "game_pk": game.get("game_pk"),
+        "game_number": game.get("game_number"),
+        "game_type": game.get("game_type"),
+        "scheduled_start_utc": game.get("scheduled_start_utc"),
+        "official_date": game.get("official_date"),
+        "home_team": home_team.get("name"),
+        "away_team": away_team.get("name"),
+        "home_team_code": home_team.get("abbreviation"),
+        "away_team_code": away_team.get("abbreviation"),
+    }
+
+
+def _assert_probable_pitcher_state(
+    game: Mapping[str, Any], expected_state: Mapping[str, Any]
+) -> None:
+    if set(expected_state) != {"HOME", "AWAY"}:
+        raise ValueError("P52A_EXPECTED_STARTER_STATE_INVALID")
+    for side in ("HOME", "AWAY"):
+        starter = game.get(f"{side.lower()}_starter") or {}
+        expected_id = expected_state[side]
+        actual_id = starter.get("player_id")
+        if (
+            expected_id is None
+            or actual_id is None
+            or str(actual_id) != str(expected_id)
+        ):
+            raise RuntimeError("P52A_SIGNAL_STARTER_IDENTITY_MISMATCH")
+
+
 def execute_daily_moneyline_prediction_freeze(
     *,
     target_date: str,
@@ -329,6 +430,11 @@ def execute_daily_moneyline_prediction_freeze(
     repository_root: str | Path | None = None,
     output_root: str | Path | None = None,
     history_start_date: str | None = None,
+    game_type: str = REGULAR_SEASON_GAME_TYPE,
+    intake_path: str | Path | None = None,
+    target_game_identity: Mapping[str, Any] | None = None,
+    expected_probable_pitcher_state: Mapping[str, Any] | None = None,
+    extra_source_manifest: Mapping[str, Any] | None = None,
     opener: JsonOpener | None = None,
 ) -> DailyPredictionFreezeResult:
     """Execute the complete daily Moneyline prediction freeze flow for one MLB slate.
@@ -344,6 +450,15 @@ def execute_daily_moneyline_prediction_freeze(
     """
     repo_root = Path(repository_root or Path.cwd()).resolve()
     out_root = Path(output_root or repo_root).resolve()
+    if not isinstance(game_type, str) or not game_type.strip():
+        raise ValueError("P52A_PROVIDER_GAME_TYPE_REQUIRED: game_type must be a provider value")
+    clean_date = target_date.replace("-", "")
+    explicit_intake_path = intake_path is not None
+    pregame_input_file = (
+        _resolve_explicit_intake_path(out_root, intake_path)
+        if explicit_intake_path
+        else out_root / P50C_REPORT_RELATIVE_PATH / "intake" / f"prospective_pregame_{clean_date}.json"
+    )
 
     if as_of_utc is None:
         as_of_dt = datetime.now(UTC)
@@ -369,14 +484,52 @@ def execute_daily_moneyline_prediction_freeze(
     ) = load_champion_model_parameters(repo_root)
 
     # Step 2: Fetch Official Schedule
-    sched_data, sched_url, sched_sha256 = fetch_mlb_schedule_data(
+    regular_schedule_data, sched_url, sched_sha256 = fetch_mlb_schedule_data(
         hist_start,
         target_date,
+        game_type=REGULAR_SEASON_GAME_TYPE,
         opener=opener,
     )
-    schedule_rows = parse_schedule_rows(sched_data)
+    schedule_rows = [
+        row
+        for row in parse_schedule_rows(regular_schedule_data)
+        if row["game_type"] == REGULAR_SEASON_GAME_TYPE
+    ]
+    non_r_schedule_manifest: dict[str, str] = {}
+    if game_type != REGULAR_SEASON_GAME_TYPE:
+        target_schedule_data, target_schedule_url, target_schedule_sha256 = fetch_mlb_schedule_data(
+            target_date,
+            target_date,
+            game_type=game_type,
+            opener=opener,
+        )
+        schedule_rows.extend(
+            row
+            for row in parse_schedule_rows(target_schedule_data)
+            if row["game_type"] == game_type
+        )
+        non_r_schedule_manifest = {
+            "target_schedule_url": target_schedule_url,
+            "target_schedule_sha256": target_schedule_sha256,
+        }
 
-    target_games = [r for r in schedule_rows if r.get("official_date") == target_date]
+    target_games = [
+        row
+        for row in schedule_rows
+        if row.get("official_date") == target_date and row["game_type"] == game_type
+    ]
+    if target_game_identity is not None:
+        if not isinstance(target_game_identity, Mapping):
+            raise ValueError("P52A_SINGLE_GAME_IDENTITY_INVALID")
+        target_games = [
+            row for row in target_games if _p52a_game_identity(row) == dict(target_game_identity)
+        ]
+        if len(target_games) != 1:
+            raise RuntimeError("P52A_SINGLE_GAME_IDENTITY_NOT_UNIQUE")
+        if expected_probable_pitcher_state is not None:
+            _assert_probable_pitcher_state(target_games[0], expected_probable_pitcher_state)
+    elif expected_probable_pitcher_state is not None:
+        raise ValueError("P52A_EXPECTED_STARTER_STATE_REQUIRES_SINGLE_GAME_IDENTITY")
 
     # Collect starter IDs from target games
     pitcher_ids: set[int] = set()
@@ -513,6 +666,7 @@ def execute_daily_moneyline_prediction_freeze(
             "provider_game_id": str(gpk),
             "game_pk": gpk,
             "game_number": g.get("game_number", 1),
+            "game_type": g["game_type"],
             "scheduled_start_utc": scheduled_start_str,
             "official_date": g["official_date"],
             "champion_model_id": champion_model_id,
@@ -521,32 +675,64 @@ def execute_daily_moneyline_prediction_freeze(
             "challenger_model_id": champion_model_id,
             "challenger_model_fingerprint": champion_model_fp,
             "challenger_home_probability": format(p_home, "f"),
+            **require_prediction_team_identity({
+                "home_team": ht.get("name"),
+                "away_team": at.get("name"),
+                "home_team_code": ht.get("abbreviation"),
+                "away_team_code": at.get("abbreviation"),
+            }),
         }
+        if game_type != REGULAR_SEASON_GAME_TYPE:
+            pred_record["model_domain_status"] = NON_R_MODEL_DOMAIN_STATUS
         reject_pregame_contamination(pred_record)
         prediction_rows.append(pred_record)
 
     # Step 6: Form Pregame Input Bundle
+    source_manifest = {
+        "schedule_url": sched_url,
+        "schedule_sha256": sched_sha256,
+        "pitcher_sources": pitcher_sources,
+        "fetched_at_utc": as_of_str,
+        "target_date": target_date,
+        **non_r_schedule_manifest,
+    }
+    if extra_source_manifest is not None:
+        if not isinstance(extra_source_manifest, Mapping):
+            raise ValueError("P52A_EXTRA_SOURCE_MANIFEST_INVALID")
+        if set(source_manifest).intersection(extra_source_manifest):
+            raise ValueError("P52A_EXTRA_SOURCE_MANIFEST_CONFLICT")
+        try:
+            json.dumps(dict(extra_source_manifest), sort_keys=True)
+        except (TypeError, ValueError) as error:
+            raise ValueError("P52A_EXTRA_SOURCE_MANIFEST_INVALID") from error
+        source_manifest.update(dict(extra_source_manifest))
+
     pregame_input_payload = {
         "schema_version": P52A_PREGAME_SCHEMA_VERSION,
         "source_identity": P52A_SOURCE_IDENTITY,
-        "source_manifest": {
-            "schedule_url": sched_url,
-            "schedule_sha256": sched_sha256,
-            "pitcher_sources": pitcher_sources,
-            "fetched_at_utc": as_of_str,
-            "target_date": target_date,
-        },
+        "source_manifest": source_manifest,
         "predictions": prediction_rows,
         "exclusions": exclusion_rows,
     }
 
     intake_dir = out_root / P50C_REPORT_RELATIVE_PATH / "intake"
     intake_dir.mkdir(parents=True, exist_ok=True)
-    clean_date = target_date.replace("-", "")
-    pregame_input_file = intake_dir / f"prospective_pregame_{clean_date}.json"
-    pregame_input_file.write_bytes(
-        json.dumps(pregame_input_payload, indent=2, sort_keys=True).encode("utf-8")
-    )
+    intake_bytes = json.dumps(pregame_input_payload, indent=2, sort_keys=True).encode("utf-8")
+    if explicit_intake_path:
+        try:
+            with pregame_input_file.open("xb") as intake_file:
+                intake_file.write(intake_bytes)
+        except FileExistsError as exc:
+            raise RuntimeError(
+                f"P52A_EXPLICIT_INTAKE_TARGET_EXISTS: refusing to overwrite existing intake file {pregame_input_file}"
+            ) from exc
+    elif pregame_input_file.exists():
+        if pregame_input_file.read_bytes() != intake_bytes:
+            raise RuntimeError(
+                f"P52A_INTAKE_AUTHORITY_CONFLICT: immutable intake already exists: {pregame_input_file}"
+            )
+    else:
+        pregame_input_file.write_bytes(intake_bytes)
 
     # Step 7: Freeze Prediction Run via P50C Authority if predictions exist
     run_id: str | None = None
@@ -586,6 +772,7 @@ def execute_daily_moneyline_prediction_freeze(
 
     return DailyPredictionFreezeResult(
         target_date=target_date,
+        game_type=game_type,
         as_of_utc=as_of_str,
         target_games_count=len(target_games),
         eligible_predictions_count=len(prediction_rows),
@@ -612,6 +799,7 @@ __all__ = (
     "EXCLUSION_NOT_FUTURE_GAME",
     "EXCLUSION_STARTER_OUTS_ZERO",
     "EXCLUSION_STARTER_UNAVAILABLE",
+    "REGULAR_SEASON_GAME_TYPE",
     "P52A_PREGAME_SCHEMA_VERSION",
     "P52A_SOURCE_IDENTITY",
     "compute_starter_era",

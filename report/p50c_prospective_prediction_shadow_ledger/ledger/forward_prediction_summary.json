@@ -1,19 +1,81 @@
 {
-  "PREDICTION_FORWARD_SAMPLE_COUNT": 5,
-  "accuracy": "0.4",
-  "brier_score": "0.2430182907252608128898709726",
-  "correct_count": 2,
-  "expected_calibration_error": "0.29833854",
+  "PREDICTION_FORWARD_SAMPLE_COUNT": 83,
+  "accuracy": "0.5903614457831325301204819277",
+  "brier_score": "0.2422197899623450964513392530",
+  "correct_count": 49,
+  "expected_calibration_error": "0.07801647",
   "first_target_date": "2026-08-18",
-  "frozen_prediction_count": 5,
-  "incorrect_count": 3,
-  "last_target_date": "2026-08-18",
-  "log_loss": "0.6784060056716",
+  "frozen_prediction_count": 83,
+  "game_type_cohorts": {
+    "F": {
+      "PREDICTION_FORWARD_SAMPLE_COUNT": 4,
+      "accuracy": "0.5",
+      "brier_score": "0.2314941882023398516694850218",
+      "correct_count": 2,
+      "effective_game_type": "F",
+      "expected_calibration_error": "0.24918664",
+      "first_target_date": "2026-09-30",
+      "frozen_prediction_count": 4,
+      "incorrect_count": 2,
+      "last_target_date": "2026-09-30",
+      "log_loss": "0.655219872639",
+      "pending_count": 0,
+      "run_count": 1,
+      "run_ids": [
+        "p50c_run_edc0cd782b93d449a1b78aae43d947c9"
+      ],
+      "sample_count": 4,
+      "schema_version": "p50c.cumulative_forward_prediction_summary.v1",
+      "settled_prediction_count": 4
+    },
+    "R": {
+      "PREDICTION_FORWARD_SAMPLE_COUNT": 83,
+      "accuracy": "0.5903614457831325301204819277",
+      "brier_score": "0.2422197899623450964513392530",
+      "correct_count": 49,
+      "effective_game_type": "R",
+      "expected_calibration_error": "0.07801647",
+      "first_target_date": "2026-08-18",
+      "frozen_prediction_count": 83,
+      "incorrect_count": 34,
+      "last_target_date": "2026-09-11",
+      "log_loss": "0.6783927294370337903614457831",
+      "pending_count": 0,
+      "run_count": 9,
+      "run_ids": [
+        "p50c_run_29454ef7a8917d654f903222a764833a",
+        "p50c_run_5de413d5961b2d5f88956748ec679244",
+        "p50c_run_63be7bc1c4c0c8f7e262d963091d2f0e",
+        "p50c_run_9ba11f554fa1f032415c365a95d03652",
+        "p50c_run_fa367308eedb4c623680d7d2667273b0",
+        "p50c_run_rl_10979ad956a8eae9c1a6e6639ff20917",
+        "p50c_run_rl_630435278ebce68908e250e0de113519",
+        "p50c_run_rl_82c7005d5efca6e9f2beb5863bd5b6e1",
+        "p50c_run_rl_a6f0aeb2ad39f32ce832ebe70f022ae2"
+      ],
+      "sample_count": 83,
+      "schema_version": "p50c.cumulative_forward_prediction_summary.v1",
+      "settled_prediction_count": 83
+    }
+  },
+  "incorrect_count": 34,
+  "last_target_date": "2026-09-11",
+  "log_loss": "0.6783927294370337903614457831",
+  "metric_game_type": "R",
   "pending_count": 0,
-  "run_count": 1,
+  "run_count": 9,
   "run_ids": [
-    "p50c_run_fa367308eedb4c623680d7d2667273b0"
+    "p50c_run_29454ef7a8917d654f903222a764833a",
+    "p50c_run_5de413d5961b2d5f88956748ec679244",
+    "p50c_run_63be7bc1c4c0c8f7e262d963091d2f0e",
+    "p50c_run_9ba11f554fa1f032415c365a95d03652",
+    "p50c_run_fa367308eedb4c623680d7d2667273b0",
+    "p50c_run_rl_10979ad956a8eae9c1a6e6639ff20917",
+    "p50c_run_rl_630435278ebce68908e250e0de113519",
+    "p50c_run_rl_82c7005d5efca6e9f2beb5863bd5b6e1",
+    "p50c_run_rl_a6f0aeb2ad39f32ce832ebe70f022ae2"
   ],
   "schema_version": "p50c.cumulative_forward_prediction_summary.v1",
-  "settled_prediction_count": 5
+  "settled_prediction_count": 83,
+  "total_prediction_forward_sample_count": 87
 }

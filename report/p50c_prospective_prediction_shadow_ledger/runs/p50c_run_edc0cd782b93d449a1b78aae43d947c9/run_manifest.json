@@ -1,0 +1,36 @@
+{
+  "claims": {
+    "calibration_fitting": false,
+    "ev_or_bet_pass_selection": false,
+    "kelly": false,
+    "model_promotion": false,
+    "model_retraining": false,
+    "odds_or_market_dependent": false,
+    "real_betting": false,
+    "threshold_optimization": false,
+    "tsl_access": false
+  },
+  "created_at_utc": "2026-09-30T13:26:37.282152Z",
+  "eligible_prediction_count": 4,
+  "exclusion_count": 0,
+  "game_type": "F",
+  "lifecycle_state": "SETTLED",
+  "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+  "model_role": "CHAMPION",
+  "normalized_input_fingerprint": "687f52636f7e0c0adbb42c71249219bca370309f5b3425af677bb46c540179c4",
+  "pending_count": 0,
+  "prediction_bundle_fingerprint": "fcc337cbcf25681e951f2b5ee0b2f69c91fab8fa30615e76e0c86b62162709c2",
+  "prediction_fingerprints": [
+    "e6b9e8691af5961ee63e6e2a665d0e62a20a0916350a17f22e6d3684370fad0d",
+    "0112261ce515b20b33d1237577045ee061cad2467ad6fe320125c84d7c336e41",
+    "5f54533c31d730d92d7f9518b5a519925db4b5c878a9be2d47ae6fb354f779b7",
+    "81da8f7a02f0360d6da317f990323cce3e9aa81fd093f2b6773141e82a841a5a"
+  ],
+  "run_classification": "PROSPECTIVE_FORWARD_PREDICTION",
+  "run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+  "schema_version": "p50c.prediction_run_manifest.v1",
+  "settled_total_count": 4,
+  "target_date": "2026-09-30",
+  "target_universe_count": 4,
+  "task_id": "P50C"
+}

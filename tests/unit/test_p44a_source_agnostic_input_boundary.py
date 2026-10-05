@@ -27,6 +27,7 @@ from match_analysis.application.use_cases.p44a_normalized_workflow_input import 
     NormalizedPregameInput,
     load_normalized_pregame_input,
     load_normalized_result_input,
+    parse_normalized_result_payload,
     parse_normalized_pregame_payload,
     project_normalized_results,
     write_normalized_pregame_input,
@@ -118,6 +119,36 @@ def _one_game_pregame(
 
 
 class P44ASourceAgnosticBoundaryTests(unittest.TestCase):
+    def test_game_type_round_trips_and_missing_normalized_inputs_reject(self) -> None:
+        pregame = _one_game_pregame().to_payload()
+        explicit = json.loads(json.dumps(pregame))
+        explicit["predictions"][0]["game_type"] = "P"
+        parsed_postseason = parse_normalized_pregame_payload(explicit)
+        self.assertEqual(parsed_postseason.prediction_rows[0].game_type, "P")
+        self.assertEqual(
+            parsed_postseason.to_payload()["predictions"][0]["game_type"], "P"
+        )
+
+        conflicting_pregame = json.loads(json.dumps(pregame))
+        conflicting_pregame["predictions"][0]["gameType"] = "P"
+        with self.assertRaisesRegex(ValueError, "game_type and gameType disagree"):
+            parse_normalized_pregame_payload(conflicting_pregame)
+
+        legacy = json.loads(json.dumps(pregame))
+        legacy["predictions"][0].pop("game_type")
+        with self.assertRaisesRegex(ValueError, "game_type"):
+            parse_normalized_pregame_payload(legacy)
+
+        result = adapt_historical_results(REPOSITORY_ROOT)[0].to_payload()
+        result["game_type"] = "P"
+        self.assertEqual(parse_normalized_result_payload(result).game_type, "P")
+        conflicting_result = dict(result, gameType="R")
+        with self.assertRaisesRegex(ValueError, "game_type and gameType disagree"):
+            parse_normalized_result_payload(conflicting_result)
+        result.pop("game_type")
+        with self.assertRaisesRegex(ValueError, "game_type"):
+            parse_normalized_result_payload(result)
+
     def test_normalized_pregame_fixture_is_accepted_and_rejects_outcomes(self) -> None:
         fixture = _one_game_pregame()
         payload = fixture.to_payload()

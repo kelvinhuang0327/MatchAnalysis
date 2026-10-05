@@ -153,7 +153,7 @@ def render_report_markdown(
 
 
 def write_prospective_prediction_admission_artifacts(
-    output_dir: Path,
+    output_dir: Any,
     workflow_result: ProspectivePredictionAdmissionWorkflowResult,
     input_hashes: dict[str, str],
 ) -> None:

@@ -9,6 +9,7 @@ from pathlib import Path
 import shutil
 import tempfile
 import unittest
+from urllib.parse import parse_qs, urlparse
 from unittest.mock import MagicMock
 from urllib.request import Request
 
@@ -42,6 +43,7 @@ from match_analysis.application.use_cases.p53a_daily_final_settlement import (
 def _make_sample_pregame_input(
     target_date: str = "2026-08-18",
     game_count: int = 11,
+    game_type: str = "R",
 ) -> dict:
     predictions = []
     for i in range(1, game_count + 1):
@@ -59,8 +61,13 @@ def _make_sample_pregame_input(
                 "provider_game_id": str(gpk),
                 "game_pk": gpk,
                 "game_number": 1,
+                "game_type": game_type,
                 "scheduled_start_utc": scheduled,
                 "official_date": target_date,
+                "home_team": "New York Yankees",
+                "away_team": "Boston Red Sox",
+                "home_team_code": "NYY",
+                "away_team_code": "BOS",
                 "champion_model_id": "p22b_moneyline_logistic_challenger_v1",
                 "champion_model_fingerprint": sha256(b"mock_model").hexdigest(),
                 "champion_home_probability": format(p_home, "f"),
@@ -84,6 +91,7 @@ def _make_sample_pregame_input(
 def _make_mock_mlb_schedule_payload(
     games_status: list[tuple[int, str, int, int]],
     target_date: str = "2026-08-18",
+    game_type: str = "R",
 ) -> bytes:
     """games_status: list of (game_pk, status_detailed_state, home_score, away_score)."""
     games = []
@@ -93,6 +101,7 @@ def _make_mock_mlb_schedule_payload(
             {
                 "gamePk": gpk,
                 "gameNumber": 1,
+                "gameType": game_type,
                 "gameDate": f"{target_date}T22:00:00Z",
                 "officialDate": target_date,
                 "status": {
@@ -158,7 +167,10 @@ class TestP53ADailyFinalSettlement(unittest.TestCase):
         ]
         mock_raw = _make_mock_mlb_schedule_payload(games_status)
 
+        requested_types: list[str] = []
+
         def mock_opener(req: Request, timeout: int) -> bytes:
+            requested_types.append(parse_qs(urlparse(req.full_url).query)["gameType"][0])
             return mock_raw
 
         res = execute_daily_moneyline_final_settlement(
@@ -178,7 +190,94 @@ class TestP53ADailyFinalSettlement(unittest.TestCase):
         self.assertEqual(res.non_final_games_count, 11)
         self.assertEqual(res.prediction_forward_sample_count, 0)
         self.assertEqual(res.status, "ALL_PENDING")
+        self.assertEqual(res.game_type, "R")
+        self.assertEqual(requested_types, ["R"])
         self.assertTrue(res.frozen_predictions_fingerprint_intact)
+
+    def test_postseason_settlement_requires_explicit_type_and_preserves_it(self) -> None:
+        postseason_data = _make_sample_pregame_input(
+            "2026-10-01", game_count=1, game_type="P"
+        )
+        postseason_file = self.intake_dir / "postseason_pregame.json"
+        postseason_file.write_text(json.dumps(postseason_data), encoding="utf-8")
+        postseason_run = create_p50c_prediction_run(
+            self.repo_root,
+            pregame_input=postseason_file,
+            run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+            run_root=self.runs_root,
+            created_at_utc="2026-10-01T13:37:42Z",
+        )
+        mock_raw = _make_mock_mlb_schedule_payload(
+            [(820001, "Final", 5, 2)],
+            target_date="2026-10-01",
+            game_type="P",
+        )
+        requested_types: list[str] = []
+
+        def mock_opener(req: Request, timeout: int) -> bytes:
+            requested_types.append(parse_qs(urlparse(req.full_url).query)["gameType"][0])
+            return mock_raw
+
+        with self.assertRaisesRegex(RuntimeError, "P53A_GAME_TYPE_MISMATCH"):
+            execute_daily_moneyline_final_settlement(
+                run=postseason_run.run_id,
+                repository_root=self.repo_root,
+                runs_root=self.runs_root,
+                ledger_root=self.ledger_root,
+                observed_at_utc="2026-10-02T04:00:00Z",
+                opener=mock_opener,
+            )
+        self.assertEqual(requested_types, [])
+
+        postseason_prediction = read_jsonl_objects(
+            postseason_run.run_dir / "frozen_predictions.jsonl"
+        )[0]
+        prediction_row_id = postseason_prediction["prediction_authority"][
+            "p37_prediction_row_id"
+        ]
+        wrong_type_result = NormalizedResultRecord(
+            prediction_row_id=prediction_row_id,
+            provider_namespace="MLB_STATS_API",
+            provider_game_id="820001",
+            game_number=1,
+            status="FINAL",
+            home_score=5,
+            away_score=2,
+            result_observed_at_utc="2026-10-02T03:00:00Z",
+            source_identity="FIXTURE_WRONG_GAME_TYPE",
+            game_type="R",
+        )
+        with self.assertRaisesRegex(RuntimeError, "P53A_GAME_TYPE_MISMATCH"):
+            execute_daily_moneyline_final_settlement(
+                run=postseason_run.run_id,
+                repository_root=self.repo_root,
+                runs_root=self.runs_root,
+                ledger_root=self.ledger_root,
+                result_input=(wrong_type_result,),
+                observed_at_utc="2026-10-02T04:00:00Z",
+                game_type="P",
+            )
+
+        result = execute_daily_moneyline_final_settlement(
+            run=postseason_run.run_id,
+            repository_root=self.repo_root,
+            runs_root=self.runs_root,
+            ledger_root=self.ledger_root,
+            observed_at_utc="2026-10-02T04:00:00Z",
+            opener=mock_opener,
+            game_type="P",
+        )
+        self.assertEqual(result.game_type, "P")
+        self.assertEqual(result.newly_settled_count, 1)
+        self.assertEqual(requested_types, ["P"])
+        self.assertEqual(read_json_object(result.receipt_path)["game_type"], "P")
+        settled_row = read_jsonl_objects(postseason_run.run_dir / "settled_predictions.jsonl")[0]
+        self.assertEqual(settled_row["game_identity"]["game_type"], "P")
+        self.assertEqual(settled_row["final_result_authority"]["game_type"], "P")
+        self.assertEqual(
+            settled_row["model_identity"]["model_domain_status"],
+            "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+        )
 
     def test_partial_final_settlement(self) -> None:
         """Partial slate settlement: FINAL games settle, non-FINAL remain pending."""

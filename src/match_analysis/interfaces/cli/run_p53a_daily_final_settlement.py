@@ -36,6 +36,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="Target slate date in YYYY-MM-DD format (e.g. 2026-08-18).",
     )
     parser.add_argument(
+        "--game-type",
+        default="R",
+        help="Exact MLB game type for the frozen run (default: R).",
+    )
+    parser.add_argument(
         "--repository-root",
         type=Path,
         default=None,
@@ -91,6 +96,7 @@ def main(argv: list[str] | None = None) -> int:
             ledger_root=ledger_root,
             result_input=args.final_results,
             observed_at_utc=args.observed_at_utc,
+            game_type=args.game_type,
         )
     except (OSError, RuntimeError, TypeError, ValueError, UnicodeDecodeError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
@@ -103,6 +109,7 @@ def main(argv: list[str] | None = None) -> int:
             "p53a-daily-final-settlement="
             f"run_id={result.run_id} "
             f"target_date={result.target_date} "
+            f"game_type={result.game_type} "
             f"lifecycle_state={result.lifecycle_state} "
             f"eligible={result.eligible_prediction_count} "
             f"newly_settled={result.newly_settled_count} "

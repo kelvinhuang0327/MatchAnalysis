@@ -48,6 +48,8 @@ P46A_PRODUCTIVE_STATUS = "EDGE_AVAILABLE"
 _SCHEDULE_ALLOWED_KEYS = frozenset(
     {
         "schema_version",
+        "game_type",
+        "gameType",
         "provider_game_id",
         "game_pk",
         "game_number",
@@ -153,6 +155,8 @@ def _clean_schedule_row(row: Mapping[str, Any]) -> dict[str, Any]:
     for key, value in row.items():
         if key in _SCHEDULE_ALLOWED_KEYS:
             cleaned[key] = deepcopy(value)
+    if "game_type" not in cleaned and "gameType" in cleaned:
+        cleaned["game_type"] = cleaned.pop("gameType")
     return cleaned
 
 
@@ -359,6 +363,11 @@ def adapt_p35a_pregame(
 
         # Check if productive
         if _is_productive_p35a_row(row):
+            game_type = sched.get("game_type") if sched is not None else None
+            if not isinstance(game_type, str) or not game_type.strip():
+                raise ValueError(
+                    f"P44A_PROVIDER_GAME_TYPE_REQUIRED: schedule row for game_id={game_id} has no exact game_type"
+                )
             raw_pred_id = row.get("prediction_id")
             if not raw_pred_id:
                 raise ValueError(f"productive row for game_id={game_id} is missing prediction_id")
@@ -434,6 +443,7 @@ def adapt_p35a_pregame(
                 challenger_model_id=challenger_model_id,
                 challenger_model_fingerprint=challenger_model_fp,
                 challenger_home_probability=challenger_prob,
+                game_type=game_type,
             )
             predictions.append(pred_row)
 

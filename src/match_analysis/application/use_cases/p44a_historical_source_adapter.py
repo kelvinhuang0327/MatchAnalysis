@@ -86,7 +86,12 @@ def _prediction_view(row: Mapping[str, Any]) -> dict[str, Any]:
     missing = [key for key in P43A_PREDICTION_KEYS if key not in row]
     if missing:
         raise ValueError(f"P43A pregame prediction row missing keys: {missing}")
-    return {key: row[key] for key in P43A_PREDICTION_KEYS}
+    view = {key: row[key] for key in P43A_PREDICTION_KEYS}
+    if "game_type" in row:
+        view["game_type"] = row["game_type"]
+    elif "gameType" in row:
+        view["game_type"] = row["gameType"]
+    return view
 
 
 def _load_p37_pregame_predictions(
@@ -160,6 +165,9 @@ def _load_p37_pregame_predictions(
                     row.get("challenger_home_probability"),
                     field_name="challenger_home_probability",
                 ),
+                # This immutable pre-contract P37 authority is the regular-season
+                # champion evaluation population; preserve a code if it was stored.
+                game_type=row.get("game_type", row.get("gameType", "R")),
             )
         )
     if len(predictions) != P40A_EXPECTED_P37_TARGET_COUNT:
@@ -365,6 +373,7 @@ def adapt_historical_results(
                 row.get("scheduled_start_utc"), field_name="scheduled_start_utc"
             ),
             source_identity=P44A_HISTORICAL_RESULT_SOURCE_IDENTITY,
+            game_type=row.get("game_type", row.get("gameType", "R")),
         )
         existing = seen.get(prediction_id)
         if existing is not None:

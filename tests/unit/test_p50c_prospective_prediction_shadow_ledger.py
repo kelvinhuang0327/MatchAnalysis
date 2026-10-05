@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 from decimal import Decimal
 import json
 from pathlib import Path
@@ -39,6 +40,7 @@ from match_analysis.application.use_cases.p50c_prediction_run_ledger import (
     STATE_SETTLED,
     apply_official_date_corrections,
     build_frozen_prediction_record,
+    build_p50c_prediction_ledger_record,
     calculate_log_loss,
     canonical_prediction_fingerprint,
     compute_deterministic_prediction_run_id,
@@ -80,6 +82,7 @@ def _make_prediction_row(
         challenger_model_id="challenger_v1",
         challenger_model_fingerprint="c" * 64,
         challenger_home_probability=p_home,
+        game_type="R",
     )
 
 
@@ -98,6 +101,15 @@ def _make_prospective_pregame_fixture() -> NormalizedPregameInput:
             "official_dates_by_prediction_row_id": {
                 pred1.p37_prediction_row_id: "2026-08-18",
                 pred2.p37_prediction_row_id: "2026-08-18",
+            },
+            "team_identities_by_prediction_row_id": {
+                prediction.p37_prediction_row_id: {
+                    "home_team": "New York Yankees",
+                    "away_team": "Los Angeles Dodgers",
+                    "home_team_code": "NYY",
+                    "away_team_code": "LAD",
+                }
+                for prediction in (pred1, pred2)
             },
         },
         authority_hashes={},
@@ -123,6 +135,7 @@ def _make_result_record(
         away_score=away_score,
         result_observed_at_utc="2026-08-18T23:00:00Z",
         source_identity="MLB_OFFICIAL_RESULTS",
+        game_type="R",
     )
 
 
@@ -178,6 +191,411 @@ class P50CProspectivePredictionShadowLedgerTests(unittest.TestCase):
         )
         self.assertEqual(run_id_1, run_id_2)
         self.assertTrue(run_id_1.startswith("p50c_run_"))
+
+    def test_game_type_identity_keeps_r_legacy_and_separates_non_r(self) -> None:
+        bundle = _make_prospective_pregame_fixture()
+        explicit_regular_rows = tuple(replace(row, game_type="R") for row in bundle.prediction_rows)
+        postseason_rows = tuple(replace(row, game_type="P") for row in bundle.prediction_rows)
+        regular_fp = canonical_prediction_fingerprint(
+            source_identity=bundle.source_identity,
+            prediction_rows=bundle.prediction_rows,
+            exclusion_rows=bundle.exclusion_rows,
+            source_manifest=bundle.source_manifest,
+        )
+        explicit_regular_fp = canonical_prediction_fingerprint(
+            source_identity=bundle.source_identity,
+            prediction_rows=explicit_regular_rows,
+            exclusion_rows=bundle.exclusion_rows,
+            source_manifest=bundle.source_manifest,
+        )
+        postseason_fp = canonical_prediction_fingerprint(
+            source_identity=bundle.source_identity,
+            prediction_rows=postseason_rows,
+            exclusion_rows=bundle.exclusion_rows,
+            source_manifest=bundle.source_manifest,
+        )
+        self.assertEqual(regular_fp, explicit_regular_fp)
+        self.assertNotEqual(regular_fp, postseason_fp)
+
+        regular_row_fp = compute_prediction_row_fingerprint(
+            bundle.prediction_rows[0], official_date="2026-08-18"
+        )
+        explicit_r_row_fp = compute_prediction_row_fingerprint(
+            explicit_regular_rows[0], official_date="2026-08-18"
+        )
+        postseason_row_fp = compute_prediction_row_fingerprint(
+            postseason_rows[0], official_date="2026-08-18"
+        )
+        self.assertEqual(regular_row_fp, explicit_r_row_fp)
+        self.assertNotEqual(regular_row_fp, postseason_row_fp)
+
+        target_universe = [
+            {
+                "game_pk": row.game_pk,
+                "game_number": row.game_number,
+                "provider_game_id": row.provider_game_id,
+                "p37_prediction_row_id": row.p37_prediction_row_id,
+            }
+            for row in bundle.prediction_rows
+        ]
+        regular_run_id = compute_deterministic_prediction_run_id(
+            run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+            normalized_input_fingerprint=regular_fp,
+            prediction_bundle_fingerprint="same-bundle-content",
+            target_universe=target_universe,
+        )
+        explicit_r_run_id = compute_deterministic_prediction_run_id(
+            run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+            normalized_input_fingerprint=explicit_regular_fp,
+            prediction_bundle_fingerprint="same-bundle-content",
+            target_universe=target_universe,
+        )
+        postseason_run_id = compute_deterministic_prediction_run_id(
+            run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+            normalized_input_fingerprint=postseason_fp,
+            prediction_bundle_fingerprint="same-bundle-content",
+            target_universe=target_universe,
+        )
+        self.assertEqual(regular_run_id, explicit_r_run_id)
+        self.assertNotEqual(regular_run_id, postseason_run_id)
+
+        postseason_bundle = NormalizedPregameInput(
+            source_identity=bundle.source_identity,
+            prediction_rows=postseason_rows,
+            market_rows=(),
+            exclusion_rows=bundle.exclusion_rows,
+            source_manifest=bundle.source_manifest,
+            authority_hashes={},
+            p37_summary={},
+            p39_summary={},
+            p39_source_manifest={},
+        )
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            input_file = temp_path / "postseason.json"
+            write_normalized_pregame_input(input_file, postseason_bundle)
+            created = create_p50c_prediction_run(
+                REPOSITORY_ROOT,
+                pregame_input=input_file,
+                run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                run_root=temp_path / "runs",
+                created_at_utc="2026-08-18T12:00:00Z",
+            )
+            self.assertEqual(created.manifest["game_type"], "P")
+            frozen = read_jsonl_objects(created.run_dir / "frozen_predictions.jsonl")
+            self.assertTrue(all(row["game_identity"]["game_type"] == "P" for row in frozen))
+            self.assertTrue(
+                all(
+                    row["model_identity"]["model_domain_status"]
+                    == "POSTSEASON_OR_NON_R_DIAGNOSTIC"
+                    for row in frozen
+                )
+            )
+
+    def test_mixed_game_types_cannot_share_a_prediction_run(self) -> None:
+        bundle = _make_prospective_pregame_fixture()
+        mixed = NormalizedPregameInput(
+            source_identity=bundle.source_identity,
+            prediction_rows=(bundle.prediction_rows[0], replace(bundle.prediction_rows[1], game_type="P")),
+            market_rows=(),
+            exclusion_rows=(),
+            source_manifest=bundle.source_manifest,
+            authority_hashes={},
+            p37_summary={},
+            p39_summary={},
+            p39_source_manifest={},
+        )
+        with tempfile.TemporaryDirectory() as temp_dir:
+            input_file = write_normalized_pregame_input(Path(temp_dir) / "mixed.json", mixed)
+            with self.assertRaisesRegex(RuntimeError, "P50C_MIXED_GAME_TYPE_RUN_REJECTED"):
+                create_p50c_prediction_run(
+                    REPOSITORY_ROOT,
+                    pregame_input=input_file,
+                    run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                    run_root=Path(temp_dir) / "runs",
+                    created_at_utc="2026-08-18T12:00:00Z",
+                )
+
+    def test_missing_game_type_cannot_create_a_fresh_run_but_can_read_exact_legacy_run(self) -> None:
+        bundle = _make_prospective_pregame_fixture()
+        payload = bundle.to_payload()
+        for prediction in payload["predictions"]:
+            prediction.pop("game_type")
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            legacy_input = temp_path / "legacy-missing-game-type.json"
+            legacy_input.write_text(json.dumps(payload), encoding="utf-8")
+            run_root = temp_path / "runs"
+
+            with self.assertRaisesRegex(RuntimeError, "P50C_FRESH_GAME_TYPE_REQUIRED"):
+                create_p50c_prediction_run(
+                    REPOSITORY_ROOT,
+                    pregame_input=legacy_input,
+                    run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                    run_root=run_root,
+                    created_at_utc="2026-08-18T12:00:00Z",
+                )
+            self.assertFalse(run_root.exists())
+
+            null_payload = bundle.to_payload()
+            for prediction in null_payload["predictions"]:
+                prediction["game_type"] = None
+            null_input = temp_path / "null-game-type.json"
+            null_input.write_text(json.dumps(null_payload), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "P50C_INVALID_GAME_TYPE"):
+                create_p50c_prediction_run(
+                    REPOSITORY_ROOT,
+                    pregame_input=null_input,
+                    run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                    run_root=run_root,
+                    created_at_utc="2026-08-18T12:00:00Z",
+                )
+            self.assertFalse(run_root.exists())
+
+            missing_object = replace(
+                bundle,
+                prediction_rows=tuple(
+                    replace(prediction, game_type=None)
+                    for prediction in bundle.prediction_rows
+                ),
+            )
+            with self.assertRaisesRegex(RuntimeError, "P50C_FRESH_GAME_TYPE_REQUIRED"):
+                create_p50c_prediction_run(
+                    REPOSITORY_ROOT,
+                    pregame_input=missing_object,
+                    run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                    run_root=run_root,
+                    created_at_utc="2026-08-18T12:00:00Z",
+                )
+            self.assertFalse(run_root.exists())
+
+            explicit_input = temp_path / "explicit-regular-input.json"
+            explicit_input.write_text(json.dumps(bundle.to_payload()), encoding="utf-8")
+            created = create_p50c_prediction_run(
+                REPOSITORY_ROOT,
+                pregame_input=explicit_input,
+                run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                run_root=run_root,
+                created_at_utc="2026-08-18T12:00:00Z",
+            )
+
+            # Recreate the pre-contract shape inside task-owned temporary state.
+            manifest_path = created.run_dir / "run_manifest.json"
+            manifest = read_json_object(manifest_path)
+            manifest.pop("game_type", None)
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+            def strip_game_type(value):
+                if isinstance(value, dict):
+                    return {
+                        key: strip_game_type(item)
+                        for key, item in value.items()
+                        if key != "game_type"
+                    }
+                if isinstance(value, list):
+                    return [strip_game_type(item) for item in value]
+                return value
+
+            predictions_path = created.run_dir / "frozen_predictions.jsonl"
+            old_rows = [
+                strip_game_type(row)
+                for row in read_jsonl_objects(predictions_path)
+            ]
+            predictions_path.write_text(
+                "".join(json.dumps(row, sort_keys=True) + "\n" for row in old_rows),
+                encoding="utf-8",
+            )
+
+            recognized = create_p50c_prediction_run(
+                REPOSITORY_ROOT,
+                pregame_input=legacy_input,
+                run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                run_root=run_root,
+                created_at_utc="2026-08-18T12:00:00Z",
+            )
+            self.assertEqual(recognized.status, "RECOGNIZED_IDENTICAL")
+            self.assertEqual(recognized.run_id, created.run_id)
+
+    def test_camel_case_provider_game_type_is_preserved_and_conflicts_reject(self) -> None:
+        bundle = _make_prospective_pregame_fixture()
+        camel_payload = bundle.to_payload()
+        for prediction in camel_payload["predictions"]:
+            prediction.pop("game_type")
+            prediction["gameType"] = "P"
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            camel_input = temp_path / "camel-game-type.json"
+            camel_input.write_text(json.dumps(camel_payload), encoding="utf-8")
+            postseason_root = temp_path / "postseason-runs"
+            created = create_p50c_prediction_run(
+                REPOSITORY_ROOT,
+                pregame_input=camel_input,
+                run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                run_root=postseason_root,
+                created_at_utc="2026-08-18T12:00:00Z",
+            )
+            self.assertEqual(created.manifest["game_type"], "P")
+            self.assertEqual(
+                created.manifest["model_domain_status"],
+                "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+            )
+            frozen = read_jsonl_objects(created.run_dir / "frozen_predictions.jsonl")
+            self.assertTrue(
+                all(row["game_identity"]["game_type"] == "P" for row in frozen)
+            )
+
+            conflicting_payload = bundle.to_payload()
+            for prediction in conflicting_payload["predictions"]:
+                prediction["gameType"] = "P"
+            conflicting_input = temp_path / "conflicting-game-type.json"
+            conflicting_input.write_text(
+                json.dumps(conflicting_payload), encoding="utf-8"
+            )
+            conflicting_root = temp_path / "conflicting-runs"
+            with self.assertRaisesRegex(ValueError, "GAME_TYPE_CONFLICT"):
+                create_p50c_prediction_run(
+                    REPOSITORY_ROOT,
+                    pregame_input=conflicting_input,
+                    run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                    run_root=conflicting_root,
+                    created_at_utc="2026-08-18T12:00:00Z",
+                )
+            self.assertFalse(conflicting_root.exists())
+
+            null_alias_payload = bundle.to_payload()
+            for prediction in null_alias_payload["predictions"]:
+                prediction.pop("game_type")
+                prediction["gameType"] = None
+            null_alias_input = temp_path / "null-camel-game-type.json"
+            null_alias_input.write_text(
+                json.dumps(null_alias_payload), encoding="utf-8"
+            )
+            with self.assertRaisesRegex(ValueError, "P50C_INVALID_GAME_TYPE"):
+                create_p50c_prediction_run(
+                    REPOSITORY_ROOT,
+                    pregame_input=null_alias_input,
+                    run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                    run_root=temp_path / "null-alias-runs",
+                    created_at_utc="2026-08-18T12:00:00Z",
+                )
+            self.assertFalse((temp_path / "null-alias-runs").exists())
+
+    def test_forward_summary_keeps_non_r_metrics_out_of_regular_headline(self) -> None:
+        bundle = _make_prospective_pregame_fixture()
+        regular_rows = []
+        postseason_rows = []
+        for index, original in enumerate(bundle.prediction_rows):
+            for game_type, target in (("R", regular_rows), ("P", postseason_rows)):
+                row = replace(original, game_type=game_type)
+                target_home = (game_type == "R" and index == 0) or (
+                    game_type == "P" and index == 1
+                )
+                frozen = build_frozen_prediction_record(
+                    row,
+                    run_id=f"{game_type}-run",
+                    run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                    created_at_utc="2026-08-18T12:00:00Z",
+                    official_date="2026-08-18",
+                )
+                result = NormalizedResultRecord(
+                    prediction_row_id=row.p37_prediction_row_id,
+                    provider_namespace=row.provider_namespace,
+                    provider_game_id=row.provider_game_id,
+                    game_number=row.game_number,
+                    status="FINAL",
+                    home_score=6 if target_home else 1,
+                    away_score=2 if target_home else 7,
+                    result_observed_at_utc="2026-08-18T23:00:00Z",
+                    source_identity="FIXTURE_RESULTS",
+                    game_type=game_type,
+                )
+                target.append(
+                    build_p50c_prediction_ledger_record(
+                        run_id=f"{game_type}-run",
+                        run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                        frozen_prediction=frozen,
+                        result_record=result,
+                        evaluated_at_utc=result.result_observed_at_utc,
+                    )
+                )
+
+        regular_only = compute_forward_prediction_summary(regular_rows)
+        combined = compute_forward_prediction_summary(regular_rows + postseason_rows)
+        for field in (
+            "PREDICTION_FORWARD_SAMPLE_COUNT",
+            "accuracy",
+            "brier_score",
+            "log_loss",
+            "expected_calibration_error",
+        ):
+            self.assertEqual(combined[field], regular_only[field], field)
+        self.assertEqual(combined["metric_game_type"], "R")
+        self.assertEqual(combined["game_type_cohorts"]["R"]["sample_count"], 2)
+        self.assertEqual(combined["game_type_cohorts"]["P"]["sample_count"], 2)
+        self.assertNotEqual(
+            combined["game_type_cohorts"]["R"]["accuracy"],
+            combined["game_type_cohorts"]["P"]["accuracy"],
+        )
+        self.assertEqual(combined["total_prediction_forward_sample_count"], 4)
+
+    def test_p37_result_identity_cannot_cross_game_type(self) -> None:
+        bundle = _make_prospective_pregame_fixture()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            input_file = write_normalized_pregame_input(
+                temp_path / "pregame.json", bundle
+            )
+            created = create_p50c_prediction_run(
+                REPOSITORY_ROOT,
+                pregame_input=input_file,
+                run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                run_root=temp_path / "runs",
+                created_at_utc="2026-08-18T12:00:00Z",
+            )
+            wrong_type_result = replace(
+                _make_result_record("a" * 64, "game_01", 6, 2),
+                game_type="P",
+            )
+            result_file = write_normalized_result_input(
+                temp_path / "wrong-type-results.jsonl", [wrong_type_result]
+            )
+            with self.assertRaisesRegex(RuntimeError, "P50C_GAME_TYPE_MISMATCH"):
+                settle_p50c_prediction_run(
+                    REPOSITORY_ROOT,
+                    run_dir=created.run_dir,
+                    result_input=result_file,
+                    ledger_root=temp_path / "ledger",
+                    settled_at_utc="2026-08-18T23:30:00Z",
+                )
+
+    def test_in_memory_settlement_result_requires_game_type(self) -> None:
+        bundle = _make_prospective_pregame_fixture()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            input_file = write_normalized_pregame_input(
+                temp_path / "pregame.json", bundle
+            )
+            created = create_p50c_prediction_run(
+                REPOSITORY_ROOT,
+                pregame_input=input_file,
+                run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                run_root=temp_path / "runs",
+                created_at_utc="2026-08-18T12:00:00Z",
+            )
+            missing_type_result = replace(
+                _make_result_record("a" * 64, "game_01", 6, 2),
+                game_type=None,
+            )
+            with self.assertRaisesRegex(RuntimeError, "P50C_RESULT_GAME_TYPE_REQUIRED"):
+                settle_p50c_prediction_run(
+                    REPOSITORY_ROOT,
+                    run_dir=created.run_dir,
+                    result_input=(missing_type_result,),
+                    ledger_root=temp_path / "ledger",
+                    settled_at_utc="2026-08-18T23:30:00Z",
+                )
 
     def test_no_betting_or_odds_or_result_fields_in_frozen_record(self) -> None:
         bundle = _make_prospective_pregame_fixture()
@@ -294,6 +712,51 @@ class P50CProspectivePredictionShadowLedgerTests(unittest.TestCase):
                     created_at_utc="2026-08-18T12:00:00Z",
                 )
             self.assertIn("P50C_RUN_AUTHORITY_CONFLICT", str(cm.exception))
+
+    def test_fresh_prediction_requires_real_team_identity_before_writes(self) -> None:
+        bundle = _make_prospective_pregame_fixture()
+        for invalid in (None, "HOME", "AWAY", ""):
+            with self.subTest(invalid=invalid), tempfile.TemporaryDirectory() as temp_dir:
+                manifest = json.loads(json.dumps(bundle.source_manifest))
+                if invalid is None:
+                    manifest.pop("team_identities_by_prediction_row_id")
+                else:
+                    for identity in manifest["team_identities_by_prediction_row_id"].values():
+                        identity["home_team_code"] = invalid
+                run_root = Path(temp_dir) / "runs"
+                with self.assertRaisesRegex(ValueError, "P50C_FRESH_TEAM_IDENTITY_REQUIRED"):
+                    create_p50c_prediction_run(
+                        REPOSITORY_ROOT,
+                        pregame_input=replace(bundle, source_manifest=manifest),
+                        run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                        run_root=run_root,
+                        created_at_utc="2026-08-18T12:00:00Z",
+                    )
+                self.assertFalse(run_root.exists())
+
+    def test_normalized_prediction_only_input_preserves_supplied_team_codes(self) -> None:
+        bundle = _make_prospective_pregame_fixture()
+        payload = bundle.to_payload()
+        teams = payload["source_manifest"].pop("team_identities_by_prediction_row_id")
+        payload["source_manifest"].update({
+            "p37a": {"p37_comparisons_sha256": "a" * 64},
+            "p39a": {"legacy_source_sha256": "b" * 64},
+        })
+        for row in payload["predictions"]:
+            row.update(teams[row["p37_prediction_row_id"]])
+            row["game_type"] = "F"
+        with tempfile.TemporaryDirectory() as temp_dir:
+            source = Path(temp_dir) / "pregame.json"
+            source.write_text(json.dumps(payload))
+            created = create_p50c_prediction_run(
+                REPOSITORY_ROOT, pregame_input=source,
+                run_classification=CLASSIFICATION_PROSPECTIVE_FORWARD_PREDICTION,
+                run_root=Path(temp_dir) / "runs", created_at_utc="2026-08-18T12:00:00Z",
+            )
+            for row in created.frozen_predictions:
+                identity = teams[row["prediction_authority"]["p37_prediction_row_id"]]
+                for field, value in identity.items():
+                    self.assertEqual(row["game_identity"][field], value)
 
     def test_missing_provider_official_date_fails_closed(self) -> None:
         complete = _make_prospective_pregame_fixture()
