@@ -20,10 +20,10 @@ from ...baseball.domain.information_edge_observation import (
     SIGNAL_BASELINE,
     STARTING_PITCHER_CHANGE,
 )
-from ...infrastructure.sources.mlb_starting_pitcher_signal import (
-    StartingPitcherScheduleObservation,
+from ..ports.information_edge_signal import (
+    StartingPitcherSignal,
+    MoneylineSourceObservation,
 )
-from ...infrastructure.sources.tsl_moneyline_history import TslMoneylineObservation
 from ..ports.reference_market_quote import (
     ReferenceMarketQuote,
     ReferenceMarketQuoteObservation,
@@ -62,7 +62,7 @@ class TslMoneylineQuote:
     @classmethod
     def from_p32a_observation(
         cls,
-        observation: TslMoneylineObservation,
+        observation: MoneylineSourceObservation,
         *,
         provider_game_id: str,
         game_identity: Mapping[str, Any],
@@ -176,7 +176,7 @@ def _provider_namespace_matches(
 
 
 def _assert_schedule_matches_prediction(
-    schedule: StartingPitcherScheduleObservation,
+    schedule: StartingPitcherSignal,
     game_identity: Mapping[str, Any],
 ) -> None:
     expected = {
@@ -205,7 +205,7 @@ def _load_prediction(
     *,
     run_root: Path,
     run_id: str,
-    schedule: StartingPitcherScheduleObservation,
+    schedule: StartingPitcherSignal,
 ) -> dict[str, Any]:
     if not isinstance(run_id, str) or _RUN_ID.fullmatch(run_id) is None:
         raise RuntimeError(f"{MODEL_REPRICE_NOT_AVAILABLE}: invalid prediction run ID")
@@ -274,12 +274,12 @@ def _state_fields(row: Mapping[str, Any]) -> Mapping[str, Any] | None:
     return state if isinstance(state, Mapping) else None
 
 
-def _state_for(schedule: StartingPitcherScheduleObservation) -> dict[str, str | None]:
+def _state_for(schedule: StartingPitcherSignal) -> dict[str, str | None]:
     return schedule.probable_pitcher_state()
 
 
 def _find_latest_game_record(
-    records: list[dict[str, Any]], schedule: StartingPitcherScheduleObservation
+    records: list[dict[str, Any]], schedule: StartingPitcherSignal
 ) -> dict[str, Any] | None:
     target_key = (schedule.provider_namespace, schedule.provider_game_id)
     for row in reversed(records):
@@ -290,7 +290,7 @@ def _find_latest_game_record(
 
 
 def _validate_schedule_continuity(
-    prior: Mapping[str, Any], schedule: StartingPitcherScheduleObservation
+    prior: Mapping[str, Any], schedule: StartingPitcherSignal
 ) -> None:
     prior_identity = prior.get("schedule_identity")
     if not isinstance(prior_identity, Mapping) or not _same_json(
@@ -300,7 +300,7 @@ def _validate_schedule_continuity(
 
 
 def _baseline_observation(
-    schedule: StartingPitcherScheduleObservation, captured_at_utc: str
+    schedule: StartingPitcherSignal, captured_at_utc: str
 ) -> InformationEdgeObservation:
     return InformationEdgeObservation.create(
         {
@@ -316,7 +316,7 @@ def _baseline_observation(
 
 def _previous_edge_for_current_state(
     records: list[dict[str, Any]],
-    schedule: StartingPitcherScheduleObservation,
+    schedule: StartingPitcherSignal,
 ) -> dict[str, Any] | None:
     current_state = _state_for(schedule)
     identity = schedule.schedule_identity()
@@ -341,7 +341,7 @@ def _minutes_to_start(start: datetime, signal: datetime) -> Decimal:
 
 
 def _game_identity_from_schedule(
-    schedule: StartingPitcherScheduleObservation,
+    schedule: StartingPitcherSignal,
 ) -> dict[str, Any]:
     try:
         game_pk = int(schedule.provider_game_id)
@@ -494,7 +494,7 @@ def _latest_signal_intake(
 
 def _create_or_reuse_after_run(
     *,
-    schedule: StartingPitcherScheduleObservation,
+    schedule: StartingPitcherSignal,
     before: Mapping[str, Any],
     before_run_id: str,
     side: str,
@@ -595,7 +595,7 @@ def _create_or_reuse_after_run(
 
 def capture_information_edge_v1(
     *,
-    schedule: StartingPitcherScheduleObservation,
+    schedule: StartingPitcherSignal,
     prediction_run_root: str | Path,
     observation_path: str | Path,
     before_run_id: str | None = None,

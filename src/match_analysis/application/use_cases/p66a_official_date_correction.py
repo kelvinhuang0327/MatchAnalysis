@@ -287,9 +287,18 @@ def execute_p66a_official_date_correction(
         raise RuntimeError("P66A_IDENTITY_INVARIANCE_FAILED")
 
     post_summary = compute_forward_prediction_summary(effective_records)
-    pre_non_date = {k: v for k, v in pre_summary.items() if k not in {"first_target_date", "last_target_date"}}
-    post_non_date = {k: v for k, v in post_summary.items() if k not in {"first_target_date", "last_target_date"}}
-    if pre_non_date != post_non_date:
+    def non_date_metrics(summary: Mapping[str, Any]) -> dict[str, Any]:
+        # Date spans change in the headline and each independently grouped cohort.
+        # All cohort identities, counts, and model metrics remain protected.
+        date_fields = {"first_target_date", "last_target_date"}
+        projection = {key: value for key, value in summary.items() if key not in date_fields}
+        projection["game_type_cohorts"] = {
+            game_type: {key: value for key, value in cohort.items() if key not in date_fields}
+            for game_type, cohort in summary.get("game_type_cohorts", {}).items()
+        }
+        return projection
+
+    if non_date_metrics(pre_summary) != non_date_metrics(post_summary):
         raise RuntimeError("P66A_NON_DATE_METRIC_INVARIANCE_FAILED")
 
     correction_bytes = _jsonl_bytes(corrections)

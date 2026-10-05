@@ -158,6 +158,25 @@ class P66AOfficialDateCorrectionTests(unittest.TestCase):
                 encoding="utf-8",
             )
 
+            calls = 0
+
+            def compute_with_cohort_metric_drift(records):
+                nonlocal calls
+                calls += 1
+                computed = compute_forward_prediction_summary(records)
+                if calls == 2:
+                    computed["game_type_cohorts"]["R"]["brier_score"] = "0.99"
+                return computed
+
+            with patch(
+                "match_analysis.application.use_cases.p66a_official_date_correction.compute_forward_prediction_summary",
+                side_effect=compute_with_cohort_metric_drift,
+            ):
+                with self.assertRaisesRegex(RuntimeError, "P66A_NON_DATE_METRIC_INVARIANCE_FAILED"):
+                    execute_p66a_official_date_correction(root, opener=opener)
+            self.assertEqual(raw_path.read_bytes(), raw_bytes)
+            self.assertFalse((ledger_root.parent / "corrections").exists())
+
             result = execute_p66a_official_date_correction(root, opener=opener)
 
             self.assertEqual(result.provider_resolution_count, 2)
@@ -185,6 +204,13 @@ class P66AOfficialDateCorrectionTests(unittest.TestCase):
             effective_summary = read_json_object(result.summary_path)
             self.assertEqual(effective_summary["first_target_date"], "2026-08-18")
             self.assertEqual(effective_summary["last_target_date"], "2026-08-18")
+            self.assertEqual(summary["game_type_cohorts"]["R"]["last_target_date"], "2026-08-19")
+            self.assertEqual(effective_summary["game_type_cohorts"]["R"]["last_target_date"], "2026-08-18")
+            date_fields = {"first_target_date", "last_target_date"}
+            self.assertEqual(
+                {key: value for key, value in summary["game_type_cohorts"]["R"].items() if key not in date_fields},
+                {key: value for key, value in effective_summary["game_type_cohorts"]["R"].items() if key not in date_fields},
+            )
             for metric in (
                 "accuracy",
                 "brier_score",

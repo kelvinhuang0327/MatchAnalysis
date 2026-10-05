@@ -13,6 +13,18 @@ PACKAGE_ROOT = REPOSITORY_ROOT / "src" / "match_analysis"
 LEGACY_ABSOLUTE_PATH = "/Users/kelvin/Kelvin-WorkSpace/Betting-pool"
 
 AUTHORIZED_SOURCE_PATHS = {
+    "application/ports/information_edge_signal.py",
+    "application/ports/reference_market_quote.py",
+    "application/use_cases/p50c_market_comparison.py",
+    "infrastructure/sources/mlb_starting_pitcher_signal.py",
+    "application/use_cases/information_edge_capture_v1.py",
+    "interfaces/cli/capture_information_edge_v1.py",
+    "baseball/domain/information_edge_observation.py",
+    "infrastructure/providers/the_odds_api_reference_market_quote.py",
+    "application/use_cases/moneyline_paper_decision.py",
+    "interfaces/cli/evaluate_p50c_market_comparison.py",
+    "interfaces/cli/moneyline_paper_decision.py",
+
     "__init__.py",
     "application/__init__.py",
     "application/ports/__init__.py",
