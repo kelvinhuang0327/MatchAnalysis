@@ -1,0 +1,20 @@
+{
+  "as_of_utc": "2026-10-06T18:00:00Z",
+  "away_team_id": 111,
+  "game_number": 2,
+  "home_team_id": 147,
+  "identity": {
+    "away_participant": "BOS",
+    "canonical_game_id": "SYNTHETIC_BULLPEN_DOUBLEHEADER_2",
+    "game_discriminator": "2",
+    "home_participant": "NYY",
+    "league": "MLB",
+    "season": 2026,
+    "sport": "baseball"
+  },
+  "official_date": "2026-10-06",
+  "provider_game_id": "999002",
+  "provider_namespace": "MLB_STATS_API",
+  "scheduled_start_utc": "2026-10-06T23:00:00Z",
+  "source_schedule_observation_id": "8bec673c55ff280fc2f85893d1fcb110944680ea58e25938b143ad1648ac7143"
+}

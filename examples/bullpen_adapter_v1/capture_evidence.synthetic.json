@@ -1,0 +1,146 @@
+{
+  "coverage": [
+    {
+      "available_at_utc": "2026-10-06T18:00:00Z",
+      "complete": true,
+      "source_fingerprint": "b8700f17694612fa0d5316aeb2a1ceed692bb253254dbbed0611246398b4260a",
+      "source_id": "fixture/coverage/147",
+      "source_kind": "SYNTHETIC_FIXTURE",
+      "start_date": "2026-09-22",
+      "team_code": "NYY",
+      "team_id": 147,
+      "through_utc": "2026-10-06T18:00:00Z"
+    },
+    {
+      "available_at_utc": "2026-10-06T18:00:00Z",
+      "complete": true,
+      "source_fingerprint": "da5694b6779370d69b48b4b6677ce8209f517e86d3e87520cedeb991890fe598",
+      "source_id": "fixture/coverage/111",
+      "source_kind": "SYNTHETIC_FIXTURE",
+      "start_date": "2026-09-22",
+      "team_code": "BOS",
+      "team_id": 111,
+      "through_utc": "2026-10-06T18:00:00Z"
+    }
+  ],
+  "record_evidence": [
+    {
+      "ended_at_utc": "2026-10-05T19:00:00Z",
+      "game_date": "2026-10-05",
+      "game_number": 1,
+      "persisted_at_utc": "2026-10-05T19:06:00Z",
+      "pitcher_id": 501,
+      "provider_game_id": "900005",
+      "provider_namespace": "MLB_STATS_API",
+      "raw_record_sha256": "6cc787ac0334dce155c32080af5f3ca6e2db299ddd6f86f27db4f0e5b13e3666",
+      "response_received_at_utc": "2026-10-05T19:05:00Z",
+      "source_id": "synthetic-archive/capture-1",
+      "source_kind": "SYNTHETIC_FIXTURE",
+      "source_row_index": 1,
+      "started_at_utc": "2026-10-05T16:00:00Z",
+      "usage_date": "2026-10-05",
+      "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+    },
+    {
+      "ended_at_utc": "2026-10-05T19:00:00Z",
+      "game_date": "2026-10-05",
+      "game_number": 1,
+      "persisted_at_utc": "2026-10-06T18:05:00Z",
+      "pitcher_id": 501,
+      "provider_game_id": "900005",
+      "provider_namespace": "MLB_STATS_API",
+      "raw_record_sha256": "a0aff8841be5e5620243dab9253d1b9f30d1ee81ebfbe8592f72a8efcfef1d0d",
+      "response_received_at_utc": "2026-10-06T18:04:00Z",
+      "source_id": "synthetic-archive/capture-2",
+      "source_kind": "SYNTHETIC_FIXTURE",
+      "source_row_index": 2,
+      "started_at_utc": "2026-10-05T16:00:00Z",
+      "usage_date": "2026-10-05",
+      "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+    },
+    {
+      "ended_at_utc": "2026-10-06T16:00:00Z",
+      "game_date": "2026-10-06",
+      "game_number": 1,
+      "persisted_at_utc": "2026-10-06T16:06:00Z",
+      "pitcher_id": 501,
+      "provider_game_id": "999001",
+      "provider_namespace": "MLB_STATS_API",
+      "raw_record_sha256": "4dfb4e37899fd4cfef88f87629545d67b0759a963453b05ee6c776e9a3512670",
+      "response_received_at_utc": "2026-10-06T16:05:00Z",
+      "source_id": "synthetic-archive/capture-3",
+      "source_kind": "SYNTHETIC_FIXTURE",
+      "source_row_index": 3,
+      "started_at_utc": "2026-10-06T12:00:00Z",
+      "usage_date": "2026-10-06",
+      "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+    },
+    {
+      "ended_at_utc": "2026-10-05T19:00:00Z",
+      "game_date": "2026-10-05",
+      "game_number": 1,
+      "persisted_at_utc": "2026-10-05T19:06:00Z",
+      "pitcher_id": 700,
+      "provider_game_id": "900005",
+      "provider_namespace": "MLB_STATS_API",
+      "raw_record_sha256": "60a48c1d822e02bb05c5548ce28eef05c36f3731ad38de85cb2048d015938b05",
+      "response_received_at_utc": "2026-10-05T19:05:00Z",
+      "source_id": "synthetic-archive/capture-4",
+      "source_kind": "SYNTHETIC_FIXTURE",
+      "source_row_index": 4,
+      "started_at_utc": "2026-10-05T16:00:00Z",
+      "usage_date": "2026-10-05",
+      "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+    },
+    {
+      "ended_at_utc": "2026-10-04T19:00:00Z",
+      "game_date": "2026-10-04",
+      "game_number": 1,
+      "persisted_at_utc": "2026-10-04T19:06:00Z",
+      "pitcher_id": 501,
+      "provider_game_id": "900004",
+      "provider_namespace": "MLB_STATS_API",
+      "raw_record_sha256": "cfcabb9daf3eae18e2b76d70569569fdebb37b7f169b20063a53355286b2445e",
+      "response_received_at_utc": "2026-10-04T19:05:00Z",
+      "source_id": "synthetic-archive/capture-5",
+      "source_kind": "SYNTHETIC_FIXTURE",
+      "source_row_index": 5,
+      "started_at_utc": "2026-10-04T16:00:00Z",
+      "usage_date": "2026-10-04",
+      "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+    },
+    {
+      "ended_at_utc": "2026-10-05T19:00:00Z",
+      "game_date": "2026-10-05",
+      "game_number": 1,
+      "persisted_at_utc": "2026-10-05T19:06:00Z",
+      "pitcher_id": 601,
+      "provider_game_id": "910005",
+      "provider_namespace": "MLB_STATS_API",
+      "raw_record_sha256": "f6fdcef59ff9a2841de886f29d8cf72a5d79d654f35cc6fb4b0dac9b414717e0",
+      "response_received_at_utc": "2026-10-05T19:05:00Z",
+      "source_id": "synthetic-archive/capture-6",
+      "source_kind": "SYNTHETIC_FIXTURE",
+      "source_row_index": 6,
+      "started_at_utc": "2026-10-05T16:00:00Z",
+      "usage_date": "2026-10-05",
+      "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+    }
+  ],
+  "schema_version": "bullpen.legacy_capture_evidence.v1",
+  "source_sha256": "4d62da089b09e7774c3fa06e9d46ea585969b530fddcab1d4e75fad4a9b96345",
+  "team_mappings": [
+    {
+      "legacy_team_name": "New York Yankees",
+      "provider_namespace": "MLB_STATS_API",
+      "team_code": "NYY",
+      "team_id": 147
+    },
+    {
+      "legacy_team_name": "Boston Red Sox",
+      "provider_namespace": "MLB_STATS_API",
+      "team_code": "BOS",
+      "team_id": 111
+    }
+  ]
+}

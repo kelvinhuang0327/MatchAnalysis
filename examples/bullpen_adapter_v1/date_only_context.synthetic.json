@@ -1,0 +1,16 @@
+{
+  "away_schedule": [
+    {
+      "bullpen_outs": 9,
+      "game_date": "2026-10-05"
+    }
+  ],
+  "home_schedule": [
+    {
+      "bullpen_outs": 9,
+      "estimated": true,
+      "game_date": "2026-10-05",
+      "source": "schedule_proxy_fallback"
+    }
+  ]
+}

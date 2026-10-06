@@ -1,0 +1,83 @@
+{
+  "inventory_kind": "READ_ONLY_FIELD_INSPECTION;NO_TIMESTAMPS_BACKFILLED",
+  "sources": [
+    {
+      "bytes": 14841,
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/wbc_backend/features/mlb_bullpen_feature_builder.py",
+      "role": "READ_ONLY_LEGACY_INVENTORY;NOT_AUTHENTICATED_PUBLIC_CAPTURE",
+      "sha256": "f68608371867a7a965d1aae654d2cee903999d884bb46eef8147ab2518b47b6f"
+    },
+    {
+      "bytes": 10024,
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_bullpen_usage_loader.py",
+      "role": "READ_ONLY_LEGACY_INVENTORY;NOT_AUTHENTICATED_PUBLIC_CAPTURE",
+      "sha256": "69fcd581d9d5125e754ede0bbc1a6f2c5f1e896f26ef1afe06dd89825e2a58ff"
+    },
+    {
+      "bytes": 51180,
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/wbc_backend/features/mlb_bullpen_granular_ingestion.py",
+      "role": "READ_ONLY_LEGACY_INVENTORY;NOT_AUTHENTICATED_PUBLIC_CAPTURE",
+      "sha256": "c1c964ef3266e85c0686b533db31aff096ddc6b2427670441637b4dd18a480ab"
+    },
+    {
+      "available_at_rows": 0,
+      "bytes": 11955,
+      "fetched_at_rows": 0,
+      "field_names": [
+        "appeared_order",
+        "audit_hash",
+        "game_date",
+        "game_id",
+        "innings_pitched",
+        "opener_flag",
+        "opponent",
+        "outs_recorded",
+        "pitcher_id",
+        "pitcher_name",
+        "pitches_thrown",
+        "reliever_flag",
+        "source",
+        "source_game_id",
+        "starter_flag",
+        "team"
+      ],
+      "first_fetched_at": null,
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/reports/phase63_bullpen_relief_appearances_20260506.jsonl",
+      "role": "READ_ONLY_LEGACY_INVENTORY;NOT_AUTHENTICATED_PUBLIC_CAPTURE",
+      "row_count": 26,
+      "sha256": "f3645d1006b4fdf4c02d9d7b9005ebc8ba306074bd4d9285f380dd7723e10af3"
+    },
+    {
+      "available_at_rows": 0,
+      "bytes": 0,
+      "fetched_at_rows": 0,
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/reports/phase64b_bullpen_relief_appearances_20260506.jsonl",
+      "role": "READ_ONLY_LEGACY_INVENTORY;NOT_AUTHENTICATED_PUBLIC_CAPTURE",
+      "row_count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "available_at_rows": 0,
+      "bytes": 544119,
+      "fetched_at_rows": 2370,
+      "field_names": [
+        "bullpen_usage_last_3d_away",
+        "bullpen_usage_last_3d_home",
+        "fetched_at",
+        "game_id",
+        "source"
+      ],
+      "first_fetched_at": "2026-03-18T18:10:06.538346Z",
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_context_sources/bullpen_usage_3d.jsonl",
+      "role": "READ_ONLY_LEGACY_INVENTORY;NOT_AUTHENTICATED_PUBLIC_CAPTURE",
+      "row_count": 2370,
+      "sha256": "6f6f60e621ac50937e36cee40b123dca646e4874296492457ee33e845324ff45"
+    },
+    {
+      "bytes": 2763,
+      "path": "tests/fixtures/mlb_schedule_api_game_payload_v1.json",
+      "role": "TRACKED_SYNTHETIC_SCHEDULE_FIXTURE;NO_BULLPEN_PITCHING_EVIDENCE",
+      "sha256": "bb89d0c203567f4399739c7ae2a52f65addfe4685d10e9485b809b861fa2fc21"
+    }
+  ]
+}
