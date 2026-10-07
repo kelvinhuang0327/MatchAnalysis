@@ -1,0 +1,22 @@
+{
+  "away_score": 4,
+  "away_team": {
+    "abbreviation": "WSH",
+    "id": 120,
+    "name": "Washington Nationals"
+  },
+  "final": true,
+  "game_number": 1,
+  "game_pk": 823218,
+  "home_score": 3,
+  "home_team": {
+    "abbreviation": "SF",
+    "id": 137,
+    "name": "San Francisco Giants"
+  },
+  "official_date": "2026-06-08",
+  "provider_game_id": "823218",
+  "scheduled_start_utc": "2026-06-09T01:45:00Z",
+  "schema_version": "p23f2.mlb_official_normalized.v1",
+  "status": "Final"
+}

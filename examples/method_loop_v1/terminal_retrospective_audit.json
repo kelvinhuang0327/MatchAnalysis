@@ -1,0 +1,1451 @@
+{
+  "audit_opened": true,
+  "coverage": {
+    "model_evaluable": 65,
+    "model_excluded": 10,
+    "opened_model_targets": 65,
+    "original_targets": 75,
+    "paired_scored": 62,
+    "quote_excluded": 3,
+    "quote_exclusion_reasons": {
+      "NO_EXACT_MARKET_IDENTITY": 3
+    }
+  },
+  "data_status": "RETROSPECTIVE_RECONSTRUCTION; OFFICIAL_FEATURE_CAPTURES_AFTER_TARGETS; NOT_PROSPECTIVE",
+  "decision": "REJECT_CANDIDATE",
+  "excluded": [
+    {
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "824347",
+        1
+      ],
+      "reason": "NO_EXACT_MARKET_IDENTITY"
+    },
+    {
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "824348",
+        1
+      ],
+      "reason": "NO_EXACT_MARKET_IDENTITY"
+    },
+    {
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "824346",
+        1
+      ],
+      "reason": "NO_EXACT_MARKET_IDENTITY"
+    }
+  ],
+  "financial_claims": "NONE; FORECAST_SCORING_ONLY; NO_PAPER_BET_POLICY_OR_COST_ASSUMPTION",
+  "fold_coverage": {
+    "wf_004": {
+      "model_excluded": 0,
+      "model_targets": 23,
+      "opened": true,
+      "original_targets": 23,
+      "paired_scored": 22,
+      "quote_excluded": 1
+    },
+    "wf_005": {
+      "model_excluded": 5,
+      "model_targets": 17,
+      "opened": true,
+      "original_targets": 22,
+      "paired_scored": 15,
+      "quote_excluded": 2
+    },
+    "wf_006": {
+      "model_excluded": 5,
+      "model_targets": 25,
+      "opened": true,
+      "original_targets": 30,
+      "paired_scored": 25,
+      "quote_excluded": 0
+    }
+  },
+  "future_shadow": "Freeze same model and same snapshot before scheduled start, preserve revised captures separately; accumulate next 50 paired final regular-season games after protocol freeze, without optional stopping. Keep postseason separate. No tuning or promotion before one terminal score.",
+  "holdout_limit": "ALREADY_EXISTING_PUBLIC_REPOSITORY_OUTCOMES_NOT_VIRGIN_HOLDOUT",
+  "model_excluded_records": [
+    {
+      "fold": "wf_005",
+      "provider_game_id": "823856",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY"
+    },
+    {
+      "fold": "wf_005",
+      "provider_game_id": "824266",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY"
+    },
+    {
+      "fold": "wf_005",
+      "provider_game_id": "823618",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY"
+    },
+    {
+      "fold": "wf_005",
+      "provider_game_id": "824996",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY"
+    },
+    {
+      "fold": "wf_005",
+      "provider_game_id": "823619",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY"
+    },
+    {
+      "fold": "wf_006",
+      "provider_game_id": "823778",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY"
+    },
+    {
+      "fold": "wf_006",
+      "provider_game_id": "824020",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY"
+    },
+    {
+      "fold": "wf_006",
+      "provider_game_id": "824997",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY"
+    },
+    {
+      "fold": "wf_006",
+      "provider_game_id": "823616",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY"
+    },
+    {
+      "fold": "wf_006",
+      "provider_game_id": "824995",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY"
+    }
+  ],
+  "protocol_sha256": "385fb91b0fca6c06d3fa119a61a6bd6146de808acd546ac0e3dedf6794a99755",
+  "rows": [
+    {
+      "candidate": 0.4837441242313625,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "824829",
+        1
+      ],
+      "incumbent": 0.5217739627484392,
+      "market": 0.4457142857142858,
+      "market_observed_at_utc": "2026-06-08T06:01:02.008388Z",
+      "official_date": "2026-06-08",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-08T22:35:00Z",
+      "snapshot_id": "bf93e60c3af10a9cc4b2707a1236c4b183d1e94e81faa7db2a433c8ab41319c6",
+      "y": 0
+    },
+    {
+      "candidate": 0.48855329003145065,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "822972",
+        1
+      ],
+      "incumbent": 0.5056780086343299,
+      "market": 0.47142857142857136,
+      "market_observed_at_utc": "2026-06-08T04:45:47.991548Z",
+      "official_date": "2026-06-08",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-08T22:40:00Z",
+      "snapshot_id": "32a11bdbf2d0ca671533acace2bf6a5f3bce13137d07c569f8cbe82dc60de3cb",
+      "y": 1
+    },
+    {
+      "candidate": 0.5337920191277211,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "824427",
+        1
+      ],
+      "incumbent": 0.5418697525411565,
+      "market": 0.5257142857142857,
+      "market_observed_at_utc": "2026-06-08T04:30:44.449358Z",
+      "official_date": "2026-06-08",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-08T22:40:00Z",
+      "snapshot_id": "43a160af6922aa70bf1cdd228b879e088e4e93646fc773b55e16a8f1b4cf762b",
+      "y": 0
+    },
+    {
+      "candidate": 0.42093037687811785,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "822806",
+        1
+      ],
+      "incumbent": 0.46348237537785736,
+      "market": 0.3783783783783784,
+      "market_observed_at_utc": "2026-06-08T04:30:44.449358Z",
+      "official_date": "2026-06-08",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-08T23:07:00Z",
+      "snapshot_id": "8d22f3e74e68c90bdc633550b0ff7c81885faded761502d0f21e59c212b4aadc",
+      "y": 0
+    },
+    {
+      "candidate": 0.3942882023966019,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "824025",
+        1
+      ],
+      "incumbent": 0.33143354765034655,
+      "market": 0.4571428571428572,
+      "market_observed_at_utc": "2026-06-08T02:15:20.736986Z",
+      "official_date": "2026-06-08",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-09T01:38:00Z",
+      "snapshot_id": "cd286fe33ebe3c2cb43e99910702eb353424564f2d4219f828eb6ff353390fc8",
+      "y": 0
+    },
+    {
+      "candidate": 0.5382835626116464,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "823289",
+        1
+      ],
+      "incumbent": 0.5222814109375785,
+      "market": 0.5542857142857143,
+      "market_observed_at_utc": "2026-06-08T04:30:44.449358Z",
+      "official_date": "2026-06-08",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-09T01:40:00Z",
+      "snapshot_id": "ff88b34143c9b131c131d349cb3ad1123c300ab8873f8b342f54c352f30c02be",
+      "y": 1
+    },
+    {
+      "candidate": 0.554392675175822,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "823218",
+        1
+      ],
+      "incumbent": 0.5010505437218098,
+      "market": 0.6077348066298343,
+      "market_observed_at_utc": "2026-06-08T02:15:20.736986Z",
+      "official_date": "2026-06-08",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-09T01:45:00Z",
+      "snapshot_id": "81f18353bab01f736c34a391480e75abab7b8520225ddcf83c31325576563d10",
+      "y": 0
+    },
+    {
+      "candidate": 0.4233350008734349,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "824998",
+        1
+      ],
+      "incumbent": 0.43821929752151767,
+      "market": 0.40845070422535207,
+      "market_observed_at_utc": "2026-06-08T02:15:20.736986Z",
+      "official_date": "2026-06-08",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-09T02:05:00Z",
+      "snapshot_id": "cf9bf20b5367de1a035d5f5433b0ab628cccae1ee6a4b7018d4f7b1e9ad63542",
+      "y": 0
+    },
+    {
+      "candidate": 0.46472459399116095,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "824830",
+        1
+      ],
+      "incumbent": 0.46373490226803626,
+      "market": 0.4657142857142857,
+      "market_observed_at_utc": "2026-06-09T04:27:05.922529Z",
+      "official_date": "2026-06-09",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-09T22:35:00Z",
+      "snapshot_id": "558b6443f005b5e38f883ca1bf970e1a8f29b56399f21a1fdad0af9e98fda2fe",
+      "y": 0
+    },
+    {
+      "candidate": 0.5161947300868714,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "822969",
+        1
+      ],
+      "incumbent": 0.5466751744594572,
+      "market": 0.48571428571428577,
+      "market_observed_at_utc": "2026-06-09T04:27:05.922529Z",
+      "official_date": "2026-06-09",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-09T22:40:00Z",
+      "snapshot_id": "18d406a2a4c66f1be288953fb384ce816df6aa3a6264dff55ea376b32e4ad787",
+      "y": 1
+    },
+    {
+      "candidate": 0.5227327898966502,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "823374",
+        1
+      ],
+      "incumbent": 0.5940370083647288,
+      "market": 0.45142857142857146,
+      "market_observed_at_utc": "2026-06-09T04:12:02.714157Z",
+      "official_date": "2026-06-09",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-09T22:40:00Z",
+      "snapshot_id": "c8cc6d740ca060f787041cb95537a45a96f41a9dc53997687adeb547fd701031",
+      "y": 0
+    },
+    {
+      "candidate": 0.5825477424037295,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "823858",
+        1
+      ],
+      "incumbent": 0.622238341950316,
+      "market": 0.5428571428571429,
+      "market_observed_at_utc": "2026-06-09T04:12:02.714157Z",
+      "official_date": "2026-06-09",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-09T22:40:00Z",
+      "snapshot_id": "7e70c3b03b5b98cfd15e01b092963f124cb15769656d3ad7376e52e1efddbe02",
+      "y": 1
+    },
+    {
+      "candidate": 0.5759487805669619,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "824267",
+        1
+      ],
+      "incumbent": 0.6090404182767807,
+      "market": 0.5428571428571429,
+      "market_observed_at_utc": "2026-06-09T04:57:12.029535Z",
+      "official_date": "2026-06-09",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-09T22:40:00Z",
+      "snapshot_id": "ecccd6208f6692ee995315f84b4a911e2322d868da8bd82545b9fc313fc6becb",
+      "y": 1
+    },
+    {
+      "candidate": 0.42991474024748355,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "824429",
+        1
+      ],
+      "incumbent": 0.44623174678391897,
+      "market": 0.4135977337110482,
+      "market_observed_at_utc": "2026-06-09T04:12:02.714157Z",
+      "official_date": "2026-06-09",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-09T22:40:00Z",
+      "snapshot_id": "e7345edf1e423523ed614f0ba2adc5e27c759a3e7c6752f5a3e791a8c4579ad0",
+      "y": 0
+    },
+    {
+      "candidate": 0.4971265291192567,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "822805",
+        1
+      ],
+      "incumbent": 0.5028244868099421,
+      "market": 0.4914285714285714,
+      "market_observed_at_utc": "2026-06-09T04:12:02.714157Z",
+      "official_date": "2026-06-09",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-09T23:07:00Z",
+      "snapshot_id": "2c57f8cdbc5767620b46f145f03cdc1dcdfbbf54707e7e7f099eb33cd27c938b",
+      "y": 1
+    },
+    {
+      "candidate": 0.5614065003300734,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "823620",
+        1
+      ],
+      "incumbent": 0.5742415720887183,
+      "market": 0.5485714285714285,
+      "market_observed_at_utc": "2026-06-09T04:12:02.714157Z",
+      "official_date": "2026-06-09",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-09T23:10:00Z",
+      "snapshot_id": "fda02b691cac35e192bbbf24dfbc1bead667ba83f79961291fba8714eec49560",
+      "y": 0
+    },
+    {
+      "candidate": 0.5131488124321865,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "824105",
+        1
+      ],
+      "incumbent": 0.5634404820072301,
+      "market": 0.4628571428571428,
+      "market_observed_at_utc": "2026-06-09T04:27:05.922529Z",
+      "official_date": "2026-06-09",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-09T23:40:00Z",
+      "snapshot_id": "2ee8bdd9fe920e2be2a8498b6f87fdaf002138c297ee55af52d7fbd3900f5cdd",
+      "y": 1
+    },
+    {
+      "candidate": 0.5278784808851579,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "824591",
+        1
+      ],
+      "incumbent": 0.6421592280592676,
+      "market": 0.4135977337110482,
+      "market_observed_at_utc": "2026-06-09T04:12:02.714157Z",
+      "official_date": "2026-06-09",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-09T23:40:00Z",
+      "snapshot_id": "1f14c8ea3b9b08883bc93b1af22659f0432856a78e48b7c62f8568f1a6ee3640",
+      "y": 1
+    },
+    {
+      "candidate": 0.5208460403095926,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "824023",
+        1
+      ],
+      "incumbent": 0.5702635091906139,
+      "market": 0.47142857142857136,
+      "market_observed_at_utc": "2026-06-09T05:12:14.919480Z",
+      "official_date": "2026-06-09",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-10T01:38:00Z",
+      "snapshot_id": "fdf97e740d7612469622b119e320f9c8b4d2b6f93fd3ee0f8b69280dcb7b25be",
+      "y": 1
+    },
+    {
+      "candidate": 0.4660974388618916,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "823290",
+        1
+      ],
+      "incumbent": 0.4607663062952118,
+      "market": 0.47142857142857136,
+      "market_observed_at_utc": "2026-06-09T05:27:17.725616Z",
+      "official_date": "2026-06-09",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-10T01:40:00Z",
+      "snapshot_id": "1bb838eed4b2ffa570dadad646cf2bc7e3d7cdfb96c18bb49ffc17f68d7c49cb",
+      "y": 0
+    },
+    {
+      "candidate": 0.4769522760952597,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "823214",
+        1
+      ],
+      "incumbent": 0.42819026647623376,
+      "market": 0.5257142857142857,
+      "market_observed_at_utc": "2026-06-09T04:27:05.922529Z",
+      "official_date": "2026-06-09",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-10T01:45:00Z",
+      "snapshot_id": "e8844d2193119660c537a0b295080eb9b729ee79cdeb4ef13353afd0314e1953",
+      "y": 0
+    },
+    {
+      "candidate": 0.525627660768084,
+      "fold": "wf_004",
+      "identity": [
+        "MLB_STATS_API",
+        "824999",
+        1
+      ],
+      "incumbent": 0.5769696072504538,
+      "market": 0.4742857142857142,
+      "market_observed_at_utc": "2026-06-09T05:12:14.919480Z",
+      "official_date": "2026-06-09",
+      "role": "development",
+      "scheduled_start_utc": "2026-06-10T02:05:00Z",
+      "snapshot_id": "9ee01f4b5ba0c1bcc0e2393826e0cc5e55e44a2d289eb87a56329d5bae888790",
+      "y": 1
+    },
+    {
+      "candidate": 0.5782827566857709,
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "822970",
+        1
+      ],
+      "incumbent": 0.5851369419429702,
+      "market": 0.5714285714285715,
+      "market_observed_at_utc": "2026-06-10T14:25:37.940665Z",
+      "official_date": "2026-06-10",
+      "role": "validation",
+      "scheduled_start_utc": "2026-06-10T17:10:00Z",
+      "snapshot_id": "e1672f646074c5f86792f158359a08dee366d4268c0b629debf10f93493ee24d",
+      "y": 1
+    },
+    {
+      "candidate": 0.5231439307185068,
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "824428",
+        1
+      ],
+      "incumbent": 0.5377164328655851,
+      "market": 0.5085714285714286,
+      "market_observed_at_utc": "2026-06-10T14:40:40.571915Z",
+      "official_date": "2026-06-10",
+      "role": "validation",
+      "scheduled_start_utc": "2026-06-10T17:10:00Z",
+      "snapshot_id": "ef83ce5da6b293d2ced9ed956a203bd7bb9957c1d9d058f23cbb365f64201427",
+      "y": 0
+    },
+    {
+      "candidate": 0.5062962708027117,
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "823215",
+        1
+      ],
+      "incumbent": 0.5097353987482804,
+      "market": 0.5028571428571428,
+      "market_observed_at_utc": "2026-06-10T14:40:40.571915Z",
+      "official_date": "2026-06-10",
+      "role": "validation",
+      "scheduled_start_utc": "2026-06-10T19:45:00Z",
+      "snapshot_id": "5cd2317a6613f0d3b7b7e03c1954a1cad03ad690b644d3646189c7f820636fb9",
+      "y": 1
+    },
+    {
+      "candidate": 0.6001402936826734,
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "823287",
+        1
+      ],
+      "incumbent": 0.5997219281474698,
+      "market": 0.6005586592178771,
+      "market_observed_at_utc": "2026-06-10T07:31:08.233189Z",
+      "official_date": "2026-06-10",
+      "role": "validation",
+      "scheduled_start_utc": "2026-06-10T20:10:00Z",
+      "snapshot_id": "21e4acd0e59a3b596400e4ade330827042c75446a7af4875ffdaea3263f33b8c",
+      "y": 1
+    },
+    {
+      "candidate": 0.5216098724721828,
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "824831",
+        1
+      ],
+      "incumbent": 0.5460768878015085,
+      "market": 0.4971428571428571,
+      "market_observed_at_utc": "2026-06-10T14:40:40.571915Z",
+      "official_date": "2026-06-10",
+      "role": "validation",
+      "scheduled_start_utc": "2026-06-10T22:35:00Z",
+      "snapshot_id": "f5cca91f7b2dd2e176999af2a529dab1eb17293971d6123be4279e974397aaf5",
+      "y": 1
+    },
+    {
+      "candidate": 0.36388745867314676,
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "823372",
+        1
+      ],
+      "incumbent": 0.4135604535058945,
+      "market": 0.314214463840399,
+      "market_observed_at_utc": "2026-06-10T12:38:05.532369Z",
+      "official_date": "2026-06-10",
+      "role": "validation",
+      "scheduled_start_utc": "2026-06-10T22:40:00Z",
+      "snapshot_id": "11ace2024331ed8eb466437b8425909d3b89f3fd24284139bb0f215194c640cb",
+      "y": 1
+    },
+    {
+      "candidate": 0.41722840939141237,
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "822804",
+        1
+      ],
+      "incumbent": 0.3915996759256819,
+      "market": 0.4428571428571429,
+      "market_observed_at_utc": "2026-06-10T14:10:35.623613Z",
+      "official_date": "2026-06-10",
+      "role": "validation",
+      "scheduled_start_utc": "2026-06-10T23:07:00Z",
+      "snapshot_id": "b4f76c871970ed52b6388ccb3e5408917b3d4adda9ec62aa9f91baabc474cee2",
+      "y": 0
+    },
+    {
+      "candidate": 0.5080240743997462,
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "824103",
+        1
+      ],
+      "incumbent": 0.5503338630852066,
+      "market": 0.4657142857142857,
+      "market_observed_at_utc": "2026-06-10T14:40:40.571915Z",
+      "official_date": "2026-06-10",
+      "role": "validation",
+      "scheduled_start_utc": "2026-06-10T23:40:00Z",
+      "snapshot_id": "fb12f048f072118233f85e351900a9903ec72e32b8fedc2efc0446b4d451dec7",
+      "y": 0
+    },
+    {
+      "candidate": 0.4748278932902318,
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "824590",
+        1
+      ],
+      "incumbent": 0.5360580528694154,
+      "market": 0.4135977337110482,
+      "market_observed_at_utc": "2026-06-10T14:10:35.623613Z",
+      "official_date": "2026-06-10",
+      "role": "validation",
+      "scheduled_start_utc": "2026-06-10T23:40:00Z",
+      "snapshot_id": "bbd94489404b38618097d2547e129642001d4699a784ab98230c7c62c40589f4",
+      "y": 1
+    },
+    {
+      "candidate": 0.5205700848775501,
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "824022",
+        1
+      ],
+      "incumbent": 0.5211401697551001,
+      "market": 0.52,
+      "market_observed_at_utc": "2026-06-10T13:23:15.452443Z",
+      "official_date": "2026-06-10",
+      "role": "validation",
+      "scheduled_start_utc": "2026-06-11T01:38:00Z",
+      "snapshot_id": "3a8d7965b738cf4e65f51f80634751ba02472dc4bc59f842d170427bfffe8d0c",
+      "y": 1
+    },
+    {
+      "candidate": 0.5819613644439783,
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "823855",
+        1
+      ],
+      "incumbent": 0.635351300316528,
+      "market": 0.5285714285714286,
+      "market_observed_at_utc": "2026-06-11T14:15:56.679053Z",
+      "official_date": "2026-06-11",
+      "role": "validation",
+      "scheduled_start_utc": "2026-06-11T17:10:00Z",
+      "snapshot_id": "35585fdd63cb0eda79af868cab5791c6637acad9d6d813fcb508a3446e28080a",
+      "y": 1
+    },
+    {
+      "candidate": 0.5534223751573218,
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "824265",
+        1
+      ],
+      "incumbent": 0.5697018931717867,
+      "market": 0.537142857142857,
+      "market_observed_at_utc": "2026-06-11T14:46:01.441805Z",
+      "official_date": "2026-06-11",
+      "role": "validation",
+      "scheduled_start_utc": "2026-06-11T17:10:00Z",
+      "snapshot_id": "00f5753c344d99c6c584413f026947831f05a6b20ea25cce02e03a5c9c0de52c",
+      "y": 1
+    },
+    {
+      "candidate": 0.5306547983707044,
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "824101",
+        1
+      ],
+      "incumbent": 0.5470238824556944,
+      "market": 0.5142857142857143,
+      "market_observed_at_utc": "2026-06-11T14:46:01.441805Z",
+      "official_date": "2026-06-11",
+      "role": "validation",
+      "scheduled_start_utc": "2026-06-11T18:10:00Z",
+      "snapshot_id": "6e2a627cb09faa0b7dc9750d8269d869dfd12e1c0ea558709003aa07ba0470e0",
+      "y": 0
+    },
+    {
+      "candidate": 0.4219827157147149,
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "823371",
+        1
+      ],
+      "incumbent": 0.4655870530510514,
+      "market": 0.3783783783783784,
+      "market_observed_at_utc": "2026-06-11T14:15:56.679053Z",
+      "official_date": "2026-06-11",
+      "role": "validation",
+      "scheduled_start_utc": "2026-06-11T22:40:00Z",
+      "snapshot_id": "01a07ed87c5fff3cf6262ea545498b69ac3781a54fb80e139f3811e3ea5f1cb3",
+      "y": 0
+    },
+    {
+      "candidate": 0.5083941292727159,
+      "fold": "wf_005",
+      "identity": [
+        "MLB_STATS_API",
+        "824827",
+        1
+      ],
+      "incumbent": 0.5253596871168603,
+      "market": 0.4914285714285714,
+      "market_observed_at_utc": "2026-06-11T04:24:26.976648Z",
+      "official_date": "2026-06-11",
+      "role": "validation",
+      "scheduled_start_utc": "2026-06-11T23:05:00Z",
+      "snapshot_id": "3bee72e5a180b19966e5fd669c6b98b6a13a07c68c8af16174545211c5a74757",
+      "y": 1
+    },
+    {
+      "candidate": 0.5655949454039004,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "823370",
+        1
+      ],
+      "incumbent": 0.5654756050935151,
+      "market": 0.5657142857142856,
+      "market_observed_at_utc": "2026-06-12T11:40:02.826771Z",
+      "official_date": "2026-06-12",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-12T22:40:00Z",
+      "snapshot_id": "9f9c8137deb0e8343bac8d5a7826504ea6ef5159e6fb78a4ad60901c4777da0c",
+      "y": 0
+    },
+    {
+      "candidate": 0.4163937031768469,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "822726",
+        1
+      ],
+      "incumbent": 0.4042159777822652,
+      "market": 0.4285714285714286,
+      "market_observed_at_utc": "2026-06-12T08:28:51.201515Z",
+      "official_date": "2026-06-12",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-12T22:45:00Z",
+      "snapshot_id": "61942dd8e97724f819f9c70491fe0559341e742c66d810b89407402403b6dc95",
+      "y": 0
+    },
+    {
+      "candidate": 0.5900167662282956,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "824826",
+        1
+      ],
+      "incumbent": 0.6314621038851627,
+      "market": 0.5485714285714285,
+      "market_observed_at_utc": "2026-06-12T14:48:56.384821Z",
+      "official_date": "2026-06-12",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-12T23:05:00Z",
+      "snapshot_id": "dcf6380b6b453f40a1327a44c16ccdd7bd6193cf795abbfcd3ab1291e446988b",
+      "y": 1
+    },
+    {
+      "candidate": 0.5508247437764925,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "824425",
+        1
+      ],
+      "incumbent": 0.5645066304101279,
+      "market": 0.537142857142857,
+      "market_observed_at_utc": "2026-06-12T12:58:19.351997Z",
+      "official_date": "2026-06-12",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-12T23:10:00Z",
+      "snapshot_id": "dc1ac00cffb6af10f45d9215dd37a97df0329e207d97eade1b179712662be5e9",
+      "y": 1
+    },
+    {
+      "candidate": 0.5546936954443565,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "824752",
+        1
+      ],
+      "incumbent": 0.5608159623172846,
+      "market": 0.5485714285714285,
+      "market_observed_at_utc": "2026-06-12T13:58:29.742553Z",
+      "official_date": "2026-06-12",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-12T23:10:00Z",
+      "snapshot_id": "7bcc1a92192fa341e6974b9cbec75f8cb72abd1bb36008b7a249d3e7accf4818",
+      "y": 1
+    },
+    {
+      "candidate": 0.5223169577534554,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "823617",
+        1
+      ],
+      "incumbent": 0.541776772649768,
+      "market": 0.5028571428571428,
+      "market_observed_at_utc": "2026-06-12T16:38:18.435531Z",
+      "official_date": "2026-06-12",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-12T23:15:00Z",
+      "snapshot_id": "b17920147fa253df883d451882ebfc046407b1c4d35028282edccf11dbc81016",
+      "y": 1
+    },
+    {
+      "candidate": 0.49353534428519563,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "824507",
+        1
+      ],
+      "incumbent": 0.4613564028561056,
+      "market": 0.5257142857142857,
+      "market_observed_at_utc": "2026-06-12T15:38:08.982360Z",
+      "official_date": "2026-06-12",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-12T23:15:00Z",
+      "snapshot_id": "a2bfc462a6d0a185bb45e1b457bb58a2e5a0dce639b995761b86c7782586665a",
+      "y": 0
+    },
+    {
+      "candidate": 0.5033266952888502,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "822803",
+        1
+      ],
+      "incumbent": 0.5495105334348434,
+      "market": 0.4571428571428572,
+      "market_observed_at_utc": "2026-06-12T12:58:19.351997Z",
+      "official_date": "2026-06-12",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-12T23:37:00Z",
+      "snapshot_id": "2dd208b814fe849d3ab3f5fb74bd4a320cdeb30c8437f90460411efe827d8a55",
+      "y": 1
+    },
+    {
+      "candidate": 0.4532372009020239,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "824588",
+        1
+      ],
+      "incumbent": 0.534506746817525,
+      "market": 0.3719676549865229,
+      "market_observed_at_utc": "2026-06-12T16:23:16.192471Z",
+      "official_date": "2026-06-12",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-12T23:40:00Z",
+      "snapshot_id": "0bc608b662209c400bb95bf73acbdeace63ac9c6f4edba5c546a0a620097bfa0",
+      "y": 1
+    },
+    {
+      "candidate": 0.5484644683938014,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "823695",
+        1
+      ],
+      "incumbent": 0.5626432225018884,
+      "market": 0.5342857142857144,
+      "market_observed_at_utc": "2026-06-12T14:48:56.384821Z",
+      "official_date": "2026-06-12",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-13T00:10:00Z",
+      "snapshot_id": "cc07caf376ab3839e8fb657de569af5e71402cb77d002f5ef8b596705606b822",
+      "y": 1
+    },
+    {
+      "candidate": 0.5134048609846742,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "824102",
+        1
+      ],
+      "incumbent": 0.5525240076836343,
+      "market": 0.4742857142857142,
+      "market_observed_at_utc": "2026-06-12T11:40:02.826771Z",
+      "official_date": "2026-06-12",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-13T00:10:00Z",
+      "snapshot_id": "2c7bb0aa7bf78f90a7db34f0f245236c4a10e6318baeaa78b838b28deb94f1af",
+      "y": 0
+    },
+    {
+      "candidate": 0.5607659438054184,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "823211",
+        1
+      ],
+      "incumbent": 0.5958176018965513,
+      "market": 0.5257142857142857,
+      "market_observed_at_utc": "2026-06-12T15:53:11.388790Z",
+      "official_date": "2026-06-12",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-13T02:15:00Z",
+      "snapshot_id": "e7fc1b15c21aeb82e96f14ec90ba4bf4d7e4294ce31315891586331b8cd0e5a1",
+      "y": 0
+    },
+    {
+      "candidate": 0.5152148255325344,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "823694",
+        1
+      ],
+      "incumbent": 0.5104296510650689,
+      "market": 0.52,
+      "market_observed_at_utc": "2026-06-13T17:55:27.853959Z",
+      "official_date": "2026-06-13",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-13T18:10:00Z",
+      "snapshot_id": "fbde5af6f5ff46b3e7af531d8d7f028644514e69c68593f5dece2305b71c5d74",
+      "y": 0
+    },
+    {
+      "candidate": 0.45720728305923325,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "822802",
+        1
+      ],
+      "incumbent": 0.4858431375470379,
+      "market": 0.4285714285714286,
+      "market_observed_at_utc": "2026-06-13T18:55:37.986197Z",
+      "official_date": "2026-06-13",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-13T19:07:00Z",
+      "snapshot_id": "fe922e091d133011e9c669a387571d14c5c4e47b184a4bcd22357233721cb3df",
+      "y": 0
+    },
+    {
+      "candidate": 0.550309329678306,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "822725",
+        1
+      ],
+      "incumbent": 0.5720472307851835,
+      "market": 0.5285714285714286,
+      "market_observed_at_utc": "2026-06-13T19:55:49.267606Z",
+      "official_date": "2026-06-13",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-13T20:05:00Z",
+      "snapshot_id": "4391a527b4db8f6410fdcb4d914a168a895338927a8e8fd3329a9d90f615579f",
+      "y": 1
+    },
+    {
+      "candidate": 0.4534440766785326,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "823369",
+        1
+      ],
+      "incumbent": 0.38688815335706517,
+      "market": 0.52,
+      "market_observed_at_utc": "2026-06-13T19:55:49.267606Z",
+      "official_date": "2026-06-13",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-13T20:05:00Z",
+      "snapshot_id": "c167765c69232aea64a4bb326174b3571ddb9303acfc0b5c6335540f2fc33041",
+      "y": 1
+    },
+    {
+      "candidate": 0.5454685995802968,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "824828",
+        1
+      ],
+      "incumbent": 0.5537943420177367,
+      "market": 0.537142857142857,
+      "market_observed_at_utc": "2026-06-13T19:55:49.267606Z",
+      "official_date": "2026-06-13",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-13T20:05:00Z",
+      "snapshot_id": "be7da886f6a1e4ca14528e527e93857153cad973215b9878e92d4556240e442e",
+      "y": 0
+    },
+    {
+      "candidate": 0.4581590524440169,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "824426",
+        1
+      ],
+      "incumbent": 0.4820323906023196,
+      "market": 0.4342857142857142,
+      "market_observed_at_utc": "2026-06-13T19:55:49.267606Z",
+      "official_date": "2026-06-13",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-13T20:10:00Z",
+      "snapshot_id": "df21ac4d37f72c3dddd0fb1c2ad57352a8819e8838f9e300dc9b258aacfc4c4e",
+      "y": 1
+    },
+    {
+      "candidate": 0.4501740225992641,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "824508",
+        1
+      ],
+      "incumbent": 0.49189734097317617,
+      "market": 0.40845070422535207,
+      "market_observed_at_utc": "2026-06-13T19:55:49.267606Z",
+      "official_date": "2026-06-13",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-13T20:10:00Z",
+      "snapshot_id": "03ff5f2b7ed951a802cc61429756a7b045341a45e06d7eb403a3d5530dc3dabd",
+      "y": 1
+    },
+    {
+      "candidate": 0.41696983665443943,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "824587",
+        1
+      ],
+      "incumbent": 0.5006063399755456,
+      "market": 0.3333333333333333,
+      "market_observed_at_utc": "2026-06-13T19:55:49.267606Z",
+      "official_date": "2026-06-13",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-13T20:10:00Z",
+      "snapshot_id": "0b31f3dc7629c995e35c7178ec5c3d2db603c93d1bfd1ae993099159a86072da",
+      "y": 0
+    },
+    {
+      "candidate": 0.5334430177927882,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "824749",
+        1
+      ],
+      "incumbent": 0.5297431784427196,
+      "market": 0.537142857142857,
+      "market_observed_at_utc": "2026-06-13T19:55:49.267606Z",
+      "official_date": "2026-06-13",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-13T20:10:00Z",
+      "snapshot_id": "504c82d7e7a867a88b889d55b180827e205c5c8303b0f08630580a940dc4dab3",
+      "y": 1
+    },
+    {
+      "candidate": 0.5819708804856881,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "823776",
+        1
+      ],
+      "incumbent": 0.556206954341542,
+      "market": 0.6077348066298343,
+      "market_observed_at_utc": "2026-06-13T22:56:28.074915Z",
+      "official_date": "2026-06-13",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-13T23:10:00Z",
+      "snapshot_id": "6af65f3992ef31e6c6b278fc4220cba457a2cc13fbe17ab06c486f4c859aa315",
+      "y": 0
+    },
+    {
+      "candidate": 0.5664027307754206,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "824100",
+        1
+      ],
+      "incumbent": 0.5899483186936982,
+      "market": 0.5428571428571429,
+      "market_observed_at_utc": "2026-06-13T22:56:28.074915Z",
+      "official_date": "2026-06-13",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-13T23:10:00Z",
+      "snapshot_id": "57517e086430f28e40619bb7a56bec28d5275e81ed70036e1401d5f0879f8f60",
+      "y": 0
+    },
+    {
+      "candidate": 0.4603079825448758,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "823213",
+        1
+      ],
+      "incumbent": 0.4634731079468944,
+      "market": 0.4571428571428572,
+      "market_observed_at_utc": "2026-06-14T02:02:49.320758Z",
+      "official_date": "2026-06-13",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-14T02:05:00Z",
+      "snapshot_id": "53d4fd356653820d747d33fc257f86b950bd09916050022c2e1ee9292d952ec6",
+      "y": 0
+    },
+    {
+      "candidate": 0.5168676737218519,
+      "fold": "wf_006",
+      "identity": [
+        "MLB_STATS_API",
+        "824019",
+        1
+      ],
+      "incumbent": 0.5537353474437039,
+      "market": 0.48,
+      "market_observed_at_utc": "2026-06-14T02:02:49.320758Z",
+      "official_date": "2026-06-13",
+      "role": "retrospective_audit",
+      "scheduled_start_utc": "2026-06-14T02:07:00Z",
+      "snapshot_id": "e36c3168a95f67cb0af8c019ff8c5bf63996fcbd147e9e9eb1b0c265e2c8c3aa",
+      "y": 1
+    }
+  ],
+  "schema_version": "moneyline.method_experiment_result.v1",
+  "scores": {
+    "all_opened": {
+      "methods": {
+        "candidate": {
+          "accuracy": 0.6451612903225806,
+          "accuracy_wilson95": [
+            0.5208113075778423,
+            0.752572671489501
+          ],
+          "brier": 0.237587066297905,
+          "correct": 40,
+          "logloss": 0.6682037079106325,
+          "n": 62
+        },
+        "incumbent": {
+          "accuracy": 0.6774193548387096,
+          "accuracy_wilson95": [
+            0.553680880928481,
+            0.780455093487161
+          ],
+          "brier": 0.22949244985429681,
+          "correct": 42,
+          "logloss": 0.6515727998015916,
+          "n": 62
+        },
+        "market": {
+          "accuracy": 0.532258064516129,
+          "accuracy_wilson95": [
+            0.40984032508164014,
+            0.6509116702666583
+          ],
+          "brier": 0.24862172266914076,
+          "correct": 33,
+          "logloss": 0.6906836150113037,
+          "n": 62
+        }
+      },
+      "paired_candidate_minus": {
+        "incumbent": {
+          "bootstrap_replicates": 1000,
+          "bootstrap_seed": 20261007,
+          "brier_date_block_bootstrap95": [
+            -0.001020895946085732,
+            0.0148590045157678
+          ],
+          "brier_delta": 0.008094616443608187,
+          "logloss_delta": 0.016630908109041043,
+          "n": 62,
+          "official_date_blocks": 6,
+          "uncertainty_limit": "Descriptive only: few dates, correlated teams and prior trials; no efficacy inference."
+        },
+        "market": {
+          "bootstrap_replicates": 1000,
+          "bootstrap_seed": 20261007,
+          "brier_date_block_bootstrap95": [
+            -0.018393005679600078,
+            -0.0015326445794107842
+          ],
+          "brier_delta": -0.011034656371235746,
+          "logloss_delta": -0.02247990710067108,
+          "n": 62,
+          "official_date_blocks": 6,
+          "uncertainty_limit": "Descriptive only: few dates, correlated teams and prior trials; no efficacy inference."
+        }
+      }
+    },
+    "development": {
+      "methods": {
+        "candidate": {
+          "accuracy": 0.7272727272727273,
+          "accuracy_wilson95": [
+            0.5184826598759762,
+            0.8684923971201053
+          ],
+          "brier": 0.22738362370952417,
+          "correct": 16,
+          "logloss": 0.6475763657928935,
+          "n": 22
+        },
+        "incumbent": {
+          "accuracy": 0.7727272727272727,
+          "accuracy_wilson95": [
+            0.5656004682477829,
+            0.8987696001475147
+          ],
+          "brier": 0.21496151414468456,
+          "correct": 17,
+          "logloss": 0.6219484793786347,
+          "n": 22
+        },
+        "market": {
+          "accuracy": 0.5,
+          "accuracy_wilson95": [
+            0.3072210627372502,
+            0.6927789372627497
+          ],
+          "brier": 0.24372490649196948,
+          "correct": 11,
+          "logloss": 0.6804835677839348,
+          "n": 22
+        }
+      },
+      "paired_candidate_minus": {
+        "incumbent": {
+          "bootstrap_replicates": 1000,
+          "bootstrap_seed": 20261007,
+          "brier_date_block_bootstrap95": [
+            0.0008399182253965246,
+            0.01904050461594994
+          ],
+          "brier_delta": 0.012422109564839606,
+          "logloss_delta": 0.02562788641425873,
+          "n": 22,
+          "official_date_blocks": 2,
+          "uncertainty_limit": "Descriptive only: few dates, correlated teams and prior trials; no efficacy inference."
+        },
+        "market": {
+          "bootstrap_replicates": 1000,
+          "bootstrap_seed": 20261007,
+          "brier_date_block_bootstrap95": [
+            -0.02364361271297042,
+            -0.003562205404026353
+          ],
+          "brier_delta": -0.016341282782445305,
+          "logloss_delta": -0.03290720199104132,
+          "n": 22,
+          "official_date_blocks": 2,
+          "uncertainty_limit": "Descriptive only: few dates, correlated teams and prior trials; no efficacy inference."
+        }
+      }
+    },
+    "retrospective_audit": {
+      "methods": {
+        "candidate": {
+          "accuracy": 0.56,
+          "accuracy_wilson95": [
+            0.3706733186979878,
+            0.7333436111893266
+          ],
+          "brier": 0.24903804082740874,
+          "correct": 14,
+          "logloss": 0.6911910103059049,
+          "n": 25
+        },
+        "incumbent": {
+          "accuracy": 0.56,
+          "accuracy_wilson95": [
+            0.3706733186979878,
+            0.7333436111893266
+          ],
+          "brier": 0.24509629141157682,
+          "correct": 14,
+          "logloss": 0.6833698517053269,
+          "n": 25
+        },
+        "market": {
+          "accuracy": 0.52,
+          "accuracy_wilson95": [
+            0.3349851695035678,
+            0.6996871404588704
+          ],
+          "brier": 0.2556137038357069,
+          "correct": 13,
+          "logloss": 0.7044871212579733,
+          "n": 25
+        }
+      },
+      "paired_candidate_minus": {
+        "incumbent": {
+          "bootstrap_replicates": 1000,
+          "bootstrap_seed": 20261007,
+          "brier_date_block_bootstrap95": [
+            -0.005129512003639126,
+            0.013768949286925543
+          ],
+          "brier_delta": 0.003941749415831915,
+          "logloss_delta": 0.007821158600577988,
+          "n": 25,
+          "official_date_blocks": 2,
+          "uncertainty_limit": "Descriptive only: few dates, correlated teams and prior trials; no efficacy inference."
+        },
+        "market": {
+          "bootstrap_replicates": 1000,
+          "bootstrap_seed": 20261007,
+          "brier_date_block_bootstrap95": [
+            -0.016302702875735348,
+            0.0024031430231822156
+          ],
+          "brier_delta": -0.006575663008298215,
+          "logloss_delta": -0.013296110952068453,
+          "n": 25,
+          "official_date_blocks": 2,
+          "uncertainty_limit": "Descriptive only: few dates, correlated teams and prior trials; no efficacy inference."
+        }
+      }
+    },
+    "validation": {
+      "methods": {
+        "candidate": {
+          "accuracy": 0.6666666666666666,
+          "accuracy_wilson95": [
+            0.41713547738519774,
+            0.8482367556028526
+          ],
+          "brier": 0.23346715787835734,
+          "correct": 10,
+          "logloss": 0.6601449723578628,
+          "n": 15
+        },
+        "incumbent": {
+          "accuracy": 0.7333333333333333,
+          "accuracy_wilson95": [
+            0.4804956594401943,
+            0.8910254667430761
+          ],
+          "brier": 0.22479808629959477,
+          "correct": 11,
+          "logloss": 0.6420267165823693,
+          "n": 15
+        },
+        "market": {
+          "accuracy": 0.6,
+          "accuracy_wilson95": [
+            0.357468301206246,
+            0.8017550385865841
+          ],
+          "brier": 0.24415041778471494,
+          "correct": 9,
+          "logloss": 0.6826378405336619,
+          "n": 15
+        }
+      },
+      "paired_candidate_minus": {
+        "incumbent": {
+          "bootstrap_replicates": 1000,
+          "bootstrap_seed": 20261007,
+          "brier_date_block_bootstrap95": [
+            0.0032226283753515827,
+            0.011392293180468041
+          ],
+          "brier_delta": 0.008669071578762556,
+          "logloss_delta": 0.018118255775493523,
+          "n": 15,
+          "official_date_blocks": 2,
+          "uncertainty_limit": "Descriptive only: few dates, correlated teams and prior trials; no efficacy inference."
+        },
+        "market": {
+          "bootstrap_replicates": 1000,
+          "bootstrap_seed": 20261007,
+          "brier_date_block_bootstrap95": [
+            -0.013299051019751854,
+            -0.005451677679569134
+          ],
+          "brier_delta": -0.010683259906357613,
+          "logloss_delta": -0.022492868175799097,
+          "n": 15,
+          "official_date_blocks": 2,
+          "uncertainty_limit": "Descriptive only: few dates, correlated teams and prior trials; no efficacy inference."
+        }
+      }
+    }
+  },
+  "trial_accounting": {
+    "earlier_repository_trials": "UNKNOWN_AND_NONZERO; P37_ROLLING_CHALLENGER_AND_OTHER_RESEARCH_EXIST",
+    "historical_scores_previously_seen": true,
+    "this_batch_candidates": 1
+  }
+}

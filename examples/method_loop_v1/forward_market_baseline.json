@@ -1,0 +1,2059 @@
+{
+  "clv": {
+    "status": "UNKNOWN_NO_CLOSING_QUOTE",
+    "value": null
+  },
+  "fixed_unit_paper_roi": {
+    "bet_count": 0,
+    "cost_units": "0",
+    "net_profit_units": "0",
+    "net_roi": null,
+    "no_bet_count": 4,
+    "staked_units": "0"
+  },
+  "game_type_cohorts": {
+    "F": {
+      "final_count": 4,
+      "market_scored_count": 4,
+      "model_final_metrics": {
+        "accuracy": "0.5",
+        "accuracy_wilson95": [
+          "0.1500389891521495141569003627",
+          "0.8499610108478504858430996371"
+        ],
+        "brier_score": "0.2314941882023398516694850218",
+        "classification_rule": "HOME iff p_home >= 0.5; AWAY otherwise",
+        "correct_count": 2,
+        "log_loss": "0.655219872639",
+        "sample_count": 4
+      },
+      "paper_bet_count": 0,
+      "paper_cost_units": "0",
+      "paper_net_profit_units": "0",
+      "paper_net_roi": null,
+      "paper_no_bet_count": 4,
+      "paper_staked_units": "0",
+      "prediction_count": 8,
+      "quote_status_counts": {
+        "MATCHED": 4,
+        "PREDICTION_NOT_FINAL": 4
+      }
+    },
+    "R": {
+      "final_count": 41,
+      "market_scored_count": 0,
+      "model_final_metrics": {
+        "accuracy": "0.5853658536585365853658536585",
+        "accuracy_wilson95": [
+          "0.4336710313403013136561920517",
+          "0.7224345054574786127817032889"
+        ],
+        "brier_score": "0.2370196723072928144990526345",
+        "classification_rule": "HOME iff p_home >= 0.5; AWAY otherwise",
+        "correct_count": 24,
+        "log_loss": "0.6669906939298536585365853659",
+        "sample_count": 41
+      },
+      "paper_bet_count": 0,
+      "paper_cost_units": "0",
+      "paper_net_profit_units": "0",
+      "paper_net_roi": null,
+      "paper_no_bet_count": 0,
+      "paper_staked_units": "0",
+      "prediction_count": 61,
+      "quote_status_counts": {
+        "PREDICTION_NOT_FINAL": 20,
+        "QUOTE_MISSING": 41
+      }
+    }
+  },
+  "input_counts": {
+    "duplicate_quote_snapshot_rows_collapsed": 8,
+    "frozen_prediction_recovered_from_ledger_count": 0,
+    "non_moneyline_forward_ledger_rows_excluded": 42,
+    "prospective_frozen_prediction_count": 69,
+    "prospective_p50c_forward_ledger_rows_scanned": 87,
+    "quote_snapshot_count": 4,
+    "quote_snapshot_rows_read": 12,
+    "quote_snapshot_source_file_count": 3,
+    "settled_moneyline_forward_ledger_row_count": 45
+  },
+  "matched_market_comparison": {
+    "delta_definition": "model metric minus market metric; negative favors model",
+    "market_no_vig": {
+      "accuracy": "0.75",
+      "accuracy_wilson95": [
+        "0.3006418425824019155649426084",
+        "0.9544127391902994335787890962"
+      ],
+      "brier_score": "0.2350679103828612635016208250",
+      "classification_rule": "HOME iff p_home >= 0.5; AWAY otherwise",
+      "correct_count": 3,
+      "log_loss": "0.663102435463",
+      "sample_count": 4
+    },
+    "model": {
+      "accuracy": "0.5",
+      "accuracy_wilson95": [
+        "0.1500389891521495141569003627",
+        "0.8499610108478504858430996371"
+      ],
+      "brier_score": "0.2314941882023398516694850218",
+      "classification_rule": "HOME iff p_home >= 0.5; AWAY otherwise",
+      "correct_count": 2,
+      "log_loss": "0.655219872639",
+      "sample_count": 4
+    },
+    "model_minus_market_brier": "-0.0035737221805214118321358032",
+    "model_minus_market_log_loss": "-0.007882562824",
+    "sample_count": 4
+  },
+  "model_final_baseline": {
+    "accuracy": "0.5777777777777777777777777778",
+    "accuracy_wilson95": [
+      "0.4330078870920314241579005582",
+      "0.7103129753272970532493489716"
+    ],
+    "brier_score": "0.23652851816463032891420218",
+    "classification_rule": "HOME iff p_home >= 0.5; AWAY otherwise",
+    "correct_count": 26,
+    "log_loss": "0.665944398704",
+    "sample_count": 45
+  },
+  "paper_only": true,
+  "policy": {
+    "cost_application": "deducted once per staked unit on wins and losses",
+    "maximum_quote_age_seconds_at_decision": 120,
+    "minimum_net_ev": "0.02",
+    "paper_cost_per_unit": "0.02",
+    "quote_selection": "latest valid P32A quote by observed_at_utc within the configured pregame window",
+    "roi_denominator": "units staked on BET rows only",
+    "selection_rule": "BET the frozen P50C selected side iff p_selected * selected_decimal_odds - 1 - cost_per_unit >= min_net_ev",
+    "stake_units_per_bet": "1"
+  },
+  "predictions": [
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824803,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "824803",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T22:35:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "10fc90d5839587c806be956aadd282411a19695c0f31fb2690f1e412f78c6a48",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_568fc6c941c4f63c27f53d70a967f960"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824803,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "824803",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T22:35:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5269439870515998304359728752",
+      "prediction_fingerprint": "10fc90d5839587c806be956aadd282411a19695c0f31fb2690f1e412f78c6a48",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_fa367308eedb4c623680d7d2667273b0",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 822938,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "822938",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T22:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "8c75ceac7e1825f1dea992eb53a3fbaa9d7177e7ca9a5cf3fe048a4fb25420cb",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_568fc6c941c4f63c27f53d70a967f960"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 822938,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "822938",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T22:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5590446814469657099248600097",
+      "prediction_fingerprint": "8c75ceac7e1825f1dea992eb53a3fbaa9d7177e7ca9a5cf3fe048a4fb25420cb",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_fa367308eedb4c623680d7d2667273b0",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823341,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "823341",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T22:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "dcbd233e8856847de596409cf1734858e04aafc79d666d4a65bcf9f5e762a128",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_568fc6c941c4f63c27f53d70a967f960"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823341,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "823341",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T22:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5236821724627392038185469544",
+      "prediction_fingerprint": "dcbd233e8856847de596409cf1734858e04aafc79d666d4a65bcf9f5e762a128",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_fa367308eedb4c623680d7d2667273b0",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824398,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "824398",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T22:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "79114396a14f8a531124cbb14b5e858310eaed44fd7eb64c76acbc75e98b40ff",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_568fc6c941c4f63c27f53d70a967f960"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824398,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "824398",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T22:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.6261850320801904363780831514",
+      "prediction_fingerprint": "79114396a14f8a531124cbb14b5e858310eaed44fd7eb64c76acbc75e98b40ff",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_fa367308eedb4c623680d7d2667273b0",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824475,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "824475",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T22:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "a70ec438aef12f5410905dc1658366dc652dae026763ca575f8a2f959950b222",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_568fc6c941c4f63c27f53d70a967f960"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824475,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "824475",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T22:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5082068763915184526883024438",
+      "prediction_fingerprint": "a70ec438aef12f5410905dc1658366dc652dae026763ca575f8a2f959950b222",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_fa367308eedb4c623680d7d2667273b0",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823586,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "823586",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T23:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "3182a83e913d3b5a54a925d61920ed482c57558eb36e06288fc35609aeebe0d1",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_568fc6c941c4f63c27f53d70a967f960"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823586,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "823586",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T23:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5658746418728042111149136058",
+      "prediction_fingerprint": "3182a83e913d3b5a54a925d61920ed482c57558eb36e06288fc35609aeebe0d1",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_fa367308eedb4c623680d7d2667273b0",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824723,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "824723",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T23:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "4aa630cbfb9bc21d94ead44678b021a5512ba7707b29b0b7eecccecfdced26b6",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_568fc6c941c4f63c27f53d70a967f960"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824723,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "824723",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T23:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5824363551982748366721230866",
+      "prediction_fingerprint": "4aa630cbfb9bc21d94ead44678b021a5512ba7707b29b0b7eecccecfdced26b6",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_fa367308eedb4c623680d7d2667273b0",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823667,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "823667",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T23:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "4467e8d19541127fa20c456d9fe17351566be09261e988e0dc95197345cf67fb",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_568fc6c941c4f63c27f53d70a967f960"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823667,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "823667",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T23:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5270181064421754042330099374",
+      "prediction_fingerprint": "4467e8d19541127fa20c456d9fe17351566be09261e988e0dc95197345cf67fb",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_fa367308eedb4c623680d7d2667273b0",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823749,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "823749",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T23:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "93be4246c0d023d5093e06fe998b2cf46d8dacb29f0e576b2f387e3d3df84d17",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_568fc6c941c4f63c27f53d70a967f960"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823749,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-18",
+        "provider_game_id": "823749",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-18T23:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5749359935442334564152783657",
+      "prediction_fingerprint": "93be4246c0d023d5093e06fe998b2cf46d8dacb29f0e576b2f387e3d3df84d17",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_fa367308eedb4c623680d7d2667273b0",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824154,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-19",
+        "provider_game_id": "824154",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-19T00:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "4d920e5a6416515318a8ba478c5643f0472d434e31c7fb46094a3071c174e526",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_568fc6c941c4f63c27f53d70a967f960"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824154,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-19",
+        "provider_game_id": "824154",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-19T00:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.4426772609346776201604110403",
+      "prediction_fingerprint": "4d920e5a6416515318a8ba478c5643f0472d434e31c7fb46094a3071c174e526",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_fa367308eedb4c623680d7d2667273b0",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824319,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-19",
+        "provider_game_id": "824319",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-19T00:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "25118b9c56002bab964a16dfe129436a4ec0ccf0c4a07d2b4d333ff23b5042ce",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_568fc6c941c4f63c27f53d70a967f960"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824319,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-19",
+        "provider_game_id": "824319",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-19T00:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5099192952114618105330161436",
+      "prediction_fingerprint": "25118b9c56002bab964a16dfe129436a4ec0ccf0c4a07d2b4d333ff23b5042ce",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_fa367308eedb4c623680d7d2667273b0",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823342,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-19",
+        "provider_game_id": "823342",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-19T16:35:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.6126759998431017663469117227",
+      "prediction_fingerprint": "1e79b662bcc2fd76b6f774a50b26c4e03bdaf3192bed4a87bd7a61f1ff8ac826",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_63be7bc1c4c0c8f7e262d963091d2f0e",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823587,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-19",
+        "provider_game_id": "823587",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-19T17:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.4568045716413058146332648236",
+      "prediction_fingerprint": "8565cbdc233e2bc851561e87a55ce744b9ece7745c841900630360e97b7092eb",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_63be7bc1c4c0c8f7e262d963091d2f0e",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824722,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-19",
+        "provider_game_id": "824722",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-19T20:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5096384484392328268739276508",
+      "prediction_fingerprint": "479d2cc44602f24b1d64aae3228d7ff484c5af0a0d1f6c54bf2cd0e7db5d70d0",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_63be7bc1c4c0c8f7e262d963091d2f0e",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823424,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-19",
+        "provider_game_id": "823424",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-19T22:05:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.4925452026309615474307345567",
+      "prediction_fingerprint": "9b9de5f312bd3168dc8e1c4cbc2aa7889255ab1481b8ba94fd9b29295a12feec",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_63be7bc1c4c0c8f7e262d963091d2f0e",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824801,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-19",
+        "provider_game_id": "824801",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-19T22:35:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5101747852336012884799725636",
+      "prediction_fingerprint": "960146e61b4d89f63fd835693d74733b5f16aa89e502588a233a4a18f3022a24",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_63be7bc1c4c0c8f7e262d963091d2f0e",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 822937,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-19",
+        "provider_game_id": "822937",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-19T22:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.6433548949261888850156017503",
+      "prediction_fingerprint": "739a685da1fd4c0c26d084029240e674f36662b3f7f40f44dc599d32cb7881d9",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_63be7bc1c4c0c8f7e262d963091d2f0e",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824476,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-19",
+        "provider_game_id": "824476",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-19T22:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5943794998605511909980975736",
+      "prediction_fingerprint": "9239001f59f1522b9081a9e0abf41c279f8b2ed494688ae3247b7f2adc53656a",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_63be7bc1c4c0c8f7e262d963091d2f0e",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823748,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-19",
+        "provider_game_id": "823748",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-19T23:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5400086564834044408873504211",
+      "prediction_fingerprint": "67b0705c324c4d7698d4c1efa338fdae8c79a0e16bfdc3a3c27fe2948c98b92a",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_63be7bc1c4c0c8f7e262d963091d2f0e",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824318,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-20",
+        "provider_game_id": "824318",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-20T00:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.4866766860011758176233547642",
+      "prediction_fingerprint": "94ae8414bdfa2bdeb1af45273939bd755748936681a573a01cf87a4eb48bffb7",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_63be7bc1c4c0c8f7e262d963091d2f0e",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824474,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-20",
+        "provider_game_id": "824474",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-20T16:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "cf36118e91545d6aa92892e3f2b3837325a2fd1e332ff8a7f53152061284c5e0",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_f55ecd3195335fb5edb6d6d460a4bd69"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 822934,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-20",
+        "provider_game_id": "822934",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-20T17:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "c8ddecf9578dea1f8315368977a696ace6b54ab2ce6f4aaf11875bc2d75b01b5",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_f55ecd3195335fb5edb6d6d460a4bd69"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824395,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-20",
+        "provider_game_id": "824395",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-20T17:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "794f70511124361cd0d2a97e2035ee8c900bb9cb0af303a9cc82209b2caf113a",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_f55ecd3195335fb5edb6d6d460a4bd69"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823747,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-20",
+        "provider_game_id": "823747",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-20T18:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "20fa7f40678f1bc7b2678256f82674f86695ab0e4f661c4651d2d927e28713ca",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_f55ecd3195335fb5edb6d6d460a4bd69"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824074,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-20",
+        "provider_game_id": "824074",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-20T18:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "489f10e21945658f2fd2a7cacf2505352716da4b97f1446cb47bc202e1fb84f7",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_f55ecd3195335fb5edb6d6d460a4bd69"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824589,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-20",
+        "provider_game_id": "824589",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-20T18:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "0e023c976f7b3c8665e60554e2617704b1cf8fd3cf85729588690319bf27ae84",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_f55ecd3195335fb5edb6d6d460a4bd69"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824802,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-20",
+        "provider_game_id": "824802",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-20T22:35:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "f272414c6abaca277ef29d29a40aeada6052a9e076e5ee94eb95a741dd859299",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_f55ecd3195335fb5edb6d6d460a4bd69"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 822861,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-21",
+        "provider_game_id": "822861",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-21T00:05:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "ba34286087581af23b9ffa8e216f05b05b4b3ac9e6ac90a4564c73c870324b27",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_f55ecd3195335fb5edb6d6d460a4bd69"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824153,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-21",
+        "provider_game_id": "824153",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-21T00:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "1ce90e2adbebce3ffb821b316ce47f982db5988f5086bfadc3021e7382aec95f",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_f55ecd3195335fb5edb6d6d460a4bd69"
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 822694,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-27",
+        "provider_game_id": "822694",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-27T17:05:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5727719449202071153232934241",
+      "prediction_fingerprint": "c1c22e2a48535e16387dd135cacb6e748b97307878880d361eac04b78eba9789",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_29454ef7a8917d654f903222a764833a",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823503,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-27",
+        "provider_game_id": "823503",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-27T23:05:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.6119835981002493614470585757",
+      "prediction_fingerprint": "18863e993d97cf3fefcfbf6fab8905f4b19f86da356c3dc4177fe6cdee36019f",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_29454ef7a8917d654f903222a764833a",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 822771,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-27",
+        "provider_game_id": "822771",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-27T23:07:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5016527781719895863503127820",
+      "prediction_fingerprint": "03a24daff0e372f04e250df5857c1f930b4c2d9b451ff7f12313d157e2778b83",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_29454ef7a8917d654f903222a764833a",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823581,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-27",
+        "provider_game_id": "823581",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-27T23:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.4749280592437067042237165996",
+      "prediction_fingerprint": "4bed91470e465d0bc20e7b433093295f100d2d8d012f93c29b505a378af9ea62",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_29454ef7a8917d654f903222a764833a",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824879,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-27",
+        "provider_game_id": "824879",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-27T23:15:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5500765403623510436322858880",
+      "prediction_fingerprint": "358bf97c007a5530df183dcb8364dcfdc409d1ba920574a32683ece4adb8bd53",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_29454ef7a8917d654f903222a764833a",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823179,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-08-27",
+        "provider_game_id": "823179",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-08-28T01:45:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5655439518834024916350430395",
+      "prediction_fingerprint": "c46797a409f8b0130950238ac11bb0f717616302f33d511855fb726ffa56d4fd",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_29454ef7a8917d654f903222a764833a",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824872,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-10",
+        "provider_game_id": "824872",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-10T16:15:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5206658915583334637911283539",
+      "prediction_fingerprint": "4fbda8760218bae5021861d4b3c7415e847e292d2d4e8f4af66211dc92d961e1",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_5de413d5961b2d5f88956748ec679244",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823413,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-10",
+        "provider_game_id": "823413",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-10T17:05:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.6550819457297026288211921911",
+      "prediction_fingerprint": "75f60e15ec3b8d0966ab918f80a5a298e85230a552209f366eb1bd5219fbefc9",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_5de413d5961b2d5f88956748ec679244",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823088,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-10",
+        "provider_game_id": "823088",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-10T20:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5368059239393134842717572875",
+      "prediction_fingerprint": "a948d928ab69f159d428b86756c426753c0790db39274d55e222fd3bd36077dd",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_5de413d5961b2d5f88956748ec679244",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823499,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-10",
+        "provider_game_id": "823499",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-10T23:05:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.6721711369458271796990198211",
+      "prediction_fingerprint": "d27693c133154d6abac23a5a3169f855b4c1320a73b2e103011b8d966e1fc8e5",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_5de413d5961b2d5f88956748ec679244",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824227,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-11",
+        "provider_game_id": "824227",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-11T22:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5494309323760285056195197354",
+      "prediction_fingerprint": "96b25ba7f2b4e52b85de304bfad73c565bea06f87e16ccd5e2d711ebee4273c3",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_9ba11f554fa1f032415c365a95d03652",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 822684,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-11",
+        "provider_game_id": "822684",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-11T22:45:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5818067116280194381970600227",
+      "prediction_fingerprint": "332f4f1c3059f7a5d05d408e7bfaf7313e6877b5e6fbbb6aa473e2efba153315",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_9ba11f554fa1f032415c365a95d03652",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823498,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-11",
+        "provider_game_id": "823498",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-11T23:05:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5460743719414731643335113138",
+      "prediction_fingerprint": "f243586e3bbf030898eeea3d94255ad2089e571797d6a5f3b12f7681a1639daf",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_9ba11f554fa1f032415c365a95d03652",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 822767,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-11",
+        "provider_game_id": "822767",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-11T23:07:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5479519894713177996706653726",
+      "prediction_fingerprint": "d2c8a2c94590ccac9a9f07ced72dbd9f084d13636930f6d6a737cc3413e96705",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_9ba11f554fa1f032415c365a95d03652",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824711,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-11",
+        "provider_game_id": "824711",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-11T23:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.6369051854433435904056970874",
+      "prediction_fingerprint": "a05b2ef208e35105e991cc96d9a470ce475820e358dcc76479c952002aeb0117",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_9ba11f554fa1f032415c365a95d03652",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824873,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-11",
+        "provider_game_id": "824873",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-11T23:15:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.6128048360049775962865368020",
+      "prediction_fingerprint": "fb3dd6f3e43643039b9fd7b85a4412b354c0d5a097ccb0b212e56c22586fad32",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_9ba11f554fa1f032415c365a95d03652",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823736,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-11",
+        "provider_game_id": "823736",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-11T23:45:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5481293093103775778562082990",
+      "prediction_fingerprint": "317aa34cf5cf94d3045fb1947a022e7c50da089b4d124a62863972b47c45badc",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_9ba11f554fa1f032415c365a95d03652",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823659,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-11",
+        "provider_game_id": "823659",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-12T00:10:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5063669928622945014228345779",
+      "prediction_fingerprint": "0605aa21bf8b288a39cc0dc7ad122ddae1266162b27d11afd9774d6ddfa6347e",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_9ba11f554fa1f032415c365a95d03652",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823012,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-11",
+        "provider_game_id": "823012",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-12T00:15:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5251223357994432734017560698",
+      "prediction_fingerprint": "7a31a2723d865607f7e78570726e846490c4db9857fcb642066772561e9a36e8",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_9ba11f554fa1f032415c365a95d03652",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 824954,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-11",
+        "provider_game_id": "824954",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-12T01:40:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5029232256710551986097237748",
+      "prediction_fingerprint": "08c066b9493d9281ebaffcd5f739170e2b22a1e5d3ea159cf804fd7422761ff8",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_9ba11f554fa1f032415c365a95d03652",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "QUOTE_MISSING",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 823173,
+        "game_type": "R",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-11",
+        "provider_game_id": "823173",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-12T02:15:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "QUOTE_MISSING",
+      "model_probability_home": "0.5706740172026710798823007360",
+      "prediction_fingerprint": "104825b9e484b5d42f93589fd5f57766cf32e3fcfd1d867c823724ea81511cc0",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_9ba11f554fa1f032415c365a95d03652",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 849841,
+        "game_type": "F",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-30",
+        "provider_game_id": "849841",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-30T18:00:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "9332efbccd6af08a7747aa7101a52ad15ca64b0184276efa48a0d759f9172e6f",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_c1f0bbbaa0e699aa4de1d48bafc99093"
+    },
+    {
+      "away_decimal_odds": "1.71",
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NO_BET",
+      "decision_reason": "EV_BELOW_MIN_NET_EV",
+      "estimated_net_ev": "-0.0802966899508417952907746843",
+      "game_identity": {
+        "away_team": "Philadelphia Phillies",
+        "away_team_code": "PHI",
+        "game_number": 1,
+        "game_pk": 849841,
+        "game_type": "F",
+        "home_team": "Atlanta Braves",
+        "home_team_code": "ATL",
+        "official_date": "2026-09-30",
+        "provider_game_id": "849841",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-30T18:00:00Z"
+      },
+      "home_decimal_odds": "1.79",
+      "market_overround": "0.143454539514521872651834428",
+      "market_probability_home_no_vig": "0.48857142857142857142857142857142857142857142857141",
+      "market_rejections": [],
+      "market_status": "MATCHED",
+      "model_probability_home": "0.5249739162285800026308521317",
+      "prediction_fingerprint": "e6b9e8691af5961ee63e6e2a665d0e62a20a0916350a17f22e6d3684370fad0d",
+      "quote_observed_at_utc": "2026-09-30T13:29:02.881771Z",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 849846,
+        "game_type": "F",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-30",
+        "provider_game_id": "849846",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-30T21:00:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "480e165441ae8f12d7a9706fe4362333075f7691fe7243036f8369e272b2d661",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_c1f0bbbaa0e699aa4de1d48bafc99093"
+    },
+    {
+      "away_decimal_odds": "1.97",
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NO_BET",
+      "decision_reason": "EV_BELOW_MIN_NET_EV",
+      "estimated_net_ev": "-0.1857163949041047350910372685",
+      "game_identity": {
+        "away_team": "Chicago White Sox",
+        "away_team_code": "CWS",
+        "game_number": 1,
+        "game_pk": 849846,
+        "game_type": "F",
+        "home_team": "Houston Astros",
+        "home_team_code": "HOU",
+        "official_date": "2026-09-30",
+        "provider_game_id": "849846",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-09-30T21:00:00Z"
+      },
+      "home_decimal_odds": "1.53",
+      "market_overround": "0.161208984439799608506685246",
+      "market_probability_home_no_vig": "0.56285714285714285714285714285714285714285714285714",
+      "market_rejections": [],
+      "market_status": "MATCHED",
+      "model_probability_home": "0.5452834020234609574568383866",
+      "prediction_fingerprint": "0112261ce515b20b33d1237577045ee061cad2467ad6fe320125c84d7c336e41",
+      "quote_observed_at_utc": "2026-09-30T13:29:02.881771Z",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+      "target_home_win": 0
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 849848,
+        "game_type": "F",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-30",
+        "provider_game_id": "849848",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-10-01T00:00:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "674f3815afc18b8637cf716c2ff18c96606b0acc1eca21e3650f5a6966947efd",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_c1f0bbbaa0e699aa4de1d48bafc99093"
+    },
+    {
+      "away_decimal_odds": "2.05",
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NO_BET",
+      "decision_reason": "EV_BELOW_MIN_NET_EV",
+      "estimated_net_ev": "-0.2138298979689188053050147965",
+      "game_identity": {
+        "away_team": "Boston Red Sox",
+        "away_team_code": "BOS",
+        "game_number": 1,
+        "game_pk": 849848,
+        "game_type": "F",
+        "home_team": "New York Yankees",
+        "home_team_code": "NYY",
+        "official_date": "2026-09-30",
+        "provider_game_id": "849848",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-10-01T00:00:00Z"
+      },
+      "home_decimal_odds": "1.48",
+      "market_overround": "0.163480553724456163480553724",
+      "market_probability_home_no_vig": "0.58073654390934844192634560906515580736543909348441",
+      "market_rejections": [],
+      "market_status": "MATCHED",
+      "model_probability_home": "0.5447095283993791856047197321",
+      "prediction_fingerprint": "5f54533c31d730d92d7f9518b5a519925db4b5c878a9be2d47ae6fb354f779b7",
+      "quote_observed_at_utc": "2026-09-30T13:29:02.881771Z",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+      "target_home_win": 1
+    },
+    {
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NOT_EVALUABLE",
+      "decision_reason": "PREDICTION_NOT_FINAL",
+      "game_identity": {
+        "away_team": "AWAY",
+        "away_team_code": "AWAY",
+        "game_number": 1,
+        "game_pk": 849842,
+        "game_type": "F",
+        "home_team": "HOME",
+        "home_team_code": "HOME",
+        "official_date": "2026-09-30",
+        "provider_game_id": "849842",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-10-01T02:00:00Z"
+      },
+      "market_rejections": [],
+      "market_status": "PREDICTION_NOT_FINAL",
+      "prediction_fingerprint": "47b9bc434eb7edeac229087cb1019812efc8f72e2a6d7765d2c5835d1f8708c2",
+      "result_status": "PENDING",
+      "run_id": "p50c_run_c1f0bbbaa0e699aa4de1d48bafc99093"
+    },
+    {
+      "away_decimal_odds": "1.90",
+      "clv": {
+        "status": "UNKNOWN_NO_CLOSING_QUOTE",
+        "value": null
+      },
+      "decision": "NO_BET",
+      "decision_reason": "EV_BELOW_MIN_NET_EV",
+      "estimated_net_ev": "-0.0308475172849310025330340125",
+      "game_identity": {
+        "away_team": "Chicago Cubs",
+        "away_team_code": "CHC",
+        "game_number": 1,
+        "game_pk": 849842,
+        "game_type": "F",
+        "home_team": "San Diego Padres",
+        "home_team_code": "SD",
+        "official_date": "2026-09-30",
+        "provider_game_id": "849842",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-10-01T02:00:00Z"
+      },
+      "home_decimal_odds": "1.60",
+      "market_overround": "0.151315789473684210526315789",
+      "market_probability_home_no_vig": "0.54285714285714285714285714285714285714285714285714",
+      "market_rejections": [],
+      "market_status": "MATCHED",
+      "model_probability_home": "0.6182203016969181234168537422",
+      "prediction_fingerprint": "81da8f7a02f0360d6da317f990323cce3e9aa81fd093f2b6773141e82a841a5a",
+      "quote_observed_at_utc": "2026-09-30T13:29:02.881771Z",
+      "result_status": "FINAL",
+      "run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+      "target_home_win": 1
+    }
+  ],
+  "profitability_claim": false,
+  "quote_input_files": [
+    "report/moneyline_paper_decision_v1/p52a_f_identity_fix_v1/paper_state.json",
+    "report/moneyline_paper_decision_v1/p52a_f_identity_fix_v1/postgame_v1/quote_snapshots.jsonl",
+    "report/moneyline_paper_decision_v1/paper_state.json"
+  ],
+  "quote_source_requirement": "P32A TSL_BLOB3RD plus P28AB crosswalk provenance; P39A and generated timestamps are not accepted",
+  "quote_status_counts": {
+    "MATCHED": 4,
+    "PREDICTION_NOT_FINAL": 24,
+    "QUOTE_MISSING": 41
+  },
+  "read_only": true,
+  "real_betting_recommendation": false,
+  "schema_version": "p50c.market_comparison_report.v1"
+}

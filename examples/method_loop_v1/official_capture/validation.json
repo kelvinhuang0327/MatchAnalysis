@@ -1,0 +1,554 @@
+{
+  "admission": {
+    "capture_metadata_assertions": {
+      "coverage": [],
+      "record_evidence": [
+        {
+          "ended_at_utc": "2026-06-09T04:16:36.826000Z",
+          "game_date": "2026-06-08",
+          "game_number": 1,
+          "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+          "pitcher_id": 657277,
+          "provider_game_id": "823218",
+          "provider_namespace": "MLB_STATS_API",
+          "raw_record_sha256": "84abbb5707eebc4e6f0cae59a544bc8a835c889a043469a749c1ba28a1fbbda5",
+          "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+          "source_id": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+          "source_kind": "ARCHIVED_LOCAL_PUBLIC_CAPTURE",
+          "source_row_index": 1,
+          "started_at_utc": "2026-06-09T01:46:00.585000Z",
+          "usage_date": "2026-06-08",
+          "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+        },
+        {
+          "ended_at_utc": "2026-06-09T04:16:36.826000Z",
+          "game_date": "2026-06-08",
+          "game_number": 1,
+          "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+          "pitcher_id": 676775,
+          "provider_game_id": "823218",
+          "provider_namespace": "MLB_STATS_API",
+          "raw_record_sha256": "26065ccfd920e8504a31ebdb74225cf724bfe470970daf916b9c6b8967133918",
+          "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+          "source_id": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+          "source_kind": "ARCHIVED_LOCAL_PUBLIC_CAPTURE",
+          "source_row_index": 2,
+          "started_at_utc": "2026-06-09T01:46:00.585000Z",
+          "usage_date": "2026-06-08",
+          "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+        },
+        {
+          "ended_at_utc": "2026-06-09T04:16:36.826000Z",
+          "game_date": "2026-06-08",
+          "game_number": 1,
+          "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+          "pitcher_id": 681916,
+          "provider_game_id": "823218",
+          "provider_namespace": "MLB_STATS_API",
+          "raw_record_sha256": "eff29b6b4e85b2a78902c29a147033077cba1ef6da2ab0caa1182baaf3333b06",
+          "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+          "source_id": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+          "source_kind": "ARCHIVED_LOCAL_PUBLIC_CAPTURE",
+          "source_row_index": 3,
+          "started_at_utc": "2026-06-09T01:46:00.585000Z",
+          "usage_date": "2026-06-08",
+          "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+        },
+        {
+          "ended_at_utc": "2026-06-09T04:16:36.826000Z",
+          "game_date": "2026-06-08",
+          "game_number": 1,
+          "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+          "pitcher_id": 663992,
+          "provider_game_id": "823218",
+          "provider_namespace": "MLB_STATS_API",
+          "raw_record_sha256": "2a2a233c16a5a4f70beb7c71afe453edadaa11ca9c0b18af6a8fbf07f5181bf6",
+          "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+          "source_id": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+          "source_kind": "ARCHIVED_LOCAL_PUBLIC_CAPTURE",
+          "source_row_index": 4,
+          "started_at_utc": "2026-06-09T01:46:00.585000Z",
+          "usage_date": "2026-06-08",
+          "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+        },
+        {
+          "ended_at_utc": "2026-06-09T04:16:36.826000Z",
+          "game_date": "2026-06-08",
+          "game_number": 1,
+          "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+          "pitcher_id": 571945,
+          "provider_game_id": "823218",
+          "provider_namespace": "MLB_STATS_API",
+          "raw_record_sha256": "7e9f0ada7daa8cdb41b5a18baeefe195a411862977a2f006cab6a542e6e84dc9",
+          "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+          "source_id": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+          "source_kind": "ARCHIVED_LOCAL_PUBLIC_CAPTURE",
+          "source_row_index": 5,
+          "started_at_utc": "2026-06-09T01:46:00.585000Z",
+          "usage_date": "2026-06-08",
+          "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+        },
+        {
+          "ended_at_utc": "2026-06-09T04:16:36.826000Z",
+          "game_date": "2026-06-08",
+          "game_number": 1,
+          "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+          "pitcher_id": 680730,
+          "provider_game_id": "823218",
+          "provider_namespace": "MLB_STATS_API",
+          "raw_record_sha256": "50f56c7650fb8c4c1f2bd44ce07a74499b1c2257858d6fa2f699ac9150614cd1",
+          "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+          "source_id": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+          "source_kind": "ARCHIVED_LOCAL_PUBLIC_CAPTURE",
+          "source_row_index": 6,
+          "started_at_utc": "2026-06-09T01:46:00.585000Z",
+          "usage_date": "2026-06-08",
+          "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+        },
+        {
+          "ended_at_utc": "2026-06-09T04:16:36.826000Z",
+          "game_date": "2026-06-08",
+          "game_number": 1,
+          "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+          "pitcher_id": 690925,
+          "provider_game_id": "823218",
+          "provider_namespace": "MLB_STATS_API",
+          "raw_record_sha256": "06a1c7c1dfaa4690d60489ed6ace2de52f2c7c67dea4b1e3bb5443bb18d00acc",
+          "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+          "source_id": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+          "source_kind": "ARCHIVED_LOCAL_PUBLIC_CAPTURE",
+          "source_row_index": 7,
+          "started_at_utc": "2026-06-09T01:46:00.585000Z",
+          "usage_date": "2026-06-08",
+          "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+        },
+        {
+          "ended_at_utc": "2026-06-09T04:16:36.826000Z",
+          "game_date": "2026-06-08",
+          "game_number": 1,
+          "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+          "pitcher_id": 681402,
+          "provider_game_id": "823218",
+          "provider_namespace": "MLB_STATS_API",
+          "raw_record_sha256": "108b4670c54a2561c185251f3396784f62f4b701c240e921c236dfbdbb04c7f3",
+          "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+          "source_id": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+          "source_kind": "ARCHIVED_LOCAL_PUBLIC_CAPTURE",
+          "source_row_index": 8,
+          "started_at_utc": "2026-06-09T01:46:00.585000Z",
+          "usage_date": "2026-06-08",
+          "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+        }
+      ],
+      "schema_version": "bullpen.legacy_capture_evidence.v1",
+      "source_sha256": "3d9e7b1bdddd47a24ea51bbc33fb0cb28d409b4ada6063975953ee8d326f144b",
+      "team_mappings": [
+        {
+          "legacy_team_name": "San Francisco Giants",
+          "provider_namespace": "MLB_STATS_API",
+          "team_code": "SF",
+          "team_id": 137
+        },
+        {
+          "legacy_team_name": "Washington Nationals",
+          "provider_namespace": "MLB_STATS_API",
+          "team_code": "WSH",
+          "team_id": 120
+        }
+      ]
+    },
+    "capture_metadata_semantics": "EXPLICIT_CALLER_ARCHIVE_ASSERTIONS;HASH_BINDINGS_VERIFIED;TIMESTAMP_AUTHENTICITY_NOT_INDEPENDENTLY_VERIFIED",
+    "coverage_diagnostics": [
+      {
+        "blocking_source_row_indexes": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "effective_complete": false,
+        "reason": "NO_COVERAGE_EVIDENCE_SUPPLIED",
+        "source_declared_complete": null,
+        "team_id": 120
+      },
+      {
+        "blocking_source_row_indexes": [
+          2,
+          3
+        ],
+        "effective_complete": false,
+        "reason": "NO_COVERAGE_EVIDENCE_SUPPLIED",
+        "source_declared_complete": null,
+        "team_id": 137
+      }
+    ],
+    "decision_counts": {
+      "FIRST_PITCHER_OR_OPENER_NOT_BULLPEN": 2,
+      "NOT_AVAILABLE_BEFORE_CUTOFF": 6
+    },
+    "evidence_canonical_sha256": "4eeecb90c7302f98714d7534ee7f48c27ea05f426f1575e7e24704cbd9c0937c",
+    "normalized_input": {
+      "appearances": [],
+      "coverage": [],
+      "schema_version": "bullpen.research_input.v1",
+      "target": {
+        "as_of_utc": "2026-06-09T18:00:00Z",
+        "away_team_id": 120,
+        "game_number": 1,
+        "home_team_id": 137,
+        "identity": {
+          "away_participant": "WSH",
+          "canonical_game_id": "823214",
+          "game_discriminator": "1",
+          "home_participant": "SF",
+          "league": "MLB",
+          "season": 2026,
+          "sport": "baseball"
+        },
+        "official_date": "2026-06-09",
+        "provider_game_id": "823214",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-06-10T01:45:00Z",
+        "source_schedule_observation_id": "3f4aa17058c1087858535663afd0b7a3c0a0488cfa6fe65282d475adce41c113"
+      }
+    },
+    "raw_record_hash_basis": "PHYSICAL_JSONL_LINE_INCLUDING_LINE_ENDING",
+    "research_only": true,
+    "row_decisions": [
+      {
+        "raw_record_sha256": "84abbb5707eebc4e6f0cae59a544bc8a835c889a043469a749c1ba28a1fbbda5",
+        "reason": "FIRST_PITCHER_OR_OPENER_NOT_BULLPEN",
+        "source_row_index": 1
+      },
+      {
+        "raw_record_sha256": "26065ccfd920e8504a31ebdb74225cf724bfe470970daf916b9c6b8967133918",
+        "reason": "NOT_AVAILABLE_BEFORE_CUTOFF",
+        "source_row_index": 2
+      },
+      {
+        "raw_record_sha256": "eff29b6b4e85b2a78902c29a147033077cba1ef6da2ab0caa1182baaf3333b06",
+        "reason": "NOT_AVAILABLE_BEFORE_CUTOFF",
+        "source_row_index": 3
+      },
+      {
+        "raw_record_sha256": "2a2a233c16a5a4f70beb7c71afe453edadaa11ca9c0b18af6a8fbf07f5181bf6",
+        "reason": "FIRST_PITCHER_OR_OPENER_NOT_BULLPEN",
+        "source_row_index": 4
+      },
+      {
+        "raw_record_sha256": "7e9f0ada7daa8cdb41b5a18baeefe195a411862977a2f006cab6a542e6e84dc9",
+        "reason": "NOT_AVAILABLE_BEFORE_CUTOFF",
+        "source_row_index": 5
+      },
+      {
+        "raw_record_sha256": "50f56c7650fb8c4c1f2bd44ce07a74499b1c2257858d6fa2f699ac9150614cd1",
+        "reason": "NOT_AVAILABLE_BEFORE_CUTOFF",
+        "source_row_index": 6
+      },
+      {
+        "raw_record_sha256": "06a1c7c1dfaa4690d60489ed6ace2de52f2c7c67dea4b1e3bb5443bb18d00acc",
+        "reason": "NOT_AVAILABLE_BEFORE_CUTOFF",
+        "source_row_index": 7
+      },
+      {
+        "raw_record_sha256": "108b4670c54a2561c185251f3396784f62f4b701c240e921c236dfbdbb04c7f3",
+        "reason": "NOT_AVAILABLE_BEFORE_CUTOFF",
+        "source_row_index": 8
+      }
+    ],
+    "schema_version": "bullpen.legacy_adapter.v1",
+    "selected_relief_appearance_count": 0,
+    "snapshot": {
+      "accepted_relief_evidence": [],
+      "availability_rule": "started_at_utc < ended_at_utc < as_of_utc; ended_at_utc <= available_at_utc <= as_of_utc < scheduled_start_utc",
+      "coverage_evidence": [],
+      "coverage_semantics": "SOURCE_ASSERTION_NOT_INDEPENDENT_COMPLETENESS_PROOF",
+      "exact_duplicates_collapsed": 0,
+      "excluded_records": [],
+      "identity_semantics": "EXPLICIT_PROVIDER_GAME_TEAM_PITCHER_AND_CANONICAL_TEAM_MATCH;NO_NAME_INFERENCE",
+      "input_canonical_sha256": "8f5706f6309b5879ec353c2c91c516e74689e758f740a69f23d5bc844024c105",
+      "model_integration": "NONE;P19A_MONEYLINE_FEATURE_VECTOR_UNCHANGED",
+      "research_only": true,
+      "schema_version": "bullpen.research_snapshot.v1",
+      "target": {
+        "as_of_utc": "2026-06-09T18:00:00Z",
+        "away_team_id": 120,
+        "game_number": 1,
+        "home_team_id": 137,
+        "identity": {
+          "away_participant": "WSH",
+          "canonical_game_id": "823214",
+          "game_discriminator": "1",
+          "home_participant": "SF",
+          "league": "MLB",
+          "season": 2026,
+          "sport": "baseball"
+        },
+        "official_date": "2026-06-09",
+        "provider_game_id": "823214",
+        "provider_namespace": "MLB_STATS_API",
+        "scheduled_start_utc": "2026-06-10T01:45:00Z",
+        "source_schedule_observation_id": "3f4aa17058c1087858535663afd0b7a3c0a0488cfa6fe65282d475adce41c113"
+      },
+      "teams": {
+        "SF": {
+          "back_to_back_status": "NO_COMPLETE_COVERAGE_DECLARATION",
+          "era_previous_14_calendar_days": null,
+          "era_status": "NO_COMPLETE_COVERAGE_DECLARATION",
+          "high_leverage_appearance_fraction_previous_7_days": null,
+          "leverage_status": "NO_COMPLETE_COVERAGE_DECLARATION",
+          "previous_3_calendar_days": {
+            "outs": null,
+            "pitches": null,
+            "pitches_status": "NO_COMPLETE_COVERAGE_DECLARATION",
+            "relief_appearances": null,
+            "status": "NO_COMPLETE_COVERAGE_DECLARATION"
+          },
+          "previous_7_calendar_days": {
+            "outs": null,
+            "pitches": null,
+            "pitches_status": "NO_COMPLETE_COVERAGE_DECLARATION",
+            "relief_appearances": null,
+            "status": "NO_COMPLETE_COVERAGE_DECLARATION"
+          },
+          "prior_same_day": {
+            "outs": null,
+            "pitches": null,
+            "pitches_status": "NO_COMPLETE_COVERAGE_DECLARATION",
+            "relief_appearances": null,
+            "status": "NO_COMPLETE_COVERAGE_DECLARATION"
+          },
+          "recent_observed_relief_pitchers": [],
+          "relievers_worked_both_previous_days": null,
+          "rest_scope": "OBSERVED_TEAM_RELIEF_HISTORY_ONLY;NOT_CURRENT_ROSTER_OR_CROSS_TEAM_REST",
+          "team_id": 137
+        },
+        "WSH": {
+          "back_to_back_status": "NO_COMPLETE_COVERAGE_DECLARATION",
+          "era_previous_14_calendar_days": null,
+          "era_status": "NO_COMPLETE_COVERAGE_DECLARATION",
+          "high_leverage_appearance_fraction_previous_7_days": null,
+          "leverage_status": "NO_COMPLETE_COVERAGE_DECLARATION",
+          "previous_3_calendar_days": {
+            "outs": null,
+            "pitches": null,
+            "pitches_status": "NO_COMPLETE_COVERAGE_DECLARATION",
+            "relief_appearances": null,
+            "status": "NO_COMPLETE_COVERAGE_DECLARATION"
+          },
+          "previous_7_calendar_days": {
+            "outs": null,
+            "pitches": null,
+            "pitches_status": "NO_COMPLETE_COVERAGE_DECLARATION",
+            "relief_appearances": null,
+            "status": "NO_COMPLETE_COVERAGE_DECLARATION"
+          },
+          "prior_same_day": {
+            "outs": null,
+            "pitches": null,
+            "pitches_status": "NO_COMPLETE_COVERAGE_DECLARATION",
+            "relief_appearances": null,
+            "status": "NO_COMPLETE_COVERAGE_DECLARATION"
+          },
+          "recent_observed_relief_pitchers": [],
+          "relievers_worked_both_previous_days": null,
+          "rest_scope": "OBSERVED_TEAM_RELIEF_HISTORY_ONLY;NOT_CURRENT_ROSTER_OR_CROSS_TEAM_REST",
+          "team_id": 120
+        }
+      },
+      "window_semantics": "PREVIOUS_N_SOURCE_CONFIRMED_USAGE_DATES_EXCLUDING_TARGET_OFFICIAL_DATE;PRIOR_SAME_DAY_SEPARATE"
+    },
+    "snapshot_sha256": "3a8a09234739dd0f5d62bdd5a6a12bad56526d5b5ea08069368de7a70c34811e",
+    "source_file_sha256": "3d9e7b1bdddd47a24ea51bbc33fb0cb28d409b4ada6063975953ee8d326f144b",
+    "source_format": "phase63-jsonl",
+    "source_row_count": 8
+  },
+  "capture_evidence": {
+    "coverage": [],
+    "record_evidence": [
+      {
+        "ended_at_utc": "2026-06-09T04:16:36.826000Z",
+        "game_date": "2026-06-08",
+        "game_number": 1,
+        "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+        "pitcher_id": 657277,
+        "provider_game_id": "823218",
+        "provider_namespace": "MLB_STATS_API",
+        "raw_record_sha256": "84abbb5707eebc4e6f0cae59a544bc8a835c889a043469a749c1ba28a1fbbda5",
+        "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+        "source_id": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+        "source_kind": "ARCHIVED_LOCAL_PUBLIC_CAPTURE",
+        "source_row_index": 1,
+        "started_at_utc": "2026-06-09T01:46:00.585000Z",
+        "usage_date": "2026-06-08",
+        "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+      },
+      {
+        "ended_at_utc": "2026-06-09T04:16:36.826000Z",
+        "game_date": "2026-06-08",
+        "game_number": 1,
+        "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+        "pitcher_id": 676775,
+        "provider_game_id": "823218",
+        "provider_namespace": "MLB_STATS_API",
+        "raw_record_sha256": "26065ccfd920e8504a31ebdb74225cf724bfe470970daf916b9c6b8967133918",
+        "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+        "source_id": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+        "source_kind": "ARCHIVED_LOCAL_PUBLIC_CAPTURE",
+        "source_row_index": 2,
+        "started_at_utc": "2026-06-09T01:46:00.585000Z",
+        "usage_date": "2026-06-08",
+        "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+      },
+      {
+        "ended_at_utc": "2026-06-09T04:16:36.826000Z",
+        "game_date": "2026-06-08",
+        "game_number": 1,
+        "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+        "pitcher_id": 681916,
+        "provider_game_id": "823218",
+        "provider_namespace": "MLB_STATS_API",
+        "raw_record_sha256": "eff29b6b4e85b2a78902c29a147033077cba1ef6da2ab0caa1182baaf3333b06",
+        "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+        "source_id": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+        "source_kind": "ARCHIVED_LOCAL_PUBLIC_CAPTURE",
+        "source_row_index": 3,
+        "started_at_utc": "2026-06-09T01:46:00.585000Z",
+        "usage_date": "2026-06-08",
+        "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+      },
+      {
+        "ended_at_utc": "2026-06-09T04:16:36.826000Z",
+        "game_date": "2026-06-08",
+        "game_number": 1,
+        "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+        "pitcher_id": 663992,
+        "provider_game_id": "823218",
+        "provider_namespace": "MLB_STATS_API",
+        "raw_record_sha256": "2a2a233c16a5a4f70beb7c71afe453edadaa11ca9c0b18af6a8fbf07f5181bf6",
+        "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+        "source_id": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+        "source_kind": "ARCHIVED_LOCAL_PUBLIC_CAPTURE",
+        "source_row_index": 4,
+        "started_at_utc": "2026-06-09T01:46:00.585000Z",
+        "usage_date": "2026-06-08",
+        "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+      },
+      {
+        "ended_at_utc": "2026-06-09T04:16:36.826000Z",
+        "game_date": "2026-06-08",
+        "game_number": 1,
+        "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+        "pitcher_id": 571945,
+        "provider_game_id": "823218",
+        "provider_namespace": "MLB_STATS_API",
+        "raw_record_sha256": "7e9f0ada7daa8cdb41b5a18baeefe195a411862977a2f006cab6a542e6e84dc9",
+        "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+        "source_id": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+        "source_kind": "ARCHIVED_LOCAL_PUBLIC_CAPTURE",
+        "source_row_index": 5,
+        "started_at_utc": "2026-06-09T01:46:00.585000Z",
+        "usage_date": "2026-06-08",
+        "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+      },
+      {
+        "ended_at_utc": "2026-06-09T04:16:36.826000Z",
+        "game_date": "2026-06-08",
+        "game_number": 1,
+        "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+        "pitcher_id": 680730,
+        "provider_game_id": "823218",
+        "provider_namespace": "MLB_STATS_API",
+        "raw_record_sha256": "50f56c7650fb8c4c1f2bd44ce07a74499b1c2257858d6fa2f699ac9150614cd1",
+        "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+        "source_id": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+        "source_kind": "ARCHIVED_LOCAL_PUBLIC_CAPTURE",
+        "source_row_index": 6,
+        "started_at_utc": "2026-06-09T01:46:00.585000Z",
+        "usage_date": "2026-06-08",
+        "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+      },
+      {
+        "ended_at_utc": "2026-06-09T04:16:36.826000Z",
+        "game_date": "2026-06-08",
+        "game_number": 1,
+        "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+        "pitcher_id": 690925,
+        "provider_game_id": "823218",
+        "provider_namespace": "MLB_STATS_API",
+        "raw_record_sha256": "06a1c7c1dfaa4690d60489ed6ace2de52f2c7c67dea4b1e3bb5443bb18d00acc",
+        "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+        "source_id": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+        "source_kind": "ARCHIVED_LOCAL_PUBLIC_CAPTURE",
+        "source_row_index": 7,
+        "started_at_utc": "2026-06-09T01:46:00.585000Z",
+        "usage_date": "2026-06-08",
+        "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+      },
+      {
+        "ended_at_utc": "2026-06-09T04:16:36.826000Z",
+        "game_date": "2026-06-08",
+        "game_number": 1,
+        "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+        "pitcher_id": 681402,
+        "provider_game_id": "823218",
+        "provider_namespace": "MLB_STATS_API",
+        "raw_record_sha256": "108b4670c54a2561c185251f3396784f62f4b701c240e921c236dfbdbb04c7f3",
+        "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+        "source_id": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+        "source_kind": "ARCHIVED_LOCAL_PUBLIC_CAPTURE",
+        "source_row_index": 8,
+        "started_at_utc": "2026-06-09T01:46:00.585000Z",
+        "usage_date": "2026-06-08",
+        "usage_date_basis": "SOURCE_CONFIRMED_SINGLE_DAY"
+      }
+    ],
+    "schema_version": "bullpen.legacy_capture_evidence.v1",
+    "source_sha256": "3d9e7b1bdddd47a24ea51bbc33fb0cb28d409b4ada6063975953ee8d326f144b",
+    "team_mappings": [
+      {
+        "legacy_team_name": "San Francisco Giants",
+        "provider_namespace": "MLB_STATS_API",
+        "team_code": "SF",
+        "team_id": 137
+      },
+      {
+        "legacy_team_name": "Washington Nationals",
+        "provider_namespace": "MLB_STATS_API",
+        "team_code": "WSH",
+        "team_id": 120
+      }
+    ]
+  },
+  "diagnostics": {
+    "capture": {
+      "bytes": 28994,
+      "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+      "purpose": "CURRENT_CAPTURE_OF_HISTORICAL_GAME_NOT_HISTORICAL_PREGAME_AVAILABILITY",
+      "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+      "schema_version": "public_official_capture.v1",
+      "sha256": "64dd93ff161800cb547817d4b3ce28270ce3e13c84e9ca15c4bed6ab226f0337",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime"
+    },
+    "coverage_status": "SINGLE_GAME_ONLY; NO_COMPLETE_3_7_14_DAY_COVERAGE_ASSERTION",
+    "leverage_status": "UNKNOWN; NO_INVENTED_HIGH_LEVERAGE_FLAG",
+    "raw_official_sha256": "64dd93ff161800cb547817d4b3ce28270ce3e13c84e9ca15c4bed6ab226f0337",
+    "schedule_record_sha256": "3f4aa17058c1087858535663afd0b7a3c0a0488cfa6fe65282d475adce41c113",
+    "team_totals": {
+      "away": {
+        "pitchers": 5,
+        "relief_outs": 24,
+        "relief_pitches": 118
+      },
+      "home": {
+        "pitchers": 3,
+        "relief_outs": 3,
+        "relief_pitches": 25
+      }
+    },
+    "timestamp_semantics": "Conservative whole-game completed-play bounds, not individual appearance times; all observed plays on one venue-local day.",
+    "usage_date": "2026-06-08",
+    "venue_timezone": "America/Los_Angeles"
+  },
+  "legacy_jsonl": "{\"appeared_order\":1,\"earned_runs\":1,\"game_date\":\"2026-06-08\",\"high_leverage\":null,\"opener_flag\":false,\"outs_recorded\":24,\"pitcher_id\":657277,\"pitches_thrown\":99,\"reliever_flag\":false,\"source\":\"mlb_stats_api_boxscore\",\"source_game_id\":\"823218\",\"starter_flag\":true,\"team\":\"San Francisco Giants\"}\n{\"appeared_order\":2,\"earned_runs\":3,\"game_date\":\"2026-06-08\",\"high_leverage\":null,\"opener_flag\":false,\"outs_recorded\":2,\"pitcher_id\":676775,\"pitches_thrown\":22,\"reliever_flag\":true,\"source\":\"mlb_stats_api_boxscore\",\"source_game_id\":\"823218\",\"starter_flag\":false,\"team\":\"San Francisco Giants\"}\n{\"appeared_order\":3,\"earned_runs\":0,\"game_date\":\"2026-06-08\",\"high_leverage\":null,\"opener_flag\":false,\"outs_recorded\":1,\"pitcher_id\":681916,\"pitches_thrown\":3,\"reliever_flag\":true,\"source\":\"mlb_stats_api_boxscore\",\"source_game_id\":\"823218\",\"starter_flag\":false,\"team\":\"San Francisco Giants\"}\n{\"appeared_order\":1,\"earned_runs\":0,\"game_date\":\"2026-06-08\",\"high_leverage\":null,\"opener_flag\":false,\"outs_recorded\":3,\"pitcher_id\":663992,\"pitches_thrown\":14,\"reliever_flag\":false,\"source\":\"mlb_stats_api_boxscore\",\"source_game_id\":\"823218\",\"starter_flag\":true,\"team\":\"Washington Nationals\"}\n{\"appeared_order\":2,\"earned_runs\":0,\"game_date\":\"2026-06-08\",\"high_leverage\":null,\"opener_flag\":false,\"outs_recorded\":14,\"pitcher_id\":571945,\"pitches_thrown\":54,\"reliever_flag\":true,\"source\":\"mlb_stats_api_boxscore\",\"source_game_id\":\"823218\",\"starter_flag\":false,\"team\":\"Washington Nationals\"}\n{\"appeared_order\":3,\"earned_runs\":1,\"game_date\":\"2026-06-08\",\"high_leverage\":null,\"opener_flag\":false,\"outs_recorded\":3,\"pitcher_id\":680730,\"pitches_thrown\":26,\"reliever_flag\":true,\"source\":\"mlb_stats_api_boxscore\",\"source_game_id\":\"823218\",\"starter_flag\":false,\"team\":\"Washington Nationals\"}\n{\"appeared_order\":4,\"earned_runs\":2,\"game_date\":\"2026-06-08\",\"high_leverage\":null,\"opener_flag\":false,\"outs_recorded\":4,\"pitcher_id\":690925,\"pitches_thrown\":16,\"reliever_flag\":true,\"source\":\"mlb_stats_api_boxscore\",\"source_game_id\":\"823218\",\"starter_flag\":false,\"team\":\"Washington Nationals\"}\n{\"appeared_order\":5,\"earned_runs\":0,\"game_date\":\"2026-06-08\",\"high_leverage\":null,\"opener_flag\":false,\"outs_recorded\":3,\"pitcher_id\":681402,\"pitches_thrown\":22,\"reliever_flag\":true,\"source\":\"mlb_stats_api_boxscore\",\"source_game_id\":\"823218\",\"starter_flag\":false,\"team\":\"Washington Nationals\"}\n"
+}

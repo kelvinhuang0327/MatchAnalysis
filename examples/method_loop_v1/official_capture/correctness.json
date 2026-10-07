@@ -1,0 +1,30 @@
+{
+  "capture": {
+    "bytes": 28994,
+    "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+    "purpose": "CURRENT_CAPTURE_OF_HISTORICAL_GAME_NOT_HISTORICAL_PREGAME_AVAILABILITY",
+    "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+    "schema_version": "public_official_capture.v1",
+    "sha256": "64dd93ff161800cb547817d4b3ce28270ce3e13c84e9ca15c4bed6ab226f0337",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime"
+  },
+  "coverage_status": "SINGLE_GAME_ONLY; NO_COMPLETE_3_7_14_DAY_COVERAGE_ASSERTION",
+  "leverage_status": "UNKNOWN; NO_INVENTED_HIGH_LEVERAGE_FLAG",
+  "raw_official_sha256": "64dd93ff161800cb547817d4b3ce28270ce3e13c84e9ca15c4bed6ab226f0337",
+  "schedule_record_sha256": "3f4aa17058c1087858535663afd0b7a3c0a0488cfa6fe65282d475adce41c113",
+  "team_totals": {
+    "away": {
+      "pitchers": 5,
+      "relief_outs": 24,
+      "relief_pitches": 118
+    },
+    "home": {
+      "pitchers": 3,
+      "relief_outs": 3,
+      "relief_pitches": 25
+    }
+  },
+  "timestamp_semantics": "Conservative whole-game completed-play bounds, not individual appearance times; all observed plays on one venue-local day.",
+  "usage_date": "2026-06-08",
+  "venue_timezone": "America/Los_Angeles"
+}

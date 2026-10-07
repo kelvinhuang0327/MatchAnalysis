@@ -1,0 +1,9 @@
+{
+  "schema_version": "public_official_capture.v1",
+  "url": "https://statsapi.mlb.com/api/v1.1/game/823218/feed/live?fields=gamePk,gameData,game,pk,type,season,teams,away,home,id,name,abbreviation,datetime,dateTime,officialDate,status,abstractGameState,detailedState,venue,timeZone,liveData,boxscore,players,person,stats,pitching,inningsPitched,numberOfPitches,earnedRuns,gamesStarted,pitchers,plays,allPlays,about,startTime,endTime",
+  "response_received_at_utc": "2026-10-07T13:17:18.954909Z",
+  "persisted_at_utc": "2026-10-07T13:17:18.956069Z",
+  "bytes": 28994,
+  "sha256": "64dd93ff161800cb547817d4b3ce28270ce3e13c84e9ca15c4bed6ab226f0337",
+  "purpose": "CURRENT_CAPTURE_OF_HISTORICAL_GAME_NOT_HISTORICAL_PREGAME_AVAILABILITY"
+}

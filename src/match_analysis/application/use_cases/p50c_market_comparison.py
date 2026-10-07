@@ -494,11 +494,23 @@ def _select_quote(
 def _metrics(rows: Sequence[tuple[Decimal, int]]) -> dict[str, Any]:
     count = len(rows)
     if count == 0:
-        return {"sample_count": 0, "brier_score": None, "log_loss": None}
+        return {"sample_count": 0, "correct_count": 0, "accuracy": None,
+                "accuracy_wilson95": None, "brier_score": None, "log_loss": None,
+                "classification_rule": "HOME iff p_home >= 0.5; AWAY otherwise"}
     brier = sum((p - Decimal(target)) ** 2 for p, target in rows) / Decimal(count)
     log_loss = sum(calculate_log_loss(p, target) for p, target in rows) / Decimal(count)
+    correct = sum(int(p >= Decimal("0.5")) == target for p, target in rows)
+    accuracy = Decimal(correct) / Decimal(count)
+    z = Decimal("1.959963984540054")
+    n = Decimal(count)
+    center = (accuracy + z*z/(2*n))/(1+z*z/n)
+    half = z*(accuracy*(1-accuracy)/n + z*z/(4*n*n)).sqrt()/(1+z*z/n)
     return {
         "sample_count": count,
+        "correct_count": correct,
+        "accuracy": _decimal_text(accuracy),
+        "accuracy_wilson95": [_decimal_text(center-half), _decimal_text(center+half)],
+        "classification_rule": "HOME iff p_home >= 0.5; AWAY otherwise",
         "brier_score": _decimal_text(brier),
         "log_loss": _decimal_text(log_loss),
     }

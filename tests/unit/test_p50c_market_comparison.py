@@ -16,6 +16,7 @@ sys.path.insert(0, str(REPOSITORY_ROOT / "src"))
 
 from match_analysis.application.use_cases.p50c_market_comparison import (
     MarketComparisonPolicy,
+    _metrics,
     _load_quote_batch,
     evaluate_p50c_market_comparison,
 )
@@ -25,6 +26,21 @@ from match_analysis.interfaces.cli.evaluate_p50c_market_comparison import main a
 RUN_ID = "synthetic-market-run"
 RUN_CLASS = "PROSPECTIVE_FORWARD_PREDICTION"
 SCHEDULED = "2026-10-01T20:00:00Z"
+
+
+class MarketAccuracyDenominatorTests(unittest.TestCase):
+    def test_empty_population_is_unknown_and_tie_rule_is_explicit(self):
+        self.assertIsNone(_metrics([])["accuracy"])
+        self.assertIsNone(_metrics([])["accuracy_wilson95"])
+        rows = [(Decimal("0.5"), 1), (Decimal("0.8"), 1),
+                (Decimal("0.7"), 0), (Decimal("0.2"), 0)]
+        result = _metrics(rows)
+        self.assertEqual(result["sample_count"], 4)
+        self.assertEqual(result["correct_count"], 3)
+        self.assertEqual(result["accuracy"], "0.75")
+        lower, upper = map(Decimal, result["accuracy_wilson95"])
+        self.assertLess(lower, Decimal("0.75"))
+        self.assertGreater(upper, Decimal("0.75"))
 
 
 def _jsonl(path: Path, rows: list[dict[str, object]]) -> None:
