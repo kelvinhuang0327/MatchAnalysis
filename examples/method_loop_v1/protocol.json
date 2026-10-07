@@ -1,0 +1,37 @@
+{
+  "audit_status": "ALREADY_EXISTING_PUBLIC_REPOSITORY_OUTCOMES_NOT_VIRGIN_HOLDOUT",
+  "base_commit": "a2489bf4c3bf815f8726ec34dd292ab36f90b588",
+  "candidate": {
+    "id": "equal_pool_v1",
+    "market_weight": 0.5,
+    "model_weight": 0.5,
+    "rationale": "Single parameter-free convex pooling of incumbent and independently observed moneyline market; no fitted coefficient or window selection."
+  },
+  "experiment_id": "equal_pool_incumbent_market_20261007_v1",
+  "financial_claims": "NONE; FORECAST_SCORING_ONLY; NO_PAPER_BET_POLICY_OR_COST_ASSUMPTION",
+  "future_shadow": "Freeze same model and same snapshot before scheduled start, preserve revised captures separately; accumulate next 50 paired final regular-season games after protocol freeze, without optional stopping. Keep postseason separate. No tuning or promotion before one terminal score.",
+  "gate": "Candidate must lower both Brier and logloss versus incumbent and market on validation and retrospective audit; even passing does not establish prospective improvement. No coefficient revisions or repeated audit selection permitted.",
+  "market": "TSL_MNL_FULL_GAME_TWO_WAY",
+  "prior_trials": {
+    "earlier_repository_trials": "UNKNOWN_AND_NONZERO; P37_ROLLING_CHALLENGER_AND_OTHER_RESEARCH_EXIST",
+    "historical_scores_previously_seen": true,
+    "this_batch_candidates": 1
+  },
+  "schema_version": "moneyline.method_experiment.v1",
+  "selection_rule": "ALL_MODEL_EVALUABLE_GAMES_WITH_EXACT_PREGAME_TWO_SIDED_MONEYLINE_SNAPSHOT; NO_OUTCOME_FILTER",
+  "sources": {
+    "data/fixtures/p23b_future_folds/wf_005/normalized/schedule.jsonl": "9e58f11ed66e32276e2bfb6b70ff3e1f3e841949b59fa5568a0245ce10b4aaf2",
+    "data/fixtures/p23b_future_folds/wf_006/normalized/schedule.jsonl": "1125bd324be7222b16f6aae3df056182078d733ae101d76adaa446e5752af424",
+    "data/fixtures/p23f2_official_2026_history/normalized/schedule.jsonl": "1dc9c7115b5fcb52e4928d505a2edfb557b7484545fa70ab69f6cc5dd32eaf0c",
+    "report/p37a_rolling_walk_forward_oos/comparisons.jsonl": "23cc15d308a90c08da0d1a4c6cbb9289af3add2c5d151808833e73a660639eb4",
+    "report/p37a_rolling_walk_forward_oos/summary.json": "f8fe76adbadbccd81ff19d7edcfe1c5ff0ac1107678db53021ba248a00249e75",
+    "report/p39a_tsl_moneyline_market_join/market_join.jsonl": "4855e1efa9a45adb68a9a559f67d421adf4c0a349224a6e747ac0d36a17850b5",
+    "report/p39a_tsl_moneyline_market_join/market_snapshots.jsonl": "16f5c34626bf395d687f0dadaa75d4dab8fb9facc65469f80252834d924845c3",
+    "report/p39a_tsl_moneyline_market_join/source_manifest.json": "d66192bcb532fd8d2812f6a6750082b52ef631b5ea03337a87e168a8863fbc7c"
+  },
+  "split_roles": {
+    "wf_004": "development",
+    "wf_005": "validation",
+    "wf_006": "retrospective_audit"
+  }
+}
