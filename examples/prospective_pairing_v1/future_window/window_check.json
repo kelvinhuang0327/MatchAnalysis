@@ -1,0 +1,71 @@
+{
+  "first_future_r_games": [
+    {
+      "gameDate": "2027-03-25T07:33:00Z",
+      "gamePk": 852822,
+      "gameType": "R",
+      "officialDate": "2027-03-25",
+      "status": {
+        "abstractGameState": "Preview",
+        "detailedState": "Scheduled"
+      }
+    },
+    {
+      "gameDate": "2027-03-25T07:33:00Z",
+      "gamePk": 853965,
+      "gameType": "R",
+      "officialDate": "2027-03-25",
+      "status": {
+        "abstractGameState": "Preview",
+        "detailedState": "Scheduled"
+      }
+    },
+    {
+      "gameDate": "2027-03-25T07:33:00Z",
+      "gamePk": 852422,
+      "gameType": "R",
+      "officialDate": "2027-03-25",
+      "status": {
+        "abstractGameState": "Preview",
+        "detailedState": "Scheduled"
+      }
+    },
+    {
+      "gameDate": "2027-03-25T07:33:00Z",
+      "gamePk": 852187,
+      "gameType": "R",
+      "officialDate": "2027-03-25",
+      "status": {
+        "abstractGameState": "Preview",
+        "detailedState": "Scheduled"
+      }
+    }
+  ],
+  "future_2027_r_count": 283,
+  "game_count": 283,
+  "query": {
+    "endDate": "2027-04-15",
+    "fields": "totalGames,dates,date,games,gamePk,gameDate,officialDate,gameType,status,abstractGameState,detailedState",
+    "gameType": "R",
+    "sportId": "1",
+    "startDate": "2026-10-08"
+  },
+  "remaining_2026_r_count": 0,
+  "request_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-08&endDate=2027-04-15&gameType=R&fields=totalGames%2Cdates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CofficialDate%2CgameType%2Cstatus%2CabstractGameState%2CdetailedState",
+  "schema_version": "prospective_pairing.future_window.v1",
+  "source_captures": [
+    {
+      "byte_count": 47492,
+      "path": "source_captures/01-7e525dcb5267.json",
+      "persisted_at_utc": "2026-10-08T07:37:22.297708Z",
+      "provider_published_at_utc": null,
+      "purpose": "OFFICIAL_FUTURE_WINDOW_CHECK",
+      "received_at_utc": "2026-10-08T07:37:22.296540Z",
+      "request_started_at_utc": "2026-10-08T07:37:20.928912Z",
+      "sha256": "9d6bd6d16998c56ef918870a129ac52934a88f091d447f7c74f64811d4523047",
+      "status": "SUCCESS",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-08&endDate=2027-04-15&gameType=R&fields=totalGames%2Cdates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CofficialDate%2CgameType%2Cstatus%2CabstractGameState%2CdetailedState"
+    }
+  ],
+  "totalGames": 283
+}

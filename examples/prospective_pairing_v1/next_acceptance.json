@@ -1,5 +1,6 @@
 {
   "authority": "UNCHANGED_P22B_CHAMPION_AND_EXISTING_P32A_P50C_SETTLE",
+  "champion_eligibility_after_season_open": "Both teams require >=10 completed regular-season games and both starters >=2 same-season starts. First eligible paired-game date not yet knowable.",
   "evaluation": [
     "Same exact games for Champion and no-vig market Brier/logloss/accuracy",
     "Fixed 1-unit paper rule with unchanged min net EV .02 and cost .02/unit",
@@ -27,11 +28,16 @@
     "TSL TLS chain verification failed for both normal Python and system curl; current quotes unknown",
     "No new qualified final pairs; no scheduled monitor authorized or started"
   ],
-  "minimum_review_population": 50,
+  "minimum_review_population": null,
   "new_candidate_trials": 0,
+  "next_official_r_collection_date": "2027-03-25",
+  "next_official_r_date_status": "PUBLISHED_OFFICIAL_DATE_ONLY_START_TIME_STARTERS_ODDS_UNVERIFIED",
   "not_a_scheduler": true,
   "population": "UNIQUE_REGULAR_SEASON_R_FULL_GAME_MONEYLINE_PAIRED_FINAL",
   "postseason_policy": "SEPARATE_DIAGNOSTIC_COHORT_ONLY",
+  "provisional_review_population": 50,
+  "sample_size_basis": "Inherited planning count from examples/method_loop_v1/README.md; no formal sample-size calculation exists. Not sufficient evidence of efficacy.",
+  "sample_size_status": "PENDING_EFFECT_SIZE_PAIRED_VARIANCE_DATE_CLUSTER_POWER_OR_PRECISION_DESIGN",
   "schema_version": "prospective_pairing.next_acceptance.v1",
   "source_requirements": [
     "Exact official full game identity including gameType/gameNumber/team names/codes/date/start",

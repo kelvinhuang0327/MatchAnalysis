@@ -37,6 +37,14 @@ PYTHONPATH=src python3.14 -m match_analysis.interfaces.cli.replay_forward_moneyl
 PYTHONPATH=src python3.14 -m match_analysis.interfaces.cli.capture_prospective_moneyline_pair --target-date YYYY-MM-DD --game-pk OFFICIAL_ID --output-root /tmp/unique-new-capture
 ```
 
-`next_acceptance.json` 固定下一階段最低資料要求：50 個唯一、同場、真實賽前的 R / MNL paired final 才進行初次 efficacy review；完整列出所有 model-excluded / 缺價 / late / stale / pending 分母，不挑成功窗口。50 是初次檢驗規模，不是自動升版條件。當前先發資料不足與 TLS 信任鏈未解，且未授權監控；本批不啟動自動累積。免費來源需恢復正常驗證的 HTTPS；不關閉 TLS。等待有符合原 Champion 條件的新場次，沿用現有 settle，季後賽分開。
+`next_acceptance.json` 固定下一階段資料條件：唯一、同場、真實賽前的 R / MNL paired final，完整列出所有 model-excluded / 缺價 / late / stale / pending 分母，不挑成功窗口。50 只沿用 method_loop_v1 的暫定初次檢視規模，沒有正式樣本量計算依據；正式樣本量待 effect size、paired variance、日期相關及 power／precision 設計後決定，50 不能證明方法提升，也不是自動升版條件。當前先發資料不足與 TLS 信任鏈未解，且未授權監控；本批不啟動自動累積。免費來源需恢復正常驗證的 HTTPS；不關閉 TLS。等待有符合原 Champion 條件的新場次，沿用現有 settle，季後賽分開。
 
 排程檢查只確認 exposed relevant automations = 0、相關 launch definitions = 0、舊配置 last_run 6/22 且 games 空。cron 讀取被拒未重試，未查程序清單，因此不宣稱完全沒有其他 collector。所有定義與檢查結果見 `verification.json`。
+
+## 官方下一窗口與精確阻礙（補查）
+
+一次 bounded official GET，查詢 `2026-10-08` 至 `2027-04-15`，`gameType=R`、只取 schedule projection；來源 47,492 bytes，SHA256 `9d6bd6d16998c56ef918870a129ac52934a88f091d447f7c74f64811d4523047`。官方截至本次 capture 的剩餘 2026 R 場次 = **0**；2027 至 4/15 列出 283 場 R，最早官方日期 **2027-03-25**。只採官方日期，不把尚未核實的 `gameDate` 時刻當成確認開賽時間。未收集未來 ERA、先發或價格。新季第一個真正 Champion eligible 日期還不知道：必須各隊有至少 10 場已完成同季 R，以及兩位已公布先發各至少 2 次同季先發。不可用 2026／季後賽補足新季門檻。
+
+實際失敗 URL 精確為 `https://blob3rd.sportslottery.com.tw/apidata/Live/Games.zh.json`。Python `urllib.error.URLError` 包裝 `ssl.SSLCertVerificationError`：`CERTIFICATE_VERIFY_FAILED / unable to get local issuer certificate`。正常驗證的 Mac system curl 則是 `subprocess.CalledProcessError`，exit 60。兩者都在此第一個 URL 失敗，後續 Pre endpoints 未請求；不是確認 pregame 價格不存在。目前**不能確定是服務端憑證鏈不完整或本機信任鏈問題**，也不能宣稱已診斷服務端憑證錯誤。沒有關閉 TLS、修改 trust store、繞過警告或替換來源。
+
+可執行的下一步是：在官方新季窗口、正常 HTTPS 可用且原 Champion 特徵條件成熟後，人工執行既有新入口；再沿用現有 settle 作同場成對驗證。不是現在等待 849832 的結果或開監控。`future_window/` 與 `feasibility.json` 保存官方時窗、錯誤與分母；first eligible pairing 無確切時間承諾。
