@@ -1,0 +1,167 @@
+{
+  "new_hypothesis_count": 0,
+  "new_method_evaluation_count": 0,
+  "recoverable_prequote_starter_identity_count": 2,
+  "request_count": 6,
+  "rows": [
+    {
+      "champion_exact_starts_only_era_recovery": "NOT_RECOVERABLE_AT_FIXED_QUOTE",
+      "champion_recent_10_completed_games_recovery": "NOT_RECOVERABLE_AT_FIXED_QUOTE",
+      "current_capture_is_not_historical_receipt": true,
+      "earliest_available_timecode": "20260604_140612",
+      "first_announcement_time_established": false,
+      "game_pk": 823457,
+      "historical_reconstruction_not_prospective": true,
+      "identity_matches": true,
+      "listed_at_or_before_quote_count": 0,
+      "method_scored": false,
+      "new_hypothesis_proposed": false,
+      "official_date": "2026-06-04",
+      "overall_full_champion_input_status": "NOT_RECOVERABLE_AT_FIXED_QUOTE",
+      "pregame_status": {
+        "abstractGameState": "Preview",
+        "detailedState": "Pre-Game"
+      },
+      "probable_pitchers": {
+        "away": {
+          "fullName": "Lucas Giolito",
+          "id": 608337
+        },
+        "home": {
+          "fullName": "Zack Wheeler",
+          "id": 554430
+        }
+      },
+      "quote_at_utc": "2026-06-04T13:39:42.737846Z",
+      "requested_timecode": "20260604_133942",
+      "returned_minus_quote_seconds": 1589.262154,
+      "returned_timecode": "20260604_140612",
+      "returned_version_and_events_not_after_quote": false,
+      "season_pitching_fields_in_returned_version": {
+        "away": [
+          "earnedRuns",
+          "era",
+          "gamesStarted",
+          "inningsPitched",
+          "outs"
+        ],
+        "home": [
+          "earnedRuns",
+          "era",
+          "gamesStarted",
+          "inningsPitched",
+          "outs"
+        ]
+      },
+      "season_stats_at_quote_recovery": "NOT_RECOVERABLE_AT_FIXED_QUOTE",
+      "starter_identity_recovery": "NOT_RECOVERABLE_AT_FIXED_QUOTE_FROM_AVAILABLE_VERSIONS"
+    },
+    {
+      "champion_exact_starts_only_era_recovery": "UNCERTAIN_NO_PRIOR_START_ONLY_LOG_OR_PROOF_ALL_APPEARANCES_ARE_STARTS",
+      "champion_recent_10_completed_games_recovery": "UNCERTAIN_NO_PREQUOTE_COMPLETION_VERSION_EVIDENCE_FOR_REQUIRED_HISTORY",
+      "current_capture_is_not_historical_receipt": true,
+      "earliest_available_timecode": "20260605_152150",
+      "first_announcement_time_established": false,
+      "game_pk": 824673,
+      "historical_reconstruction_not_prospective": true,
+      "identity_matches": true,
+      "listed_at_or_before_quote_count": 2,
+      "method_scored": false,
+      "new_hypothesis_proposed": false,
+      "official_date": "2026-06-05",
+      "overall_full_champion_input_status": "UNCERTAIN_PARTIAL_RECOVERY",
+      "pregame_status": {
+        "abstractGameState": "Preview",
+        "detailedState": "Delayed Start"
+      },
+      "probable_pitchers": {
+        "away": {
+          "fullName": "Robbie Ray",
+          "id": 592662
+        },
+        "home": {
+          "fullName": "Edward Cabrera",
+          "id": 665795
+        }
+      },
+      "quote_at_utc": "2026-06-05T18:18:59.881082Z",
+      "requested_timecode": "20260605_174215",
+      "returned_minus_quote_seconds": -2204.881082,
+      "returned_timecode": "20260605_174215",
+      "returned_version_and_events_not_after_quote": true,
+      "season_pitching_fields_in_returned_version": {
+        "away": [
+          "earnedRuns",
+          "era",
+          "gamesStarted",
+          "inningsPitched",
+          "outs"
+        ],
+        "home": [
+          "earnedRuns",
+          "era",
+          "gamesStarted",
+          "inningsPitched",
+          "outs"
+        ]
+      },
+      "season_stats_at_quote_recovery": "PARTIALLY_RECOVERABLE_VERSION_FIELDS",
+      "starter_identity_recovery": "RECOVERABLE_OFFICIAL_PREQUOTE_VERSION"
+    },
+    {
+      "champion_exact_starts_only_era_recovery": "UNCERTAIN_NO_PRIOR_START_ONLY_LOG_OR_PROOF_ALL_APPEARANCES_ARE_STARTS",
+      "champion_recent_10_completed_games_recovery": "UNCERTAIN_NO_PREQUOTE_COMPLETION_VERSION_EVIDENCE_FOR_REQUIRED_HISTORY",
+      "current_capture_is_not_historical_receipt": true,
+      "earliest_available_timecode": "20260606_142351",
+      "first_announcement_time_established": false,
+      "game_pk": 824269,
+      "historical_reconstruction_not_prospective": true,
+      "identity_matches": true,
+      "listed_at_or_before_quote_count": 1,
+      "method_scored": false,
+      "new_hypothesis_proposed": false,
+      "official_date": "2026-06-06",
+      "overall_full_champion_input_status": "UNCERTAIN_PARTIAL_RECOVERY",
+      "pregame_status": {
+        "abstractGameState": "Preview",
+        "detailedState": "Pre-Game"
+      },
+      "probable_pitchers": {
+        "away": {
+          "fullName": "Bryce Miller",
+          "id": 682243
+        },
+        "home": {
+          "fullName": "Keider Montero",
+          "id": 672456
+        }
+      },
+      "quote_at_utc": "2026-06-06T15:36:02.469277Z",
+      "requested_timecode": "20260606_142351",
+      "returned_minus_quote_seconds": -4331.469277,
+      "returned_timecode": "20260606_142351",
+      "returned_version_and_events_not_after_quote": true,
+      "season_pitching_fields_in_returned_version": {
+        "away": [
+          "earnedRuns",
+          "era",
+          "gamesStarted",
+          "inningsPitched",
+          "outs"
+        ],
+        "home": [
+          "earnedRuns",
+          "era",
+          "gamesStarted",
+          "inningsPitched",
+          "outs"
+        ]
+      },
+      "season_stats_at_quote_recovery": "PARTIALLY_RECOVERABLE_VERSION_FIELDS",
+      "starter_identity_recovery": "RECOVERABLE_OFFICIAL_PREQUOTE_VERSION"
+    }
+  ],
+  "schema_version": "historical_three_probe.findings.v1",
+  "target_manifest_sha256": "3f691cc189a2e7bf93ec17c073a84d059c557fda5d3d36b597b8683f1e357e6d",
+  "verified_full_champion_input_count": 0
+}

@@ -1,0 +1,29 @@
+{
+  "plan": [
+    {
+      "choice": "EXPLICIT_QUOTE_TIMECODE_NO_LISTED_EARLIER_VERSION",
+      "chosen_timecode": "20260604_133942",
+      "earliest_listed_timecode": "20260604_140612",
+      "game_pk": 823457,
+      "listed_at_or_before_quote_count": 0,
+      "quote_at_utc": "2026-06-04T13:39:42.737846Z"
+    },
+    {
+      "choice": "LATEST_LISTED_NOT_AFTER_QUOTE",
+      "chosen_timecode": "20260605_174215",
+      "earliest_listed_timecode": "20260605_152150",
+      "game_pk": 824673,
+      "listed_at_or_before_quote_count": 2,
+      "quote_at_utc": "2026-06-05T18:18:59.881082Z"
+    },
+    {
+      "choice": "LATEST_LISTED_NOT_AFTER_QUOTE",
+      "chosen_timecode": "20260606_142351",
+      "earliest_listed_timecode": "20260606_142351",
+      "game_pk": 824269,
+      "listed_at_or_before_quote_count": 1,
+      "quote_at_utc": "2026-06-06T15:36:02.469277Z"
+    }
+  ],
+  "target_manifest_sha256": "3f691cc189a2e7bf93ec17c073a84d059c557fda5d3d36b597b8683f1e357e6d"
+}

@@ -1,0 +1,78 @@
+{
+  "fixed_at_utc": "2026-10-08T07:54:38.454848Z",
+  "maximum_free_gets": 6,
+  "schema_version": "historical_three_probe.targets.v1",
+  "selection_rule": "One game on each fixed date 2026-06-04/05/06; earliest scheduled start, tie gamePk. No outcomes consulted.",
+  "source_file_sha256": "5389381c25bde604ae6dc0c22baf806d59afb3ff3d68c9aae07545829dd4b434",
+  "targets": [
+    {
+      "away_team": {
+        "abbreviation": "SD",
+        "id": 135,
+        "name": "San Diego Padres"
+      },
+      "game_number": 1,
+      "game_pk": 823457,
+      "game_type": "R",
+      "home_team": {
+        "abbreviation": "PHI",
+        "id": 143,
+        "name": "Philadelphia Phillies"
+      },
+      "market_observed_at_utc": "2026-06-04T13:39:42.737846Z",
+      "official_date": "2026-06-04",
+      "provider_game_id": "823457",
+      "provider_namespace": "MLB_STATS_API",
+      "raw_record_sha256": "69422eff053459769c29157e0c562fe840ca68dc21f63e7c60dd9d8d0c75fc07",
+      "scheduled_start_utc": "2026-06-04T17:05:00Z",
+      "source_game_time_utc": "2026-06-04T17:05:00Z",
+      "source_match_id": "3472405.1"
+    },
+    {
+      "away_team": {
+        "abbreviation": "SF",
+        "id": 137,
+        "name": "San Francisco Giants"
+      },
+      "game_number": 1,
+      "game_pk": 824673,
+      "game_type": "R",
+      "home_team": {
+        "abbreviation": "CHC",
+        "id": 112,
+        "name": "Chicago Cubs"
+      },
+      "market_observed_at_utc": "2026-06-05T18:18:59.881082Z",
+      "official_date": "2026-06-05",
+      "provider_game_id": "824673",
+      "provider_namespace": "MLB_STATS_API",
+      "raw_record_sha256": "64aa493adf84c7f094b3d3c898caad6c6a386e21f9ac1a247447afea13b8f41b",
+      "scheduled_start_utc": "2026-06-05T18:20:00Z",
+      "source_game_time_utc": "2026-06-05T18:20:00Z",
+      "source_match_id": "3472620.1"
+    },
+    {
+      "away_team": {
+        "abbreviation": "SEA",
+        "id": 136,
+        "name": "Seattle Mariners"
+      },
+      "game_number": 1,
+      "game_pk": 824269,
+      "game_type": "R",
+      "home_team": {
+        "abbreviation": "DET",
+        "id": 116,
+        "name": "Detroit Tigers"
+      },
+      "market_observed_at_utc": "2026-06-06T15:36:02.469277Z",
+      "official_date": "2026-06-06",
+      "provider_game_id": "824269",
+      "provider_namespace": "MLB_STATS_API",
+      "raw_record_sha256": "1fc9a541c71586cc7ce6a9e95faf2260a34191831ed33750393aa5f4997baf6f",
+      "scheduled_start_utc": "2026-06-06T17:10:00Z",
+      "source_game_time_utc": "2026-06-06T17:10:00Z",
+      "source_match_id": "3472772.1"
+    }
+  ]
+}
