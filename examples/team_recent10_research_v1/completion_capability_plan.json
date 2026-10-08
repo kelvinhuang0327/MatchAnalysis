@@ -1,0 +1,5 @@
+{
+  "fixed_at_utc": "2026-10-08T13:28:25.545027Z",
+  "maximum_gets": 1,
+  "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-06-13&hydrate=gameInfo&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameType%2CgameDate%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2CgameInfo%2CfirstPitch%2CgameDurationMinutes%2CendTime%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cscore"
+}

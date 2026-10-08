@@ -1,0 +1,22 @@
+{
+  "completion_capability_probe_limit": 1,
+  "expected_population": 102,
+  "fixed_at_utc": "2026-10-08T13:28:25.504213Z",
+  "history_rule": "Last 10 completed R games of each team strictly before target scheduled start; >=10 required. No target or later completion admitted. Preserve explicit completion provenance/uncertainty; exclude ordering that cannot be established.",
+  "home_control": "Always HOME.",
+  "market_control": "Highest two-sided proportional no-vig probability; exactly equal is TIE_ABSTAIN.",
+  "optimization_trials": 0,
+  "population": "ALL_102_PREVIOUSLY_OPENED_PRICE_ELIGIBLE_20260614_TO_20260622",
+  "probability_mapping": null,
+  "probability_scores": "NOT_COMPUTED_NO_PREDEFINED_PROBABILITY_MAPPING",
+  "recommendation": "HOME if home prior10 win count > away; AWAY if less; TIE_ABSTAIN if equal.",
+  "schema_version": "team_recent10_research.protocol.v1",
+  "scope": "EXPLORATORY_ALREADY_OPENED_RESEARCH_BASELINE; NOT_CHAMPION_HOLDOUT_OR_PROSPECTIVE",
+  "selection": "Unique full game identity; no result-based filtering.",
+  "source_hashes": {
+    "eligible_games_source": "5389381c25bde604ae6dc0c22baf806d59afb3ff3d68c9aae07545829dd4b434",
+    "opened_reference": "dec7dcef0f3a05e121ec3f83fa0b991683504cf3c31686d156f64476ad4568a1",
+    "raw_schedule": "6950ed55ff1ddeb9b90f90138847ed7ebe79ce39d37614268d344af96eb65e55"
+  },
+  "trials": 1
+}

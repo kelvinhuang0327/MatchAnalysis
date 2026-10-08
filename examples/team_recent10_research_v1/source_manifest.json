@@ -1,0 +1,27 @@
+{
+  "files": {
+    "README.md": "c2f9e499a1cd0dfba7e535aade72f6fd158478d64a1e7274c66fb2f613dae1af",
+    "completion_capability.json": "2840e2cec872dd88653103862fd4ab1c05147aa3c08e2ed5d5dffc8c1ea0f8d6",
+    "completion_capability_plan.json": "21da71018251624c5c166cac7a731aa2725c3f6f74cc0a1c274fbe2ec09e3bd0",
+    "completion_source.json": "9c108364e64d74cff10837825b642dcb7c877ab5eb1fa46057c603d8eaeddf84",
+    "completion_source_plan.json": "2a1613053eb572184f3e4be9ecc5cc95b289066ad1a2bfe5088915240c87c9eb",
+    "evaluate.py": "b950b79c8ae94b2010f2ac2fb0e73e8024af1f83dc6ff64e9d2e46e4ae61a64c",
+    "fetch_completion.py": "ffaee8d557b824bdf111b41a566857d73f1f7e199152e5de085796588c56db76",
+    "history_locators.json": "ae9b407ac3bf5bf57d6c4d02a54868b5ebcc89792a6e62d06bf1c1f83a530616",
+    "opened_outcomes.jsonl": "c26dbc24cd4dd9f5e88b2ca27350a2ccf013b9c2aeacf59dabcb1fe0e924d437",
+    "per_game.csv": "58d6e56e068435c2eb8cfa920061d3abac9661ef6cc7132c76904b18f0aac148",
+    "population.jsonl": "f28de31453be9acffe2ac646bdc7300489ba2c643a6f3bb2b7595fb51fd409dc",
+    "protocol.json": "b327c2eddb87b5cd19e5d4e9eb2c09128a5f55382746bc8a72077d00b43b096e",
+    "results.json": "178bf3d977b578bd7fb1a3f829615b0239818c34e39a5090dbfc4545397bd8eb",
+    "source_captures.json": "05f716450262babb36770ae9fb8d70b6fc9827e0b5acb0fb52666bfd0d2a3abd",
+    "test_research.py": "d6eb2763f95e121f04aaf083748da153feca5f8e5ec3bd088f20514ced97b98a",
+    "verify_replay.py": "b9c931187cd7cf014adc4680a5899488d5981df3ac151a0babfe563093f65844"
+  },
+  "portability": "Population and opened outcomes copied into capsule; raw official schedule reused as existing repo fixture. Replay requires no original dirty worktree, upstream research checkout, API, model or ledger.",
+  "schema_version": "team_recent10_research.sources.v1",
+  "upstream_source_hashes": {
+    "eligible_games_source": "5389381c25bde604ae6dc0c22baf806d59afb3ff3d68c9aae07545829dd4b434",
+    "opened_reference": "dec7dcef0f3a05e121ec3f83fa0b991683504cf3c31686d156f64476ad4568a1",
+    "raw_schedule": "6950ed55ff1ddeb9b90f90138847ed7ebe79ce39d37614268d344af96eb65e55"
+  }
+}
