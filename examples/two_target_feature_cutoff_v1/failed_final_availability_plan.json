@@ -1,0 +1,11 @@
+{
+  "maximum_gets": 1,
+  "planned_at_utc": "2026-10-08T08:34:24.270803Z",
+  "requests": [
+    {
+      "path": "raw/823135-version-availability.json",
+      "purpose": "VERIFY_VERSION_AVAILABILITY_ONLY_NO_CURRENT_DATA",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823135/feed/live/timestamps"
+    }
+  ]
+}

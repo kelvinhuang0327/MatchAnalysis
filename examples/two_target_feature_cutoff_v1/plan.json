@@ -1,0 +1,441 @@
+{
+  "fixed_at_utc": "2026-10-08T08:13:39.171777Z",
+  "initial_feature_capability_get_limit": 2,
+  "prior_source_files": {
+    "findings.json": "9942333b3bdc52855bab8e191f32cbbb1687419e7a839089c809e998fa525f5b",
+    "raw_schedule.json": "6950ed55ff1ddeb9b90f90138847ed7ebe79ce39d37614268d344af96eb65e55",
+    "targets.json": "3f691cc189a2e7bf93ec17c073a84d059c557fda5d3d36b597b8683f1e357e6d"
+  },
+  "schema_version": "two_target_feature_cutoff.plan.v1",
+  "stopped_target_823457_untouched": true,
+  "target_ids": [
+    824673,
+    824269
+  ],
+  "targets": [
+    {
+      "archived_timecode": "20260605_174215",
+      "identity": {
+        "away_team": {
+          "abbreviation": "SF",
+          "id": 137,
+          "name": "San Francisco Giants"
+        },
+        "game_number": 1,
+        "game_pk": 824673,
+        "game_type": "R",
+        "home_team": {
+          "abbreviation": "CHC",
+          "id": 112,
+          "name": "Chicago Cubs"
+        },
+        "market_observed_at_utc": "2026-06-05T18:18:59.881082Z",
+        "official_date": "2026-06-05",
+        "provider_game_id": "824673",
+        "provider_namespace": "MLB_STATS_API",
+        "raw_record_sha256": "64aa493adf84c7f094b3d3c898caad6c6a386e21f9ac1a247447afea13b8f41b",
+        "scheduled_start_utc": "2026-06-05T18:20:00Z",
+        "source_game_time_utc": "2026-06-05T18:20:00Z",
+        "source_match_id": "3472620.1"
+      },
+      "team_recent_game_candidates": {
+        "away": [
+          {
+            "away_id": 109,
+            "gameDate": "2026-05-25T21:05:00Z",
+            "gameNumber": 1,
+            "gamePk": 823219,
+            "gameType": "R",
+            "home_id": 137,
+            "officialDate": "2026-05-25"
+          },
+          {
+            "away_id": 109,
+            "gameDate": "2026-05-27T01:45:00Z",
+            "gameNumber": 1,
+            "gamePk": 823216,
+            "gameType": "R",
+            "home_id": 137,
+            "officialDate": "2026-05-26"
+          },
+          {
+            "away_id": 109,
+            "gameDate": "2026-05-27T19:45:00Z",
+            "gameNumber": 1,
+            "gamePk": 823217,
+            "gameType": "R",
+            "home_id": 137,
+            "officialDate": "2026-05-27"
+          },
+          {
+            "away_id": 137,
+            "gameDate": "2026-05-30T00:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 824353,
+            "gameType": "R",
+            "home_id": 115,
+            "officialDate": "2026-05-29"
+          },
+          {
+            "away_id": 137,
+            "gameDate": "2026-05-31T01:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 824352,
+            "gameType": "R",
+            "home_id": 115,
+            "officialDate": "2026-05-30"
+          },
+          {
+            "away_id": 137,
+            "gameDate": "2026-05-31T19:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 824354,
+            "gameType": "R",
+            "home_id": 115,
+            "officialDate": "2026-05-31"
+          },
+          {
+            "away_id": 137,
+            "gameDate": "2026-06-01T23:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823781,
+            "gameType": "R",
+            "home_id": 158,
+            "officialDate": "2026-06-01"
+          },
+          {
+            "away_id": 137,
+            "gameDate": "2026-06-02T23:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823782,
+            "gameType": "R",
+            "home_id": 158,
+            "officialDate": "2026-06-02"
+          },
+          {
+            "away_id": 137,
+            "gameDate": "2026-06-03T23:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823780,
+            "gameType": "R",
+            "home_id": 158,
+            "officialDate": "2026-06-03"
+          },
+          {
+            "away_id": 137,
+            "gameDate": "2026-06-04T18:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 823779,
+            "gameType": "R",
+            "home_id": 158,
+            "officialDate": "2026-06-04"
+          }
+        ],
+        "home": [
+          {
+            "away_id": 112,
+            "gameDate": "2026-05-25T17:35:00Z",
+            "gameNumber": 1,
+            "gamePk": 823380,
+            "gameType": "R",
+            "home_id": 134,
+            "officialDate": "2026-05-25"
+          },
+          {
+            "away_id": 112,
+            "gameDate": "2026-05-26T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823379,
+            "gameType": "R",
+            "home_id": 134,
+            "officialDate": "2026-05-26"
+          },
+          {
+            "away_id": 112,
+            "gameDate": "2026-05-27T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823376,
+            "gameType": "R",
+            "home_id": 134,
+            "officialDate": "2026-05-27"
+          },
+          {
+            "away_id": 112,
+            "gameDate": "2026-05-28T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823378,
+            "gameType": "R",
+            "home_id": 134,
+            "officialDate": "2026-05-28"
+          },
+          {
+            "away_id": 112,
+            "gameDate": "2026-05-29T23:15:00Z",
+            "gameNumber": 1,
+            "gamePk": 823055,
+            "gameType": "R",
+            "home_id": 138,
+            "officialDate": "2026-05-29"
+          },
+          {
+            "away_id": 112,
+            "gameDate": "2026-05-30T23:15:00Z",
+            "gameNumber": 1,
+            "gamePk": 823054,
+            "gameType": "R",
+            "home_id": 138,
+            "officialDate": "2026-05-30"
+          },
+          {
+            "away_id": 112,
+            "gameDate": "2026-05-31T23:20:00Z",
+            "gameNumber": 1,
+            "gamePk": 823053,
+            "gameType": "R",
+            "home_id": 138,
+            "officialDate": "2026-05-31"
+          },
+          {
+            "away_id": 133,
+            "gameDate": "2026-06-03T00:05:00Z",
+            "gameNumber": 1,
+            "gamePk": 824675,
+            "gameType": "R",
+            "home_id": 112,
+            "officialDate": "2026-06-02"
+          },
+          {
+            "away_id": 133,
+            "gameDate": "2026-06-04T00:05:00Z",
+            "gameNumber": 1,
+            "gamePk": 824671,
+            "gameType": "R",
+            "home_id": 112,
+            "officialDate": "2026-06-03"
+          },
+          {
+            "away_id": 133,
+            "gameDate": "2026-06-05T00:05:00Z",
+            "gameNumber": 1,
+            "gamePk": 824672,
+            "gameType": "R",
+            "home_id": 112,
+            "officialDate": "2026-06-04"
+          }
+        ]
+      }
+    },
+    {
+      "archived_timecode": "20260606_142351",
+      "identity": {
+        "away_team": {
+          "abbreviation": "SEA",
+          "id": 136,
+          "name": "Seattle Mariners"
+        },
+        "game_number": 1,
+        "game_pk": 824269,
+        "game_type": "R",
+        "home_team": {
+          "abbreviation": "DET",
+          "id": 116,
+          "name": "Detroit Tigers"
+        },
+        "market_observed_at_utc": "2026-06-06T15:36:02.469277Z",
+        "official_date": "2026-06-06",
+        "provider_game_id": "824269",
+        "provider_namespace": "MLB_STATS_API",
+        "raw_record_sha256": "1fc9a541c71586cc7ce6a9e95faf2260a34191831ed33750393aa5f4997baf6f",
+        "scheduled_start_utc": "2026-06-06T17:10:00Z",
+        "source_game_time_utc": "2026-06-06T17:10:00Z",
+        "source_match_id": "3472772.1"
+      },
+      "team_recent_game_candidates": {
+        "away": [
+          {
+            "away_id": 136,
+            "gameDate": "2026-05-26T01:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 825005,
+            "gameType": "R",
+            "home_id": 133,
+            "officialDate": "2026-05-25"
+          },
+          {
+            "away_id": 136,
+            "gameDate": "2026-05-27T01:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 825004,
+            "gameType": "R",
+            "home_id": 133,
+            "officialDate": "2026-05-26"
+          },
+          {
+            "away_id": 136,
+            "gameDate": "2026-05-27T19:05:00Z",
+            "gameNumber": 1,
+            "gamePk": 825003,
+            "gameType": "R",
+            "home_id": 133,
+            "officialDate": "2026-05-27"
+          },
+          {
+            "away_id": 109,
+            "gameDate": "2026-05-30T02:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 823135,
+            "gameType": "R",
+            "home_id": 136,
+            "officialDate": "2026-05-29"
+          },
+          {
+            "away_id": 109,
+            "gameDate": "2026-05-31T02:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 823132,
+            "gameType": "R",
+            "home_id": 136,
+            "officialDate": "2026-05-30"
+          },
+          {
+            "away_id": 109,
+            "gameDate": "2026-05-31T20:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 823133,
+            "gameType": "R",
+            "home_id": 136,
+            "officialDate": "2026-05-31"
+          },
+          {
+            "away_id": 121,
+            "gameDate": "2026-06-02T01:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823131,
+            "gameType": "R",
+            "home_id": 136,
+            "officialDate": "2026-06-01"
+          },
+          {
+            "away_id": 121,
+            "gameDate": "2026-06-03T01:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823129,
+            "gameType": "R",
+            "home_id": 136,
+            "officialDate": "2026-06-02"
+          },
+          {
+            "away_id": 121,
+            "gameDate": "2026-06-03T19:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823130,
+            "gameType": "R",
+            "home_id": 136,
+            "officialDate": "2026-06-03"
+          },
+          {
+            "away_id": 136,
+            "gameDate": "2026-06-05T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 824271,
+            "gameType": "R",
+            "home_id": 116,
+            "officialDate": "2026-06-05"
+          }
+        ],
+        "home": [
+          {
+            "away_id": 108,
+            "gameDate": "2026-05-26T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 824275,
+            "gameType": "R",
+            "home_id": 116,
+            "officialDate": "2026-05-26"
+          },
+          {
+            "away_id": 108,
+            "gameDate": "2026-05-27T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 824270,
+            "gameType": "R",
+            "home_id": 116,
+            "officialDate": "2026-05-27"
+          },
+          {
+            "away_id": 108,
+            "gameDate": "2026-05-28T17:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 824272,
+            "gameType": "R",
+            "home_id": 116,
+            "officialDate": "2026-05-28"
+          },
+          {
+            "away_id": 116,
+            "gameDate": "2026-05-29T23:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 824594,
+            "gameType": "R",
+            "home_id": 145,
+            "officialDate": "2026-05-29"
+          },
+          {
+            "away_id": 116,
+            "gameDate": "2026-05-30T18:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 824593,
+            "gameType": "R",
+            "home_id": 145,
+            "officialDate": "2026-05-30"
+          },
+          {
+            "away_id": 116,
+            "gameDate": "2026-05-31T18:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 824592,
+            "gameType": "R",
+            "home_id": 145,
+            "officialDate": "2026-05-31"
+          },
+          {
+            "away_id": 116,
+            "gameDate": "2026-06-01T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 822974,
+            "gameType": "R",
+            "home_id": 139,
+            "officialDate": "2026-06-01"
+          },
+          {
+            "away_id": 116,
+            "gameDate": "2026-06-02T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 822971,
+            "gameType": "R",
+            "home_id": 139,
+            "officialDate": "2026-06-02"
+          },
+          {
+            "away_id": 116,
+            "gameDate": "2026-06-03T17:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 822973,
+            "gameType": "R",
+            "home_id": 139,
+            "officialDate": "2026-06-03"
+          },
+          {
+            "away_id": 136,
+            "gameDate": "2026-06-05T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 824271,
+            "gameType": "R",
+            "home_id": 116,
+            "officialDate": "2026-06-05"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "historical_version_available": false,
+  "source_path": "data/fixtures/p23f2_official_2026_history/raw/schedule_2026-03-25_2026-06-30.json",
+  "source_sha256": "6950ed55ff1ddeb9b90f90138847ed7ebe79ce39d37614268d344af96eb65e55",
+  "targets": [
+    {
+      "game_pk": 824673,
+      "teams": {
+        "away": {
+          "cache_prior_completed_count": 63,
+          "cache_prior_losses": 38,
+          "cache_prior_wins": 25,
+          "known_window_scheduled_ids": [
+            823219,
+            823216,
+            823217,
+            824353,
+            824352,
+            824354,
+            823781,
+            823782,
+            823780,
+            823779
+          ],
+          "target_postgame_league_record_for_leakage_audit_only": {
+            "losses": 38,
+            "pct": ".406",
+            "ties": 0,
+            "wins": 26
+          },
+          "team_id": 137
+        },
+        "home": {
+          "cache_prior_completed_count": 63,
+          "cache_prior_losses": 30,
+          "cache_prior_wins": 33,
+          "known_window_scheduled_ids": [
+            823380,
+            823379,
+            823376,
+            823378,
+            823055,
+            823054,
+            823053,
+            824675,
+            824671,
+            824672
+          ],
+          "target_postgame_league_record_for_leakage_audit_only": {
+            "losses": 31,
+            "pct": ".516",
+            "ties": 0,
+            "wins": 33
+          },
+          "team_id": 112
+        }
+      }
+    },
+    {
+      "game_pk": 824269,
+      "teams": {
+        "away": {
+          "cache_prior_completed_count": 64,
+          "cache_prior_losses": 31,
+          "cache_prior_wins": 33,
+          "known_window_scheduled_ids": [
+            825005,
+            825004,
+            825003,
+            823135,
+            823132,
+            823133,
+            823131,
+            823129,
+            823130,
+            824271
+          ],
+          "target_postgame_league_record_for_leakage_audit_only": {
+            "losses": 31,
+            "pct": ".523",
+            "ties": 0,
+            "wins": 34
+          },
+          "team_id": 136
+        },
+        "home": {
+          "cache_prior_completed_count": 64,
+          "cache_prior_losses": 38,
+          "cache_prior_wins": 26,
+          "known_window_scheduled_ids": [
+            824275,
+            824270,
+            824272,
+            824594,
+            824593,
+            824592,
+            822974,
+            822971,
+            822973,
+            824271
+          ],
+          "target_postgame_league_record_for_leakage_audit_only": {
+            "losses": 39,
+            "pct": ".400",
+            "ties": 0,
+            "wins": 26
+          },
+          "team_id": 116
+        }
+      }
+    }
+  ],
+  "usage": "LOCATOR_AND_LOOKAHEAD_SIGNATURE_AUDIT_ONLY"
+}

@@ -1,0 +1,17 @@
+{
+  "maximum_gets": 2,
+  "planned_at_utc": "2026-10-08T08:27:25.370044Z",
+  "requests": [
+    {
+      "path": "raw/824271-recent-history-capability.json",
+      "purpose": "ONE_SHARED_RECENT_GAME_ARCHIVE_CAPABILITY",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824271/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cname%2Cabbreviation%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime"
+    },
+    {
+      "path": "raw/682243-appearance-locator.json",
+      "purpose": "MILLER_PRIOR_APPEARANCE_LOCATOR_ONLY_NOT_HISTORICAL_STAT_AUTHORITY",
+      "url": "https://statsapi.mlb.com/api/v1/people/682243/stats?stats=gameLog&group=pitching&season=2026&gameType=R&startDate=2026-03-25&endDate=2026-06-05&fields=stats%2Ctype%2CdisplayName%2Cgroup%2Csplits%2Cdate%2Cgame%2CgamePk%2CisHome%2Cstat%2CgamesStarted"
+    }
+  ],
+  "scope": "Only required feature capability for fixed targets; stop failed fields; locator does not authorize current ERA."
+}

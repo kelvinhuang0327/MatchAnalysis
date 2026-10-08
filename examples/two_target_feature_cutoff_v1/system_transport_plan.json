@@ -1,0 +1,9 @@
+{
+  "extra_get_limit": 2,
+  "fixed_urls": [
+    "https://statsapi.mlb.com/api/v1.1/game/824673/feed/live?timecode=20260605_174215&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cname%2Cabbreviation%2Crecord%2CleagueRecord%2Cwins%2Closses%2CgamesPlayed%2CgamesPitched%2CgamesStarted%2CwinningPercentage%2ClastTen%2Clast10%2CprobablePitchers%2CfullName%2CliveData%2Cboxscore%2Cplayers%2Cperson%2Cstats%2CseasonStats%2Cpitching%2CearnedRuns%2Couts%2CinningsPitched%2Cera%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime",
+    "https://statsapi.mlb.com/api/v1.1/game/824269/feed/live?timecode=20260606_142351&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cname%2Cabbreviation%2Crecord%2CleagueRecord%2Cwins%2Closses%2CgamesPlayed%2CgamesPitched%2CgamesStarted%2CwinningPercentage%2ClastTen%2Clast10%2CprobablePitchers%2CfullName%2CliveData%2Cboxscore%2Cplayers%2Cperson%2Cstats%2CseasonStats%2Cpitching%2CearnedRuns%2Couts%2CinningsPitched%2Cera%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime"
+  ],
+  "planned_at_utc": "2026-10-08T08:16:14.279106Z",
+  "reason": "Existing system curl with normal TLS validation; no insecure flag, trust edits or HTTP fallback."
+}

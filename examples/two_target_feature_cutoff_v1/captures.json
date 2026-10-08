@@ -1,0 +1,1196 @@
+[
+  {
+    "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>",
+    "http_attempt_count": 1,
+    "path": "raw/824673-feature-version.json",
+    "request_started_at_utc": "2026-10-08T08:13:39.378523Z",
+    "status": "FAILED",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824673/feed/live?timecode=20260605_174215&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cname%2Cabbreviation%2Crecord%2CleagueRecord%2Cwins%2Closses%2CgamesPlayed%2CgamesPitched%2CgamesStarted%2CwinningPercentage%2ClastTen%2Clast10%2CprobablePitchers%2CfullName%2CliveData%2Cboxscore%2Cplayers%2Cperson%2Cstats%2CseasonStats%2Cpitching%2CearnedRuns%2Couts%2CinningsPitched%2Cera%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime"
+  },
+  {
+    "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>",
+    "http_attempt_count": 1,
+    "path": "raw/824269-feature-version.json",
+    "request_started_at_utc": "2026-10-08T08:13:45.798338Z",
+    "status": "FAILED",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824269/feed/live?timecode=20260606_142351&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cname%2Cabbreviation%2Crecord%2CleagueRecord%2Cwins%2Closses%2CgamesPlayed%2CgamesPitched%2CgamesStarted%2CwinningPercentage%2ClastTen%2Clast10%2CprobablePitchers%2CfullName%2CliveData%2Cboxscore%2Cplayers%2Cperson%2Cstats%2CseasonStats%2Cpitching%2CearnedRuns%2Couts%2CinningsPitched%2Cera%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime"
+  },
+  {
+    "byte_count": 26749,
+    "http_attempt_count": 1,
+    "path": "raw/824673-feature-version-system.json",
+    "persisted_at_utc": "2026-10-08T08:16:15.256306Z",
+    "received_at_utc": "2026-10-08T08:16:15.254508Z",
+    "request_started_at_utc": "2026-10-08T08:16:14.279967Z",
+    "sha256": "c85bdb7450dde74636da2c4c6b20b03ece24d1ef64725ac42b2c446d49cdb76d",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824673/feed/live?timecode=20260605_174215&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cname%2Cabbreviation%2Crecord%2CleagueRecord%2Cwins%2Closses%2CgamesPlayed%2CgamesPitched%2CgamesStarted%2CwinningPercentage%2ClastTen%2Clast10%2CprobablePitchers%2CfullName%2CliveData%2Cboxscore%2Cplayers%2Cperson%2Cstats%2CseasonStats%2Cpitching%2CearnedRuns%2Couts%2CinningsPitched%2Cera%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime"
+  },
+  {
+    "byte_count": 25877,
+    "http_attempt_count": 1,
+    "path": "raw/824269-feature-version-system.json",
+    "persisted_at_utc": "2026-10-08T08:16:16.184953Z",
+    "received_at_utc": "2026-10-08T08:16:16.184185Z",
+    "request_started_at_utc": "2026-10-08T08:16:15.257229Z",
+    "sha256": "dc71b5bc70756ff79cae44410a8ee498edec35314dccdd655c2e7a696250fdc9",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824269/feed/live?timecode=20260606_142351&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cname%2Cabbreviation%2Crecord%2CleagueRecord%2Cwins%2Closses%2CgamesPlayed%2CgamesPitched%2CgamesStarted%2CwinningPercentage%2ClastTen%2Clast10%2CprobablePitchers%2CfullName%2CliveData%2Cboxscore%2Cplayers%2Cperson%2Cstats%2CseasonStats%2Cpitching%2CearnedRuns%2Couts%2CinningsPitched%2Cera%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime"
+  },
+  {
+    "byte_count": 7243,
+    "http_attempt_count": 1,
+    "path": "raw/824271-recent-history-capability.json",
+    "persisted_at_utc": "2026-10-08T08:27:42.270006Z",
+    "purpose": "ONE_SHARED_RECENT_GAME_ARCHIVE_CAPABILITY",
+    "received_at_utc": "2026-10-08T08:27:42.266996Z",
+    "request_started_at_utc": "2026-10-08T08:27:37.250940Z",
+    "sha256": "a968922cc50dac787f79cb6cef3b848a8ad070ee73835c167078a913a9953bd7",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824271/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cname%2Cabbreviation%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime"
+  },
+  {
+    "byte_count": 442,
+    "http_attempt_count": 1,
+    "path": "raw/682243-appearance-locator.json",
+    "persisted_at_utc": "2026-10-08T08:27:43.097314Z",
+    "purpose": "MILLER_PRIOR_APPEARANCE_LOCATOR_ONLY_NOT_HISTORICAL_STAT_AUTHORITY",
+    "received_at_utc": "2026-10-08T08:27:43.096527Z",
+    "request_started_at_utc": "2026-10-08T08:27:42.271092Z",
+    "sha256": "3495af7e7103850b7d36543d28359d756c8ce14f9f8f13eb61d88798c5e79ddc",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1/people/682243/stats?stats=gameLog&group=pitching&season=2026&gameType=R&startDate=2026-03-25&endDate=2026-06-05&fields=stats%2Ctype%2CdisplayName%2Cgroup%2Csplits%2Cdate%2Cgame%2CgamePk%2CisHome%2Cstat%2CgamesStarted"
+  },
+  {
+    "byte_count": 1142,
+    "http_attempt_count": 1,
+    "path": "raw/592662-appearance-locator.json",
+    "persisted_at_utc": "2026-10-08T08:29:11.987214Z",
+    "purpose": "PRIOR_APPEARANCE_LOCATOR_ONLY_NOT_STAT_AUTHORITY",
+    "received_at_utc": "2026-10-08T08:29:11.985025Z",
+    "request_started_at_utc": "2026-10-08T08:29:10.879972Z",
+    "sha256": "55a2c5e6c39cadd748b680e7e86b2bfe2cb2464bc282f82da0eb18a9d7a0fb3c",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1/people/592662/stats?stats=gameLog&group=pitching&season=2026&gameType=R&startDate=2026-03-25&endDate=2026-06-04&fields=stats%2Ctype%2CdisplayName%2Cgroup%2Csplits%2Cdate%2Cgame%2CgamePk%2CisHome%2Cstat%2CgamesStarted"
+  },
+  {
+    "byte_count": 966,
+    "http_attempt_count": 1,
+    "path": "raw/665795-appearance-locator.json",
+    "persisted_at_utc": "2026-10-08T08:29:12.968436Z",
+    "purpose": "PRIOR_APPEARANCE_LOCATOR_ONLY_NOT_STAT_AUTHORITY",
+    "received_at_utc": "2026-10-08T08:29:12.967306Z",
+    "request_started_at_utc": "2026-10-08T08:29:11.987950Z",
+    "sha256": "be5bae29f05555b1e000555013473e39eceaf39f62311a75a42cf95c6d01a0b7",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1/people/665795/stats?stats=gameLog&group=pitching&season=2026&gameType=R&startDate=2026-03-25&endDate=2026-06-04&fields=stats%2Ctype%2CdisplayName%2Cgroup%2Csplits%2Cdate%2Cgame%2CgamePk%2CisHome%2Cstat%2CgamesStarted"
+  },
+  {
+    "byte_count": 1053,
+    "http_attempt_count": 1,
+    "path": "raw/672456-appearance-locator.json",
+    "persisted_at_utc": "2026-10-08T08:29:14.058756Z",
+    "purpose": "PRIOR_APPEARANCE_LOCATOR_ONLY_NOT_STAT_AUTHORITY",
+    "received_at_utc": "2026-10-08T08:29:14.057935Z",
+    "request_started_at_utc": "2026-10-08T08:29:12.969348Z",
+    "sha256": "42bc23e3e6d80b55c4e3c209925467086c482329e01a35b8729a42dd099fcc28",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1/people/672456/stats?stats=gameLog&group=pitching&season=2026&gameType=R&startDate=2026-03-25&endDate=2026-06-05&fields=stats%2Ctype%2CdisplayName%2Cgroup%2Csplits%2Cdate%2Cgame%2CgamePk%2CisHome%2Cstat%2CgamesStarted"
+  },
+  {
+    "byte_count": 26271,
+    "http_attempt_count": 1,
+    "path": "raw/824195-appearance-history.json",
+    "persisted_at_utc": "2026-10-08T08:29:17.537839Z",
+    "purpose": "MILLER_ARCHIVED_APPEARANCE_CAPABILITY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:29:17.536469Z",
+    "request_started_at_utc": "2026-10-08T08:29:14.060567Z",
+    "sha256": "e43dca921f2a4b94d2948c8b2256979915c84a759d6013e067f9cd9e5f38ac06",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824195/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Cboxscore%2Cplayers%2CID682243%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime"
+  },
+  {
+    "byte_count": 23492,
+    "http_attempt_count": 1,
+    "path": "raw/822750-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:31:07.382804Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:31:07.373829Z",
+    "request_started_at_utc": "2026-10-08T08:31:01.492830Z",
+    "sha256": "1f1dda85d2ca068bd0c1efd3f06fbd33ae6216dc2fee5c055fcc0a0eea6e4529",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/822750/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24273,
+    "http_attempt_count": 1,
+    "path": "raw/822905-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:31:14.697246Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:31:14.696434Z",
+    "request_started_at_utc": "2026-10-08T08:31:07.387089Z",
+    "sha256": "b9432cc4e3704275c84d7a32fb6aadc831495af3c57cd216c0ea08704672bc47",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/822905/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24093,
+    "http_attempt_count": 1,
+    "path": "raw/822971-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:31:17.721167Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:31:17.720469Z",
+    "request_started_at_utc": "2026-10-08T08:31:14.697769Z",
+    "sha256": "d2e32cce312dc8bd2997f8b10a24af34700bc4cdda8a9498c040b0993a95f74c",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/822971/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 23620,
+    "http_attempt_count": 1,
+    "path": "raw/822973-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:31:22.803821Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:31:22.803237Z",
+    "request_started_at_utc": "2026-10-08T08:31:17.721772Z",
+    "sha256": "3097c2e6913dd8f74527bcf55517529663303022b7c923058c2ebee7d9e5e6d9",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/822973/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 26307,
+    "http_attempt_count": 1,
+    "path": "raw/822974-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:31:27.213945Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:31:27.212989Z",
+    "request_started_at_utc": "2026-10-08T08:31:22.804282Z",
+    "sha256": "a8ce8a48b7df77c2132d98a53ab2579b8b7cee3d21ebc1b894beedd6442354cf",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/822974/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 22694,
+    "http_attempt_count": 1,
+    "path": "raw/822990-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:31:31.806775Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:31:31.806026Z",
+    "request_started_at_utc": "2026-10-08T08:31:27.214572Z",
+    "sha256": "c767085f5baddf4a983bf65acd8e0dfb8cee95f7c359aa608e704d490a2b74ca",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/822990/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24006,
+    "http_attempt_count": 1,
+    "path": "raw/823053-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:31:35.385838Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:31:35.385216Z",
+    "request_started_at_utc": "2026-10-08T08:31:31.807379Z",
+    "sha256": "79509f6821657c2c45faacc681a4775d81b071d2dd9f8e712e1b5e78959ee728",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823053/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24692,
+    "http_attempt_count": 1,
+    "path": "raw/823054-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:31:39.668873Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:31:39.668078Z",
+    "request_started_at_utc": "2026-10-08T08:31:35.386355Z",
+    "sha256": "3823c6095c9373f45d0c8b20d4ad0422b7eeb94811b832837dc94f6f7145ff37",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823054/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24823,
+    "http_attempt_count": 1,
+    "path": "raw/823055-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:31:44.691451Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:31:44.690325Z",
+    "request_started_at_utc": "2026-10-08T08:31:39.669319Z",
+    "sha256": "990d0d317f569e9e07ea1a036ecba3a11f4a48698ccd80d8efd73ec5b18b5b80",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823055/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24345,
+    "http_attempt_count": 1,
+    "path": "raw/823129-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:31:49.629596Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:31:49.629014Z",
+    "request_started_at_utc": "2026-10-08T08:31:44.691953Z",
+    "sha256": "378549bf65d00dcd11a1bb58ce8a92a9243bc6875ff0e413dca9108b6a0b70e1",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823129/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24788,
+    "http_attempt_count": 1,
+    "path": "raw/823130-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:31:53.735147Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:31:53.734519Z",
+    "request_started_at_utc": "2026-10-08T08:31:49.630042Z",
+    "sha256": "0f666bc0bad54fe794e259f8582051111b4e53c7dd03e9da1be59f53e1a52121",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823130/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24167,
+    "http_attempt_count": 1,
+    "path": "raw/823131-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:31:57.477620Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:31:57.476820Z",
+    "request_started_at_utc": "2026-10-08T08:31:53.735648Z",
+    "sha256": "0af04532aae83fbf5adbd9a4089372248608ecea470b99db286c0edbd49163b5",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823131/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 23337,
+    "http_attempt_count": 1,
+    "path": "raw/823132-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:32:03.791390Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:32:03.789841Z",
+    "request_started_at_utc": "2026-10-08T08:31:57.478141Z",
+    "sha256": "066c3f75a67be19bc7ab28a0fbe6d60a6aa4d7ff489fe96b129a9d22f0f21caa",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823132/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 25031,
+    "http_attempt_count": 1,
+    "path": "raw/823133-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:32:07.608113Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:32:07.606886Z",
+    "request_started_at_utc": "2026-10-08T08:32:03.792513Z",
+    "sha256": "0a50f8e4418ec3ccace2e6160c04052299f9fd384c770f9f5e889ace2e0d6c42",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823133/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 26520,
+    "http_attempt_count": 1,
+    "path": "raw/823135-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:32:08.489862Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:32:08.488384Z",
+    "request_started_at_utc": "2026-10-08T08:32:07.609143Z",
+    "sha256": "f9069166ed802c82407203eae53c05cd3454f80d3b7aa3180b06258b93d16a6e",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823135/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 10477,
+    "error": "AttributeError: 'list' object has no attribute 'get'",
+    "http_attempt_count": 1,
+    "path": "raw/823135-version-availability.json",
+    "persisted_at_utc": "2026-10-08T08:34:29.852398Z",
+    "purpose": "VERIFY_VERSION_AVAILABILITY_ONLY_NO_CURRENT_DATA",
+    "received_at_utc": "2026-10-08T08:34:29.851260Z",
+    "request_started_at_utc": "2026-10-08T08:34:28.910900Z",
+    "sha256": "014f4f3cdfcc7543f662b02ddf08b528b2f47f33a966712b270be61eabafe42a",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823135/feed/live/timestamps"
+  },
+  {
+    "byte_count": 26520,
+    "http_attempt_count": 1,
+    "path": "raw/823135-exact-listed-history.json",
+    "persisted_at_utc": "2026-10-08T08:35:09.178481Z",
+    "purpose": "EXACT_LAST_LISTED_PREQUOTE_VERSION_ONLY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:35:09.177142Z",
+    "request_started_at_utc": "2026-10-08T08:35:08.062868Z",
+    "sha256": "f9069166ed802c82407203eae53c05cd3454f80d3b7aa3180b06258b93d16a6e",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823135/feed/live?timecode=20260530_052138&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24564,
+    "feature_keys": [
+      "824269:prior_appearance:682243"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823136-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:36:11.033933Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:36:11.032482Z",
+    "request_started_at_utc": "2026-10-08T08:36:06.071176Z",
+    "sha256": "26db6a5f509e501132cba1bb31ac05b146a091f115f2415b49130855ccfef4d4",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823136/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 25039,
+    "feature_keys": [
+      "824673:recent_10:away"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823216-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:36:13.894561Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:36:13.893176Z",
+    "request_started_at_utc": "2026-10-08T08:36:11.039209Z",
+    "sha256": "008253b2d200fd6e76528e560edca42b672de30ebf4f6c3514bc89739ab6441a",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823216/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 23981,
+    "feature_keys": [
+      "824673:recent_10:away"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823217-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:36:16.802941Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:36:16.801461Z",
+    "request_started_at_utc": "2026-10-08T08:36:13.895489Z",
+    "sha256": "be15c3633145ea1db348a6fbd31362ad6b1a8474ae7a57799abc0ea7d4288bfd",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823217/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24473,
+    "feature_keys": [
+      "824673:recent_10:away"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823219-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:36:21.872109Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:36:21.870605Z",
+    "request_started_at_utc": "2026-10-08T08:36:16.803868Z",
+    "sha256": "68504e0d923bca11c1253af9e5f15f48e765a61e5bab83eb990c3aa0958c7f23",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823219/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 25252,
+    "feature_keys": [
+      "824673:prior_appearance:592662"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823220-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:36:26.259780Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:36:26.259058Z",
+    "request_started_at_utc": "2026-10-08T08:36:21.873202Z",
+    "sha256": "5565dcaa4db9a18c08bac3561a852af25af99217fd4e7467979de2d32ed9957b",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823220/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 23982,
+    "feature_keys": [
+      "824673:prior_appearance:592662"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823225-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:36:32.148014Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:36:32.145878Z",
+    "request_started_at_utc": "2026-10-08T08:36:26.260336Z",
+    "sha256": "7ffc0873a61d24faaa7f635243deafa4b5a929700cc5f721a35ff751dacb595b",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823225/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24684,
+    "feature_keys": [
+      "824673:prior_appearance:592662"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823229-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:36:34.235734Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:36:34.234246Z",
+    "request_started_at_utc": "2026-10-08T08:36:32.149112Z",
+    "sha256": "bed41db73f026016423fa2065ca167c5c4241157461712b1d07a3f9be09c2de1",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823229/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24147,
+    "feature_keys": [
+      "824673:prior_appearance:592662"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823235-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:36:39.204849Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:36:39.203447Z",
+    "request_started_at_utc": "2026-10-08T08:36:34.236812Z",
+    "sha256": "7a5b0996f418a8bc2b75ea41fc92dc85f91da75b6205fa2e6ca260873c35c041",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823235/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 23948,
+    "feature_keys": [
+      "824673:prior_appearance:592662"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823242-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:36:43.030012Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:36:43.028651Z",
+    "request_started_at_utc": "2026-10-08T08:36:39.206071Z",
+    "sha256": "0130ade3b410f5752b91a72f7f1987b0bd5ddc5f69869b69db060d1d0d0ee8af",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823242/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24152,
+    "feature_keys": [
+      "824673:prior_appearance:592662"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823243-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:36:48.002533Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:36:48.001122Z",
+    "request_started_at_utc": "2026-10-08T08:36:43.031620Z",
+    "sha256": "d9d3fb26c25cf9c033d1f2f45fe13613f5b4aa449b8824e1575a983bcb522113",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823243/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24984,
+    "feature_keys": [
+      "824673:prior_appearance:665795"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823310-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:36:52.071886Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:36:52.070609Z",
+    "request_started_at_utc": "2026-10-08T08:36:48.003577Z",
+    "sha256": "a91793187bb9042014af36d3be2c7267381a6c0be697916adb533a87334eb078",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823310/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 25765,
+    "feature_keys": [
+      "824673:recent_10:home"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823376-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:36:57.169913Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:36:57.168535Z",
+    "request_started_at_utc": "2026-10-08T08:36:52.072969Z",
+    "sha256": "4c1edab694ca895e8e827b506250f7783ae28a3e5fabf8267c44d530e3b5551e",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823376/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24985,
+    "feature_keys": [
+      "824673:recent_10:home"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823378-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:36:58.982407Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:36:58.980951Z",
+    "request_started_at_utc": "2026-10-08T08:36:57.170919Z",
+    "sha256": "af8b4ca7bd02ab7af6fad549eb132eaab8243b38d92ea98d009cd82a26c534bb",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823378/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 25301,
+    "feature_keys": [
+      "824673:recent_10:home"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823379-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:37:05.082491Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:37:05.081059Z",
+    "request_started_at_utc": "2026-10-08T08:36:58.983627Z",
+    "sha256": "b68667601a5e89118de94a2e279cc41511581c510785baea37d2bae84d9f1fea",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823379/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 23937,
+    "feature_keys": [
+      "824673:recent_10:home"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823380-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:37:08.882132Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:37:08.880723Z",
+    "request_started_at_utc": "2026-10-08T08:37:05.083619Z",
+    "sha256": "5667d86f49aa226fdf60d615a1309c5739e5b0145792dca681be31de9d8c4bf2",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823380/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24121,
+    "feature_keys": [
+      "824269:prior_appearance:672456"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823630-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:37:09.955291Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:37:09.953908Z",
+    "request_started_at_utc": "2026-10-08T08:37:08.883274Z",
+    "sha256": "c27e7d78af14fa0b7b5578fd3f1fbf59d38114241ed45a1125d97850208ecb08",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823630/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 27021,
+    "feature_keys": [
+      "824673:recent_10:away"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823779-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:37:14.506446Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:37:14.504929Z",
+    "request_started_at_utc": "2026-10-08T08:37:09.956365Z",
+    "sha256": "f6e24b1da9f829479921c32a62d2a36655a44de2ab6b91ff266ee5bd75736a35",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823779/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 23959,
+    "feature_keys": [
+      "824673:recent_10:away"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823780-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:37:19.351787Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:37:19.350265Z",
+    "request_started_at_utc": "2026-10-08T08:37:14.507694Z",
+    "sha256": "8bd3704b8f64df8ced316b6f3186429d8df62327222f3c318985176f0b096713",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823780/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 25795,
+    "feature_keys": [
+      "824673:recent_10:away"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823781-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:37:24.638758Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:37:24.637365Z",
+    "request_started_at_utc": "2026-10-08T08:37:19.353107Z",
+    "sha256": "f18fe8e872630edbc30bd899ba27e625deb20790041e4ba380c7f035c51e4eba",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823781/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24641,
+    "feature_keys": [
+      "824673:recent_10:away"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823782-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:37:29.182956Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:37:29.181190Z",
+    "request_started_at_utc": "2026-10-08T08:37:24.639784Z",
+    "sha256": "2727467820d9f67fbc4d96c273d863036630f5bd7cbc4ecd02078f4220ae5c86",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823782/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 23375,
+    "feature_keys": [
+      "824673:prior_appearance:592662"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/823952-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:37:33.703807Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:37:33.702385Z",
+    "request_started_at_utc": "2026-10-08T08:37:29.184247Z",
+    "sha256": "196ec97669a840f713e04eeabcd37619045925ca5c895e1ed4e338869ee2b888",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/823952/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24612,
+    "feature_keys": [
+      "824269:prior_appearance:672456"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824116-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:37:40.691351Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:37:40.689929Z",
+    "request_started_at_utc": "2026-10-08T08:37:33.704922Z",
+    "sha256": "fe13f0ae35c94a4f4570323117829d0886dadb0f8f1b376ba0f40c1acaeca055",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824116/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 23798,
+    "feature_keys": [
+      "824269:recent_10:home"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824270-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:37:45.110437Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:37:45.107562Z",
+    "request_started_at_utc": "2026-10-08T08:37:40.692432Z",
+    "sha256": "09cc1c0b04cbf79a5ead1f55ef853fc38fe1f0f9169b3a237c701309ddf96dff",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824270/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24372,
+    "feature_keys": [
+      "824269:recent_10:home"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824272-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:37:48.904066Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:37:48.902890Z",
+    "request_started_at_utc": "2026-10-08T08:37:45.111679Z",
+    "sha256": "32c391820b007cdf9832836e2b749c435cf76c386249434211a6dcf5d6c85cb2",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824272/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 25057,
+    "feature_keys": [
+      "824269:prior_appearance:672456",
+      "824269:recent_10:home"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824275-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:37:55.887571Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:37:55.886075Z",
+    "request_started_at_utc": "2026-10-08T08:37:48.905407Z",
+    "sha256": "954fd59d2ed2a86860f3ca5254d3df377daf8255cce68044a6b52eb11b508d82",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824275/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24488,
+    "feature_keys": [
+      "824269:prior_appearance:672456"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824276-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:37:59.677990Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:37:59.676505Z",
+    "request_started_at_utc": "2026-10-08T08:37:55.888879Z",
+    "sha256": "710099378540f7bea1812a1ee50c98b8b1895cc0d67715fd57343fd3e7fc6859",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824276/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 23398,
+    "feature_keys": [
+      "824269:prior_appearance:672456"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824284-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:38:05.850034Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:38:05.848506Z",
+    "request_started_at_utc": "2026-10-08T08:37:59.679253Z",
+    "sha256": "332a16e841ee04ed4d6a80a60d137eeb3d3ec5a9bf13835ef8860a438bb1f53e",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824284/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24825,
+    "feature_keys": [
+      "824269:prior_appearance:672456"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824289-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:38:09.633195Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:38:09.631869Z",
+    "request_started_at_utc": "2026-10-08T08:38:05.851187Z",
+    "sha256": "6c6f36243ae8197baacf32dc54da39b59d5eecb8c474154c29976dbcd29520d7",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824289/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 25467,
+    "feature_keys": [
+      "824269:prior_appearance:672456"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824290-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:38:17.493704Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:38:17.492154Z",
+    "request_started_at_utc": "2026-10-08T08:38:09.634402Z",
+    "sha256": "8d07d0fdc40438f9513bbcbad16fe51b8286722e962660c2829366a1e46f9795",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824290/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24693,
+    "feature_keys": [
+      "824673:recent_10:away"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824352-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:38:22.009510Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:38:22.008083Z",
+    "request_started_at_utc": "2026-10-08T08:38:17.495622Z",
+    "sha256": "0f234ef6372d2c91ebc8b0e13ba07139aede6394b2c15a32e0c624744465bd9d",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824352/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 26294,
+    "feature_keys": [
+      "824673:recent_10:away"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824353-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:38:27.967739Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:38:27.966260Z",
+    "request_started_at_utc": "2026-10-08T08:38:22.010690Z",
+    "sha256": "6229ed658b9644202053b887c886c8b0e1ca8c8d99a0c5dcc5471c69cde60f78",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824353/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 27815,
+    "feature_keys": [
+      "824673:prior_appearance:592662",
+      "824673:recent_10:away"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824354-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:38:32.148769Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:38:32.147362Z",
+    "request_started_at_utc": "2026-10-08T08:38:27.969122Z",
+    "sha256": "2e166b202a99f9c32a56ffdc187eef6cec0c2b47c7a94032a327452ac8621fae",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824354/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24039,
+    "feature_keys": [
+      "824673:prior_appearance:665795"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824459-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:38:35.735862Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:38:35.734407Z",
+    "request_started_at_utc": "2026-10-08T08:38:32.149913Z",
+    "sha256": "78407956360d1975aaadc9afe4c3c38c0e2b5a29a92e0703756f5ec15fcfdbee",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824459/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 23333,
+    "feature_keys": [
+      "824673:prior_appearance:592662"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824531-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:38:40.842081Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:38:40.840019Z",
+    "request_started_at_utc": "2026-10-08T08:38:35.737017Z",
+    "sha256": "0da9c012ce76ab96fa9e574113837b57681eea7e74887e77d5cc16a806c297a8",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824531/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 23896,
+    "feature_keys": [
+      "824269:prior_appearance:672456",
+      "824269:recent_10:home"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824592-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:38:44.852095Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:38:44.850462Z",
+    "request_started_at_utc": "2026-10-08T08:38:40.843424Z",
+    "sha256": "a64ed10fb1da124dcd0b946ea5feef89dee26848f70558611c8132ed06c428f0",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824592/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24026,
+    "feature_keys": [
+      "824269:recent_10:home"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824593-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:38:48.162880Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:38:48.161429Z",
+    "request_started_at_utc": "2026-10-08T08:38:44.853421Z",
+    "sha256": "f5da47e4ae6a6852db5afc9dfaac356f4e277e0fe77820ed1a8c0ea75d5e2f4a",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824593/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 25277,
+    "feature_keys": [
+      "824269:recent_10:home"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824594-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:38:52.236302Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:38:52.234836Z",
+    "request_started_at_utc": "2026-10-08T08:38:48.164273Z",
+    "sha256": "fe5e2352acd65594ad8e6f1d9184b02153356f0a51ef2555a0f8a120a8540080",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824594/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 25984,
+    "feature_keys": [
+      "824673:prior_appearance:665795"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824601-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:38:57.539703Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:38:57.538292Z",
+    "request_started_at_utc": "2026-10-08T08:38:52.238078Z",
+    "sha256": "f3a13ea76de0d212b5bea47fcaa462a97d4f1f43742951a6bd9e0e4cee556c49",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824601/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 25805,
+    "feature_keys": [
+      "824673:recent_10:home"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824671-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:38:58.397485Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:38:58.395997Z",
+    "request_started_at_utc": "2026-10-08T08:38:57.540918Z",
+    "sha256": "56269bded8f6984ac12506f690e115da0b96413a8cd13cfc33b89a394f2456ae",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824671/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24558,
+    "feature_keys": [
+      "824673:recent_10:home"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824672-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:38:59.327854Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:38:59.326450Z",
+    "request_started_at_utc": "2026-10-08T08:38:58.398992Z",
+    "sha256": "4b468157775341f48aa32ad2874838a86f0b013f4f36afa8739cf01c2f600536",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824672/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24014,
+    "feature_keys": [
+      "824673:recent_10:home"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824675-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:39:03.891206Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:39:03.889948Z",
+    "request_started_at_utc": "2026-10-08T08:38:59.329058Z",
+    "sha256": "c0978edfd9d75d2073f7b18ebc0735f8b2965b8189594b79e3bec5f1ab45e25d",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824675/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 23657,
+    "feature_keys": [
+      "824673:prior_appearance:665795"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824678-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:39:08.598147Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:39:08.596793Z",
+    "request_started_at_utc": "2026-10-08T08:39:03.892417Z",
+    "sha256": "18895fae43dca55c9a09764b0e40915cda2fbd9efa7f6d203d0f43acb3376b64",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824678/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24783,
+    "feature_keys": [
+      "824673:prior_appearance:665795"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824684-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:39:12.433262Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:39:12.431830Z",
+    "request_started_at_utc": "2026-10-08T08:39:08.599440Z",
+    "sha256": "8f477bc559290687f22b6f212165be869a69f7199e995f83f0fb029848f7105a",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824684/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 26889,
+    "feature_keys": [
+      "824673:prior_appearance:665795"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824689-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:39:14.203176Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:39:14.201941Z",
+    "request_started_at_utc": "2026-10-08T08:39:12.434555Z",
+    "sha256": "40e2da8129f6cf20f775a823217995c2de680b199af87e86bf74e2953b2413cf",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824689/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24336,
+    "feature_keys": [
+      "824673:prior_appearance:665795"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824693-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:39:20.476571Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:39:20.475002Z",
+    "request_started_at_utc": "2026-10-08T08:39:14.204287Z",
+    "sha256": "53952b233c2d596c0059a995c93c9cb59b1a7c1e9bb7d215946fe051c94a85db",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824693/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 27221,
+    "feature_keys": [
+      "824673:prior_appearance:665795"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824697-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:39:25.400478Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:39:25.398440Z",
+    "request_started_at_utc": "2026-10-08T08:39:20.479255Z",
+    "sha256": "9a6ef2e41b4ce7f04cbcbe3b33684363759053e7f6f1c524da5e58afbb06dccb",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824697/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 23755,
+    "feature_keys": [
+      "824673:prior_appearance:665795"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/824702-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:39:29.850160Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:39:29.848727Z",
+    "request_started_at_utc": "2026-10-08T08:39:25.402342Z",
+    "sha256": "4f4b034271063c123e25edd2765fd5c53e4d08091ff99f5bd4eb9ae38c216b1a",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/824702/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24264,
+    "feature_keys": [
+      "824269:prior_appearance:682243",
+      "824269:recent_10:away"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/825005-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:39:34.182519Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+    "received_at_utc": "2026-10-08T08:39:34.181598Z",
+    "request_started_at_utc": "2026-10-08T08:39:29.851815Z",
+    "sha256": "343e11b8edc11add2c1f018fccd4894c2a4b893485411ee6425a3c61dccf1de0",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/825005/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  },
+  {
+    "byte_count": 24969,
+    "feature_keys": [
+      "824673:prior_appearance:592662"
+    ],
+    "http_attempt_count": 1,
+    "path": "raw/825087-required-history.json",
+    "persisted_at_utc": "2026-10-08T08:39:38.310358Z",
+    "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+    "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+    "received_at_utc": "2026-10-08T08:39:38.309054Z",
+    "request_started_at_utc": "2026-10-08T08:39:34.183391Z",
+    "sha256": "b540bcecbe9de177e57ea24fb1a475347cf463a7df607b92ec957ecc90c44ea3",
+    "status": "SUCCESS",
+    "transport": "SYSTEM_CURL_NORMAL_TLS",
+    "url": "https://statsapi.mlb.com/api/v1.1/game/825087/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+  }
+]

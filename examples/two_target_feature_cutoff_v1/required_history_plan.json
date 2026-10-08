@@ -1,0 +1,1818 @@
+{
+  "hypotheses_or_scores": 0,
+  "maximum_gets": 69,
+  "model_targets": 2,
+  "planned_at_utc": "2026-10-08T08:30:41.070585Z",
+  "requests": [
+    {
+      "path": "raw/822750-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/822750/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/822905-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/822905/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/822971-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/822971/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/822973-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/822973/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/822974-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/822974/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/822990-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/822990/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823053-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823053/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823054-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823054/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823055-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823055/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823129-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823129/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823130-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823130/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823131-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823131/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823132-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823132/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823133-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823133/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823135-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823135/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823136-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823136/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823216-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823216/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823217-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823217/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823219-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823219/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823220-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823220/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823225-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823225/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823229-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823229/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823235-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823235/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823242-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823242/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823243-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823243/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823310-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823310/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823376-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823376/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823378-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823378/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823379-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823379/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823380-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823380/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823630-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823630/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823779-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823779/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823780-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823780/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823781-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823781/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823782-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823782/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/823952-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823952/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824116-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824116/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824270-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824270/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824272-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824272/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824275-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824275/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824276-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824276/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824284-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824284/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824289-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824289/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824290-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824290/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824296-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824296/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824297-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824297/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824352-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824352/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824353-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824353/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824354-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824354/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824459-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824459/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824528-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824528/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824531-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824531/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824592-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824592/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824593-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824593/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824594-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824594/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824601-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824601/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824671-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824671/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824672-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824672/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824675-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824675/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824678-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824678/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824684-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824684/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824689-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824689/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824693-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824693/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824697-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824697/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/824702-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/824702/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/825003-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/825003/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/825004-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/825004/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/825005-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/825005/feed/live?timecode=20260606_153602&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    },
+    {
+      "path": "raw/825087-required-history.json",
+      "purpose": "ONLY_REQUIRED_TWO_TARGET_FEATURE_HISTORY",
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/825087/feed/live?timecode=20260605_181859&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    }
+  ],
+  "required_sources": [
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 822750,
+      "path": "raw/822750-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-04-19",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 592662,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 822905,
+      "path": "raw/822905-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-09",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 665795,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 822971,
+      "path": "raw/822971-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 116,
+            "gameDate": "2026-06-02T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 822971,
+            "gameType": "R",
+            "home_id": 139,
+            "officialDate": "2026-06-02"
+          },
+          "side": "home",
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 822973,
+      "path": "raw/822973-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 116,
+            "gameDate": "2026-06-03T17:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 822973,
+            "gameType": "R",
+            "home_id": 139,
+            "officialDate": "2026-06-03"
+          },
+          "side": "home",
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 822974,
+      "path": "raw/822974-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 116,
+            "gameDate": "2026-06-01T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 822974,
+            "gameType": "R",
+            "home_id": 139,
+            "officialDate": "2026-06-01"
+          },
+          "side": "home",
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 822990,
+      "path": "raw/822990-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-01",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 592662,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823053,
+      "path": "raw/823053-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 112,
+            "gameDate": "2026-05-31T23:20:00Z",
+            "gameNumber": 1,
+            "gamePk": 823053,
+            "gameType": "R",
+            "home_id": 138,
+            "officialDate": "2026-05-31"
+          },
+          "side": "home",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823054,
+      "path": "raw/823054-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 112,
+            "gameDate": "2026-05-30T23:15:00Z",
+            "gameNumber": 1,
+            "gamePk": 823054,
+            "gameType": "R",
+            "home_id": 138,
+            "officialDate": "2026-05-30"
+          },
+          "side": "home",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823055,
+      "path": "raw/823055-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 112,
+            "gameDate": "2026-05-29T23:15:00Z",
+            "gameNumber": 1,
+            "gamePk": 823055,
+            "gameType": "R",
+            "home_id": 138,
+            "officialDate": "2026-05-29"
+          },
+          "side": "home",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 823129,
+      "path": "raw/823129-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 121,
+            "gameDate": "2026-06-03T01:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823129,
+            "gameType": "R",
+            "home_id": 136,
+            "officialDate": "2026-06-02"
+          },
+          "side": "away",
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 823130,
+      "path": "raw/823130-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 121,
+            "gameDate": "2026-06-03T19:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823130,
+            "gameType": "R",
+            "home_id": 136,
+            "officialDate": "2026-06-03"
+          },
+          "side": "away",
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 823131,
+      "path": "raw/823131-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 121,
+            "gameDate": "2026-06-02T01:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823131,
+            "gameType": "R",
+            "home_id": 136,
+            "officialDate": "2026-06-01"
+          },
+          "side": "away",
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 823132,
+      "path": "raw/823132-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 109,
+            "gameDate": "2026-05-31T02:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 823132,
+            "gameType": "R",
+            "home_id": 136,
+            "officialDate": "2026-05-30"
+          },
+          "side": "away",
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 823133,
+      "path": "raw/823133-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 109,
+            "gameDate": "2026-05-31T20:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 823133,
+            "gameType": "R",
+            "home_id": 136,
+            "officialDate": "2026-05-31"
+          },
+          "side": "away",
+          "target_game_pk": 824269
+        },
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-31",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 682243,
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 823135,
+      "path": "raw/823135-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 109,
+            "gameDate": "2026-05-30T02:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 823135,
+            "gameType": "R",
+            "home_id": 136,
+            "officialDate": "2026-05-29"
+          },
+          "side": "away",
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 823136,
+      "path": "raw/823136-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-19",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 682243,
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823216,
+      "path": "raw/823216-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 109,
+            "gameDate": "2026-05-27T01:45:00Z",
+            "gameNumber": 1,
+            "gamePk": 823216,
+            "gameType": "R",
+            "home_id": 137,
+            "officialDate": "2026-05-26"
+          },
+          "side": "away",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823217,
+      "path": "raw/823217-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 109,
+            "gameDate": "2026-05-27T19:45:00Z",
+            "gameNumber": 1,
+            "gamePk": 823217,
+            "gameType": "R",
+            "home_id": 137,
+            "officialDate": "2026-05-27"
+          },
+          "side": "away",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823219,
+      "path": "raw/823219-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 109,
+            "gameDate": "2026-05-25T21:05:00Z",
+            "gameNumber": 1,
+            "gamePk": 823219,
+            "gameType": "R",
+            "home_id": 137,
+            "officialDate": "2026-05-25"
+          },
+          "side": "away",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823220,
+      "path": "raw/823220-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-24",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 592662,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823225,
+      "path": "raw/823225-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-08",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 592662,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823229,
+      "path": "raw/823229-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-04-25",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 592662,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823235,
+      "path": "raw/823235-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-04-07",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 592662,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823242,
+      "path": "raw/823242-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-04-02",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 592662,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823243,
+      "path": "raw/823243-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-03-27",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 592662,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823310,
+      "path": "raw/823310-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-04-28",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 665795,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823376,
+      "path": "raw/823376-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 112,
+            "gameDate": "2026-05-27T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823376,
+            "gameType": "R",
+            "home_id": 134,
+            "officialDate": "2026-05-27"
+          },
+          "side": "home",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823378,
+      "path": "raw/823378-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 112,
+            "gameDate": "2026-05-28T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823378,
+            "gameType": "R",
+            "home_id": 134,
+            "officialDate": "2026-05-28"
+          },
+          "side": "home",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823379,
+      "path": "raw/823379-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 112,
+            "gameDate": "2026-05-26T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823379,
+            "gameType": "R",
+            "home_id": 134,
+            "officialDate": "2026-05-26"
+          },
+          "side": "home",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823380,
+      "path": "raw/823380-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 112,
+            "gameDate": "2026-05-25T17:35:00Z",
+            "gameNumber": 1,
+            "gamePk": 823380,
+            "gameType": "R",
+            "home_id": 134,
+            "officialDate": "2026-05-25"
+          },
+          "side": "home",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 823630,
+      "path": "raw/823630-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-14",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 672456,
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823779,
+      "path": "raw/823779-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 137,
+            "gameDate": "2026-06-04T18:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 823779,
+            "gameType": "R",
+            "home_id": 158,
+            "officialDate": "2026-06-04"
+          },
+          "side": "away",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823780,
+      "path": "raw/823780-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 137,
+            "gameDate": "2026-06-03T23:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823780,
+            "gameType": "R",
+            "home_id": 158,
+            "officialDate": "2026-06-03"
+          },
+          "side": "away",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823781,
+      "path": "raw/823781-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 137,
+            "gameDate": "2026-06-01T23:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823781,
+            "gameType": "R",
+            "home_id": 158,
+            "officialDate": "2026-06-01"
+          },
+          "side": "away",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823782,
+      "path": "raw/823782-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 137,
+            "gameDate": "2026-06-02T23:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 823782,
+            "gameType": "R",
+            "home_id": 158,
+            "officialDate": "2026-06-02"
+          },
+          "side": "away",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 823952,
+      "path": "raw/823952-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-13",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 592662,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 824116,
+      "path": "raw/824116-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-08",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 672456,
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 824195,
+      "path": "raw/824195-appearance-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-13",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 682243,
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 824270,
+      "path": "raw/824270-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 108,
+            "gameDate": "2026-05-27T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 824270,
+            "gameType": "R",
+            "home_id": 116,
+            "officialDate": "2026-05-27"
+          },
+          "side": "home",
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 824271,
+      "path": "raw/824271-recent-history-capability.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 136,
+            "gameDate": "2026-06-05T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 824271,
+            "gameType": "R",
+            "home_id": 116,
+            "officialDate": "2026-06-05"
+          },
+          "side": "away",
+          "target_game_pk": 824269
+        },
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 136,
+            "gameDate": "2026-06-05T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 824271,
+            "gameType": "R",
+            "home_id": 116,
+            "officialDate": "2026-06-05"
+          },
+          "side": "home",
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 824272,
+      "path": "raw/824272-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 108,
+            "gameDate": "2026-05-28T17:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 824272,
+            "gameType": "R",
+            "home_id": 116,
+            "officialDate": "2026-05-28"
+          },
+          "side": "home",
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 824275,
+      "path": "raw/824275-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 108,
+            "gameDate": "2026-05-26T22:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 824275,
+            "gameType": "R",
+            "home_id": 116,
+            "officialDate": "2026-05-26"
+          },
+          "side": "home",
+          "target_game_pk": 824269
+        },
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-26",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 672456,
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 824276,
+      "path": "raw/824276-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-19",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 672456,
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 824284,
+      "path": "raw/824284-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-02",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 672456,
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 824289,
+      "path": "raw/824289-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-04-16",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 672456,
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 824290,
+      "path": "raw/824290-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-04-21",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 672456,
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 824296,
+      "path": "raw/824296-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-04-05",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 672456,
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 824297,
+      "path": "raw/824297-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-04-10",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 672456,
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 824352,
+      "path": "raw/824352-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 137,
+            "gameDate": "2026-05-31T01:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 824352,
+            "gameType": "R",
+            "home_id": 115,
+            "officialDate": "2026-05-30"
+          },
+          "side": "away",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 824353,
+      "path": "raw/824353-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 137,
+            "gameDate": "2026-05-30T00:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 824353,
+            "gameType": "R",
+            "home_id": 115,
+            "officialDate": "2026-05-29"
+          },
+          "side": "away",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 824354,
+      "path": "raw/824354-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 137,
+            "gameDate": "2026-05-31T19:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 824354,
+            "gameType": "R",
+            "home_id": 115,
+            "officialDate": "2026-05-31"
+          },
+          "side": "away",
+          "target_game_pk": 824673
+        },
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-31",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 592662,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 824459,
+      "path": "raw/824459-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-04-05",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 665795,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 824528,
+      "path": "raw/824528-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-04-26",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 672456,
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 824531,
+      "path": "raw/824531-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-04-14",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 592662,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 824592,
+      "path": "raw/824592-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 116,
+            "gameDate": "2026-05-31T18:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 824592,
+            "gameType": "R",
+            "home_id": 145,
+            "officialDate": "2026-05-31"
+          },
+          "side": "home",
+          "target_game_pk": 824269
+        },
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-31",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 672456,
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 824593,
+      "path": "raw/824593-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 116,
+            "gameDate": "2026-05-30T18:10:00Z",
+            "gameNumber": 1,
+            "gamePk": 824593,
+            "gameType": "R",
+            "home_id": 145,
+            "officialDate": "2026-05-30"
+          },
+          "side": "home",
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 824594,
+      "path": "raw/824594-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 116,
+            "gameDate": "2026-05-29T23:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 824594,
+            "gameType": "R",
+            "home_id": 145,
+            "officialDate": "2026-05-29"
+          },
+          "side": "home",
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 824601,
+      "path": "raw/824601-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-15",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 665795,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 824671,
+      "path": "raw/824671-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 133,
+            "gameDate": "2026-06-04T00:05:00Z",
+            "gameNumber": 1,
+            "gamePk": 824671,
+            "gameType": "R",
+            "home_id": 112,
+            "officialDate": "2026-06-03"
+          },
+          "side": "home",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 824672,
+      "path": "raw/824672-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 133,
+            "gameDate": "2026-06-05T00:05:00Z",
+            "gameNumber": 1,
+            "gamePk": 824672,
+            "gameType": "R",
+            "home_id": 112,
+            "officialDate": "2026-06-04"
+          },
+          "side": "home",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 824675,
+      "path": "raw/824675-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 133,
+            "gameDate": "2026-06-03T00:05:00Z",
+            "gameNumber": 1,
+            "gamePk": 824675,
+            "gameType": "R",
+            "home_id": 112,
+            "officialDate": "2026-06-02"
+          },
+          "side": "home",
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 824678,
+      "path": "raw/824678-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-20",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 665795,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 824684,
+      "path": "raw/824684-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-04",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 665795,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 824689,
+      "path": "raw/824689-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-04-23",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 665795,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 824693,
+      "path": "raw/824693-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-04-17",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 665795,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 824697,
+      "path": "raw/824697-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-04-11",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 665795,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 824702,
+      "path": "raw/824702-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-03-30",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 665795,
+          "target_game_pk": 824673
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 825003,
+      "path": "raw/825003-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 136,
+            "gameDate": "2026-05-27T19:05:00Z",
+            "gameNumber": 1,
+            "gamePk": 825003,
+            "gameType": "R",
+            "home_id": 133,
+            "officialDate": "2026-05-27"
+          },
+          "side": "away",
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 825004,
+      "path": "raw/825004-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 136,
+            "gameDate": "2026-05-27T01:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 825004,
+            "gameType": "R",
+            "home_id": 133,
+            "officialDate": "2026-05-26"
+          },
+          "side": "away",
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "game_pk": 825005,
+      "path": "raw/825005-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "recent_10",
+          "identity": {
+            "away_id": 136,
+            "gameDate": "2026-05-26T01:40:00Z",
+            "gameNumber": 1,
+            "gamePk": 825005,
+            "gameType": "R",
+            "home_id": 133,
+            "officialDate": "2026-05-25"
+          },
+          "side": "away",
+          "target_game_pk": 824269
+        },
+        {
+          "cutoff": "2026-06-06T15:36:02.469277Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-25",
+          "locator_games_started_not_authority": 0,
+          "pitcher_id": 682243,
+          "target_game_pk": 824269
+        }
+      ]
+    },
+    {
+      "cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "game_pk": 825087,
+      "path": "raw/825087-required-history.json",
+      "roles": [
+        {
+          "cutoff": "2026-06-05T18:18:59.881082Z",
+          "feature": "prior_appearance",
+          "locator_date": "2026-05-18",
+          "locator_games_started_not_authority": 1,
+          "pitcher_id": 592662,
+          "target_game_pk": 824673
+        }
+      ]
+    }
+  ],
+  "stop_on_first_failure": true
+}

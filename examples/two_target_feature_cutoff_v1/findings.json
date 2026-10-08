@@ -1,0 +1,865 @@
+{
+  "attempt_count": 76,
+  "failed_attempt_count": 2,
+  "feature_value_reconstructed_targets": 1,
+  "fully_certified_complete_historical_input_targets": 0,
+  "historical_provider_version_is_not_actual_local_receipt": true,
+  "limits": [
+    "Official cached schedule is a postquote locator, without an immutable prequote universe version.",
+    "Each used score and pitching line is verified in a prequote Final feed; absent/omitted team games cannot be certified by leaked gameData.teams.record.",
+    "No current seasonStats replaces ERA. Historical cumulative counts only reconcile individually archived appearances.",
+    "No blind holdout, prospective sample, prediction, Brier, ROI or method finding is produced."
+  ],
+  "model_score_or_method_evaluation_count": 0,
+  "new_hypothesis_count": 0,
+  "prior_appearances_verified": 33,
+  "prospective_samples_added": 0,
+  "raw_response_bytes": 1706659,
+  "recent_10_value_reconstructed_team_windows": 3,
+  "rows": [
+    {
+      "feature_values_reconstructed": true,
+      "first_announcement_time_established": false,
+      "full_input_cutoff_certification": "UNCERTAIN_NO_PREQUOTE_VERSION_OF_COMPLETE_TEAM_GAME_INDEX",
+      "gameData_record_field_leakage_audit": {
+        "away": {
+          "admitted_as_pregame_feature": false,
+          "archived_preview_record": {
+            "gamesPlayed": 64,
+            "leagueRecord": {
+              "losses": 38,
+              "wins": 26
+            },
+            "losses": 38,
+            "winningPercentage": ".406",
+            "wins": 26
+          },
+          "cache_prior_completed_count": 63,
+          "record_gamesPlayed_exceeds_prior_completed_by": 1,
+          "record_matches_target_postgame_record": true
+        },
+        "home": {
+          "admitted_as_pregame_feature": false,
+          "archived_preview_record": {
+            "gamesPlayed": 64,
+            "leagueRecord": {
+              "losses": 31,
+              "wins": 33
+            },
+            "losses": 31,
+            "winningPercentage": ".516",
+            "wins": 33
+          },
+          "cache_prior_completed_count": 63,
+          "record_gamesPlayed_exceeds_prior_completed_by": 1,
+          "record_matches_target_postgame_record": true
+        }
+      },
+      "game_pk": 824673,
+      "pitching": {
+        "away": {
+          "cumulative_reconciliation": {
+            "earnedRuns": 31,
+            "gamesPlayed": 12,
+            "gamesStarted": 12,
+            "outs": 188
+          },
+          "era_denominator": 188,
+          "era_numerator": 837,
+          "excluded_relief_count": 0,
+          "pitcher_id": 592662,
+          "prior_appearance_count": 12,
+          "prior_appearances": [
+            {
+              "date": "2026-04-19",
+              "earned_runs": 3,
+              "game_pk": 822750,
+              "games_started": 1,
+              "outs": 18,
+              "returned_timecode": "20260419_200309"
+            },
+            {
+              "date": "2026-05-01",
+              "earned_runs": 3,
+              "game_pk": 822990,
+              "games_started": 1,
+              "outs": 19,
+              "returned_timecode": "20260502_011320"
+            },
+            {
+              "date": "2026-05-24",
+              "earned_runs": 4,
+              "game_pk": 823220,
+              "games_started": 1,
+              "outs": 12,
+              "returned_timecode": "20260524_230219"
+            },
+            {
+              "date": "2026-05-08",
+              "earned_runs": 1,
+              "game_pk": 823225,
+              "games_started": 1,
+              "outs": 18,
+              "returned_timecode": "20260509_044225"
+            },
+            {
+              "date": "2026-04-25",
+              "earned_runs": 1,
+              "game_pk": 823229,
+              "games_started": 1,
+              "outs": 15,
+              "returned_timecode": "20260425_225617"
+            },
+            {
+              "date": "2026-04-07",
+              "earned_runs": 0,
+              "game_pk": 823235,
+              "games_started": 1,
+              "outs": 20,
+              "returned_timecode": "20260408_042604"
+            },
+            {
+              "date": "2026-04-02",
+              "earned_runs": 2,
+              "game_pk": 823242,
+              "games_started": 1,
+              "outs": 16,
+              "returned_timecode": "20260403_042433"
+            },
+            {
+              "date": "2026-03-27",
+              "earned_runs": 2,
+              "game_pk": 823243,
+              "games_started": 1,
+              "outs": 16,
+              "returned_timecode": "20260327_231248"
+            },
+            {
+              "date": "2026-05-13",
+              "earned_runs": 3,
+              "game_pk": 823952,
+              "games_started": 1,
+              "outs": 14,
+              "returned_timecode": "20260514_043335"
+            },
+            {
+              "date": "2026-05-31",
+              "earned_runs": 1,
+              "game_pk": 824354,
+              "games_started": 1,
+              "outs": 12,
+              "returned_timecode": "20260531_224945"
+            },
+            {
+              "date": "2026-04-14",
+              "earned_runs": 2,
+              "game_pk": 824531,
+              "games_started": 1,
+              "outs": 15,
+              "returned_timecode": "20260415_010004"
+            },
+            {
+              "date": "2026-05-18",
+              "earned_runs": 9,
+              "game_pk": 825087,
+              "games_started": 1,
+              "outs": 13,
+              "returned_timecode": "20260519_040652"
+            }
+          ],
+          "prior_start_count": 12,
+          "seasonStats_used_as_era_input": false,
+          "starter_earned_runs": 31,
+          "starter_outs": 188,
+          "starts_only_era": "4.452127659574468085106382979",
+          "status": "RECOVERED_FROM_PREQUOTE_FINAL_GAME_STATS_CUMULATIVE_COUNTS_RECONCILED"
+        },
+        "home": {
+          "cumulative_reconciliation": {
+            "earnedRuns": 24,
+            "gamesPlayed": 10,
+            "gamesStarted": 10,
+            "outs": 162
+          },
+          "era_denominator": 162,
+          "era_numerator": 648,
+          "excluded_relief_count": 0,
+          "pitcher_id": 665795,
+          "prior_appearance_count": 10,
+          "prior_appearances": [
+            {
+              "date": "2026-05-09",
+              "earned_runs": 5,
+              "game_pk": 822905,
+              "games_started": 1,
+              "outs": 15,
+              "returned_timecode": "20260510_015139"
+            },
+            {
+              "date": "2026-04-28",
+              "earned_runs": 3,
+              "game_pk": 823310,
+              "games_started": 1,
+              "outs": 17,
+              "returned_timecode": "20260429_043434"
+            },
+            {
+              "date": "2026-04-05",
+              "earned_runs": 0,
+              "game_pk": 824459,
+              "games_started": 1,
+              "outs": 17,
+              "returned_timecode": "20260405_194948"
+            },
+            {
+              "date": "2026-05-15",
+              "earned_runs": 3,
+              "game_pk": 824601,
+              "games_started": 1,
+              "outs": 14,
+              "returned_timecode": "20260516_024817"
+            },
+            {
+              "date": "2026-05-20",
+              "earned_runs": 1,
+              "game_pk": 824678,
+              "games_started": 1,
+              "outs": 9,
+              "returned_timecode": "20260521_021308"
+            },
+            {
+              "date": "2026-05-04",
+              "earned_runs": 3,
+              "game_pk": 824684,
+              "games_started": 1,
+              "outs": 18,
+              "returned_timecode": "20260505_032251"
+            },
+            {
+              "date": "2026-04-23",
+              "earned_runs": 3,
+              "game_pk": 824689,
+              "games_started": 1,
+              "outs": 21,
+              "returned_timecode": "20260423_212126"
+            },
+            {
+              "date": "2026-04-17",
+              "earned_runs": 3,
+              "game_pk": 824693,
+              "games_started": 1,
+              "outs": 18,
+              "returned_timecode": "20260417_205554"
+            },
+            {
+              "date": "2026-04-11",
+              "earned_runs": 3,
+              "game_pk": 824697,
+              "games_started": 1,
+              "outs": 15,
+              "returned_timecode": "20260411_220038"
+            },
+            {
+              "date": "2026-03-30",
+              "earned_runs": 0,
+              "game_pk": 824702,
+              "games_started": 1,
+              "outs": 18,
+              "returned_timecode": "20260331_020619"
+            }
+          ],
+          "prior_start_count": 10,
+          "seasonStats_used_as_era_input": false,
+          "starter_earned_runs": 24,
+          "starter_outs": 162,
+          "starts_only_era": "4",
+          "status": "RECOVERED_FROM_PREQUOTE_FINAL_GAME_STATS_CUMULATIVE_COUNTS_RECONCILED"
+        }
+      },
+      "production_or_frozen_ledger_admitted": false,
+      "quote_cutoff_utc": "2026-06-05T18:18:59.881082Z",
+      "recent_10": {
+        "away": {
+          "games": [
+            {
+              "away_score": 6,
+              "game_pk": 823219,
+              "home_score": 2,
+              "returned_timecode": "20260525_234212",
+              "scheduled_start_utc": "2026-05-25T21:05:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 7,
+              "game_pk": 823216,
+              "home_score": 5,
+              "returned_timecode": "20260527_042340",
+              "scheduled_start_utc": "2026-05-27T01:45:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 3,
+              "game_pk": 823217,
+              "home_score": 2,
+              "returned_timecode": "20260527_220642",
+              "scheduled_start_utc": "2026-05-27T19:45:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 6,
+              "game_pk": 824353,
+              "home_score": 8,
+              "returned_timecode": "20260530_034733",
+              "scheduled_start_utc": "2026-05-30T00:40:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 3,
+              "game_pk": 824352,
+              "home_score": 8,
+              "returned_timecode": "20260531_034540",
+              "scheduled_start_utc": "2026-05-31T01:10:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 19,
+              "game_pk": 824354,
+              "home_score": 6,
+              "returned_timecode": "20260531_224945",
+              "scheduled_start_utc": "2026-05-31T19:10:00Z",
+              "team_won": true
+            },
+            {
+              "away_score": 2,
+              "game_pk": 823781,
+              "home_score": 16,
+              "returned_timecode": "20260602_022427",
+              "scheduled_start_utc": "2026-06-01T23:40:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 3,
+              "game_pk": 823782,
+              "home_score": 8,
+              "returned_timecode": "20260603_023808",
+              "scheduled_start_utc": "2026-06-02T23:40:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 1,
+              "game_pk": 823780,
+              "home_score": 0,
+              "returned_timecode": "20260604_020009",
+              "scheduled_start_utc": "2026-06-03T23:40:00Z",
+              "team_won": true
+            },
+            {
+              "away_score": 12,
+              "game_pk": 823779,
+              "home_score": 9,
+              "returned_timecode": "20260604_213203",
+              "scheduled_start_utc": "2026-06-04T18:10:00Z",
+              "team_won": true
+            }
+          ],
+          "rate": "0.3",
+          "status": "PREQUOTE_FINAL_VALUES_RECOVERED_WITHIN_UNVERSIONED_OFFICIAL_INDEX",
+          "team_id": 137,
+          "verified_completed_games": 10,
+          "wins": 3
+        },
+        "home": {
+          "games": [
+            {
+              "away_score": 1,
+              "game_pk": 823380,
+              "home_score": 2,
+              "returned_timecode": "20260525_200317",
+              "scheduled_start_utc": "2026-05-25T17:35:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 1,
+              "game_pk": 823379,
+              "home_score": 12,
+              "returned_timecode": "20260527_011232",
+              "scheduled_start_utc": "2026-05-26T22:40:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 10,
+              "game_pk": 823376,
+              "home_score": 4,
+              "returned_timecode": "20260528_014048",
+              "scheduled_start_utc": "2026-05-27T22:40:00Z",
+              "team_won": true
+            },
+            {
+              "away_score": 7,
+              "game_pk": 823378,
+              "home_score": 2,
+              "returned_timecode": "20260529_014100",
+              "scheduled_start_utc": "2026-05-28T22:40:00Z",
+              "team_won": true
+            },
+            {
+              "away_score": 5,
+              "game_pk": 823055,
+              "home_score": 6,
+              "returned_timecode": "20260530_014856",
+              "scheduled_start_utc": "2026-05-29T23:15:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 6,
+              "game_pk": 823054,
+              "home_score": 1,
+              "returned_timecode": "20260531_021201",
+              "scheduled_start_utc": "2026-05-30T23:15:00Z",
+              "team_won": true
+            },
+            {
+              "away_score": 1,
+              "game_pk": 823053,
+              "home_score": 5,
+              "returned_timecode": "20260601_020303",
+              "scheduled_start_utc": "2026-05-31T23:20:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 2,
+              "game_pk": 824675,
+              "home_score": 1,
+              "returned_timecode": "20260603_022453",
+              "scheduled_start_utc": "2026-06-03T00:05:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 5,
+              "game_pk": 824671,
+              "home_score": 4,
+              "returned_timecode": "20260604_031001",
+              "scheduled_start_utc": "2026-06-04T00:05:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 6,
+              "game_pk": 824672,
+              "home_score": 7,
+              "returned_timecode": "20260605_024248",
+              "scheduled_start_utc": "2026-06-05T00:05:00Z",
+              "team_won": true
+            }
+          ],
+          "rate": "0.4",
+          "status": "PREQUOTE_FINAL_VALUES_RECOVERED_WITHIN_UNVERSIONED_OFFICIAL_INDEX",
+          "team_id": 112,
+          "verified_completed_games": 10,
+          "wins": 4
+        }
+      },
+      "recent_10_home_minus_away_candidate": "0.1",
+      "target_returned_timecode": "20260605_174215"
+    },
+    {
+      "feature_values_reconstructed": false,
+      "first_announcement_time_established": false,
+      "full_input_cutoff_certification": "NOT_FULLY_RECOVERABLE_REQUIRED_HISTORY_MISSING_AT_CUTOFF",
+      "gameData_record_field_leakage_audit": {
+        "away": {
+          "admitted_as_pregame_feature": false,
+          "archived_preview_record": {
+            "gamesPlayed": 65,
+            "leagueRecord": {
+              "losses": 31,
+              "wins": 34
+            },
+            "losses": 31,
+            "winningPercentage": ".523",
+            "wins": 34
+          },
+          "cache_prior_completed_count": 64,
+          "record_gamesPlayed_exceeds_prior_completed_by": 1,
+          "record_matches_target_postgame_record": true
+        },
+        "home": {
+          "admitted_as_pregame_feature": false,
+          "archived_preview_record": {
+            "gamesPlayed": 65,
+            "leagueRecord": {
+              "losses": 39,
+              "wins": 26
+            },
+            "losses": 39,
+            "winningPercentage": ".400",
+            "wins": 26
+          },
+          "cache_prior_completed_count": 64,
+          "record_gamesPlayed_exceeds_prior_completed_by": 1,
+          "record_matches_target_postgame_record": true
+        }
+      },
+      "game_pk": 824269,
+      "pitching": {
+        "away": {
+          "cumulative_reconciliation": {
+            "earnedRuns": 4,
+            "gamesPlayed": 4,
+            "gamesStarted": 3,
+            "outs": 63
+          },
+          "era_denominator": 48,
+          "era_numerator": 54,
+          "excluded_relief_count": 1,
+          "pitcher_id": 682243,
+          "prior_appearance_count": 4,
+          "prior_appearances": [
+            {
+              "date": "2026-05-31",
+              "earned_runs": 0,
+              "game_pk": 823133,
+              "games_started": 1,
+              "outs": 15,
+              "returned_timecode": "20260531_230813"
+            },
+            {
+              "date": "2026-05-19",
+              "earned_runs": 0,
+              "game_pk": 823136,
+              "games_started": 1,
+              "outs": 17,
+              "returned_timecode": "20260520_043046"
+            },
+            {
+              "date": "2026-05-13",
+              "earned_runs": 2,
+              "game_pk": 824195,
+              "games_started": 1,
+              "outs": 16,
+              "returned_timecode": "20260514_033447"
+            },
+            {
+              "date": "2026-05-25",
+              "earned_runs": 2,
+              "game_pk": 825005,
+              "games_started": 0,
+              "outs": 15,
+              "returned_timecode": "20260526_042256"
+            }
+          ],
+          "prior_start_count": 3,
+          "seasonStats_used_as_era_input": false,
+          "starter_earned_runs": 2,
+          "starter_outs": 48,
+          "starts_only_era": "1.125",
+          "status": "RECOVERED_FROM_PREQUOTE_FINAL_GAME_STATS_CUMULATIVE_COUNTS_RECONCILED"
+        },
+        "home": {
+          "pitcher_id": 672456,
+          "prior_appearances": [
+            {
+              "date": "2026-05-14",
+              "earned_runs": 4,
+              "game_pk": 823630,
+              "games_started": 1,
+              "outs": 14,
+              "returned_timecode": "20260514_194257"
+            },
+            {
+              "date": "2026-05-08",
+              "earned_runs": 1,
+              "game_pk": 824116,
+              "games_started": 1,
+              "outs": 18,
+              "returned_timecode": "20260509_022303"
+            },
+            {
+              "date": "2026-05-26",
+              "earned_runs": 4,
+              "game_pk": 824275,
+              "games_started": 1,
+              "outs": 17,
+              "returned_timecode": "20260527_013734"
+            },
+            {
+              "date": "2026-05-19",
+              "earned_runs": 3,
+              "game_pk": 824276,
+              "games_started": 1,
+              "outs": 15,
+              "returned_timecode": "20260520_010703"
+            },
+            {
+              "date": "2026-05-02",
+              "earned_runs": 1,
+              "game_pk": 824284,
+              "games_started": 1,
+              "outs": 20,
+              "returned_timecode": "20260503_014641"
+            },
+            {
+              "date": "2026-04-16",
+              "earned_runs": 4,
+              "game_pk": 824289,
+              "games_started": 1,
+              "outs": 18,
+              "returned_timecode": "20260416_220718"
+            },
+            {
+              "date": "2026-05-31",
+              "earned_runs": 0,
+              "game_pk": 824592,
+              "games_started": 1,
+              "outs": 18,
+              "returned_timecode": "20260531_203146"
+            }
+          ],
+          "required_missing_game_pks": [
+            824290,
+            824296,
+            824297,
+            824528
+          ],
+          "seasonStats_used_as_era_input": false,
+          "starts_only_era": null,
+          "status": "NOT_FULLY_RECOVERABLE_AVAILABLE_ARCHIVE_OR_RECONCILIATION_INCOMPLETE",
+          "verified_prior_appearance_count": 7
+        }
+      },
+      "production_or_frozen_ledger_admitted": false,
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "recent_10": {
+        "away": {
+          "games": [
+            {
+              "away_score": 9,
+              "game_pk": 825005,
+              "home_score": 2,
+              "returned_timecode": "20260526_042256",
+              "scheduled_start_utc": "2026-05-26T01:40:00Z",
+              "team_won": true
+            },
+            {
+              "away_score": 1,
+              "game_pk": 823132,
+              "home_score": 5,
+              "returned_timecode": "20260531_044249",
+              "scheduled_start_utc": "2026-05-31T02:10:00Z",
+              "team_won": true
+            },
+            {
+              "away_score": 2,
+              "game_pk": 823133,
+              "home_score": 3,
+              "returned_timecode": "20260531_230813",
+              "scheduled_start_utc": "2026-05-31T20:10:00Z",
+              "team_won": true
+            },
+            {
+              "away_score": 2,
+              "game_pk": 823131,
+              "home_score": 3,
+              "returned_timecode": "20260602_041332",
+              "scheduled_start_utc": "2026-06-02T01:40:00Z",
+              "team_won": true
+            },
+            {
+              "away_score": 3,
+              "game_pk": 823129,
+              "home_score": 8,
+              "returned_timecode": "20260603_042354",
+              "scheduled_start_utc": "2026-06-03T01:40:00Z",
+              "team_won": true
+            },
+            {
+              "away_score": 7,
+              "game_pk": 823130,
+              "home_score": 1,
+              "returned_timecode": "20260603_221724",
+              "scheduled_start_utc": "2026-06-03T19:40:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 3,
+              "game_pk": 824271,
+              "home_score": 7,
+              "returned_timecode": "20260606_012511",
+              "scheduled_start_utc": "2026-06-05T22:40:00Z",
+              "team_won": false
+            }
+          ],
+          "rate": null,
+          "required_missing_game_pks": [
+            825004,
+            825003,
+            823135
+          ],
+          "status": "NOT_FULLY_RECOVERABLE_AVAILABLE_ARCHIVE_LACKS_PREQUOTE_FINAL",
+          "team_id": 136,
+          "verified_completed_games": 7
+        },
+        "home": {
+          "games": [
+            {
+              "away_score": 10,
+              "game_pk": 824275,
+              "home_score": 6,
+              "returned_timecode": "20260527_013734",
+              "scheduled_start_utc": "2026-05-26T22:40:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 0,
+              "game_pk": 824270,
+              "home_score": 4,
+              "returned_timecode": "20260528_010830",
+              "scheduled_start_utc": "2026-05-27T22:40:00Z",
+              "team_won": true
+            },
+            {
+              "away_score": 7,
+              "game_pk": 824272,
+              "home_score": 1,
+              "returned_timecode": "20260528_194732",
+              "scheduled_start_utc": "2026-05-28T17:10:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 3,
+              "game_pk": 824594,
+              "home_score": 4,
+              "returned_timecode": "20260530_021000",
+              "scheduled_start_utc": "2026-05-29T23:40:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 1,
+              "game_pk": 824593,
+              "home_score": 7,
+              "returned_timecode": "20260530_203610",
+              "scheduled_start_utc": "2026-05-30T18:10:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 1,
+              "game_pk": 824592,
+              "home_score": 2,
+              "returned_timecode": "20260531_203146",
+              "scheduled_start_utc": "2026-05-31T18:10:00Z",
+              "team_won": false
+            },
+            {
+              "away_score": 10,
+              "game_pk": 822974,
+              "home_score": 9,
+              "returned_timecode": "20260602_014834",
+              "scheduled_start_utc": "2026-06-01T22:40:00Z",
+              "team_won": true
+            },
+            {
+              "away_score": 8,
+              "game_pk": 822971,
+              "home_score": 0,
+              "returned_timecode": "20260603_010845",
+              "scheduled_start_utc": "2026-06-02T22:40:00Z",
+              "team_won": true
+            },
+            {
+              "away_score": 7,
+              "game_pk": 822973,
+              "home_score": 2,
+              "returned_timecode": "20260603_192433",
+              "scheduled_start_utc": "2026-06-03T17:10:00Z",
+              "team_won": true
+            },
+            {
+              "away_score": 3,
+              "game_pk": 824271,
+              "home_score": 7,
+              "returned_timecode": "20260606_012511",
+              "scheduled_start_utc": "2026-06-05T22:40:00Z",
+              "team_won": true
+            }
+          ],
+          "rate": "0.5",
+          "status": "PREQUOTE_FINAL_VALUES_RECOVERED_WITHIN_UNVERSIONED_OFFICIAL_INDEX",
+          "team_id": 116,
+          "verified_completed_games": 10,
+          "wins": 5
+        }
+      },
+      "recent_10_home_minus_away_candidate": null,
+      "target_returned_timecode": "20260606_142351"
+    }
+  ],
+  "schema_version": "two_target_feature_cutoff.findings.v1",
+  "starts_only_era_recovered_pitchers": 3,
+  "successful_response_count": 74,
+  "team_history_index_provenance": "data/fixtures/p23f2_official_2026_history/raw/schedule_2026-03-25_2026-06-30.json",
+  "team_history_index_sha256": "6950ed55ff1ddeb9b90f90138847ed7ebe79ce39d37614268d344af96eb65e55",
+  "unavailable_final_route_evidence": {
+    "823135": {
+      "exact_listed_request_path": "raw/823135-exact-listed-history.json",
+      "exact_listed_request_returned_status": {
+        "abstractGameState": "Live",
+        "detailedState": "In Progress"
+      },
+      "exact_listed_request_returned_timecode": "20260530_052108",
+      "interpretation": "Both bounded requests fail to return a prequote Final. This does not prove every alternative official source lacks one.",
+      "last_listed_timecode": "20260530_052138",
+      "version_list_path": "raw/823135-version-availability.json"
+    },
+    "824290": {
+      "interpretation": "Required historical feed returns Live; Montero ERA recovery stops without substituting cumulative ERA."
+    }
+  },
+  "unavailable_history_sources": [
+    {
+      "game_pk": 823135,
+      "path": "raw/823135-required-history.json",
+      "reason": "PREQUOTE_FINAL_IDENTITY_OR_EVENT_FAILURE",
+      "returned_timecode": "20260530_052108",
+      "status": {
+        "abstractGameState": "Live",
+        "detailedState": "In Progress"
+      }
+    },
+    {
+      "game_pk": 824290,
+      "path": "raw/824290-required-history.json",
+      "reason": "PREQUOTE_FINAL_IDENTITY_OR_EVENT_FAILURE",
+      "returned_timecode": "20260422_013858",
+      "status": {
+        "abstractGameState": "Live",
+        "detailedState": "In Progress"
+      }
+    },
+    {
+      "game_pk": 824296,
+      "path": "raw/824296-required-history.json",
+      "reason": "NOT_CAPTURED_AFTER_FEATURE_STOP"
+    },
+    {
+      "game_pk": 824297,
+      "path": "raw/824297-required-history.json",
+      "reason": "NOT_CAPTURED_AFTER_FEATURE_STOP"
+    },
+    {
+      "game_pk": 824528,
+      "path": "raw/824528-required-history.json",
+      "reason": "NOT_CAPTURED_AFTER_FEATURE_STOP"
+    },
+    {
+      "game_pk": 825003,
+      "path": "raw/825003-required-history.json",
+      "reason": "NOT_CAPTURED_AFTER_FEATURE_STOP"
+    },
+    {
+      "game_pk": 825004,
+      "path": "raw/825004-required-history.json",
+      "reason": "NOT_CAPTURED_AFTER_FEATURE_STOP"
+    }
+  ],
+  "uncertified_index_membership_targets": 2,
+  "unique_history_games_verified": 64
+}

@@ -1,0 +1,12 @@
+{
+  "maximum_gets": 1,
+  "planned_at_utc": "2026-10-08T08:35:02.518082Z",
+  "requests": [
+    {
+      "path": "raw/823135-exact-listed-history.json",
+      "purpose": "EXACT_LAST_LISTED_PREQUOTE_VERSION_ONLY",
+      "quote_cutoff_utc": "2026-06-06T15:36:02.469277Z",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823135/feed/live?timecode=20260530_052138&fields=gamePk%2CmetaData%2CtimeStamp%2CgameData%2Cgame%2Cpk%2Cid%2Ctype%2Cseason%2Cdatetime%2CdateTime%2CofficialDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2CliveData%2Clinescore%2Cruns%2Cplays%2CallPlays%2Cabout%2CstartTime%2CendTime%2Cboxscore%2Cplayers%2Cperson%2Cstats%2Cpitching%2CgamesPlayed%2CgamesStarted%2CearnedRuns%2Couts"
+    }
+  ]
+}
