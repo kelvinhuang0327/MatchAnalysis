@@ -1,0 +1,84 @@
+{
+  "exclusions": [
+    {
+      "feature_name": "starter_era_delta",
+      "game_pk": 849832,
+      "official_date": "2026-10-08",
+      "provider_game_id": "849832",
+      "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY (starts=1)",
+      "scheduled_start_utc": "2026-10-09T00:00:00Z"
+    }
+  ],
+  "predictions": [],
+  "schema_version": "p50c.pregame_input.v1",
+  "source_identity": "MLB_OFFICIAL_STATS_API_PROSPECTIVE_FEED",
+  "source_manifest": {
+    "capture_semantics": "ACTUAL_RECEIPT_AND_PERSIST_BEFORE_INFERENCE",
+    "fetched_at_utc": "2026-10-08T07:20:29.220587Z",
+    "pitcher_sources": {
+      "696146": {
+        "sha256": "d29c76f9d9682a5cbc0ec3e9077fe81aa5b2b6e8c7b6782ea6e6e53f55588b4c",
+        "url": "https://statsapi.mlb.com/api/v1/people/696146/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      "800048": {
+        "sha256": "5dce9e22bf4ac9356b8c22261d62943cc5ac55f2dc4e81357ff9257c7b296659",
+        "url": "https://statsapi.mlb.com/api/v1/people/800048/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      }
+    },
+    "schedule_sha256": "a39e005d0204e320df9f14625039de93c4f0475d513ad2036d850170aa8ff2a2",
+    "schedule_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-08-24&endDate=2026-10-08&gameType=R&hydrate=probablePitcher%28note%29%2Cteam&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameNumber%2CgameType%2CofficialDate%2CgameDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cabbreviation%2Cscore%2CprobablePitcher%2CfullName",
+    "source_capture_evidence": [
+      {
+        "byte_count": 219766,
+        "path": "source_captures/01-bf7e361995d2.json",
+        "persisted_at_utc": "2026-10-08T07:20:25.845824Z",
+        "provider_published_at_utc": null,
+        "purpose": "MODEL_INPUT",
+        "received_at_utc": "2026-10-08T07:20:25.843107Z",
+        "request_started_at_utc": "2026-10-08T07:20:24.308428Z",
+        "sha256": "a39e005d0204e320df9f14625039de93c4f0475d513ad2036d850170aa8ff2a2",
+        "status": "SUCCESS",
+        "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-08-24&endDate=2026-10-08&gameType=R&hydrate=probablePitcher%28note%29%2Cteam&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameNumber%2CgameType%2CofficialDate%2CgameDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cabbreviation%2Cscore%2CprobablePitcher%2CfullName"
+      },
+      {
+        "byte_count": 501,
+        "path": "source_captures/02-59cca5c276fd.json",
+        "persisted_at_utc": "2026-10-08T07:20:26.816577Z",
+        "provider_published_at_utc": null,
+        "purpose": "MODEL_INPUT",
+        "received_at_utc": "2026-10-08T07:20:26.815778Z",
+        "request_started_at_utc": "2026-10-08T07:20:25.848913Z",
+        "sha256": "c2f744b7b64b6a863f3a21d1fa4b0132ed2c8428bb3b82c9cbc42de52f46d1e3",
+        "status": "SUCCESS",
+        "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-08&endDate=2026-10-08&gameType=D&hydrate=probablePitcher%28note%29%2Cteam&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameNumber%2CgameType%2CofficialDate%2CgameDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cabbreviation%2Cscore%2CprobablePitcher%2CfullName"
+      },
+      {
+        "byte_count": 30914,
+        "path": "source_captures/03-21a48330f279.json",
+        "persisted_at_utc": "2026-10-08T07:20:28.007885Z",
+        "provider_published_at_utc": null,
+        "purpose": "MODEL_INPUT",
+        "received_at_utc": "2026-10-08T07:20:28.007115Z",
+        "request_started_at_utc": "2026-10-08T07:20:26.817479Z",
+        "sha256": "d29c76f9d9682a5cbc0ec3e9077fe81aa5b2b6e8c7b6782ea6e6e53f55588b4c",
+        "status": "SUCCESS",
+        "url": "https://statsapi.mlb.com/api/v1/people/696146/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      },
+      {
+        "byte_count": 55000,
+        "path": "source_captures/04-503792655439.json",
+        "persisted_at_utc": "2026-10-08T07:20:29.219930Z",
+        "provider_published_at_utc": null,
+        "purpose": "MODEL_INPUT",
+        "received_at_utc": "2026-10-08T07:20:29.218886Z",
+        "request_started_at_utc": "2026-10-08T07:20:28.008388Z",
+        "sha256": "5dce9e22bf4ac9356b8c22261d62943cc5ac55f2dc4e81357ff9257c7b296659",
+        "status": "SUCCESS",
+        "url": "https://statsapi.mlb.com/api/v1/people/800048/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+      }
+    ],
+    "target_date": "2026-10-08",
+    "target_schedule_sha256": "c2f744b7b64b6a863f3a21d1fa4b0132ed2c8428bb3b82c9cbc42de52f46d1e3",
+    "target_schedule_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-08&endDate=2026-10-08&gameType=D&hydrate=probablePitcher%28note%29%2Cteam&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameNumber%2CgameType%2CofficialDate%2CgameDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cabbreviation%2Cscore%2CprobablePitcher%2CfullName"
+  }
+}

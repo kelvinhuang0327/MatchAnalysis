@@ -1,0 +1,34 @@
+{
+  "auto_reprice_regression_tests": 5,
+  "base_commit": "fafbc914f76de61d3d636caa54c80221d2600e89",
+  "baseline_replay_byte_identical": true,
+  "baseline_replay_sha256": "5d99e7c86f8599b07c9321205135ffc7bbf349e980e9b5f7e9da07e324985665",
+  "current_model_eligible_count": 0,
+  "current_model_excluded_count": 1,
+  "current_official_target_count": 1,
+  "focused_unit_tests": 64,
+  "independent_feature_replay_byte_identical": true,
+  "independent_new_tests": 12,
+  "new_paired_pending_count": 0,
+  "new_settled_paired_count": 0,
+  "new_synthetic_tests": 12,
+  "p52a_cli_tests": 3,
+  "saved_reports": {
+    "live_model_capture/capture_report.json": "cfbb232e0ee65239bf3b63c6e431297a3a873e159ba3bfd28d33199f877bc867",
+    "tsl_availability/market_availability.json": "8b9b401c62aae94fb8af136bba9f7dad9982d64dae467f987970fb64e41b7052"
+  },
+  "scheduling_inventory": {
+    "cron": "READ_DENIED_NOT_RETRIED",
+    "legacy_config_game_count": 0,
+    "legacy_config_last_run": "2026-06-22T03:21:28.120729Z",
+    "matching_launch_definition_count": 0,
+    "new_background_or_automation_count": 0,
+    "process_list": "NOT_REQUESTED",
+    "relevant_exposed_automation_count": 0
+  },
+  "schema_version": "prospective_pairing.verification.v1",
+  "source_byte_total": 318657,
+  "source_capture_locally_attested_not_provider_authenticated": true,
+  "total_focused_tests": 72,
+  "tsl_price_availability": "UNKNOWN_TLS_CHAIN_UNVERIFIED"
+}

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import argparse
-from datetime import UTC, datetime
 from decimal import Decimal
 import hashlib
 import json
@@ -16,7 +15,7 @@ from ...application.use_cases.acquire_tsl_moneyline_snapshot import (
     _default_mlb_schedule_opener,
     acquire_tsl_moneyline_snapshot,
 )
-from ...application.use_cases.generate_tsl_moneyline_edge_batch import _crosswalk
+from ...application.use_cases.p32a_frozen_moneyline_quotes import quotes_from_acquisition
 from ...application.use_cases.p45a_paper_run_ledger import P45A_REPORT_RELATIVE_PATH
 from ...application.use_cases.moneyline_paper_decision import (
     DATA_MODE_FIXTURE,
@@ -45,20 +44,6 @@ def _canonical_bytes(value: Any) -> bytes:
     return json.dumps(value, ensure_ascii=False, separators=(",", ":"), sort_keys=True).encode(
         "utf-8"
     )
-
-
-def _parse_utc(value: str) -> datetime:
-    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
-    if parsed.tzinfo is None or parsed.utcoffset() is None:
-        raise ValueError("source timestamp is not timezone-aware")
-    return parsed.astimezone(UTC)
-
-
-def _same_timestamp(left: Any, right: Any) -> bool:
-    try:
-        return _parse_utc(str(left)) == _parse_utc(str(right))
-    except ValueError:
-        return False
 
 
 def _validate_output_directory(output_dir: Path, repository_root: Path) -> None:
@@ -190,67 +175,8 @@ def _live_tsl_quotes(
     if acquisition is None:
         return (), {}, operation
 
-    wanted_by_game_pk = {
-        int(row["game_identity"]["game_pk"]): row for row in run.predictions
-    }
-    candidates = _crosswalk(
-        tsl_rows=acquisition.history.rows,
-        schedule_rows=acquisition.target_schedule_rows,
-        cohort_start_date=acquisition.target_date,
-        cohort_end_date=acquisition.target_date,
-    )
-    quotes: list[dict[str, Any]] = []
-    issues: dict[int, str] = {}
-    for observation in candidates:
-        official = observation.official
-        if official is None:
-            continue
-        try:
-            game_pk = int(str(official["provider_game_id"]))
-        except (KeyError, TypeError, ValueError):
-            continue
-        prediction = wanted_by_game_pk.get(game_pk)
-        if prediction is None:
-            continue
-        game = prediction["game_identity"]
-        if (
-            official.get("game_type") != run.game_type
-            or str(official.get("provider_game_id")) != str(game.get("provider_game_id"))
-            or official.get("game_number") != game.get("game_number")
-            or official.get("official_date") != game.get("official_date")
-            or not _same_timestamp(
-                official.get("scheduled_start_utc"), game.get("scheduled_start_utc")
-            )
-            or str(official.get("home_team", {}).get("abbreviation"))
-            != str(game.get("home_team_code"))
-            or str(official.get("away_team", {}).get("abbreviation"))
-            != str(game.get("away_team_code"))
-        ):
-            issues[game_pk] = "QUOTE_IDENTITY_MISMATCH"
-            continue
-        source_row = observation.row
-        quote: dict[str, Any] = {
-            "schema_version": "moneyline_paper_decision_v1.quote_snapshot.v1",
-            "quote_source": source_row.get("source"),
-            "market": "MONEYLINE",
-            "market_code": "MNL",
-            "observed_at_utc": source_row.get("fetched_at"),
-            "game_identity": dict(game),
-            "home_decimal_odds": format(observation.home_decimal_odds, "f"),
-            "away_decimal_odds": format(observation.away_decimal_odds, "f"),
-            "source_identity": {
-                "source_match_id": source_row.get("match_id"),
-                "source_game_time": source_row.get("game_time"),
-                "source_row_index": observation.source_row_index,
-                "source_row_fingerprint": observation.source_row_fingerprint,
-                "crosswalk_time_delta_seconds": observation.crosswalk_time_delta_seconds,
-                "crosswalk_authority": "P28AB_NEAREST_TEAM_AND_START_WITHIN_3600_SECONDS",
-            },
-        }
-        quote["snapshot_identity"] = hashlib.sha256(_canonical_bytes(quote)).hexdigest()
-        quotes.append(quote)
-    return tuple(quotes), issues, operation
-
+    quotes, issues = quotes_from_acquisition(acquisition, run)
+    return quotes, issues, operation
 
 def build_parser() -> argparse.ArgumentParser:
     root = _repo_root()

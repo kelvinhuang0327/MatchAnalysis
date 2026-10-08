@@ -664,12 +664,13 @@ class MoneylinePaperDecisionTests(unittest.TestCase):
         observation = SimpleNamespace(
             official={
                 "game_type": game_type,
+                "game_pk": game["game_pk"],
                 "provider_game_id": game["provider_game_id"],
                 "game_number": game["game_number"],
                 "official_date": game["official_date"],
                 "scheduled_start_utc": game["scheduled_start_utc"],
-                "home_team": {"abbreviation": game["home_team_code"]},
-                "away_team": {"abbreviation": game["away_team_code"]},
+                "home_team": {"abbreviation": game["home_team_code"], "name": game["home_team"]},
+                "away_team": {"abbreviation": game["away_team_code"], "name": game["away_team"]},
             },
             row={
                 "source": "TSL_BLOB3RD",
@@ -714,7 +715,7 @@ class MoneylinePaperDecisionTests(unittest.TestCase):
                 return_value=b"odds fixture",
             ),
             patch(
-                "match_analysis.interfaces.cli.moneyline_paper_decision._crosswalk",
+                "match_analysis.application.use_cases.p32a_frozen_moneyline_quotes._crosswalk",
                 return_value=(observation,),
             ),
         ):

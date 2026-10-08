@@ -1,0 +1,165 @@
+{
+  "accuracy": null,
+  "brier": null,
+  "feature_evidence": {
+    "away_starter_era": "2.559928443649373881932021467",
+    "away_starter_id": 800048,
+    "home_starter_era": null,
+    "home_starter_id": 696146,
+    "inference_cutoff_utc": "2026-10-08T07:20:29.220587Z",
+    "recent_win_rate_delta": "-0.1",
+    "starter_era_delta": null,
+    "starter_exclusions": [
+      "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY (starts=1)"
+    ]
+  },
+  "files": {
+    "champion_model_artifact.json": "be0ad805acc9254e61c6bc340c6acd0dc66af886809374164a339bd4a010dc87",
+    "p32a/capture/mlb_schedule.json": "4a89ae86cbdef7e5f8e51b6ad01e28b2cbc4a9fbebcb98b4d5b307184ed11574",
+    "policy_source.json": "2138a8d8ec3ba4b1288e155355d684076c10f9e521a6bae102ae4ec961916969",
+    "report/p50c_prospective_prediction_shadow_ledger/intake/prospective_pregame_20261008.json": "e8596547657ca2b0853da321f14fa6956a1cf5f2d33da9e19ed8be2b871a97ab",
+    "source_captures/01-bf7e361995d2.json": "a39e005d0204e320df9f14625039de93c4f0475d513ad2036d850170aa8ff2a2",
+    "source_captures/02-59cca5c276fd.json": "c2f744b7b64b6a863f3a21d1fa4b0132ed2c8428bb3b82c9cbc42de52f46d1e3",
+    "source_captures/03-21a48330f279.json": "d29c76f9d9682a5cbc0ec3e9077fe81aa5b2b6e8c7b6782ea6e6e53f55588b4c",
+    "source_captures/04-503792655439.json": "5dce9e22bf4ac9356b8c22261d62943cc5ac55f2dc4e81357ff9257c7b296659",
+    "source_captures/05-474fe8e096f9.json": "4a89ae86cbdef7e5f8e51b6ad01e28b2cbc4a9fbebcb98b4d5b307184ed11574"
+  },
+  "freeze_persisted_at_utc": "2026-10-08T07:20:29.233081Z",
+  "freeze_result": {
+    "as_of_utc": "2026-10-08T07:20:29.220587Z",
+    "betting_forward_sample_count": 0,
+    "eligible_predictions_count": 0,
+    "exclusion_count": 1,
+    "exclusions": [
+      {
+        "feature_name": "starter_era_delta",
+        "game_pk": 849832,
+        "official_date": "2026-10-08",
+        "provider_game_id": "849832",
+        "reason": "INSUFFICIENT_SAME_SEASON_STARTER_HISTORY (starts=1)",
+        "scheduled_start_utc": "2026-10-09T00:00:00Z"
+      }
+    ],
+    "freeze_status": "NO_ELIGIBLE_PREDICTIONS",
+    "game_type": "D",
+    "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+    "pending_count": 0,
+    "predictions": [],
+    "pregame_input_path": "/private/tmp/match-prospective-sealed-849832-20261008/report/p50c_prospective_prediction_shadow_ledger/intake/prospective_pregame_20261008.json",
+    "run_dir": null,
+    "run_id": null,
+    "settled_prediction_forward_sample_count": 0,
+    "target_date": "2026-10-08",
+    "target_games_count": 1
+  },
+  "game_pk": 849832,
+  "game_type": "D",
+  "logloss": null,
+  "model_eligible_count": 0,
+  "model_excluded_count": 1,
+  "pair_rows": [],
+  "paired_pending_count": 0,
+  "paper_roi": null,
+  "policy": {
+    "cost_application": "deducted once per staked unit on wins and losses",
+    "maximum_quote_age_seconds_at_decision": 120,
+    "minimum_net_ev": "0.02",
+    "paper_cost_per_unit": "0.02",
+    "quote_selection": "latest valid P32A quote by observed_at_utc within the configured pregame window",
+    "roi_denominator": "units staked on BET rows only",
+    "selection_rule": "BET the frozen P50C selected side iff p_selected * selected_decimal_odds - 1 - cost_per_unit >= min_net_ev",
+    "stake_units_per_bet": "1"
+  },
+  "quote_acquisition_error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>",
+  "quote_availability_denominator": 1,
+  "quote_crosswalk_present_count": 0,
+  "quote_crosswalk_semantics": "P32A_PRICE_OBSERVATION_ONLY_NOT_CHAMPION_PAIR",
+  "quote_missing_or_rejected_count": 0,
+  "schedule_game_identity": {
+    "away_team": "Cleveland Guardians",
+    "away_team_code": "CLE",
+    "game_number": 1,
+    "game_pk": 849832,
+    "game_type": "D",
+    "home_team": "Chicago White Sox",
+    "home_team_code": "CWS",
+    "official_date": "2026-10-08",
+    "provider_game_id": "849832",
+    "provider_namespace": "MLB_STATS_API",
+    "scheduled_start_utc": "2026-10-09T00:00:00Z"
+  },
+  "schema_version": "prospective_pairing_capture.v1",
+  "settled_same_sample_count": 0,
+  "source_captures": [
+    {
+      "byte_count": 219766,
+      "path": "source_captures/01-bf7e361995d2.json",
+      "persisted_at_utc": "2026-10-08T07:20:25.845824Z",
+      "provider_published_at_utc": null,
+      "purpose": "MODEL_INPUT",
+      "received_at_utc": "2026-10-08T07:20:25.843107Z",
+      "request_started_at_utc": "2026-10-08T07:20:24.308428Z",
+      "sha256": "a39e005d0204e320df9f14625039de93c4f0475d513ad2036d850170aa8ff2a2",
+      "status": "SUCCESS",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-08-24&endDate=2026-10-08&gameType=R&hydrate=probablePitcher%28note%29%2Cteam&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameNumber%2CgameType%2CofficialDate%2CgameDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cabbreviation%2Cscore%2CprobablePitcher%2CfullName"
+    },
+    {
+      "byte_count": 501,
+      "path": "source_captures/02-59cca5c276fd.json",
+      "persisted_at_utc": "2026-10-08T07:20:26.816577Z",
+      "provider_published_at_utc": null,
+      "purpose": "MODEL_INPUT",
+      "received_at_utc": "2026-10-08T07:20:26.815778Z",
+      "request_started_at_utc": "2026-10-08T07:20:25.848913Z",
+      "sha256": "c2f744b7b64b6a863f3a21d1fa4b0132ed2c8428bb3b82c9cbc42de52f46d1e3",
+      "status": "SUCCESS",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-08&endDate=2026-10-08&gameType=D&hydrate=probablePitcher%28note%29%2Cteam&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameNumber%2CgameType%2CofficialDate%2CgameDate%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cabbreviation%2Cscore%2CprobablePitcher%2CfullName"
+    },
+    {
+      "byte_count": 30914,
+      "path": "source_captures/03-21a48330f279.json",
+      "persisted_at_utc": "2026-10-08T07:20:28.007885Z",
+      "provider_published_at_utc": null,
+      "purpose": "MODEL_INPUT",
+      "received_at_utc": "2026-10-08T07:20:28.007115Z",
+      "request_started_at_utc": "2026-10-08T07:20:26.817479Z",
+      "sha256": "d29c76f9d9682a5cbc0ec3e9077fe81aa5b2b6e8c7b6782ea6e6e53f55588b4c",
+      "status": "SUCCESS",
+      "url": "https://statsapi.mlb.com/api/v1/people/696146/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "byte_count": 55000,
+      "path": "source_captures/04-503792655439.json",
+      "persisted_at_utc": "2026-10-08T07:20:29.219930Z",
+      "provider_published_at_utc": null,
+      "purpose": "MODEL_INPUT",
+      "received_at_utc": "2026-10-08T07:20:29.218886Z",
+      "request_started_at_utc": "2026-10-08T07:20:28.008388Z",
+      "sha256": "5dce9e22bf4ac9356b8c22261d62943cc5ac55f2dc4e81357ff9257c7b296659",
+      "status": "SUCCESS",
+      "url": "https://statsapi.mlb.com/api/v1/people/800048/stats?stats=gameLog&group=pitching&season=2026&gameType=R"
+    },
+    {
+      "byte_count": 6238,
+      "path": "source_captures/05-474fe8e096f9.json",
+      "persisted_at_utc": "2026-10-08T07:20:30.270347Z",
+      "provider_published_at_utc": null,
+      "purpose": "QUOTE_CAPTURE",
+      "received_at_utc": "2026-10-08T07:20:30.269628Z",
+      "request_started_at_utc": "2026-10-08T07:20:29.233197Z",
+      "sha256": "4a89ae86cbdef7e5f8e51b6ad01e28b2cbc4a9fbebcb98b4d5b307184ed11574",
+      "status": "SUCCESS",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-08&endDate=2026-10-15&gameType=D&hydrate=team"
+    },
+    {
+      "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>",
+      "provider_published_at_utc": null,
+      "purpose": "QUOTE_CAPTURE",
+      "request_started_at_utc": "2026-10-08T07:20:30.271550Z",
+      "status": "FAILED",
+      "url": "https://blob3rd.sportslottery.com.tw/apidata/Live/Games.zh.json"
+    }
+  ],
+  "status": "MODEL_EXCLUDED",
+  "target_date": "2026-10-08"
+}

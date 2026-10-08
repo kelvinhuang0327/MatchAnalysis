@@ -1,0 +1,10 @@
+{
+  "champion_inference_replay_verified": null,
+  "feature_replay_verified": true,
+  "pair_rows": [],
+  "paired_pending_count": 0,
+  "schema_version": "prospective_pairing_capture.v1",
+  "settled_same_sample_count": 0,
+  "status": "MODEL_EXCLUDED",
+  "verified_file_count": 9
+}

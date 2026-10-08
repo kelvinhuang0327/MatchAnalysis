@@ -146,6 +146,7 @@ def _select_target_slate(
     *,
     started_at_utc: datetime,
     requested_target_date: str | None = None,
+    minimum_games: int = 2,
 ) -> tuple[str, tuple[dict[str, Any], ...]]:
     """Choose the earliest future local slate from official MLB timing only."""
 
@@ -178,7 +179,7 @@ def _select_target_slate(
                 ),
             )
         )
-        if len(requested_rows) < 2:
+        if len(requested_rows) < minimum_games:
             raise RuntimeError(STOP_P32A_NO_TARGET_SLATE)
         return requested_date.isoformat(), requested_rows
 
@@ -202,7 +203,7 @@ def _select_target_slate(
             ),
         )
     )
-    if len(target_rows) < 2:
+    if len(target_rows) < minimum_games:
         raise RuntimeError(STOP_P32A_NO_TARGET_SLATE)
     return target_date.isoformat(), target_rows
 
@@ -213,6 +214,7 @@ def acquire_tsl_moneyline_snapshot(
     runtime_root: str | Path = P32A_RUNTIME_ROOT,
     target_date: str | None = None,
     game_type: str = "R",
+    minimum_qualified_games: int = 2,
     clock: Clock = lambda: datetime.now(UTC),
     schedule_opener: JsonOpener | None = None,
     tsl_fetcher: Callable[[str], bytes] | None = None,
@@ -226,6 +228,8 @@ def acquire_tsl_moneyline_snapshot(
 
     if not isinstance(game_type, str) or game_type not in MLB_PROVIDER_GAME_TYPES:
         raise ValueError("P32A_PROVIDER_GAME_TYPE_REQUIRED: unsupported or missing provider game_type")
+    if isinstance(minimum_qualified_games, bool) or not isinstance(minimum_qualified_games, int) or minimum_qualified_games < 1:
+        raise ValueError("P32A_MINIMUM_QUALIFIED_GAMES_INVALID")
     runtime_path = Path(runtime_root)
     started_at = _utc(clock())
     schedule_start = started_at.astimezone(TSL_LOCAL_TIMEZONE).date()
@@ -253,6 +257,7 @@ def acquire_tsl_moneyline_snapshot(
         schedule_rows,
         started_at_utc=started_at,
         requested_target_date=target_date,
+        minimum_games=minimum_qualified_games,
     )
 
     client = (
@@ -303,7 +308,7 @@ def acquire_tsl_moneyline_snapshot(
             }
         )
     )
-    if len(requested_game_ids) < 2:
+    if len(requested_game_ids) < minimum_qualified_games:
         raise RuntimeError(STOP_P32A_TARGET_COVERAGE)
     return TslMoneylineSnapshotAcquisition(
         operation=P32A_OPERATION,

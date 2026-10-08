@@ -1,0 +1,46 @@
+{
+  "authority": "UNCHANGED_P22B_CHAMPION_AND_EXISTING_P32A_P50C_SETTLE",
+  "evaluation": [
+    "Same exact games for Champion and no-vig market Brier/logloss/accuracy",
+    "Fixed 1-unit paper rule with unchanged min net EV .02 and cost .02/unit",
+    "ROI = net settled paper P&L / units staked on BET only; zero stake => null",
+    "Closing price unavailable => CLV unknown",
+    "No efficacy promotion solely from 50 samples; review paired score uncertainty and date blocks"
+  ],
+  "excluded_denominators": [
+    "MODEL_EXCLUDED",
+    "QUOTE_MISSING_OR_INVALID",
+    "AMBIGUOUS_IDENTITY",
+    "STARTED_OR_LATE_CAPTURE",
+    "STALE_QUOTE",
+    "PENDING_OR_NONFINAL"
+  ],
+  "forbidden_substitutes": [
+    "102 historical price-only games as Champion-comparable",
+    "Backdated as-of or generation timestamp as source receipt",
+    "Lower starter-history requirement or infer missing ERA",
+    "P39 historical prices as live pregame prices",
+    "Postseason samples mixed into R denominator"
+  ],
+  "immediate_blockers": [
+    "Current 849832 home starter has 1 eligible same-season start, Champion requires >=2",
+    "TSL TLS chain verification failed for both normal Python and system curl; current quotes unknown",
+    "No new qualified final pairs; no scheduled monitor authorized or started"
+  ],
+  "minimum_review_population": 50,
+  "new_candidate_trials": 0,
+  "not_a_scheduler": true,
+  "population": "UNIQUE_REGULAR_SEASON_R_FULL_GAME_MONEYLINE_PAIRED_FINAL",
+  "postseason_policy": "SEPARATE_DIAGNOSTIC_COHORT_ONLY",
+  "schema_version": "prospective_pairing.next_acceptance.v1",
+  "source_requirements": [
+    "Exact official full game identity including gameType/gameNumber/team names/codes/date/start",
+    "Raw source SHA256 plus actual received/persisted timestamps before model cutoff",
+    "Frozen Champion artifact, exact numeric features and pregame freeze persistence receipt",
+    "Two named TSL MNL sides, source game time and actual local capture time",
+    "Actual decision after all inputs persisted and strictly before both official and TSL starts",
+    "Quote age <= existing 120 seconds at ACTUAL decision; provider publication time unknown retained",
+    "Official final admitted by existing settle after freeze; count no-bets too"
+  ],
+  "strategy_or_model_changes": false
+}

@@ -1,0 +1,36 @@
+{
+  "error": "CalledProcessError: Command '['/usr/bin/curl', '--proto', '=https', '--fail', '--silent', '--show-error', '--connect-timeout', '5', '--max-time', '20', '--max-filesize', '2097152', 'https://blob3rd.sportslottery.com.tw/apidata/Live/Games.zh.json']' returned non-zero exit status 60.",
+  "files": {
+    "p32a/capture/mlb_schedule.json": "4a89ae86cbdef7e5f8e51b6ad01e28b2cbc4a9fbebcb98b4d5b307184ed11574",
+    "source_captures/01-474fe8e096f9.json": "4a89ae86cbdef7e5f8e51b6ad01e28b2cbc4a9fbebcb98b4d5b307184ed11574"
+  },
+  "game_pk": 849832,
+  "model_capture_report_sha256": "cfbb232e0ee65239bf3b63c6e431297a3a873e159ba3bfd28d33199f877bc867",
+  "model_eligible_count": 0,
+  "price_only_not_model_pair": true,
+  "schema_version": "prospective_pairing.market_availability.v1",
+  "settled_same_sample_count": 0,
+  "source_captures": [
+    {
+      "byte_count": 6238,
+      "path": "source_captures/01-474fe8e096f9.json",
+      "persisted_at_utc": "2026-10-08T07:22:57.064271Z",
+      "provider_published_at_utc": null,
+      "purpose": "QUOTE_CAPTURE",
+      "received_at_utc": "2026-10-08T07:22:57.063640Z",
+      "request_started_at_utc": "2026-10-08T07:22:56.072844Z",
+      "sha256": "4a89ae86cbdef7e5f8e51b6ad01e28b2cbc4a9fbebcb98b4d5b307184ed11574",
+      "status": "SUCCESS",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-08&endDate=2026-10-15&gameType=D&hydrate=team"
+    },
+    {
+      "error": "CalledProcessError: Command '['/usr/bin/curl', '--proto', '=https', '--fail', '--silent', '--show-error', '--connect-timeout', '5', '--max-time', '20', '--max-filesize', '2097152', 'https://blob3rd.sportslottery.com.tw/apidata/Live/Games.zh.json']' returned non-zero exit status 60.",
+      "provider_published_at_utc": null,
+      "purpose": "QUOTE_CAPTURE",
+      "request_started_at_utc": "2026-10-08T07:22:57.065009Z",
+      "status": "FAILED",
+      "url": "https://blob3rd.sportslottery.com.tw/apidata/Live/Games.zh.json"
+    }
+  ],
+  "status": "SOURCE_UNAVAILABLE"
+}

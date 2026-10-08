@@ -140,6 +140,7 @@ def fetch_mlb_schedule_data(
     end_date: str,
     *,
     game_type: str = REGULAR_SEASON_GAME_TYPE,
+    fields: str | None = None,
     opener: JsonOpener | None = None,
     timeout: int = 30,
 ) -> tuple[dict[str, Any], str, str]:
@@ -158,6 +159,8 @@ def fetch_mlb_schedule_data(
         "gameType": game_type,
         "hydrate": "probablePitcher(note),team",
     }
+    if fields is not None:
+        query["fields"] = fields
     raw_bytes, req_url = fetch_json_bytes(url, query=query, opener=actual_opener, timeout=timeout)
     parsed = json.loads(raw_bytes.decode("utf-8"))
     return parsed, req_url, sha256_bytes(raw_bytes)
@@ -430,6 +433,7 @@ def execute_daily_moneyline_prediction_freeze(
     repository_root: str | Path | None = None,
     output_root: str | Path | None = None,
     history_start_date: str | None = None,
+    schedule_fields: str | None = None,
     game_type: str = REGULAR_SEASON_GAME_TYPE,
     intake_path: str | Path | None = None,
     target_game_identity: Mapping[str, Any] | None = None,
@@ -488,6 +492,7 @@ def execute_daily_moneyline_prediction_freeze(
         hist_start,
         target_date,
         game_type=REGULAR_SEASON_GAME_TYPE,
+        fields=schedule_fields,
         opener=opener,
     )
     schedule_rows = [
@@ -501,6 +506,7 @@ def execute_daily_moneyline_prediction_freeze(
             target_date,
             target_date,
             game_type=game_type,
+            fields=schedule_fields,
             opener=opener,
         )
         schedule_rows.extend(
@@ -693,6 +699,7 @@ def execute_daily_moneyline_prediction_freeze(
         "schedule_sha256": sched_sha256,
         "pitcher_sources": pitcher_sources,
         "fetched_at_utc": as_of_str,
+        "fetched_at_utc_semantics": "INFERENCE_CUTOFF_NOT_RAW_RECEIPT",
         "target_date": target_date,
         **non_r_schedule_manifest,
     }
