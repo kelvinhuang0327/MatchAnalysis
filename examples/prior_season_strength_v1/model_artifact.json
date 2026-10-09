@@ -1,0 +1,30 @@
+{
+  "annual_feature_update_rule": "Fixed for whole following season; never current-season updates.",
+  "candidate_id": "prior_complete_season_net_runs_per_game_home_l2_logistic_v1",
+  "evaluation_feature_season": 2025,
+  "features": [
+    "previous_season_net_runs_per_game_home_minus_away"
+  ],
+  "fit": {
+    "beta_strength": 0.05763652365961638,
+    "converged": true,
+    "gradient_infinity_norm": 3.789704980326558e-09,
+    "intercept": 0.171755167310644,
+    "iterations": 2,
+    "penalized_mean_loss": 0.6874065622936296
+  },
+  "intercept_penalized": false,
+  "l2_lambda": 1,
+  "protocol_sha256": "96cc478f4fbe7b4c1e421173f7c7a6d807abed1ddf40a65400fd617354a2fdae",
+  "real_fit_count": 1,
+  "schema_version": "prior_season_strength.model.v1",
+  "standardization": {
+    "mean": 8.452315208051604e-19,
+    "scale": 1.0718452869815018
+  },
+  "training_admitted": 2430,
+  "training_feature_season": 2024,
+  "training_label_season": 2025,
+  "training_population": 2430,
+  "training_rows_sha256": "292d676e6f83914b46823a6411eeba2ea0bba0c52f6ac0c34d0a54f1076ed266"
+}

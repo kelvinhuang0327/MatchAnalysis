@@ -1,0 +1,195 @@
+{
+  "annual_chronology_rule": "Maximum original/later-completion date of full source must be strictly earlier than next-season first game. Annual ordinal counts must be contiguous for each team. Historical snapshots may be revised after season; no contemporaneous availability claim.",
+  "candidate_id": "prior_complete_season_net_runs_per_game_home_l2_logistic_v1",
+  "distinct_from": "season_to_date_run_strength_home_l2_logistic_v1; old candidate stays unfitted",
+  "evaluation": {
+    "direction": "HOME iff p_home>=0.5 else AWAY.",
+    "fixed_home_control": {
+      "direction": "ALWAYS_HOME",
+      "probability": 0.5,
+      "role": "Uninformative fixed 0.5 probability reference; not home-win certainty."
+    },
+    "interpretation": "HISTORICAL_RECONSTRUCTION_DEVELOPMENT; all periods previously reused or opened. Never holdout/prospective.",
+    "market_p_home": "away_decimal_price/(home_decimal_price+away_decimal_price), proportional no-vig.",
+    "official_dates": [
+      "2026-06-14",
+      "2026-06-22"
+    ],
+    "population": 102,
+    "quote_age": "Descriptive only; no claimed live execution quality or policy change.",
+    "same_game_metrics": [
+      "accuracy",
+      "Brier",
+      "logloss"
+    ],
+    "snapshot_rule": "Reuse exact existing eligible-game quote/raw-record hash, unique full identity and both prices; observed_at strictly before official/source scheduled starts and known actual firstPitch. Never select prices based on candidate performance."
+  },
+  "feature_definition": {
+    "annual_strength": "(sum runs_for - sum runs_against)/games_played from the entire previous completed R season; no current-season update.",
+    "athletics_franchise_note": "2024 OAK and 2025 ATH both map to canonical Athletics/MLB133; verified exact CSV names, no fuzzy match.",
+    "evaluation_examples": "2026 existing 102 games with fixed 2025 annual aggregates.",
+    "home_advantage": "Unpenalized intercept in home-win logistic regression.",
+    "identity_crosswalk": {
+      "Arizona Diamondbacks": 109,
+      "Athletics": 133,
+      "Atlanta Braves": 144,
+      "Baltimore Orioles": 110,
+      "Boston Red Sox": 111,
+      "Chicago Cubs": 112,
+      "Chicago White Sox": 145,
+      "Cincinnati Reds": 113,
+      "Cleveland Guardians": 114,
+      "Colorado Rockies": 115,
+      "Detroit Tigers": 116,
+      "Houston Astros": 117,
+      "Kansas City Royals": 118,
+      "Los Angeles Angels": 108,
+      "Los Angeles Dodgers": 119,
+      "Miami Marlins": 146,
+      "Milwaukee Brewers": 158,
+      "Minnesota Twins": 142,
+      "New York Mets": 121,
+      "New York Yankees": 147,
+      "Philadelphia Phillies": 143,
+      "Pittsburgh Pirates": 134,
+      "San Diego Padres": 135,
+      "San Francisco Giants": 137,
+      "Seattle Mariners": 136,
+      "St. Louis Cardinals": 138,
+      "Tampa Bay Rays": 139,
+      "Texas Rangers": 140,
+      "Toronto Blue Jays": 141,
+      "Washington Nationals": 120
+    },
+    "missing": "Exclude target if prior annual team absent; fail source integrity if unknown identities, invalid scores, inconsistent independent CSV labels, duplicate physical game keys or gaps in season ordinals. No imputation.",
+    "neutral_venues": "Use official home designation, no added neutral-site adjustment.",
+    "retrosheet_code_names": {
+      "ANA": "Los Angeles Angels",
+      "ARI": "Arizona Diamondbacks",
+      "ATH": "Athletics",
+      "ATL": "Atlanta Braves",
+      "BAL": "Baltimore Orioles",
+      "BOS": "Boston Red Sox",
+      "CHA": "Chicago White Sox",
+      "CHN": "Chicago Cubs",
+      "CIN": "Cincinnati Reds",
+      "CLE": "Cleveland Guardians",
+      "COL": "Colorado Rockies",
+      "DET": "Detroit Tigers",
+      "HOU": "Houston Astros",
+      "KCA": "Kansas City Royals",
+      "LAN": "Los Angeles Dodgers",
+      "MIA": "Miami Marlins",
+      "MIL": "Milwaukee Brewers",
+      "MIN": "Minnesota Twins",
+      "NYA": "New York Yankees",
+      "NYN": "New York Mets",
+      "OAK": "Athletics",
+      "PHI": "Philadelphia Phillies",
+      "PIT": "Pittsburgh Pirates",
+      "SDN": "San Diego Padres",
+      "SEA": "Seattle Mariners",
+      "SFN": "San Francisco Giants",
+      "SLN": "St. Louis Cardinals",
+      "TBA": "Tampa Bay Rays",
+      "TEX": "Texas Rangers",
+      "TOR": "Toronto Blue Jays",
+      "WAS": "Washington Nationals"
+    },
+    "single_feature": "prior_year_strength(home) - prior_year_strength(away)",
+    "suspension_rule": "Use later completion date from Retrosheet field14; permit exactly once only if fully finished before next season starts. No within-season updates; no unnecessary per-game UTC.",
+    "train_examples": "2025 outcomes with fixed 2024 annual aggregates.",
+    "warmup": "None within target season; full completed prior season and all 30 franchise identities required."
+  },
+  "fixed_at_utc": "2026-10-09T03:33:00.676231Z",
+  "hyperparameter_search_count": 0,
+  "hypothesis": "Previous full-season run magnitude may add information beyond recent wins/losses; unproven.",
+  "new_source_gets": 0,
+  "old_candidate_source": {
+    "must_remain_fit_count": 0,
+    "path": "/tmp/MatchAnalysis-prospective-pairing-20261008/examples/run_strength_logistic_v1/data_gate_result.json",
+    "sha256": "7a5fe84ef8a10a4a6aad05f907d0deeaeff8535c7475e9cdf89edbdaa75bdc53"
+  },
+  "preserved": [
+    "Champion",
+    "main",
+    "ledger",
+    "frozen predictions",
+    "all previous sealed capsules"
+  ],
+  "schema_version": "prior_season_strength.protocol.v1",
+  "sources": {
+    "earlier_csv": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/mlb-2024-asplayed.csv",
+      "sha256": "f675a12718a41a4560632034cee8aea93b8cb9c01061f23ff04034608c731f58"
+    },
+    "earlier_gamelog": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/gl2024.txt",
+      "sha256": "48bae769201e0b5b232f34540dc3511974fac3a2c2a76e9622ffef9651ddca8e"
+    },
+    "earlier_metadata": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/mlb-2024-asplayed.csv.metadata.json",
+      "sha256": "7f8a4c012bd5464c976f89b2627da79bb73a5ca715fbd370e7558e259efe2db8"
+    },
+    "eval_game_info": {
+      "path": "/tmp/MatchAnalysis-prospective-pairing-20261008/examples/team_recent10_research_v1/completion_source.json",
+      "sha256": "9c108364e64d74cff10837825b642dcb7c877ab5eb1fa46057c603d8eaeddf84"
+    },
+    "eval_opened_outcomes": {
+      "path": "/tmp/MatchAnalysis-prospective-pairing-20261008/examples/team_recent10_research_v1/opened_outcomes.jsonl",
+      "sha256": "c26dbc24cd4dd9f5e88b2ca27350a2ccf013b9c2aeacf59dabcb1fe0e924d437"
+    },
+    "eval_population": {
+      "path": "/tmp/MatchAnalysis-prospective-pairing-20261008/examples/team_recent10_research_v1/population.jsonl",
+      "sha256": "f28de31453be9acffe2ac646bdc7300489ba2c643a6f3bb2b7595fb51fd409dc"
+    },
+    "eval_schedule": {
+      "path": "/tmp/MatchAnalysis-prospective-pairing-20261008/data/fixtures/p23f2_official_2026_history/raw/schedule_2026-03-25_2026-06-30.json",
+      "sha256": "6950ed55ff1ddeb9b90f90138847ed7ebe79ce39d37614268d344af96eb65e55"
+    },
+    "prior_2024_use": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/derived/p39_2024_holdout_summary.json",
+      "sha256": "b8daff63978faa00532f68f1c7198398c69bcf374f830a4538b1c909de3aecd4"
+    },
+    "prior_2025_use": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/derived/p44_temporal_stability_summary.json",
+      "sha256": "5b3183023b823de3d6eee7c814f32068f197cd1739602c0fa9233d021172a616"
+    },
+    "prior_cross_year_use": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/derived/p41_cross_year_combined_summary.json",
+      "sha256": "c2a6794f930cc5ec745efc067387f30944a23eb17dc8da55757c79f2840802de"
+    },
+    "train_csv": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/mlb-2025-asplayed.csv",
+      "sha256": "614341bf6a6e7f77f2c2ff2f0433b29fb56b51d8eed223c22ea1ff9705ee903c"
+    },
+    "train_gamelog": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/gl2025.txt",
+      "sha256": "586a7d73c2755c17a13ae034ba0cd0c5eaf77251a8b77ac7be780aa799d63f3d"
+    },
+    "train_metadata": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/mlb-2025-asplayed.csv.metadata.json",
+      "sha256": "288f5c6e5f969b88918d36d7b199396c9879a32032539837bb97b86759f664e5"
+    }
+  },
+  "success_interpretation": {
+    "descriptive_probability_checks": [
+      "Brier",
+      "logloss"
+    ],
+    "inference": "Descriptive only; single opened development batch does not establish generalization or profitability.",
+    "numeric_minimum_improvement": null,
+    "user_priority": "Same-game qualified accuracy above market; probability quality not worse."
+  },
+  "training": {
+    "intercept_penalized": false,
+    "l2_lambda": 1,
+    "label": "HOME iff final home runs > final away runs; no tie labels.",
+    "model_artifact_policy": "Exclusive creation; if artifact exists, never retrain or overwrite. Replay uses saved coefficients only.",
+    "objective": "mean binary logloss + (1/2)*beta_strength^2",
+    "season": 2025,
+    "single_real_fit_limit": 1,
+    "solver": "Deterministic 2x2 damped Newton; zero initial parameters; max100 iterations, max20 backtracking halves, absolute gradient infinity-norm tolerance1e-8; fail rather than tune or switch.",
+    "standardization": "Training examples only mean and population standard deviation; SD zero uses 1. Fixed training scaler applied to 2026."
+  }
+}

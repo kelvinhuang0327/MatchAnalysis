@@ -1,0 +1,721 @@
+{
+  "annual_chronology": {
+    "2024_to_2025_gap_days": 169,
+    "2025_to_2026_gap_days": 178,
+    "first_2026_R_date": "2026-03-25",
+    "requires_per_game_final_utc": false,
+    "source_version_claim": "CURRENT_HASH_BOUND_RECONSTRUCTION_NOT_CONTEMPORANEOUS"
+  },
+  "annual_sources": [
+    {
+      "aggregates": [
+        {
+          "games": 162,
+          "name": "Los Angeles Angels",
+          "runs_against": 797,
+          "runs_against_per_game": 4.919753086419753,
+          "runs_for": 635,
+          "runs_for_per_game": 3.919753086419753,
+          "strength": -1.0,
+          "team_id": 108
+        },
+        {
+          "games": 162,
+          "name": "Arizona Diamondbacks",
+          "runs_against": 788,
+          "runs_against_per_game": 4.864197530864198,
+          "runs_for": 886,
+          "runs_for_per_game": 5.469135802469136,
+          "strength": 0.6049382716049383,
+          "team_id": 109
+        },
+        {
+          "games": 162,
+          "name": "Baltimore Orioles",
+          "runs_against": 699,
+          "runs_against_per_game": 4.314814814814815,
+          "runs_for": 786,
+          "runs_for_per_game": 4.851851851851852,
+          "strength": 0.5370370370370371,
+          "team_id": 110
+        },
+        {
+          "games": 162,
+          "name": "Boston Red Sox",
+          "runs_against": 747,
+          "runs_against_per_game": 4.611111111111111,
+          "runs_for": 751,
+          "runs_for_per_game": 4.635802469135802,
+          "strength": 0.024691358024691357,
+          "team_id": 111
+        },
+        {
+          "games": 162,
+          "name": "Chicago Cubs",
+          "runs_against": 669,
+          "runs_against_per_game": 4.12962962962963,
+          "runs_for": 736,
+          "runs_for_per_game": 4.54320987654321,
+          "strength": 0.41358024691358025,
+          "team_id": 112
+        },
+        {
+          "games": 162,
+          "name": "Cincinnati Reds",
+          "runs_against": 694,
+          "runs_against_per_game": 4.283950617283951,
+          "runs_for": 699,
+          "runs_for_per_game": 4.314814814814815,
+          "strength": 0.030864197530864196,
+          "team_id": 113
+        },
+        {
+          "games": 161,
+          "name": "Cleveland Guardians",
+          "runs_against": 621,
+          "runs_against_per_game": 3.857142857142857,
+          "runs_for": 708,
+          "runs_for_per_game": 4.39751552795031,
+          "strength": 0.5403726708074534,
+          "team_id": 114
+        },
+        {
+          "games": 162,
+          "name": "Colorado Rockies",
+          "runs_against": 929,
+          "runs_against_per_game": 5.734567901234568,
+          "runs_for": 682,
+          "runs_for_per_game": 4.209876543209877,
+          "strength": -1.5246913580246915,
+          "team_id": 115
+        },
+        {
+          "games": 162,
+          "name": "Detroit Tigers",
+          "runs_against": 642,
+          "runs_against_per_game": 3.962962962962963,
+          "runs_for": 682,
+          "runs_for_per_game": 4.209876543209877,
+          "strength": 0.24691358024691357,
+          "team_id": 116
+        },
+        {
+          "games": 161,
+          "name": "Houston Astros",
+          "runs_against": 649,
+          "runs_against_per_game": 4.031055900621118,
+          "runs_for": 740,
+          "runs_for_per_game": 4.596273291925466,
+          "strength": 0.5652173913043478,
+          "team_id": 117
+        },
+        {
+          "games": 162,
+          "name": "Kansas City Royals",
+          "runs_against": 644,
+          "runs_against_per_game": 3.9753086419753085,
+          "runs_for": 735,
+          "runs_for_per_game": 4.537037037037037,
+          "strength": 0.5617283950617284,
+          "team_id": 118
+        },
+        {
+          "games": 162,
+          "name": "Los Angeles Dodgers",
+          "runs_against": 686,
+          "runs_against_per_game": 4.234567901234568,
+          "runs_for": 842,
+          "runs_for_per_game": 5.197530864197531,
+          "strength": 0.9629629629629629,
+          "team_id": 119
+        },
+        {
+          "games": 162,
+          "name": "Washington Nationals",
+          "runs_against": 764,
+          "runs_against_per_game": 4.716049382716049,
+          "runs_for": 660,
+          "runs_for_per_game": 4.074074074074074,
+          "strength": -0.6419753086419753,
+          "team_id": 120
+        },
+        {
+          "games": 162,
+          "name": "New York Mets",
+          "runs_against": 697,
+          "runs_against_per_game": 4.302469135802469,
+          "runs_for": 768,
+          "runs_for_per_game": 4.7407407407407405,
+          "strength": 0.4382716049382716,
+          "team_id": 121
+        },
+        {
+          "games": 162,
+          "name": "Athletics",
+          "runs_against": 764,
+          "runs_against_per_game": 4.716049382716049,
+          "runs_for": 643,
+          "runs_for_per_game": 3.9691358024691357,
+          "strength": -0.7469135802469136,
+          "team_id": 133
+        },
+        {
+          "games": 162,
+          "name": "Pittsburgh Pirates",
+          "runs_against": 739,
+          "runs_against_per_game": 4.561728395061729,
+          "runs_for": 665,
+          "runs_for_per_game": 4.104938271604938,
+          "strength": -0.4567901234567901,
+          "team_id": 134
+        },
+        {
+          "games": 162,
+          "name": "San Diego Padres",
+          "runs_against": 669,
+          "runs_against_per_game": 4.12962962962963,
+          "runs_for": 760,
+          "runs_for_per_game": 4.691358024691358,
+          "strength": 0.5617283950617284,
+          "team_id": 135
+        },
+        {
+          "games": 162,
+          "name": "Seattle Mariners",
+          "runs_against": 607,
+          "runs_against_per_game": 3.746913580246914,
+          "runs_for": 676,
+          "runs_for_per_game": 4.172839506172839,
+          "strength": 0.42592592592592593,
+          "team_id": 136
+        },
+        {
+          "games": 162,
+          "name": "San Francisco Giants",
+          "runs_against": 699,
+          "runs_against_per_game": 4.314814814814815,
+          "runs_for": 693,
+          "runs_for_per_game": 4.277777777777778,
+          "strength": -0.037037037037037035,
+          "team_id": 137
+        },
+        {
+          "games": 162,
+          "name": "St. Louis Cardinals",
+          "runs_against": 719,
+          "runs_against_per_game": 4.438271604938271,
+          "runs_for": 672,
+          "runs_for_per_game": 4.148148148148148,
+          "strength": -0.29012345679012347,
+          "team_id": 138
+        },
+        {
+          "games": 162,
+          "name": "Tampa Bay Rays",
+          "runs_against": 663,
+          "runs_against_per_game": 4.092592592592593,
+          "runs_for": 604,
+          "runs_for_per_game": 3.728395061728395,
+          "strength": -0.36419753086419754,
+          "team_id": 139
+        },
+        {
+          "games": 162,
+          "name": "Texas Rangers",
+          "runs_against": 738,
+          "runs_against_per_game": 4.555555555555555,
+          "runs_for": 683,
+          "runs_for_per_game": 4.216049382716049,
+          "strength": -0.3395061728395062,
+          "team_id": 140
+        },
+        {
+          "games": 162,
+          "name": "Toronto Blue Jays",
+          "runs_against": 743,
+          "runs_against_per_game": 4.58641975308642,
+          "runs_for": 671,
+          "runs_for_per_game": 4.1419753086419755,
+          "strength": -0.4444444444444444,
+          "team_id": 141
+        },
+        {
+          "games": 162,
+          "name": "Minnesota Twins",
+          "runs_against": 735,
+          "runs_against_per_game": 4.537037037037037,
+          "runs_for": 742,
+          "runs_for_per_game": 4.580246913580247,
+          "strength": 0.043209876543209874,
+          "team_id": 142
+        },
+        {
+          "games": 162,
+          "name": "Philadelphia Phillies",
+          "runs_against": 671,
+          "runs_against_per_game": 4.1419753086419755,
+          "runs_for": 784,
+          "runs_for_per_game": 4.839506172839506,
+          "strength": 0.6975308641975309,
+          "team_id": 143
+        },
+        {
+          "games": 162,
+          "name": "Atlanta Braves",
+          "runs_against": 607,
+          "runs_against_per_game": 3.746913580246914,
+          "runs_for": 704,
+          "runs_for_per_game": 4.345679012345679,
+          "strength": 0.5987654320987654,
+          "team_id": 144
+        },
+        {
+          "games": 162,
+          "name": "Chicago White Sox",
+          "runs_against": 813,
+          "runs_against_per_game": 5.018518518518518,
+          "runs_for": 507,
+          "runs_for_per_game": 3.1296296296296298,
+          "strength": -1.8888888888888888,
+          "team_id": 145
+        },
+        {
+          "games": 162,
+          "name": "Miami Marlins",
+          "runs_against": 841,
+          "runs_against_per_game": 5.191358024691358,
+          "runs_for": 637,
+          "runs_for_per_game": 3.932098765432099,
+          "strength": -1.2592592592592593,
+          "team_id": 146
+        },
+        {
+          "games": 162,
+          "name": "New York Yankees",
+          "runs_against": 668,
+          "runs_against_per_game": 4.1234567901234565,
+          "runs_for": 815,
+          "runs_for_per_game": 5.030864197530864,
+          "strength": 0.9074074074074074,
+          "team_id": 147
+        },
+        {
+          "games": 162,
+          "name": "Milwaukee Brewers",
+          "runs_against": 641,
+          "runs_against_per_game": 3.95679012345679,
+          "runs_for": 777,
+          "runs_for_per_game": 4.796296296296297,
+          "strength": 0.8395061728395061,
+          "team_id": 158
+        }
+      ],
+      "all_team_game_ordinals_contiguous": true,
+      "csv_raw_score_label_multiset_matches": true,
+      "first_game_date": "2024-03-20",
+      "games": 2429,
+      "last_completion_date": "2024-09-30",
+      "last_original_date": "2024-09-30",
+      "no_contemporaneous_capture_claim": true,
+      "resolved_later_completion_games": [
+        {
+          "completion_date": "2024-05-22",
+          "key": "20240521|0|BAL|SLN",
+          "original_date": "2024-05-21"
+        },
+        {
+          "completion_date": "2024-08-26",
+          "key": "20240626|0|TOR|BOS",
+          "original_date": "2024-06-26"
+        },
+        {
+          "completion_date": "2024-08-28",
+          "key": "20240827|0|TEX|CHA",
+          "original_date": "2024-08-27"
+        }
+      ],
+      "season": 2024,
+      "teams": 30
+    },
+    {
+      "aggregates": [
+        {
+          "games": 162,
+          "name": "Los Angeles Angels",
+          "runs_against": 837,
+          "runs_against_per_game": 5.166666666666667,
+          "runs_for": 673,
+          "runs_for_per_game": 4.154320987654321,
+          "strength": -1.0123456790123457,
+          "team_id": 108
+        },
+        {
+          "games": 162,
+          "name": "Arizona Diamondbacks",
+          "runs_against": 785,
+          "runs_against_per_game": 4.845679012345679,
+          "runs_for": 791,
+          "runs_for_per_game": 4.882716049382716,
+          "strength": 0.037037037037037035,
+          "team_id": 109
+        },
+        {
+          "games": 162,
+          "name": "Baltimore Orioles",
+          "runs_against": 788,
+          "runs_against_per_game": 4.864197530864198,
+          "runs_for": 677,
+          "runs_for_per_game": 4.179012345679013,
+          "strength": -0.6851851851851852,
+          "team_id": 110
+        },
+        {
+          "games": 162,
+          "name": "Boston Red Sox",
+          "runs_against": 676,
+          "runs_against_per_game": 4.172839506172839,
+          "runs_for": 786,
+          "runs_for_per_game": 4.851851851851852,
+          "strength": 0.6790123456790124,
+          "team_id": 111
+        },
+        {
+          "games": 162,
+          "name": "Chicago Cubs",
+          "runs_against": 649,
+          "runs_against_per_game": 4.006172839506172,
+          "runs_for": 793,
+          "runs_for_per_game": 4.895061728395062,
+          "strength": 0.8888888888888888,
+          "team_id": 112
+        },
+        {
+          "games": 162,
+          "name": "Cincinnati Reds",
+          "runs_against": 681,
+          "runs_against_per_game": 4.203703703703703,
+          "runs_for": 716,
+          "runs_for_per_game": 4.419753086419753,
+          "strength": 0.21604938271604937,
+          "team_id": 113
+        },
+        {
+          "games": 162,
+          "name": "Cleveland Guardians",
+          "runs_against": 649,
+          "runs_against_per_game": 4.006172839506172,
+          "runs_for": 643,
+          "runs_for_per_game": 3.9691358024691357,
+          "strength": -0.037037037037037035,
+          "team_id": 114
+        },
+        {
+          "games": 162,
+          "name": "Colorado Rockies",
+          "runs_against": 1021,
+          "runs_against_per_game": 6.302469135802469,
+          "runs_for": 597,
+          "runs_for_per_game": 3.685185185185185,
+          "strength": -2.617283950617284,
+          "team_id": 115
+        },
+        {
+          "games": 162,
+          "name": "Detroit Tigers",
+          "runs_against": 691,
+          "runs_against_per_game": 4.265432098765432,
+          "runs_for": 758,
+          "runs_for_per_game": 4.679012345679013,
+          "strength": 0.41358024691358025,
+          "team_id": 116
+        },
+        {
+          "games": 162,
+          "name": "Houston Astros",
+          "runs_against": 665,
+          "runs_against_per_game": 4.104938271604938,
+          "runs_for": 686,
+          "runs_for_per_game": 4.234567901234568,
+          "strength": 0.12962962962962962,
+          "team_id": 117
+        },
+        {
+          "games": 162,
+          "name": "Kansas City Royals",
+          "runs_against": 637,
+          "runs_against_per_game": 3.932098765432099,
+          "runs_for": 651,
+          "runs_for_per_game": 4.018518518518518,
+          "strength": 0.08641975308641975,
+          "team_id": 118
+        },
+        {
+          "games": 162,
+          "name": "Los Angeles Dodgers",
+          "runs_against": 683,
+          "runs_against_per_game": 4.216049382716049,
+          "runs_for": 825,
+          "runs_for_per_game": 5.092592592592593,
+          "strength": 0.8765432098765432,
+          "team_id": 119
+        },
+        {
+          "games": 162,
+          "name": "Washington Nationals",
+          "runs_against": 899,
+          "runs_against_per_game": 5.549382716049383,
+          "runs_for": 687,
+          "runs_for_per_game": 4.2407407407407405,
+          "strength": -1.308641975308642,
+          "team_id": 120
+        },
+        {
+          "games": 162,
+          "name": "New York Mets",
+          "runs_against": 715,
+          "runs_against_per_game": 4.41358024691358,
+          "runs_for": 766,
+          "runs_for_per_game": 4.728395061728395,
+          "strength": 0.3148148148148148,
+          "team_id": 121
+        },
+        {
+          "games": 162,
+          "name": "Athletics",
+          "runs_against": 817,
+          "runs_against_per_game": 5.04320987654321,
+          "runs_for": 733,
+          "runs_for_per_game": 4.5246913580246915,
+          "strength": -0.5185185185185185,
+          "team_id": 133
+        },
+        {
+          "games": 162,
+          "name": "Pittsburgh Pirates",
+          "runs_against": 645,
+          "runs_against_per_game": 3.9814814814814814,
+          "runs_for": 583,
+          "runs_for_per_game": 3.5987654320987654,
+          "strength": -0.38271604938271603,
+          "team_id": 134
+        },
+        {
+          "games": 162,
+          "name": "San Diego Padres",
+          "runs_against": 621,
+          "runs_against_per_game": 3.8333333333333335,
+          "runs_for": 702,
+          "runs_for_per_game": 4.333333333333333,
+          "strength": 0.5,
+          "team_id": 135
+        },
+        {
+          "games": 162,
+          "name": "Seattle Mariners",
+          "runs_against": 694,
+          "runs_against_per_game": 4.283950617283951,
+          "runs_for": 766,
+          "runs_for_per_game": 4.728395061728395,
+          "strength": 0.4444444444444444,
+          "team_id": 136
+        },
+        {
+          "games": 162,
+          "name": "San Francisco Giants",
+          "runs_against": 684,
+          "runs_against_per_game": 4.222222222222222,
+          "runs_for": 705,
+          "runs_for_per_game": 4.351851851851852,
+          "strength": 0.12962962962962962,
+          "team_id": 137
+        },
+        {
+          "games": 162,
+          "name": "St. Louis Cardinals",
+          "runs_against": 754,
+          "runs_against_per_game": 4.654320987654321,
+          "runs_for": 689,
+          "runs_for_per_game": 4.253086419753086,
+          "strength": -0.4012345679012346,
+          "team_id": 138
+        },
+        {
+          "games": 162,
+          "name": "Tampa Bay Rays",
+          "runs_against": 683,
+          "runs_against_per_game": 4.216049382716049,
+          "runs_for": 714,
+          "runs_for_per_game": 4.407407407407407,
+          "strength": 0.19135802469135801,
+          "team_id": 139
+        },
+        {
+          "games": 162,
+          "name": "Texas Rangers",
+          "runs_against": 605,
+          "runs_against_per_game": 3.734567901234568,
+          "runs_for": 684,
+          "runs_for_per_game": 4.222222222222222,
+          "strength": 0.4876543209876543,
+          "team_id": 140
+        },
+        {
+          "games": 162,
+          "name": "Toronto Blue Jays",
+          "runs_against": 721,
+          "runs_against_per_game": 4.450617283950617,
+          "runs_for": 798,
+          "runs_for_per_game": 4.925925925925926,
+          "strength": 0.47530864197530864,
+          "team_id": 141
+        },
+        {
+          "games": 162,
+          "name": "Minnesota Twins",
+          "runs_against": 773,
+          "runs_against_per_game": 4.771604938271605,
+          "runs_for": 678,
+          "runs_for_per_game": 4.185185185185185,
+          "strength": -0.5864197530864198,
+          "team_id": 142
+        },
+        {
+          "games": 162,
+          "name": "Philadelphia Phillies",
+          "runs_against": 648,
+          "runs_against_per_game": 4.0,
+          "runs_for": 778,
+          "runs_for_per_game": 4.802469135802469,
+          "strength": 0.8024691358024691,
+          "team_id": 143
+        },
+        {
+          "games": 162,
+          "name": "Atlanta Braves",
+          "runs_against": 734,
+          "runs_against_per_game": 4.530864197530864,
+          "runs_for": 724,
+          "runs_for_per_game": 4.469135802469136,
+          "strength": -0.06172839506172839,
+          "team_id": 144
+        },
+        {
+          "games": 162,
+          "name": "Chicago White Sox",
+          "runs_against": 742,
+          "runs_against_per_game": 4.580246913580247,
+          "runs_for": 647,
+          "runs_for_per_game": 3.993827160493827,
+          "strength": -0.5864197530864198,
+          "team_id": 145
+        },
+        {
+          "games": 162,
+          "name": "Miami Marlins",
+          "runs_against": 798,
+          "runs_against_per_game": 4.925925925925926,
+          "runs_for": 709,
+          "runs_for_per_game": 4.3765432098765435,
+          "strength": -0.5493827160493827,
+          "team_id": 146
+        },
+        {
+          "games": 162,
+          "name": "New York Yankees",
+          "runs_against": 685,
+          "runs_against_per_game": 4.228395061728395,
+          "runs_for": 849,
+          "runs_for_per_game": 5.2407407407407405,
+          "strength": 1.0123456790123457,
+          "team_id": 147
+        },
+        {
+          "games": 162,
+          "name": "Milwaukee Brewers",
+          "runs_against": 634,
+          "runs_against_per_game": 3.9135802469135803,
+          "runs_for": 806,
+          "runs_for_per_game": 4.9753086419753085,
+          "strength": 1.0617283950617284,
+          "team_id": 158
+        }
+      ],
+      "all_team_game_ordinals_contiguous": true,
+      "csv_raw_score_label_multiset_matches": true,
+      "first_game_date": "2025-03-18",
+      "games": 2430,
+      "last_completion_date": "2025-09-28",
+      "last_original_date": "2025-09-28",
+      "no_contemporaneous_capture_claim": true,
+      "resolved_later_completion_games": [
+        {
+          "completion_date": "2025-05-21",
+          "key": "20250519|0|CLE|MIN",
+          "original_date": "2025-05-19"
+        },
+        {
+          "completion_date": "2025-06-07",
+          "key": "20250606|0|ARI|CIN",
+          "original_date": "2025-06-06"
+        },
+        {
+          "completion_date": "2025-07-02",
+          "key": "20250701|0|CIN|BOS",
+          "original_date": "2025-07-01"
+        },
+        {
+          "completion_date": "2025-08-03",
+          "key": "20250802|0|ATL|CIN",
+          "original_date": "2025-08-02"
+        }
+      ],
+      "season": 2025,
+      "teams": 30
+    }
+  ],
+  "evaluation_admitted": 102,
+  "evaluation_population": 102,
+  "previously_used_development_only": true,
+  "source_metadata": {
+    "earlier_metadata": {
+      "dataset": "mlb-2024-asplayed.csv",
+      "generated_at_utc": "2026-05-24T13:55:54.865476Z",
+      "gl2024_sha256": "48bae769201e0b5b232f34540dc3511974fac3a2c2a76e9622ffef9651ddca8e",
+      "ingest_source_file": "gl2024.txt",
+      "ingest_source_type": "retrosheet_gamelog",
+      "p39_governance": {
+        "diagnostic_only": true,
+        "live_api_calls": 0,
+        "no_champion_modification": true,
+        "promotion_freeze": true,
+        "t_locked": 0.5
+      },
+      "row_count": 2429,
+      "season": "2024",
+      "season_end": "2024-11-02",
+      "season_start": "2024-03-20",
+      "source_license": "Retrosheet \u2014 free for educational/research use",
+      "source_url": "https://www.retrosheet.org/gamelogs/gl2024.zip"
+    },
+    "train_metadata": {
+      "dataset": "mlb-2025-asplayed.csv",
+      "ingest_source_file": "gl2025.txt",
+      "ingest_source_type": "retrosheet_gamelog",
+      "notes": "Verified against Retrosheet gl2025.txt by exact tuple match (date, away_team, home_team, away_score, home_score).",
+      "row_count": 2430,
+      "source_chain_verified": true,
+      "verification": {
+        "method": "exact_match_on_date_teams_scores",
+        "missing_dataset_rows": 0,
+        "retrosheet_sha256": "586a7d73c2755c17a13ae034ba0cd0c5eaf77251a8b77ac7be780aa799d63f3d",
+        "rows_dataset": 2430,
+        "rows_retrosheet": 2430,
+        "unmatched_dataset_rows": 0,
+        "verified_at_utc": "2026-03-12T06:29:35.016973Z"
+      }
+    }
+  },
+  "training_admitted": 2430,
+  "training_exclusions": [],
+  "training_population": 2430
+}

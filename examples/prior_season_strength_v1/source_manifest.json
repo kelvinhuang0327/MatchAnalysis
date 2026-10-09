@@ -1,0 +1,20 @@
+{
+  "files": {
+    "README.md": "1f8b0a180034936e55e95e3e35d697c3495186d8e1c2f1d97860763450d6639d",
+    "annual_source_audit.json": "e0a3f62fb72ce8126f155c1c0d171913ded2a22345a7816acb6df6e7f469e4ea",
+    "evaluate_saved.py": "1b0443ad099ae3593b8bb9f4aca925cd1c309ab91a18ce5062b70ba4ddb97777",
+    "model_artifact.json": "a5f8af0f0a2865a1246b2963f1cfcd2e15850726149e3f31723486852fad7cfd",
+    "per_game.csv": "e8b416d761b0ca8c67c6578a323da686e43c51cf1c81adb5df6de6ebe23ff1ed",
+    "protocol.json": "96cc478f4fbe7b4c1e421173f7c7a6d807abed1ddf40a65400fd617354a2fdae",
+    "research.py": "195dc8f32bf42a252c75e6d1fb609e6f5dbe631078c40c11166be36bb5703c0c",
+    "results.json": "eecb98e8a3c3d35d80c88557162b09af974d5feacf9079ad589e90f625ed0751",
+    "test_research.py": "7dc363a2cba9f3c16c1dd4730500d4461c88ab9aaeeb505dbd259867063d53d5",
+    "train_once.py": "8a05d28beef4f157031be2d10d31c730cb1a20500bd8ead63686de5f09d54ee2",
+    "verify_replay.py": "4c1d0082a50e19aba8b345bdcf08ce86b2904588b651ae2600a7bebc44436787"
+  },
+  "new_source_gets": 0,
+  "real_fit_count": 1,
+  "replay_fit_count": 0,
+  "schema_version": "prior_season_strength.sources.v1",
+  "source_inputs": "Protocol contains exact upstream SHA; annual audit documents yearly completeness. Raw earlier seasons stay in existing legacy path."
+}
