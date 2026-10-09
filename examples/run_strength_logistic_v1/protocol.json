@@ -1,0 +1,139 @@
+{
+  "candidate_id": "season_to_date_run_strength_home_l2_logistic_v1",
+  "evaluation": {
+    "candidate_direction": "HOME iff p_home>=0.5, otherwise AWAY.",
+    "expected_population": 102,
+    "feature_cutoff": "Existing fixed market quote observed_at, strictly before source/official scheduled starts and known actual firstPitch. Same information cutoff as market reference.",
+    "fixed_home_control": {
+      "direction": "ALWAYS_HOME",
+      "probability_reference": "0.5 fixed uninformative reference, not certainty of home win."
+    },
+    "interpretation": "DEVELOPMENT_PREVIOUSLY_OPENED; NOT_UNSEEN_HOLDOUT_OR_PROSPECTIVE",
+    "market_probability": "Proportional no-vig p_home = away_decimal_price/(home_decimal_price+away_decimal_price).",
+    "metrics": [
+      "accuracy",
+      "Brier",
+      "logloss",
+      "full_population",
+      "paired_denominator",
+      "exclusions"
+    ],
+    "official_dates": [
+      "2026-06-14",
+      "2026-06-22"
+    ],
+    "probability_scoring": "Same admitted games for candidate, market and fixed-home 0.5 reference; exclude no model probabilities.",
+    "quote_freshness": "Descriptive only; no live decision timestamp or execution-quality claim. Existing live risk policy untouched.",
+    "snapshot_rule": "Reuse exact prior eligible-game snapshot and raw-record hash; no replacement after candidate outcomes, no closing-price substitution. Require unique full identity and both prices."
+  },
+  "feature_definition": {
+    "away_defense_minus_home_defense": "away sum(runs_against)/n_away - home sum(runs_against)/n_home",
+    "completeness": "Full season-to-cutoff team history required; a sampled subset is insufficient.",
+    "history": "All completed regular-season games in the current season strictly before feature cutoff. Season reset; no sliding-window search.",
+    "home_advantage": "Unpenalized intercept; no duplicate constant feature.",
+    "home_offense_minus_away_offense": "home sum(runs_for)/n_home - away sum(runs_for)/n_away",
+    "missing_or_unknown_completion": "Reject target; no derived clock, date-only imputation, latest-season record or silent missing-history skip.",
+    "suspended_resumed_games": "Exclude target if a potentially relevant season-to-date history has unresolved final completion chronology; never count suspended physical game twice.",
+    "warmup_completed_games_per_team": 20
+  },
+  "fixed_at_utc": "2026-10-09T03:15:00.314424Z",
+  "gate": "If actual completion chronology, full training feature coverage or paired pregame market evidence is missing, stop without any fit, probability prediction, metrics evaluation or bulk acquisition.",
+  "hyperparameter_search_count": 0,
+  "hypothesis": "Completed-game run magnitudes may add information beyond wins/losses; unproven.",
+  "new_source_gets": 0,
+  "preserved": [
+    "Champion",
+    "main",
+    "ledger",
+    "frozen predictions",
+    "prior research artifacts"
+  ],
+  "schema_version": "run_strength_logistic.protocol.v1",
+  "skill_review": {
+    "application": "No listed local skill applies to this narrow offline MLB data gate: WBC betting, EOS document generation and exhaustive source-tree QA are outside scope. None invoked.",
+    "local_skills_read": [
+      "/Users/kelvin/.codex/skills/analyze-wbc-betting/SKILL.md",
+      "/Users/kelvin/.codex/skills/SCB-TSD/SKILL.md",
+      "/Users/kelvin/.codex/skills/exhaustive-functional-validation/SKILL.md"
+    ],
+    "visible_context": "Prior state is complete in this thread; personal-context trigger review requires no extra retrieval."
+  },
+  "sources": {
+    "earlier_csv": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/mlb-2024-asplayed.csv",
+      "sha256": "f675a12718a41a4560632034cee8aea93b8cb9c01061f23ff04034608c731f58"
+    },
+    "earlier_gamelog": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/gl2024.txt",
+      "sha256": "48bae769201e0b5b232f34540dc3511974fac3a2c2a76e9622ffef9651ddca8e"
+    },
+    "earlier_metadata": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/mlb-2024-asplayed.csv.metadata.json",
+      "sha256": "7f8a4c012bd5464c976f89b2627da79bb73a5ca715fbd370e7558e259efe2db8"
+    },
+    "eval_game_info": {
+      "path": "/tmp/MatchAnalysis-prospective-pairing-20261008/examples/team_recent10_research_v1/completion_source.json",
+      "sha256": "9c108364e64d74cff10837825b642dcb7c877ab5eb1fa46057c603d8eaeddf84"
+    },
+    "eval_opened_outcomes": {
+      "path": "/tmp/MatchAnalysis-prospective-pairing-20261008/examples/team_recent10_research_v1/opened_outcomes.jsonl",
+      "sha256": "c26dbc24cd4dd9f5e88b2ca27350a2ccf013b9c2aeacf59dabcb1fe0e924d437"
+    },
+    "eval_population": {
+      "path": "/tmp/MatchAnalysis-prospective-pairing-20261008/examples/team_recent10_research_v1/population.jsonl",
+      "sha256": "f28de31453be9acffe2ac646bdc7300489ba2c643a6f3bb2b7595fb51fd409dc"
+    },
+    "eval_schedule": {
+      "path": "/tmp/MatchAnalysis-prospective-pairing-20261008/data/fixtures/p23f2_official_2026_history/raw/schedule_2026-03-25_2026-06-30.json",
+      "sha256": "6950ed55ff1ddeb9b90f90138847ed7ebe79ce39d37614268d344af96eb65e55"
+    },
+    "eval_source_captures": {
+      "path": "/tmp/MatchAnalysis-prospective-pairing-20261008/examples/team_recent10_research_v1/source_captures.json",
+      "sha256": "05f716450262babb36770ae9fb8d70b6fc9827e0b5acb0fb52666bfd0d2a3abd"
+    },
+    "prior_2024_use": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/derived/p39_2024_holdout_summary.json",
+      "sha256": "b8daff63978faa00532f68f1c7198398c69bcf374f830a4538b1c909de3aecd4"
+    },
+    "prior_2025_use": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/derived/p44_temporal_stability_summary.json",
+      "sha256": "5b3183023b823de3d6eee7c814f32068f197cd1739602c0fa9233d021172a616"
+    },
+    "prior_cross_year_use": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/derived/p41_cross_year_combined_summary.json",
+      "sha256": "c2a6794f930cc5ec745efc067387f30944a23eb17dc8da55757c79f2840802de"
+    },
+    "train_csv": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/mlb-2025-asplayed.csv",
+      "sha256": "614341bf6a6e7f77f2c2ff2f0433b29fb56b51d8eed223c22ea1ff9705ee903c"
+    },
+    "train_gamelog": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/gl2025.txt",
+      "sha256": "586a7d73c2755c17a13ae034ba0cd0c5eaf77251a8b77ac7be780aa799d63f3d"
+    },
+    "train_metadata": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/mlb-2025-asplayed.csv.metadata.json",
+      "sha256": "288f5c6e5f969b88918d36d7b199396c9879a32032539837bb97b86759f664e5"
+    },
+    "verified_history_findings": {
+      "path": "/tmp/MatchAnalysis-prospective-pairing-20261008/examples/two_target_feature_cutoff_v1/findings.json",
+      "sha256": "d899b813c1c4020636c254c61fb8c29d0567904a49d508dc232ebd56ede19237"
+    },
+    "verified_history_plan": {
+      "path": "/tmp/MatchAnalysis-prospective-pairing-20261008/examples/two_target_feature_cutoff_v1/required_history_plan.json",
+      "sha256": "425290afbb84add2d57b6d930718faec84b48ca74359cce3fda92f34b37582aa"
+    }
+  },
+  "training": {
+    "intercept_penalized": false,
+    "l2_lambda": 1,
+    "label": "Home final runs > away final runs, independently verified against recorded home_win; ties/missing/conflicts excluded.",
+    "label_cutoff": "Training labels must be settled before the earliest evaluation quote.",
+    "objective": "mean binary logloss + (1/2)*(beta_offense^2 + beta_defense^2)",
+    "season": 2025,
+    "single_fit_count_limit": 1,
+    "solver": "Deterministic 3-parameter damped Newton, max_iter=100, max backtracking=20, absolute gradient infinity-norm tolerance=1e-8; fail rather than fall back/tune.",
+    "split": "Full earlier 2025 regular season, warmup/strict-input admitted rows only. 2024 audited as earlier alternative, never reverse split after seeing candidate metrics.",
+    "standardization": "Training-only mean and population standard deviation for each feature; zero SD uses scale=1."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "external_sources": "Hash-bound exact inputs are listed in protocol; no raw historic seasons duplicated.",
+  "files": {
+    "README.md": "efbdc42be6c28934eb28c74cc2293e0fb6e8475bc66d5df3b04156f036f569a4",
+    "data_gate.py": "857cf83576f7a7f35a82f2f129730247143039ae32471789d21a2b7009cbad58",
+    "data_gate_result.json": "7a5fe84ef8a10a4a6aad05f907d0deeaeff8535c7475e9cdf89edbdaa75bdc53",
+    "documentation_note.json": "ca46e0553082511c2e5da0026a0165a04e6fafc43afa79cc888df5fa3a666dcb",
+    "interpretation_policy.json": "39192a0d36ea43dd769a1e1d2d0d6b6d08223a6fee6f627f94fe3d1cd59d437f",
+    "protocol.json": "12009674f5b3384ffd13d4ef9996960dd60a0790c8da0097b390b1bc302592b4",
+    "test_data_gate.py": "49202abb1466c98b13a377be8c4d043488ced36841975324597d7f2d3b2be819",
+    "verify_replay.py": "53f830924ace3351446a6b2ca1b1b8957e478893442f2dadae69e7358f6ee95b"
+  },
+  "model_fits": 0,
+  "new_game_data_source_gets": 0,
+  "schema_version": "run_strength_logistic.sources.v1"
+}

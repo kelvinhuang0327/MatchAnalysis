@@ -1,0 +1,13 @@
+{
+  "data_gated_interpretation": "NOT_EVALUABLE_WITHOUT_STRICT_FEATURES_AND_ONE_FIT; no claimed efficacy from freezing a candidate.",
+  "merge_or_release_authorization": false,
+  "new_experiments_from_priority_update": 0,
+  "numeric_improvement_threshold": null,
+  "probability_quality_measures": [
+    "Brier",
+    "logloss"
+  ],
+  "recorded_at_utc": "2026-10-09T03:15:19.939182Z",
+  "schema_version": "run_strength_logistic.interpretation.v1",
+  "user_accepted_priority": "MATCH_ACCURACY_ABOVE_MARKET_ON_IDENTICAL_QUALIFIED_GAMES_WITH_PROBABILITY_QUALITY_NOT_WORSE"
+}

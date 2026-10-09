@@ -1,0 +1,15 @@
+{
+  "documentation_was_not_used_to_impute_any_completion_time": true,
+  "local_note_saved_at_utc": "2026-10-09T03:21:16.847151Z",
+  "primary_field_schema_url": "https://www.retrosheet.org/gamelogs/glfields.txt",
+  "primary_index_url": "https://www.retrosheet.org/gamelogs/index.html",
+  "retrieval_kind": "WEB_RUN_READ_ONLY_DOCUMENTATION; NOT_DATA_ACQUISITION_OR_RAW_HTTP_RECEIPT",
+  "schema_version": "run_strength_logistic.documentation.v1",
+  "verified_schema_facts": {
+    "field_14": "Later completion date and interruption metadata; not an actual UTC completion instant.",
+    "field_19": "Game duration in minutes; not an ending clock timestamp.",
+    "fields_10_11": "Visiting and home final scores.",
+    "fields_1_2": "Game date and game number distinguish single/doubleheader games.",
+    "record_fields": 161
+  }
+}
