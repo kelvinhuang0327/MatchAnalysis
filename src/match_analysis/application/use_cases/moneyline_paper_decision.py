@@ -219,6 +219,10 @@ def load_frozen_prediction_run(
         model = row.get("model_identity")
         if not isinstance(model, Mapping) or model.get("model_probability_source") != "calibrated_p_home":
             raise ValueError("frozen prediction is not a P50C Moneyline probability")
+        if model.get("model_role", "CHAMPION") not in ("CHAMPION", "RESEARCH_CANDIDATE"):
+            raise ValueError("P50C_UNSUPPORTED_MODEL_ROLE")
+        if manifest.get("model_role", "CHAMPION") != model.get("model_role", "CHAMPION"):
+            raise ValueError("P50C_MODEL_ROLE_MANIFEST_MISMATCH")
         try:
             p_home = _decimal(model.get("p_home"), field="model_identity.p_home")
             p_away = _decimal(model.get("p_away"), field="model_identity.p_away")
@@ -243,6 +247,7 @@ def load_frozen_prediction_run(
             )
             expected_fp = compute_prediction_row_fingerprint(
                 prediction_row,
+                model_role=str(model.get("model_role", "CHAMPION")),
                 official_date=str(game["official_date"]),
                 home_team=str(game.get("home_team") or ""),
                 away_team=str(game.get("away_team") or ""),

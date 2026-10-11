@@ -1,0 +1,19 @@
+{
+  "capsule_files": {
+    "README.md": "be75f7889e4b1bddf8efbfc3ee28797933f4a09c6b6db76c3a228539e6037c1f",
+    "availability/availability.json": "7c678015d218d48d8829e7f8f6e3583e234dcf54a977c9d17efe95790cc4f53b",
+    "availability/source_captures/01-5ac9bf4aa0b3.json": "e945970d3a4d1b17afde3ecfc6a444e395dceb14f2c9e4a35d1e06837d79f9b0",
+    "paper.py": "7a1e1e95d504dccafa9505cf3aa3f887a0ac239b0ba2ffcd3388759e00a3326b",
+    "synthetic_demo_verification.json": "31af237b2f26b90bc1666dd8dd77b40f08e3b1e7509e50295f3f32d8b3c75608",
+    "test_paper.py": "161cc3f186c2823d9cb8abb9fc3ceacb35066bf6c29361ce8d492cbb296db875",
+    "uncertainty.json": "d4784fd0c66a9e532b4e8f7b26f3b0eefed74bc76aecc58dbf8f12b3b9caa7ab",
+    "verification.json": "56c177b1166d64e11e2ae415f27be828070a9e71f57ccb221a03f6cecd667091"
+  },
+  "integration_files": {
+    "src/match_analysis/application/use_cases/moneyline_paper_decision.py": "910705d03a92672a8f340ab8ee9d4092608fd816a5ff2df9aabe7c321c76e5ed",
+    "src/match_analysis/application/use_cases/p50c_prediction_run_ledger.py": "d7fed2b3d20338357f27760ae8927cf608e0b7ea6bbae65b3a99a724fcb04519"
+  },
+  "model_fits_during_this_task": 0,
+  "model_sha256": "ce77257860afe420b022c375d50f2c1c717787cf1fb1cafc3a45365de7c7adf0",
+  "schema_version": "lagged_winrate.paper_manifest.v1"
+}

@@ -1,0 +1,23 @@
+{
+  "future_regular_games": [],
+  "game_type": "R",
+  "new_predictions": 0,
+  "no_monitoring": true,
+  "requested_end_date": "2026-10-18",
+  "requested_start_date": "2026-10-11",
+  "source_captures": [
+    {
+      "byte_count": 262,
+      "path": "source_captures/01-5ac9bf4aa0b3.json",
+      "persisted_at_utc": "2026-10-11T15:35:39.492943Z",
+      "provider_published_at_utc": null,
+      "purpose": "SLATE_AVAILABILITY_ONLY",
+      "received_at_utc": "2026-10-11T15:35:39.491031Z",
+      "request_started_at_utc": "2026-10-11T15:35:38.709459Z",
+      "sha256": "e945970d3a4d1b17afde3ecfc6a444e395dceb14f2c9e4a35d1e06837d79f9b0",
+      "status": "SUCCESS",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&gameType=R&startDate=2026-10-11&endDate=2026-10-18"
+    }
+  ],
+  "status": "NO_FUTURE_R_IN_BOUNDED_WINDOW"
+}

@@ -381,6 +381,7 @@ def compute_prediction_row_fingerprint(
     away_team: str = "",
     home_team_code: str = "",
     away_team_code: str = "",
+    model_role: str = "CHAMPION",
 ) -> str:
     """Compute deterministic SHA-256 fingerprint for one frozen prediction."""
     canonical_official_date = require_canonical_official_date(official_date)
@@ -399,7 +400,7 @@ def compute_prediction_row_fingerprint(
         "away_team": away_team or "AWAY",
         "home_team_code": home_team_code or "HOME",
         "away_team_code": away_team_code or "AWAY",
-        "model_role": "CHAMPION",
+        "model_role": model_role,
         "model_id": row.champion_model_id,
         "model_fingerprint": row.champion_model_fingerprint,
         "model_probability_source": "calibrated_p_home",
@@ -424,6 +425,7 @@ def build_frozen_prediction_record(
     away_team: str = "",
     home_team_code: str = "",
     away_team_code: str = "",
+    model_role: str = "CHAMPION",
 ) -> dict[str, Any]:
     """Construct one immutable pregame prediction record with zero outcome/market fields."""
     canonical_official_date = require_canonical_official_date(official_date)
@@ -434,6 +436,7 @@ def build_frozen_prediction_record(
         away_team=away_team,
         home_team_code=home_team_code,
         away_team_code=away_team_code,
+        model_role=model_role,
     )
     p_home = row.champion_home_probability
     p_away = Decimal("1") - p_home
@@ -443,7 +446,7 @@ def build_frozen_prediction_record(
     at = away_team or "AWAY"
     pred_winner = ht if selection == "HOME" else at
     model_identity = {
-        "model_role": "CHAMPION",
+        "model_role": model_role,
         "model_id": row.champion_model_id,
         "model_fingerprint": row.champion_model_fingerprint,
         "model_probability_source": "calibrated_p_home",
@@ -820,9 +823,16 @@ def create_p50c_prediction_run(
     run_root: str | Path | None = None,
     created_at_utc: str = "2026-08-17T12:00:00Z",
     target_date: str | None = None,
+    model_role: str = "CHAMPION",
 ) -> P50CCreateRunResult:
     """Create and freeze an immutable prediction run strictly before scheduled game start."""
     root = Path(repository_root).resolve()
+    if model_role not in ("CHAMPION", "RESEARCH_CANDIDATE"):
+        raise ValueError("P50C_UNSUPPORTED_MODEL_ROLE")
+    if model_role == "RESEARCH_CANDIDATE" and (
+        run_root is None or Path(run_root).resolve().is_relative_to(root)
+    ):
+        raise ValueError("P50C_RESEARCH_RUN_REQUIRES_ISOLATED_ROOT")
     bundle, legacy_missing_game_type = _load_p50c_pregame_input(pregame_input)
 
 
@@ -907,6 +917,7 @@ def create_p50c_prediction_run(
     pred_fps = [
         compute_prediction_row_fingerprint(
             row,
+            model_role=model_role,
             official_date=official_dates_by_pred_id[row.p37_prediction_row_id],
             **teams_by_pred_id[row.p37_prediction_row_id],
         )
@@ -929,6 +940,7 @@ def create_p50c_prediction_run(
     frozen_records = tuple(
         build_frozen_prediction_record(
             row,
+            model_role=model_role,
             run_id=run_id,
             run_classification=run_classification,
             created_at_utc=created_at_utc,
@@ -949,7 +961,7 @@ def create_p50c_prediction_run(
         "lifecycle_state": STATE_FROZEN,
         "created_at_utc": created_at_utc,
         "target_date": resolved_target_date,
-        "model_role": "CHAMPION",
+        "model_role": model_role,
         "target_universe_count": len(bundle.prediction_rows) + len(bundle.exclusion_rows),
         "eligible_prediction_count": len(frozen_records),
         "settled_total_count": 0,

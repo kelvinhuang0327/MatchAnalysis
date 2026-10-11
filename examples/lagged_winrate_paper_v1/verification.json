@@ -1,0 +1,11 @@
+{
+  "candidate_role_has_distinct_fingerprint": true,
+  "default_champion_record_and_fingerprint_equal_133d29f": true,
+  "entry_code_sha256": "7a1e1e95d504dccafa9505cf3aa3f887a0ac239b0ba2ffcd3388759e00a3326b",
+  "focused_entry_tests": 6,
+  "focused_entry_tests_passed": true,
+  "new_fits": 0,
+  "real_final_samples_created": 0,
+  "real_predictions_created": 0,
+  "sealed_model_capsule_files_unchanged": 11
+}

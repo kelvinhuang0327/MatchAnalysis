@@ -1,0 +1,12 @@
+{
+  "candidate_probability": "0.5884036380719752",
+  "demo_root": "/tmp/MatchAnalysis-lagged-paper-synthetic-demo-20261011",
+  "durable_demo_root": "/Users/kelvin/Documents/Codex/2026-10-04/task/review/MatchAnalysis-lagged-winrate-paper-synthetic-demo-20261011",
+  "forward_classification": false,
+  "frozen_replay_identical": true,
+  "new_fits": 0,
+  "quote_status": "QUOTE_MISSING",
+  "real_predictions_created": 0,
+  "run_classification": "HISTORICAL_REHEARSAL",
+  "synthetic_only": true
+}

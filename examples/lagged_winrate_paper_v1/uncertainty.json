@@ -1,0 +1,17 @@
+{
+  "accuracy_difference": 0.0030991735537190084,
+  "discordant_pairs": 39,
+  "exact_binomial_denominator": 549755813888,
+  "exact_binomial_numerator": 411909285068,
+  "exact_mcnemar_two_sided_p": 0.7492586247608415,
+  "interpretation": "Plus3 remains compatible with sampling fluctuation. Development pass does not establish stable or market advantage. Exact test assumes exchangeable independent discordant signs under the null; team/season dependencies and prior reuse limit inference.",
+  "new_fits": 0,
+  "paired_counts": {
+    "baseline_only_correct": 18,
+    "both_correct": 506,
+    "both_wrong": 423,
+    "candidate_only_correct": 21
+  },
+  "population": 968,
+  "saved_csv_sha256": "23f88c6424c3aed5dcf43c5a2d64b8f6e8e632d690df7d16367bee29295c40c7"
+}
