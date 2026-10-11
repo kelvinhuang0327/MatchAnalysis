@@ -1,0 +1,82 @@
+{
+  "candidate_id": "prior_strength_plus_lagged_current_winrate_v1",
+  "features": {
+    "baseline": "2024 annual net runs per game(home)-same(away), fixed throughout 2025; reuses sealed annual-source identity/chronology checks.",
+    "history_rules": "Only source-supported completed games with no later completion, forfeit, protest or postponement. Unknown postponed/rescheduled status is excluded, never inferred false from absent field. Target must satisfy same event-status admission.",
+    "lag_calendar_days": 7,
+    "minimum_eligible_history_per_team": 20,
+    "same_game_denominator": true,
+    "single_added": "2025 admissible lagged wins(home)/games(home)-wins(away)/games(away); no smoothing, no windows or tuning.",
+    "standardization": "Train-admitted rows only; per-feature mean/population SD, zero SD uses1, both models same training rows."
+  },
+  "fit": {
+    "each_model_limit": 1,
+    "existing_artifact_refuses_refit": true,
+    "intercept_penalized": false,
+    "l2_lambda": 1,
+    "no_fit_when_admission_blocked": true,
+    "objective": "mean binary logloss+0.5*sum(standardized coefficient squared)",
+    "solver": "Fixed damped Newton, zero init, max100 iterations, max20 backtracking halves, Armijo1e-4, gradient infinity norm<=1e-8; no alternatives."
+  },
+  "fixed_at_utc": "2026-10-11T15:16:44.217102+00:00",
+  "hyperparameter_searches": 0,
+  "interpretation": "PREVIOUSLY_USED_2025_HISTORICAL_RECONSTRUCTION_DEVELOPMENT_NOT_HOLDOUT",
+  "new_game_source_gets": 0,
+  "postponement_proof_contract": {
+    "available": "No such 2025 source found in existing repo fixtures or legacy data; current sources must remain blocked under the all-postponements-excluded instruction.",
+    "no_new_game_source_download": true,
+    "required": "Explicit source-backed originally scheduled date plus actual played date and rescheduled/postponed status, matched unique full physical game identity; plain as-played dates and blank Retrosheet field14 do not prove never-postponed."
+  },
+  "preserved": [
+    "Champion",
+    "main",
+    "ledger",
+    "previous sealed capsules",
+    "opened102 outcomes"
+  ],
+  "raw_field_documentation": {
+    "field14": "Later-date completion/suspension/upheld protest information, not original planned date or a postponement indicator.",
+    "field161": "Y means complete game information acquired; it is not an original scheduling assertion.",
+    "url": "https://www.retrosheet.org/gamelogs/glfields.txt",
+    "web_documentation_only": true
+  },
+  "reject_rule": "Reject if candidate accuracy<=baseline or candidate Brier>baseline or candidate logloss>baseline. Passing is only development, requires new data and same-game market validation.",
+  "schema_version": "lagged_season_winrate.protocol.v1",
+  "sealed_prior_protocol": {
+    "relative_path": "examples/prior_season_strength_v1/protocol.json",
+    "sha256": "96cc478f4fbe7b4c1e421173f7c7a6d807abed1ddf40a65400fd617354a2fdae"
+  },
+  "sources": {
+    "earlier_csv": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/mlb-2024-asplayed.csv",
+      "sha256": "f675a12718a41a4560632034cee8aea93b8cb9c01061f23ff04034608c731f58"
+    },
+    "earlier_gamelog": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/gl2024.txt",
+      "sha256": "48bae769201e0b5b232f34540dc3511974fac3a2c2a76e9622ffef9651ddca8e"
+    },
+    "earlier_metadata": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/mlb-2024-asplayed.csv.metadata.json",
+      "sha256": "7f8a4c012bd5464c976f89b2627da79bb73a5ca715fbd370e7558e259efe2db8"
+    },
+    "train_csv": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/mlb-2025-asplayed.csv",
+      "sha256": "614341bf6a6e7f77f2c2ff2f0433b29fb56b51d8eed223c22ea1ff9705ee903c"
+    },
+    "train_gamelog": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/gl2025.txt",
+      "sha256": "586a7d73c2755c17a13ae034ba0cd0c5eaf77251a8b77ac7be780aa799d63f3d"
+    },
+    "train_metadata": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/mlb-2025-asplayed.csv.metadata.json",
+      "sha256": "288f5c6e5f969b88918d36d7b199396c9879a32032539837bb97b86759f664e5"
+    }
+  },
+  "split": {
+    "algorithm": "First sorted source date whose cumulative raw game count reaches ceil(0.60*N), train includes entire boundary date; evaluation strictly later. Dates/counts only, not labels or metrics.",
+    "raw_evaluation_count": 969,
+    "raw_train_count": 1461,
+    "total_raw_count": 2430,
+    "train_last_date": "2025-07-18"
+  }
+}

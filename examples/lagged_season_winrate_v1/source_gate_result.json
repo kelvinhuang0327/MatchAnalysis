@@ -1,0 +1,123 @@
+{
+  "annual_2024_to_2025_gap_days": 169,
+  "annual_csv_raw_multiset_and_ordinals_verified": true,
+  "baseline_fit_count": 0,
+  "blocker": "Field14 proves later-date completion when populated. Blank field14 does not prove never-postponed. Existing as-played CSV has no original schedule or reschedule status. All 2430 statuses remain unknown under the explicit exclusion rule.",
+  "candidate_fit_count": 0,
+  "coefficients_and_contributions": null,
+  "evaluation_performed": false,
+  "event_exclusion_reason_counts_nonexclusive": {
+    "LATER_DATE_COMPLETION": 4,
+    "POSTPONEMENT_STATUS_UNKNOWN": 2430
+  },
+  "history_event_population": 2430,
+  "history_events_admitted": 0,
+  "hyperparameter_searches": 0,
+  "independent_csv_fields": [
+    "Date",
+    "Start Time (Sask)",
+    "Start Time (EDT)",
+    "Away",
+    "Away Score",
+    "Home",
+    "Home Score",
+    "Status",
+    "Away Starter",
+    "Home Starter",
+    "Winner",
+    "Loser",
+    "Save",
+    "date",
+    "away_team",
+    "home_team",
+    "away_score",
+    "home_score",
+    "away_starter",
+    "home_starter",
+    "status",
+    "winner",
+    "loser",
+    "save",
+    "game_type",
+    "home_win",
+    "source_file",
+    "source_type",
+    "is_verified_real"
+  ],
+  "interpretation": "PREVIOUSLY_USED_2025_HISTORICAL_RECONSTRUCTION_DEVELOPMENT_NOT_HOLDOUT",
+  "known_later_completion_games": [
+    {
+      "completion_date": "2025-05-21",
+      "field14_raw": "20250521,MIN04,1,2,18",
+      "key": "20250519|0|CLE|MIN",
+      "official_date": "2025-05-19"
+    },
+    {
+      "completion_date": "2025-06-07",
+      "field14_raw": "20250607,CIN09,3,3,36",
+      "key": "20250606|0|ARI|CIN",
+      "official_date": "2025-06-06"
+    },
+    {
+      "completion_date": "2025-07-02",
+      "field14_raw": "20250702,BOS07,1,2,18",
+      "key": "20250701|0|CIN|BOS",
+      "official_date": "2025-07-01"
+    },
+    {
+      "completion_date": "2025-08-03",
+      "field14_raw": "20250803,BST01,0,1,4",
+      "key": "20250802|0|ATL|CIN",
+      "official_date": "2025-08-02"
+    }
+  ],
+  "metrics": null,
+  "missing_postponement_source_fields": [
+    "original_scheduled_date",
+    "postponed",
+    "rescheduled_from"
+  ],
+  "new_game_source_gets": 0,
+  "next_requirement": "An existing authorized full-identity 2025 scheduling/rescheduling evidence source, or an explicit scope decision allowing completed-as-played games irrespective of postponement before first pitch. Neither is assumed.",
+  "non_later_completion_final_records": 2426,
+  "per_game_csv_rows": 2430,
+  "per_game_csv_sha256": "0e779073160e0e3b9665b76c7869a79690bc70be35fa9a004ae42869990a8de6",
+  "phases": {
+    "evaluation": {
+      "coverage": 0.0,
+      "paired_admitted": 0,
+      "paired_excluded": 969,
+      "population": 969,
+      "primary_event_exclusions": {
+        "LATER_DATE_COMPLETION": 1,
+        "POSTPONEMENT_STATUS_UNKNOWN": 968
+      }
+    },
+    "train": {
+      "coverage": 0.0,
+      "paired_admitted": 0,
+      "paired_excluded": 1461,
+      "population": 1461,
+      "primary_event_exclusions": {
+        "LATER_DATE_COMPLETION": 3,
+        "POSTPONEMENT_STATUS_UNKNOWN": 1458
+      }
+    }
+  },
+  "protocol_sha256": "1905db89615046f5087b26fec7d27269b791c8e709dad6c9cb80fef6c94a8cc0",
+  "schema_version": "lagged_season_winrate.source_gate.v1",
+  "source_hashes": {
+    "earlier_csv": "f675a12718a41a4560632034cee8aea93b8cb9c01061f23ff04034608c731f58",
+    "earlier_gamelog": "48bae769201e0b5b232f34540dc3511974fac3a2c2a76e9622ffef9651ddca8e",
+    "earlier_metadata": "7f8a4c012bd5464c976f89b2627da79bb73a5ca715fbd370e7558e259efe2db8",
+    "train_csv": "614341bf6a6e7f77f2c2ff2f0433b29fb56b51d8eed223c22ea1ff9705ee903c",
+    "train_gamelog": "586a7d73c2755c17a13ae034ba0cd0c5eaf77251a8b77ac7be780aa799d63f3d",
+    "train_metadata": "288f5c6e5f969b88918d36d7b199396c9879a32032539837bb97b86759f664e5"
+  },
+  "split": {
+    "evaluation_population": 969,
+    "train_last_date": "2025-07-18",
+    "train_population": 1461
+  },
+  "status": "BLOCKED_POSTPONEMENT_PROOF_MISSING"
+}
