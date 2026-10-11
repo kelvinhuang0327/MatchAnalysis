@@ -28,8 +28,8 @@ def split_date(games, fraction=0.60):
     raise ValueError('EMPTY_POPULATION')
 
 
-def event_reasons(game, postponed):
-    """postponed must be explicit verified source evidence, never absent->False."""
+def event_reasons(game):
+    """Final complete source plus field14 semantics, never blank14 alone."""
     reasons = []
     if not game.get('complete_game_source') or not game.get('independent_final'):
         reasons.append('COMPLETION_SOURCE_UNKNOWN')
@@ -37,12 +37,6 @@ def event_reasons(game, postponed):
         reasons.append('LATER_DATE_COMPLETION')
     if game.get('forfeit') or game.get('protest'):
         reasons.append('FORFEIT_OR_PROTEST')
-    if postponed is None:
-        reasons.append('POSTPONEMENT_STATUS_UNKNOWN')
-    elif postponed is True:
-        reasons.append('POSTPONED_OR_RESCHEDULED')
-    elif postponed is not False:
-        raise ValueError('POSTPONEMENT_PROOF_NOT_BOOLEAN')
     return reasons
 
 
@@ -106,16 +100,13 @@ def audit(root=ROOT, legacy_root=None):
                      for r in csv_rows if r['status'] == 'Final' and r['game_type'] == 'REG')
     names = prior_policy['feature_definition']['retrosheet_code_names']
     csv_fields = list(csv_rows[0])
-    unavailable = ['original_scheduled_date', 'postponed', 'rescheduled_from']
-    if any(k in csv_fields for k in unavailable):
-        raise ValueError('SOURCE_CONTRACT_CHANGED_NEEDS_EXPLICIT_PROOF_IMPLEMENTATION')
     rows = []
     for g in games:
         r = raw[g['key']]
         final_identity = (g['official_date'], names[r[3]], names[r[6]], g['away_score'], g['home_score'])
         g.update(complete_game_source=r[160] == 'Y', independent_final=finals[final_identity] > 0,
                  forfeit=r[14], protest=r[15])
-        reasons = event_reasons(g, postponed=None)
+        reasons = event_reasons(g)
         rows.append({**g, 'phase': 'train' if g['official_date'] <= boundary else 'evaluation',
                      'event_admitted': not reasons, 'event_exclusions': reasons,
                      'postponed_status': None, 'field14_raw': r[13], 'field161_raw': r[160],
@@ -128,6 +119,9 @@ def audit(root=ROOT, legacy_root=None):
         r.update(current_winrate_difference=x,
                  home_history_games=histories[r['home_id']]['games'],
                  away_history_games=histories[r['away_id']]['games'],
+                 home_history_wins=histories[r['home_id']]['wins'],
+                 away_history_wins=histories[r['away_id']]['wins'],
+                 history_keys_sha256=annual.digest({tid: h['keys'] for tid, h in histories.items()}),
                  history_exclusions=errors, paired_admitted=r['event_admitted'] and not errors)
     event_counts = Counter(reason for r in rows for reason in r['event_exclusions'])
     phases = {}
@@ -136,12 +130,11 @@ def audit(root=ROOT, legacy_root=None):
         phases[phase] = {'population': len(subset), 'paired_admitted': sum(r['paired_admitted'] for r in subset),
                          'paired_excluded': sum(not r['paired_admitted'] for r in subset),
                          'coverage': sum(r['paired_admitted'] for r in subset) / len(subset),
-                         'primary_event_exclusions': dict(Counter(r['event_exclusions'][0] for r in subset if r['event_exclusions']))}
-    if admitted_history:
-        raise ValueError('UNEXPECTED_ADMISSION_WITHOUT_POSTPONEMENT_SOURCE')
+                         'primary_event_exclusions': dict(Counter(r['event_exclusions'][0] for r in subset if r['event_exclusions'])),
+                         'primary_paired_exclusions': dict(Counter((r['event_exclusions'] + r['history_exclusions'])[0] for r in subset if not r['paired_admitted']))}
     result = {'schema_version': 'lagged_season_winrate.source_gate.v1',
               'protocol_sha256': sha256((root / 'protocol.json').read_bytes()).hexdigest(),
-              'status': 'BLOCKED_POSTPONEMENT_PROOF_MISSING', 'baseline_fit_count': 0, 'candidate_fit_count': 0,
+              'status': 'PREPARED_NOT_YET_FITTED', 'baseline_fit_count': 0, 'candidate_fit_count': 0,
               'new_game_source_gets': 0, 'hyperparameter_searches': 0, 'evaluation_performed': False,
               'metrics': None, 'coefficients_and_contributions': None,
               'split': {'train_last_date': boundary, 'train_population': train_count, 'evaluation_population': eval_count},
@@ -149,12 +142,11 @@ def audit(root=ROOT, legacy_root=None):
               'event_exclusion_reason_counts_nonexclusive': dict(sorted(event_counts.items())),
               'non_later_completion_final_records': sum(r['complete_game_source'] and r['independent_final'] and not r['later_completion'] for r in rows),
               'known_later_completion_games': [{k: r[k] for k in ['key', 'official_date', 'completion_date', 'field14_raw']} for r in rows if r['later_completion']],
-              'independent_csv_fields': csv_fields, 'missing_postponement_source_fields': unavailable,
+              'independent_csv_fields': csv_fields,
               'source_hashes': {k: item['sha256'] for k, item in policy['sources'].items()},
               'annual_2024_to_2025_gap_days': gap, 'annual_csv_raw_multiset_and_ordinals_verified': True,
               'interpretation': policy['interpretation'],
-              'blocker': 'Field14 proves later-date completion when populated. Blank field14 does not prove never-postponed. Existing as-played CSV has no original schedule or reschedule status. All 2430 statuses remain unknown under the explicit exclusion rule.',
-              'next_requirement': 'An existing authorized full-identity 2025 scheduling/rescheduling evidence source, or an explicit scope decision allowing completed-as-played games irrespective of postponement before first pitch. Neither is assumed.',
+              'completion_rule': policy['completion_evidence_contract'],
               'rows': rows}
     return result
 
@@ -163,12 +155,17 @@ def table_csv(result):
     output = io.StringIO(newline='')
     fields = ['key', 'official_date', 'completion_date', 'phase', 'home_id', 'away_id',
               'field14_raw', 'field161_raw', 'postponed_status', 'event_admitted', 'paired_admitted',
-              'home_history_games', 'away_history_games', 'prior_strength_difference',
+              'home_history_games', 'away_history_games', 'home_history_wins', 'away_history_wins',
+              'history_keys_sha256', 'prior_strength_difference',
               'current_winrate_difference', 'event_exclusions', 'history_exclusions']
+    if result.get('evaluation_performed'):
+        fields += ['y', 'baseline_p_home', 'candidate_p_home',
+                   'baseline_intercept_contribution', 'baseline_prior_contribution',
+                   'candidate_intercept_contribution', 'candidate_prior_contribution', 'candidate_current_contribution']
     writer = csv.DictWriter(output, fields, lineterminator='\n')
     writer.writeheader()
     for r in result['rows']:
-        selected = {k: r[k] for k in fields}
+        selected = {k: r.get(k) for k in fields}
         for k in ['event_exclusions', 'history_exclusions']:
             selected[k] = '|'.join(selected[k])
         writer.writerow(selected)

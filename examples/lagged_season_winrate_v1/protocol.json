@@ -1,8 +1,14 @@
 {
   "candidate_id": "prior_strength_plus_lagged_current_winrate_v1",
+  "completion_evidence_contract": {
+    "admission": "Full161 source row + acquired complete gameY + final untied score + independent Final/REG CSV matching score identity + empty14 + no15/16. Empty14 alone is insufficient.",
+    "date_resolution": "Calendar-day reconstruction under source game-log semantics; no invented UTC completion timestamp or claim of exact contemporaneous source version.",
+    "known_cross_date_excluded": 4,
+    "source_date": "Retrosheet field1 actual played date; field14 specifies later-date completion from suspension/upheld protest."
+  },
   "features": {
     "baseline": "2024 annual net runs per game(home)-same(away), fixed throughout 2025; reuses sealed annual-source identity/chronology checks.",
-    "history_rules": "Only source-supported completed games with no later completion, forfeit, protest or postponement. Unknown postponed/rescheduled status is excluded, never inferred false from absent field. Target must satisfy same event-status admission.",
+    "history_rules": "Actual as-played date in final complete Retrosheet game log, independent Final/REG CSV and score identity agreement, field14 present in full161 contract and empty (no later-date completion), no forfeit/protest. All later-date or uncertain completion excluded. Postponement before first pitch is irrelevant; no original schedule needed.",
     "lag_calendar_days": 7,
     "minimum_eligible_history_per_team": 20,
     "same_game_denominator": true,
@@ -21,11 +27,15 @@
   "fixed_at_utc": "2026-10-11T15:16:44.217102+00:00",
   "hyperparameter_searches": 0,
   "interpretation": "PREVIOUSLY_USED_2025_HISTORICAL_RECONSTRUCTION_DEVELOPMENT_NOT_HOLDOUT",
+  "method_revision": {
+    "authorized_at_utc": "2026-10-11T15:24:48.178586+00:00",
+    "decision": "Remove never-postponed condition. Completed-as-played history is allowed even if postponed before first pitch; exclude later-date completion or uncertain actual completion. Frozen split/lag/minimum/features/lambda/rejection rule unchanged.",
+    "previous_protocol_sha256": "1905db89615046f5087b26fec7d27269b791c8e709dad6c9cb80fef6c94a8cc0"
+  },
   "new_game_source_gets": 0,
   "postponement_proof_contract": {
-    "available": "No such 2025 source found in existing repo fixtures or legacy data; current sources must remain blocked under the all-postponements-excluded instruction.",
-    "no_new_game_source_download": true,
-    "required": "Explicit source-backed originally scheduled date plus actual played date and rescheduled/postponed status, matched unique full physical game identity; plain as-played dates and blank Retrosheet field14 do not prove never-postponed."
+    "not_required": true,
+    "reason": "Pre-first-pitch postponement does not change actual completed-as-played date used for seven-calendar-day lag. Explicit authorized method revision."
   },
   "preserved": [
     "Champion",

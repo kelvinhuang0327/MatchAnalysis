@@ -13,16 +13,15 @@ class GateTests(unittest.TestCase):
             g['y'] = 1 - g['y']
         self.assertEqual(split_date(games), ('2025-01-02', 4, 1))
 
-    def test_blank_completion_does_not_imply_never_postponed(self):
+    def test_blank_completion_requires_final_and_complete_source(self):
         g = {'complete_game_source': True, 'independent_final': True, 'later_completion': False}
-        self.assertEqual(event_reasons(g, None), ['POSTPONEMENT_STATUS_UNKNOWN'])
-        self.assertEqual(event_reasons(g, True), ['POSTPONED_OR_RESCHEDULED'])
-        self.assertEqual(event_reasons(g, False), [])
+        self.assertEqual(event_reasons(g), [])
+        self.assertEqual(event_reasons({'later_completion': False}), ['COMPLETION_SOURCE_UNKNOWN'])
 
     def test_suspension_or_incomplete_evidence_never_admitted(self):
         self.assertIn('LATER_DATE_COMPLETION', event_reasons(
-            {'complete_game_source': True, 'independent_final': True, 'later_completion': True}, False))
-        self.assertIn('COMPLETION_SOURCE_UNKNOWN', event_reasons({}, False))
+            {'complete_game_source': True, 'independent_final': True, 'later_completion': True}))
+        self.assertIn('COMPLETION_SOURCE_UNKNOWN', event_reasons({}))
 
     def test_seven_day_boundary_and_future_targets_do_not_leak(self):
         target = {'official_date': '2025-05-20', 'home_id': 1, 'away_id': 2, 'y': 1}

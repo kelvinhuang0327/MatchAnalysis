@@ -1,12 +1,16 @@
 {
   "capsule_files": {
-    "README.md": "a2b11fc61b2c83ce0e2bfc8385455f622887295caca479f23cfca9f67061daaf",
-    "per_game_gate.csv": "0e779073160e0e3b9665b76c7869a79690bc70be35fa9a004ae42869990a8de6",
-    "protocol.json": "1905db89615046f5087b26fec7d27269b791c8e709dad6c9cb80fef6c94a8cc0",
-    "source_gate.py": "33264088077a003c1a2bb6b4640fc1d892b8aed2935f01f2a028a63addbaecab",
-    "source_gate_result.json": "80a740645f2189f122e3a847227eae2e34801457c737208d6e341d476e2aca5f",
-    "test_source_gate.py": "8d580cbe7a572b9f67f142caa2e6d752ac68298cfba76deb1dcc1f6400daa056",
-    "verify_replay.py": "08d7fec9fcd34f4206040bb4541111d817b1d88b10a7d481e31a490c49280637"
+    "README.md": "737e5e8f74eb867a1cb3a6c285d17a8b7035c5c58618c3bba836cf0f44c826f1",
+    "model_artifact.json": "ce77257860afe420b022c375d50f2c1c717787cf1fb1cafc3a45365de7c7adf0",
+    "per_game_gate.csv": "23f88c6424c3aed5dcf43c5a2d64b8f6e8e632d690df7d16367bee29295c40c7",
+    "protocol.json": "b84fd72e5b4835df22c5c6da767c419b24a42d6527da4c662225fc874514faa8",
+    "research.py": "52723937aec9f55ad2b4b9036718b904a78073b8cfe8b5a421f294fa7e7afefa",
+    "source_gate.py": "7552cea254829b092bc02ce4b2c91c1b941e1ae99c52b638c03184f8602df24d",
+    "source_gate_result.json": "04b8df4668aaa16efcd178473b8f3f004d89ad7b34e90f91a6fafa649da357d6",
+    "test_research.py": "4b7056eca1b3ef30329cf9d2821293a4fe1b98ec1c8063bd8e6be7b9ff8827c1",
+    "test_source_gate.py": "c906b7b0ccc10aea90cdcec567b425dd2556972fda5614b54b49d18e9f2fb134",
+    "train_once.py": "706e00e870ff08a5dca026bf06965d8df82f9b6a977ccf542f01686ca6535582",
+    "verify_replay.py": "babdf9d5d45456f152fa9f79991a896ed45d34300a9a6323c1de6e95e74483fe"
   },
   "schema_version": "lagged_season_winrate.manifest.v1",
   "sealed_dependencies": {

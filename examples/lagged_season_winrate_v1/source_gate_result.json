@@ -1,17 +1,98 @@
 {
+  "accepted_beat_market_goal_established": false,
   "annual_2024_to_2025_gap_days": 169,
   "annual_csv_raw_multiset_and_ordinals_verified": true,
-  "baseline_fit_count": 0,
-  "blocker": "Field14 proves later-date completion when populated. Blank field14 does not prove never-postponed. Existing as-played CSV has no original schedule or reschedule status. All 2430 statuses remain unknown under the explicit exclusion rule.",
-  "candidate_fit_count": 0,
-  "coefficients_and_contributions": null,
-  "evaluation_performed": false,
+  "baseline_fit_count": 1,
+  "candidate_fit_count": 1,
+  "candidate_minus_baseline": {
+    "accuracy": 0.0030991735537190257,
+    "brier": -0.0004233381591292329,
+    "logloss": -0.0008530634558081562
+  },
+  "coefficients_and_contributions": {
+    "evaluation_logit_contribution_summary": {
+      "baseline": {
+        "intercept": {
+          "max": 0.10798608730620167,
+          "mean": 0.10798608730620167,
+          "mean_absolute": 0.10798608730620167,
+          "min": 0.10798608730620167
+        },
+        "prior": {
+          "max": 0.13783213623875393,
+          "mean": -0.0002822470604874349,
+          "mean_absolute": 0.04290616813417157,
+          "min": -0.13805774281865807
+        }
+      },
+      "candidate": {
+        "current": {
+          "max": 0.07165294216631236,
+          "mean": -0.0002666283433123944,
+          "mean_absolute": 0.020638038961407215,
+          "min": -0.08069670961720034
+        },
+        "intercept": {
+          "max": 0.1080763913561618,
+          "mean": 0.1080763913561618,
+          "mean_absolute": 0.1080763913561618,
+          "min": 0.1080763913561618
+        },
+        "prior": {
+          "max": 0.1236397850451775,
+          "mean": -0.00025318453911104497,
+          "mean_absolute": 0.03848818969207596,
+          "min": -0.12384216128199217
+        }
+      }
+    },
+    "models": {
+      "baseline": {
+        "converged": true,
+        "gradient_infinity_norm": 2.6674456623281703e-10,
+        "iterations": 2,
+        "parameters": [
+          0.10798608730620167,
+          0.05309051742329455
+        ],
+        "penalized_mean_loss": 0.689933372966347
+      },
+      "candidate": {
+        "converged": true,
+        "gradient_infinity_norm": 8.231019619500999e-10,
+        "iterations": 2,
+        "parameters": [
+          0.1080763913561618,
+          0.04762387307690713,
+          0.03801872438057604
+        ],
+        "penalized_mean_loss": 0.6890497368977063
+      }
+    }
+  },
+  "completion_rule": {
+    "admission": "Full161 source row + acquired complete gameY + final untied score + independent Final/REG CSV matching score identity + empty14 + no15/16. Empty14 alone is insufficient.",
+    "date_resolution": "Calendar-day reconstruction under source game-log semantics; no invented UTC completion timestamp or claim of exact contemporaneous source version.",
+    "known_cross_date_excluded": 4,
+    "source_date": "Retrosheet field1 actual played date; field14 specifies later-date completion from suspension/upheld protest."
+  },
+  "development_rule_passed": true,
+  "direction_counts": {
+    "baseline": {
+      "AWAY": 26,
+      "HOME": 942
+    },
+    "candidate": {
+      "AWAY": 65,
+      "HOME": 903
+    }
+  },
+  "evaluation_performed": true,
   "event_exclusion_reason_counts_nonexclusive": {
-    "LATER_DATE_COMPLETION": 4,
-    "POSTPONEMENT_STATUS_UNKNOWN": 2430
+    "LATER_DATE_COMPLETION": 4
   },
   "history_event_population": 2430,
-  "history_events_admitted": 0,
+  "history_events_admitted": 2426,
   "hyperparameter_searches": 0,
   "independent_csv_fields": [
     "Date",
@@ -44,6 +125,10 @@
     "source_type",
     "is_verified_real"
   ],
+  "intercept_dominates_absolute_sum_on_evaluation": {
+    "baseline": 924,
+    "candidate": 845
+  },
   "interpretation": "PREVIOUSLY_USED_2025_HISTORICAL_RECONSTRUCTION_DEVELOPMENT_NOT_HOLDOUT",
   "known_later_completion_games": [
     {
@@ -71,41 +156,73 @@
       "official_date": "2025-08-02"
     }
   ],
-  "metrics": null,
-  "missing_postponement_source_fields": [
-    "original_scheduled_date",
-    "postponed",
-    "rescheduled_from"
-  ],
+  "metrics": {
+    "baseline": {
+      "accuracy": 0.5413223140495868,
+      "brier": 0.24742383310401755,
+      "correct_count": 524,
+      "logloss": 0.6879794552368508,
+      "sample_count": 968
+    },
+    "candidate": {
+      "accuracy": 0.5444214876033058,
+      "brier": 0.24700049494488832,
+      "correct_count": 527,
+      "logloss": 0.6871263917810426,
+      "sample_count": 968
+    },
+    "fixed_home_0_5": {
+      "accuracy": 0.5330578512396694,
+      "brier": 0.25,
+      "correct_count": 516,
+      "logloss": 0.6931471805599453,
+      "sample_count": 968
+    }
+  },
+  "model_artifact_sha256": "ce77257860afe420b022c375d50f2c1c717787cf1fb1cafc3a45365de7c7adf0",
+  "new_fits_during_score_or_replay": 0,
   "new_game_source_gets": 0,
-  "next_requirement": "An existing authorized full-identity 2025 scheduling/rescheduling evidence source, or an explicit scope decision allowing completed-as-played games irrespective of postponement before first pitch. Neither is assumed.",
+  "new_same_game_market_validation_performed": false,
   "non_later_completion_final_records": 2426,
+  "paired_accuracy_discordance": {
+    "baseline_only_correct": 18,
+    "both_correct": 506,
+    "both_wrong": 423,
+    "candidate_only_correct": 21
+  },
   "per_game_csv_rows": 2430,
-  "per_game_csv_sha256": "0e779073160e0e3b9665b76c7869a79690bc70be35fa9a004ae42869990a8de6",
+  "per_game_csv_sha256": "23f88c6424c3aed5dcf43c5a2d64b8f6e8e632d690df7d16367bee29295c40c7",
   "phases": {
     "evaluation": {
-      "coverage": 0.0,
-      "paired_admitted": 0,
-      "paired_excluded": 969,
+      "coverage": 0.9989680082559339,
+      "paired_admitted": 968,
+      "paired_excluded": 1,
       "population": 969,
       "primary_event_exclusions": {
-        "LATER_DATE_COMPLETION": 1,
-        "POSTPONEMENT_STATUS_UNKNOWN": 968
+        "LATER_DATE_COMPLETION": 1
+      },
+      "primary_paired_exclusions": {
+        "LATER_DATE_COMPLETION": 1
       }
     },
     "train": {
-      "coverage": 0.0,
-      "paired_admitted": 0,
-      "paired_excluded": 1461,
+      "coverage": 0.7364818617385352,
+      "paired_admitted": 1076,
+      "paired_excluded": 385,
       "population": 1461,
       "primary_event_exclusions": {
-        "LATER_DATE_COMPLETION": 3,
-        "POSTPONEMENT_STATUS_UNKNOWN": 1458
+        "LATER_DATE_COMPLETION": 3
+      },
+      "primary_paired_exclusions": {
+        "AWAY_HISTORY_BELOW_MINIMUM": 10,
+        "HOME_HISTORY_BELOW_MINIMUM": 372,
+        "LATER_DATE_COMPLETION": 3
       }
     }
   },
-  "protocol_sha256": "1905db89615046f5087b26fec7d27269b791c8e709dad6c9cb80fef6c94a8cc0",
-  "schema_version": "lagged_season_winrate.source_gate.v1",
+  "profitability_claim": false,
+  "protocol_sha256": "b84fd72e5b4835df22c5c6da767c419b24a42d6527da4c662225fc874514faa8",
+  "schema_version": "lagged_season_winrate.result.v2",
   "source_hashes": {
     "earlier_csv": "f675a12718a41a4560632034cee8aea93b8cb9c01061f23ff04034608c731f58",
     "earlier_gamelog": "48bae769201e0b5b232f34540dc3511974fac3a2c2a76e9622ffef9651ddca8e",
@@ -119,5 +236,6 @@
     "train_last_date": "2025-07-18",
     "train_population": 1461
   },
-  "status": "BLOCKED_POSTPONEMENT_PROOF_MISSING"
+  "status": "DEVELOPMENT_PASS",
+  "training_admitted": 1076
 }

@@ -1,0 +1,51 @@
+{
+  "fit_attempts": {
+    "baseline": 1,
+    "candidate": 1
+  },
+  "fit_code_sha256": {
+    "research.py": "52723937aec9f55ad2b4b9036718b904a78073b8cfe8b5a421f294fa7e7afefa",
+    "source_gate.py": "7552cea254829b092bc02ce4b2c91c1b941e1ae99c52b638c03184f8602df24d",
+    "train_once.py": "706e00e870ff08a5dca026bf06965d8df82f9b6a977ccf542f01686ca6535582"
+  },
+  "models": {
+    "baseline": {
+      "converged": true,
+      "gradient_infinity_norm": 2.6674456623281703e-10,
+      "iterations": 2,
+      "parameters": [
+        0.10798608730620167,
+        0.05309051742329455
+      ],
+      "penalized_mean_loss": 0.689933372966347
+    },
+    "candidate": {
+      "converged": true,
+      "gradient_infinity_norm": 8.231019619500999e-10,
+      "iterations": 2,
+      "parameters": [
+        0.1080763913561618,
+        0.04762387307690713,
+        0.03801872438057604
+      ],
+      "penalized_mean_loss": 0.6890497368977063
+    }
+  },
+  "protocol_sha256": "b84fd72e5b4835df22c5c6da767c419b24a42d6527da4c662225fc874514faa8",
+  "schema_version": "lagged_season_winrate.model.v1",
+  "standardization": [
+    {
+      "key": "prior_strength_difference",
+      "mean": 0.002286647288263583,
+      "scale": 1.0762034312126327
+    },
+    {
+      "key": "current_winrate_difference",
+      "mean": -0.0008038642254184597,
+      "scale": 0.1525664759457963
+    }
+  ],
+  "status": "COMPLETE",
+  "training_count": 1076,
+  "training_rows_sha256": "7cc68728cbef06d4471d8abf74bb2313503f4ba2b746ae8df30b16927949da7d"
+}
