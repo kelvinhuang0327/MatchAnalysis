@@ -1,0 +1,13 @@
+{
+  "byte_count": 3519400,
+  "path": "schedule_2026.json",
+  "persisted_at_utc": "2026-10-13T02:06:12.131594+00:00",
+  "provider_published_at_utc": null,
+  "received_at_utc": "2026-10-13T02:06:12.098101+00:00",
+  "request_started_at_utc": "2026-10-13T02:06:01.986223+00:00",
+  "retry_count": 0,
+  "sha256": "b940586206a13c1141fc277d829e72092fa1c05ebd6d65a4d76bf4a3d43dd82c",
+  "source_get_count": 1,
+  "status": "SUCCESS",
+  "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&gameType=R&startDate=2026-01-01&endDate=2026-12-31&hydrate=gameInfo"
+}

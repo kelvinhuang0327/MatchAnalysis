@@ -1,0 +1,68 @@
+{
+  "evaluation": "All physical2026 R games in fixed calendar range, excluding all102 previously opened gamePks; no performance-based window selection. Same admissible denominator for candidate/baseline/fixed-home.",
+  "exclude_102_target_only": "Old102 may supply ordinary causally eligible lagged history; exclude them as targets regardless of date changes. Never count them as new evaluation examples.",
+  "fits_during_this_task": 0,
+  "fixed_at_utc": "2026-10-13T02:05:54.049870+00:00",
+  "fixed_home_probability": 0.5,
+  "game_type": "R",
+  "interpretation": "POSTHOC_CROSS_YEAR_RECONSTRUCTION;2026 includes prior uses and previously opened outcomes, not new holdout/prospective/unseen sample.",
+  "lag_calendar_days": 7,
+  "market_rule": "No newly fetched historical prices. Existing legal full-identity pregame quotes only if already available; otherwise market sample0 and no claim of beating market. P39A historical odds never substituted.",
+  "metrics": [
+    "accuracy",
+    "brier",
+    "logloss"
+  ],
+  "minimum_history_each_team": 20,
+  "model_commit": "133d29f",
+  "model_sha256": "ce77257860afe420b022c375d50f2c1c717787cf1fb1cafc3a45365de7c7adf0",
+  "new_source_get_limit": 1,
+  "paired_uncertainty": "Discordance counts and exact two-sided McNemar candidate vsbaseline andfixed-home; no tuning based on p values.",
+  "paper_entry_commit": "b6d31f4",
+  "preserved": [
+    "saved models",
+    "Champion",
+    "main",
+    "formal ledger",
+    "existing102 targets",
+    "all earlier artifacts"
+  ],
+  "previous_use_summary": {
+    "known_labels_available": 808,
+    "known_prior_strategy_scored_correct": 460,
+    "meaning": "Other diagnostic strategy, not a result for these saved models. Raw cache1302 representations and June102 already opened. Cannot claim remaining2026 games were unseen.",
+    "source_path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2026/derived/p84e_2026_outcome_attachment_summary.json",
+    "summary_sha256": "77158c9ce5e441cab637cf12feb19b265fa6e8ca06d510dc3cd3e1cea904b55d"
+  },
+  "range_end": "2026-12-31",
+  "range_start": "2026-01-01",
+  "request_timeout_seconds": 25,
+  "response_byte_limit": 16777216,
+  "retry_count": 0,
+  "schema_version": "cross_year_2026_fixed.protocol.v1",
+  "sealed_repository_files": {
+    "data/fixtures/p23f2_official_2026_history/raw/schedule_2026-03-25_2026-06-30.json": "6950ed55ff1ddeb9b90f90138847ed7ebe79ce39d37614268d344af96eb65e55",
+    "examples/lagged_season_winrate_v1/model_artifact.json": "ce77257860afe420b022c375d50f2c1c717787cf1fb1cafc3a45365de7c7adf0",
+    "examples/lagged_season_winrate_v1/per_game_gate.csv": "23f88c6424c3aed5dcf43c5a2d64b8f6e8e632d690df7d16367bee29295c40c7",
+    "examples/lagged_season_winrate_v1/protocol.json": "b84fd72e5b4835df22c5c6da767c419b24a42d6527da4c662225fc874514faa8",
+    "examples/lagged_season_winrate_v1/research.py": "52723937aec9f55ad2b4b9036718b904a78073b8cfe8b5a421f294fa7e7afefa",
+    "examples/lagged_season_winrate_v1/source_gate.py": "7552cea254829b092bc02ce4b2c91c1b941e1ae99c52b638c03184f8602df24d",
+    "examples/lagged_winrate_paper_v1/paper.py": "7a1e1e95d504dccafa9505cf3aa3f887a0ac239b0ba2ffcd3388759e00a3326b",
+    "examples/team_recent10_research_v1/evaluate.py": "b950b79c8ae94b2010f2ac2fb0e73e8024af1f83dc6ff64e9d2e46e4ae61a64c",
+    "examples/team_recent10_research_v1/population.jsonl": "f28de31453be9acffe2ac646bdc7300489ba2c643a6f3bb2b7595fb51fd409dc"
+  },
+  "source_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&gameType=R&startDate=2026-01-01&endDate=2026-12-31&hydrate=gameInfo",
+  "sources": {
+    "train_csv": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/mlb-2025-asplayed.csv",
+      "sha256": "614341bf6a6e7f77f2c2ff2f0433b29fb56b51d8eed223c22ea1ff9705ee903c"
+    },
+    "train_gamelog": {
+      "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2025/gl2025.txt",
+      "sha256": "586a7d73c2755c17a13ae034ba0cd0c5eaf77251a8b77ac7be780aa799d63f3d"
+    }
+  },
+  "standardization": "Use both saved model coefficient vectors and training1076 scaler exactly; no learning/retraining/calibration. Baseline is original previous-season one-feature model from133d29f.",
+  "target_rule": "Full provider physical identity; Final, legal untied score and defensible completion; wrong/missing identity or ambiguous/resumed/unknown completion excluded.",
+  "time_rule": "Reuse b6d31f4 completion helper and conservative feature admission: unambiguous normal Final game, no resumption markers, official date AND derived firstPitch+duration+60sec UTC date <= target officialDate minus7; all admitted history end bounds strictly before target firstPitch/start. Unknown completion excluded. Current source is later reconstruction, never contemporaneous."
+}

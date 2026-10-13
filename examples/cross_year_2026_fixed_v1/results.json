@@ -1,0 +1,576 @@
+{
+  "admitted_history_physical_games": 2428,
+  "candidate_minus_baseline": {
+    "accuracy": 0.0015535991714138442,
+    "brier": -0.0004092408088373911,
+    "logloss": -0.0008229696794991304
+  },
+  "candidate_minus_fixed_home": {
+    "accuracy": 0.013464526152252798,
+    "brier": -0.0027164425361023425,
+    "logloss": -0.00545039018254645
+  },
+  "coverage_after_opened102_exclusion": 0.8294673539518901,
+  "coverage_of_full_physical_population": 0.7946502057613168,
+  "direction_counts": {
+    "baseline": {
+      "AWAY": 67,
+      "HOME": 1864
+    },
+    "candidate": {
+      "AWAY": 100,
+      "HOME": 1831
+    }
+  },
+  "excluded_total": 499,
+  "improvement_or_profitability_established": false,
+  "intercept_dominates_absolute_signal_sum_count": {
+    "baseline": 1813,
+    "candidate": 1741
+  },
+  "interpretation": "POSTHOC_CROSS_YEAR_RECONSTRUCTION;2026 includes prior uses and previously opened outcomes, not new holdout/prospective/unseen sample.",
+  "market": {
+    "market_metrics": null,
+    "market_superiority_established": false,
+    "no_new_prices_acquired": true,
+    "opened102_prices": "All102 excluded as targets; not substituted into this evaluation.",
+    "paired_market_sample_count": 0,
+    "sources_reviewed": [
+      {
+        "path": "report/moneyline_paper_decision_v1/p52a_f_identity_fix_v1/postgame_v1/quote_snapshots.jsonl",
+        "reason": "POSTSEASON_F_NOT_R",
+        "rows": 4,
+        "sha256": "2493cc8c2a5bc2f6fcd89ba664a294f9e9621dd3aa2521001a115e8aa0ebc345"
+      },
+      {
+        "path": "report/p39a_tsl_moneyline_market_join/market_snapshots.jsonl",
+        "reason": "P39A_HISTORICAL_PRICES_NOT_ADMITTED",
+        "rows": 62,
+        "sha256": "16f5c34626bf395d687f0dadaa75d4dab8fb9facc65469f80252834d924845c3"
+      },
+      {
+        "path": "data/authority/tsl/tsl_odds_history.jsonl",
+        "reason": "RAW_PRICES_WITHOUT_VERIFIED_FULL_GAME_IDENTITY_AND_PREGAME_CAPTURE_AUTHORITY",
+        "rows": 2941,
+        "sha256": "1741e2a84eb8342f8752a498d2c478a9309a971a57b3b4f6966132188e52168a"
+      }
+    ]
+  },
+  "mean_absolute_logit_contributions": {
+    "baseline": [
+      0.10798608730620167,
+      0.042326016066421765
+    ],
+    "candidate": [
+      0.1080763913561618,
+      0.03796777494042581,
+      0.020904566424080215
+    ]
+  },
+  "metrics": {
+    "baseline": {
+      "accuracy": 0.5375453133091662,
+      "brier": 0.24769279827273505,
+      "correct_count": 1038,
+      "logloss": 0.688519760056898,
+      "sample_count": 1931
+    },
+    "candidate": {
+      "accuracy": 0.5390989124805801,
+      "brier": 0.24728355746389766,
+      "correct_count": 1041,
+      "logloss": 0.6876967903773988,
+      "sample_count": 1931
+    },
+    "fixed_home": {
+      "accuracy": 0.5256343863283273,
+      "brier": 0.25,
+      "correct_count": 1015,
+      "logloss": 0.6931471805599453,
+      "sample_count": 1931
+    }
+  },
+  "minimum_completion_margin_seconds": 573420.0,
+  "model_sha256": "ce77257860afe420b022c375d50f2c1c717787cf1fb1cafc3a45365de7c7adf0",
+  "new_fits": 0,
+  "new_source_gets": 1,
+  "nonexclusive_exclusion_counts": {
+    "AWAY_HISTORY_BELOW_MINIMUM": 389,
+    "FINAL_SCORE_INVALID_OR_TIED": 1,
+    "HOME_HISTORY_BELOW_MINIMUM": 392,
+    "OPENED102_TARGET_EXCLUDED": 102,
+    "RESUMPTION_COMPLETION_UNSUPPORTED": 1
+  },
+  "paired_evaluated_count": 1931,
+  "paired_uncertainty": {
+    "candidate_vs_baseline": {
+      "accuracy_difference": 0.0015535991714137752,
+      "discordant_pairs": 39,
+      "exact_mcnemar_two_sided_p": 0.7492586247608415,
+      "left": "candidate_p_home",
+      "limits": "Nominal exact sign/binomial test assumes exchangeable independent discordances; shared teams/time and prior reuse limit confirmatory inference.",
+      "paired_counts": {
+        "both_correct": 1020,
+        "both_wrong": 872,
+        "left_only_correct": 21,
+        "right_only_correct": 18
+      },
+      "right": "baseline_p_home",
+      "sample_count": 1931
+    },
+    "candidate_vs_fixed_home": {
+      "accuracy_difference": 0.013464526152252718,
+      "discordant_pairs": 100,
+      "exact_mcnemar_two_sided_p": 0.012032975725363477,
+      "left": "candidate_p_home",
+      "limits": "Nominal exact sign/binomial test assumes exchangeable independent discordances; shared teams/time and prior reuse limit confirmatory inference.",
+      "paired_counts": {
+        "both_correct": 978,
+        "both_wrong": 853,
+        "left_only_correct": 63,
+        "right_only_correct": 37
+      },
+      "right": "fixed_home_p_home",
+      "sample_count": 1931
+    }
+  },
+  "per_game_csv_sha256": "f5652531d5dd4b4fc047cfc3e43f12549e645369276144e49edc8ced2e1bc61c",
+  "physical_game_population": 2430,
+  "physical_population_after_excluding_old102": 2328,
+  "previous_opened102_missing_from_source": [],
+  "previous_opened102_source_matches": 102,
+  "previous_use": {
+    "not_in_cache_does_not_mean_unseen": true,
+    "other_prior_use": {
+      "known_labels_available": 808,
+      "known_prior_strategy_scored_correct": 460,
+      "meaning": "Other diagnostic strategy, not a result for these saved models. Raw cache1302 representations and June102 already opened. Cannot claim remaining2026 games were unseen.",
+      "source_path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/mlb_2026/derived/p84e_2026_outcome_attachment_summary.json",
+      "summary_sha256": "77158c9ce5e441cab637cf12feb19b265fa6e8ca06d510dc3cd3e1cea904b55d"
+    },
+    "selected_pks_already_in_old_raw_cache": 793,
+    "selected_pks_not_in_that_one_cache": 1138,
+    "selected_pks_with_final_label_in_old_raw_cache": 783
+  },
+  "primary_exclusion_counts": {
+    "AWAY_HISTORY_BELOW_MINIMUM": 3,
+    "FINAL_SCORE_INVALID_OR_TIED": 1,
+    "HOME_HISTORY_BELOW_MINIMUM": 392,
+    "OPENED102_TARGET_EXCLUDED": 102,
+    "RESUMPTION_COMPLETION_UNSUPPORTED": 1
+  },
+  "protocol_sha256": "3b4b51da140de295d30a9e418e49eaeeeaefa8577fb05ea638c79d55d3197abd",
+  "raw_representation_count": 2459,
+  "resolved_prestart_reschedules": [
+    {
+      "actual_identity": [
+        823042,
+        "R",
+        "2026-07-23",
+        1,
+        "2026-07-23T21:15:00Z",
+        138,
+        109
+      ],
+      "game_pk": 823042,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        823062,
+        "R",
+        "2026-07-07",
+        1,
+        "2026-07-07T18:15:00Z",
+        138,
+        158
+      ],
+      "game_pk": 823062,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        823357,
+        "R",
+        "2026-07-11",
+        1,
+        "2026-07-11T16:05:00Z",
+        134,
+        158
+      ],
+      "game_pk": 823357,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        823471,
+        "R",
+        "2026-04-30",
+        2,
+        "2026-04-30T21:35:00Z",
+        143,
+        137
+      ],
+      "game_pk": 823471,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        823519,
+        "R",
+        "2026-07-22",
+        2,
+        "2026-07-22T23:05:00Z",
+        147,
+        134
+      ],
+      "game_pk": 823519,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        823523,
+        "R",
+        "2026-07-19",
+        1,
+        "2026-07-19T16:35:00Z",
+        147,
+        119
+      ],
+      "game_pk": 823523,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        823539,
+        "R",
+        "2026-08-29",
+        1,
+        "2026-08-29T17:05:00Z",
+        147,
+        111
+      ],
+      "game_pk": 823539,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        823543,
+        "R",
+        "2026-09-22",
+        1,
+        "2026-09-22T17:05:00Z",
+        147,
+        139
+      ],
+      "game_pk": 823543,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        823598,
+        "R",
+        "2026-07-29",
+        2,
+        "2026-07-29T23:10:00Z",
+        121,
+        144
+      ],
+      "game_pk": 823598,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        823613,
+        "R",
+        "2026-06-24",
+        1,
+        "2026-06-24T17:10:00Z",
+        121,
+        112
+      ],
+      "game_pk": 823613,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        823637,
+        "R",
+        "2026-04-26",
+        2,
+        "2026-04-26T17:45:00Z",
+        121,
+        115
+      ],
+      "game_pk": 823637,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824134,
+        "R",
+        "2026-04-04",
+        2,
+        "2026-04-04T23:10:00Z",
+        118,
+        158
+      ],
+      "game_pk": 824134,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824362,
+        "R",
+        "2026-05-07",
+        1,
+        "2026-05-07T19:10:00Z",
+        115,
+        121
+      ],
+      "game_pk": 824362,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824414,
+        "R",
+        "2026-07-18",
+        1,
+        "2026-07-18T17:10:00Z",
+        114,
+        134
+      ],
+      "game_pk": 824414,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824424,
+        "R",
+        "2026-09-04",
+        1,
+        "2026-09-04T18:10:00Z",
+        114,
+        116
+      ],
+      "game_pk": 824424,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824460,
+        "R",
+        "2026-04-05",
+        2,
+        "2026-04-05T17:15:00Z",
+        114,
+        112
+      ],
+      "game_pk": 824460,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824490,
+        "R",
+        "2026-07-28",
+        1,
+        "2026-07-28T17:40:00Z",
+        113,
+        114
+      ],
+      "game_pk": 824490,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824514,
+        "R",
+        "2026-08-17",
+        1,
+        "2026-08-17T17:40:00Z",
+        113,
+        138
+      ],
+      "game_pk": 824514,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824518,
+        "R",
+        "2026-05-23",
+        1,
+        "2026-05-23T17:10:00Z",
+        113,
+        138
+      ],
+      "game_pk": 824518,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824589,
+        "R",
+        "2026-08-20",
+        1,
+        "2026-08-20T18:10:00Z",
+        145,
+        144
+      ],
+      "game_pk": 824589,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824621,
+        "R",
+        "2026-04-03",
+        1,
+        "2026-04-03T18:10:00Z",
+        145,
+        141
+      ],
+      "game_pk": 824621,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824664,
+        "R",
+        "2026-08-06",
+        1,
+        "2026-08-06T18:20:00Z",
+        112,
+        141
+      ],
+      "game_pk": 824664,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824735,
+        "R",
+        "2026-07-22",
+        1,
+        "2026-07-22T17:35:00Z",
+        111,
+        110
+      ],
+      "game_pk": 824735,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824766,
+        "R",
+        "2026-07-17",
+        1,
+        "2026-07-17T17:35:00Z",
+        111,
+        139
+      ],
+      "game_pk": 824766,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824785,
+        "R",
+        "2026-09-23",
+        1,
+        "2026-09-23T17:35:00Z",
+        110,
+        141
+      ],
+      "game_pk": 824785,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824840,
+        "R",
+        "2026-05-24",
+        2,
+        "2026-05-24T22:05:00Z",
+        110,
+        116
+      ],
+      "game_pk": 824840,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824850,
+        "R",
+        "2026-04-30",
+        2,
+        "2026-04-30T16:40:00Z",
+        110,
+        117
+      ],
+      "game_pk": 824850,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    },
+    {
+      "actual_identity": [
+        824911,
+        "R",
+        "2026-08-31",
+        1,
+        "2026-08-31T22:05:00Z",
+        144,
+        137
+      ],
+      "game_pk": 824911,
+      "representations": 2,
+      "rule": "Explicit rescheduledFrom chain; same teams and compatible non-NULL score/firstPitch/duration. Only actual leaf supplies outcome; count physical game once."
+    }
+  ],
+  "schema_version": "cross_year_2026_fixed.result.v1",
+  "source_byte_count": 3519400,
+  "source_received_at_utc": "2026-10-13T02:06:12.098101+00:00",
+  "source_sha256": "b940586206a13c1141fc277d829e72092fa1c05ebd6d65a4d76bf4a3d43dd82c",
+  "status": "POSTHOC_FIXED_MODEL_EVALUATED",
+  "training_separation": {
+    "2025_annual_end_to_2026_start_days": 178,
+    "admitted_training_rows": 1076,
+    "all_evaluation_events_precede_model_method_revision": true,
+    "evaluation_year": 2026,
+    "latest_training_key": "20250718|0|SLN|ARI",
+    "model_not_available_for_these_historical_games": true,
+    "model_training_method_revision_at_utc": "2026-10-11T15:24:48.178586+00:00",
+    "training_contains_evaluation_year": false,
+    "training_rows_sha256": "7cc68728cbef06d4471d8abf74bb2313503f4ba2b746ae8df30b16927949da7d",
+    "training_scaler_matches_saved": true,
+    "training_year": 2025
+  }
+}

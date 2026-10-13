@@ -1,0 +1,14 @@
+{
+  "files": {
+    "README.md": "a4b27075789bef1b7c4b268038132b860d91813d4d5a19613493ca850b70ac4c",
+    "evaluate.py": "14e314c8c49d5208329614f8896117696724973d06c5fc9f5126c963aff07b62",
+    "per_game.csv": "f5652531d5dd4b4fc047cfc3e43f12549e645369276144e49edc8ced2e1bc61c",
+    "protocol.json": "3b4b51da140de295d30a9e418e49eaeeeaefa8577fb05ea638c79d55d3197abd",
+    "results.json": "eb4b33e11e4b2bb7ae6c38b40a98be4dad8481467be43f6d0a82f4f6de44b15f",
+    "schedule_2026.json": "b940586206a13c1141fc277d829e72092fa1c05ebd6d65a4d76bf4a3d43dd82c",
+    "source_capture.json": "e73589458b259bed69227c578851a4904fa741f3852e98d3c4707ddb726e7b8a",
+    "test_evaluate.py": "56c27c5ce1b4d7f3c7127c675827bd3f662faf6465442786d1dd0798d7dcdd6b",
+    "verify_replay.py": "859fd8499bef0c61fc731ebe579fde7faa6d4000751f1c750fce8051ecef3579"
+  },
+  "schema_version": "cross_year_2026_fixed.manifest.v1"
+}
