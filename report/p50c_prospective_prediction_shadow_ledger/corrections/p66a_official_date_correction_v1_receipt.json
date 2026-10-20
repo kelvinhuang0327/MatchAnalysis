@@ -1,0 +1,35 @@
+{
+  "corrected_ledger_ids": [
+    "0fe5f0b9d27f6021493e45df854f95c4c4ff3065c3dd8900b0633537fb7af0b6",
+    "4609d308567d5c9139c8a3331bccff62df862baffe0e136af00e0d3800f972cd",
+    "be3740a0d5d6aa15f14da1efc991f8672a829acf49c474b488f95819fbeb6a36",
+    "a631e3f1f160b24a7eeb06374cb818646b2c9da106d7155b8ce5b9157f75d743",
+    "293e648f5ea2f821b78e7982b201c647d3174d3b9d6353c36aec851adcf5f550",
+    "dbe358ea25b4853af035e09c0a3f0b774c0f17fa0f82fab276f9428982dbc89c",
+    "1982580e9e2db295f6221fc3a8460320a6dc66712d245239ff25b4c016dfbc03",
+    "e1ae5c279f99ecbd9cce5df0dd7d0476d3285805688c01dfcf77584572b462b6",
+    "0874ab0eac63225c0dc5a8bb81f8d7b62d7828de11ed3d22a283184f15b29d66",
+    "7867fb871f0d831714b2db4bf1c47c6eb4fab60793c5950e51901c9b5e6d27aa",
+    "7b6ec03fa9aad20eb8550b8bcd85f5972f9f03cfbf35947696231284517f8c3d"
+  ],
+  "correction_artifact_sha256": "77fd210405b99b87896270eecc9192020853d2210e7f4c780606e87ce5ac00e7",
+  "correction_record_count": 11,
+  "post_correction_summary_sha256": "b6ef70f554b60cd3a1f1ca52c35ceacbca348b9a7efbc9dcb52cd1b15d89e4e5",
+  "pre_correction_summary_sha256": "00992fa6ca010d4f4fd785d22149fcffe5ece01fb527e993707e4c1a32065a52",
+  "provider_source_identity": {
+    "payload_sha256": "fa41393783f4fe7b25b562c0d65c7e267249b246b09053bcacc3f03d92e484b2",
+    "provider_game_count": 95,
+    "query_end_date": "2026-08-23",
+    "query_start_date": "2026-08-17",
+    "request_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-08-17&endDate=2026-08-23&hydrate=team",
+    "resolved_row_count": 35,
+    "resolved_unique_game_pk_count": 35,
+    "source_identity": "MLB_STATS_API_OFFICIAL_SCHEDULE"
+  },
+  "raw_ledger_row_count": 35,
+  "raw_ledger_sha256": "87fdd7d9314993dc6fab2fa92db09db29bc7382159d3a355fc53c23cb2c4ab2a",
+  "receipt_schema_version": "p66a.official_date_correction_receipt.v1",
+  "rollback_mode": "IGNORE_OVERLAY_AND_REGENERATE_FROM_RAW_LEDGER",
+  "source_identity": "MLB_STATS_API_OFFICIAL_SCHEDULE",
+  "task_id": "P66A"
+}

@@ -1,0 +1,26 @@
+{
+  "accuracy": 1.0,
+  "brier_score": 0.16907204837822623,
+  "claims": {
+    "calibration_fitting": false,
+    "ev_or_bet_pass_selection": false,
+    "kelly": false,
+    "market_id": "run_line",
+    "model_promotion": false,
+    "model_retraining": false,
+    "odds_or_market_dependent": false,
+    "real_betting": false,
+    "threshold_optimization": false,
+    "tsl_access": false
+  },
+  "correct_count": 2,
+  "decided_count": 2,
+  "incorrect_count": 0,
+  "lifecycle_state": "SETTLED",
+  "log_loss": 0.5260588566800994,
+  "push_count": 0,
+  "run_id": "p50c_run_rl_10979ad956a8eae9c1a6e6639ff20917",
+  "schema_version": "p61b.run_line_settlement_summary.v1",
+  "settled_at_utc": "2026-09-11T02:51:44.668272Z",
+  "total_count": 2
+}

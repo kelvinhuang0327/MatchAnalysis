@@ -1,0 +1,23 @@
+{
+  "accuracy": "0.6666666666666666666666666667",
+  "betting_forward_sample_count": 0,
+  "brier_score": "0.2375738473288436120503943357",
+  "eligible_prediction_count": 6,
+  "expected_calibration_error": "0.31614441",
+  "final_results_discovered": 6,
+  "frozen_predictions_fingerprint_intact": true,
+  "lifecycle_state": "SETTLED",
+  "log_loss": "0.6687197715346666666666666667",
+  "newly_settled_count": 1,
+  "non_final_games_count": 0,
+  "pending_count": 0,
+  "prediction_forward_sample_count": 47,
+  "run_dir": "/Users/kelvin/VibeCoding-WorkSpace/MatchAnalysis/report/p50c_prospective_prediction_shadow_ledger/runs/p50c_run_29454ef7a8917d654f903222a764833a",
+  "run_id": "p50c_run_29454ef7a8917d654f903222a764833a",
+  "schema_version": "p53a.daily_final_settlement_receipt.v1",
+  "settled_at_utc": "2026-08-28T05:32:28Z",
+  "status": "NEWLY_SETTLED",
+  "target_date": "2026-08-27",
+  "task_id": "P53A",
+  "total_settled_count": 6
+}

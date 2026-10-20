@@ -1,0 +1,36 @@
+{
+  "claims": {
+    "calibration_fitting": false,
+    "ev_or_bet_pass_selection": false,
+    "kelly": false,
+    "model_promotion": false,
+    "model_retraining": false,
+    "odds_or_market_dependent": false,
+    "real_betting": false,
+    "threshold_optimization": false,
+    "tsl_access": false
+  },
+  "created_at_utc": "2026-08-27T10:09:38Z",
+  "eligible_prediction_count": 6,
+  "exclusion_count": 1,
+  "lifecycle_state": "SETTLED",
+  "model_role": "CHAMPION",
+  "normalized_input_fingerprint": "ee3595e94880ee8bc7830f48a262a0428acd901b8736054e993bd5a6baedc6ad",
+  "pending_count": 0,
+  "prediction_bundle_fingerprint": "a26f3242251e4450a080d47c1da52a6e31aee6a247ab1a2ab236b0197cf920b4",
+  "prediction_fingerprints": [
+    "c1c22e2a48535e16387dd135cacb6e748b97307878880d361eac04b78eba9789",
+    "18863e993d97cf3fefcfbf6fab8905f4b19f86da356c3dc4177fe6cdee36019f",
+    "03a24daff0e372f04e250df5857c1f930b4c2d9b451ff7f12313d157e2778b83",
+    "4bed91470e465d0bc20e7b433093295f100d2d8d012f93c29b505a378af9ea62",
+    "358bf97c007a5530df183dcb8364dcfdc409d1ba920574a32683ece4adb8bd53",
+    "c46797a409f8b0130950238ac11bb0f717616302f33d511855fb726ffa56d4fd"
+  ],
+  "run_classification": "PROSPECTIVE_FORWARD_PREDICTION",
+  "run_id": "p50c_run_29454ef7a8917d654f903222a764833a",
+  "schema_version": "p50c.prediction_run_manifest.v1",
+  "settled_total_count": 6,
+  "target_date": "2026-08-27",
+  "target_universe_count": 7,
+  "task_id": "P50C"
+}

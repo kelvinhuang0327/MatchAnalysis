@@ -1,0 +1,1067 @@
+{
+  "data_mode": "PROSPECTIVE",
+  "decisions": [
+    {
+      "data_mode": "PROSPECTIVE",
+      "decimal_odds": "1.79",
+      "decision": "NO_BET",
+      "decision_at_utc": "2026-09-30T13:29:02.883874Z",
+      "decision_id": "100718ba5f186b893800aea2c2fedfc2b51783f84c3a9d9c2f15989d31a4541f",
+      "decision_identity": {
+        "game_pk": 849841,
+        "game_type": "F",
+        "policy_version": "moneyline-paper-decision-v1",
+        "prediction_fingerprint": "e6b9e8691af5961ee63e6e2a665d0e62a20a0916350a17f22e6d3684370fad0d",
+        "prediction_run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+        "workflow_prediction_id": "p50c_pred_e6b9e8691af5961ee63e6e2a665d0e62"
+      },
+      "estimated_net_ev": "-0.0802966899508417952907746843",
+      "game_type": "F",
+      "market": "MONEYLINE",
+      "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+      "not_a_real_fill": true,
+      "paper_only": true,
+      "policy_parameters": {
+        "max_quote_age_seconds": 900,
+        "min_net_ev": "0.05",
+        "paper_cost_per_unit": "0.02",
+        "stake_units": "1"
+      },
+      "policy_version": "moneyline-paper-decision-v1",
+      "prediction": {
+        "created_at_utc": "2026-09-30T13:26:37.282152Z",
+        "game_identity": {
+          "away_team": "Philadelphia Phillies",
+          "away_team_code": "PHI",
+          "game_number": 1,
+          "game_pk": 849841,
+          "game_type": "F",
+          "home_team": "Atlanta Braves",
+          "home_team_code": "ATL",
+          "official_date": "2026-09-30",
+          "provider_game_id": "849841",
+          "provider_namespace": "MLB_STATS_API",
+          "scheduled_start_utc": "2026-09-30T18:00:00Z"
+        },
+        "game_type": "F",
+        "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+        "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+        "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+        "model_identity": {
+          "confidence_probability": "0.5249739162285800026308521317",
+          "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+          "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+          "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+          "model_probability_source": "calibrated_p_home",
+          "model_role": "CHAMPION",
+          "p_away": "0.4750260837714199973691478683",
+          "p_home": "0.5249739162285800026308521317",
+          "predicted_winner": "Atlanta Braves",
+          "selection": "HOME"
+        },
+        "model_probability_source": "calibrated_p_home",
+        "p37_prediction_row_id": "91a48634cef7f33e5b444453079674103693192edacbb184b53c83f47347faff",
+        "prediction_fingerprint": "e6b9e8691af5961ee63e6e2a665d0e62a20a0916350a17f22e6d3684370fad0d",
+        "run_classification": "PROSPECTIVE_FORWARD_PREDICTION",
+        "run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+        "workflow_prediction_id": "p50c_pred_e6b9e8691af5961ee63e6e2a665d0e62"
+      },
+      "probability": "0.5249739162285800026308521317",
+      "quote_snapshot": {
+        "away_decimal_odds": "1.71",
+        "game_identity": {
+          "away_team": "Philadelphia Phillies",
+          "away_team_code": "PHI",
+          "game_number": 1,
+          "game_pk": 849841,
+          "game_type": "F",
+          "home_team": "Atlanta Braves",
+          "home_team_code": "ATL",
+          "official_date": "2026-09-30",
+          "provider_game_id": "849841",
+          "provider_namespace": "MLB_STATS_API",
+          "scheduled_start_utc": "2026-09-30T18:00:00Z"
+        },
+        "home_decimal_odds": "1.79",
+        "market": "MONEYLINE",
+        "market_code": "MNL",
+        "observed_at_utc": "2026-09-30T13:29:02.881771Z",
+        "snapshot_identity": "5f0b2deffc5ef4cc3904f011987f056134370b531113622a9e731d182ce2fd8e",
+        "source": "TSL_BLOB3RD",
+        "source_identity": {
+          "crosswalk_authority": "P28AB_NEAREST_TEAM_AND_START_WITHIN_3600_SECONDS",
+          "crosswalk_time_delta_seconds": 0,
+          "source_game_time": "2026-10-01T02:00:00+08:00",
+          "source_match_id": "3494795.1",
+          "source_row_fingerprint": "e7651b3634923c5eb7fcd3d3e066606b52d20985791b53af23587f2c7ade4269",
+          "source_row_index": 1
+        }
+      },
+      "reason_code": "EV_BELOW_MIN_NET_EV",
+      "schema_version": "moneyline_paper_decision_v1.decision.v1",
+      "selection": "HOME"
+    },
+    {
+      "data_mode": "PROSPECTIVE",
+      "decimal_odds": "1.79",
+      "decision": "NO_BET",
+      "decision_at_utc": "2026-09-30T13:30:00Z",
+      "decision_id": "1a56d51f6b2b02190a5781e8a93cbe223162238b27612a3319c63d09de48777a",
+      "decision_identity": {
+        "game_pk": 849841,
+        "game_type": "F",
+        "policy_version": "moneyline-paper-decision-v1",
+        "prediction_fingerprint": "e6b9e8691af5961ee63e6e2a665d0e62a20a0916350a17f22e6d3684370fad0d",
+        "prediction_run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+        "workflow_prediction_id": "p50c_pred_e6b9e8691af5961ee63e6e2a665d0e62"
+      },
+      "estimated_net_ev": "-0.0802966899508417952907746843",
+      "game_type": "F",
+      "market": "MONEYLINE",
+      "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+      "not_a_real_fill": true,
+      "paper_only": true,
+      "policy_parameters": {
+        "max_quote_age_seconds": 900,
+        "min_net_ev": "0.05",
+        "paper_cost_per_unit": "0.02",
+        "stake_units": "1"
+      },
+      "policy_version": "moneyline-paper-decision-v1",
+      "prediction": {
+        "created_at_utc": "2026-09-30T13:26:37.282152Z",
+        "game_identity": {
+          "away_team": "Philadelphia Phillies",
+          "away_team_code": "PHI",
+          "game_number": 1,
+          "game_pk": 849841,
+          "game_type": "F",
+          "home_team": "Atlanta Braves",
+          "home_team_code": "ATL",
+          "official_date": "2026-09-30",
+          "provider_game_id": "849841",
+          "provider_namespace": "MLB_STATS_API",
+          "scheduled_start_utc": "2026-09-30T18:00:00Z"
+        },
+        "game_type": "F",
+        "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+        "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+        "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+        "model_identity": {
+          "confidence_probability": "0.5249739162285800026308521317",
+          "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+          "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+          "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+          "model_probability_source": "calibrated_p_home",
+          "model_role": "CHAMPION",
+          "p_away": "0.4750260837714199973691478683",
+          "p_home": "0.5249739162285800026308521317",
+          "predicted_winner": "Atlanta Braves",
+          "selection": "HOME"
+        },
+        "model_probability_source": "calibrated_p_home",
+        "p37_prediction_row_id": "91a48634cef7f33e5b444453079674103693192edacbb184b53c83f47347faff",
+        "prediction_fingerprint": "e6b9e8691af5961ee63e6e2a665d0e62a20a0916350a17f22e6d3684370fad0d",
+        "run_classification": "PROSPECTIVE_FORWARD_PREDICTION",
+        "run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+        "workflow_prediction_id": "p50c_pred_e6b9e8691af5961ee63e6e2a665d0e62"
+      },
+      "probability": "0.5249739162285800026308521317",
+      "quote_snapshot": {
+        "away_decimal_odds": "1.71",
+        "game_identity": {
+          "away_team": "Philadelphia Phillies",
+          "away_team_code": "PHI",
+          "game_number": 1,
+          "game_pk": 849841,
+          "game_type": "F",
+          "home_team": "Atlanta Braves",
+          "home_team_code": "ATL",
+          "official_date": "2026-09-30",
+          "provider_game_id": "849841",
+          "provider_namespace": "MLB_STATS_API",
+          "scheduled_start_utc": "2026-09-30T18:00:00Z"
+        },
+        "home_decimal_odds": "1.79",
+        "market": "MONEYLINE",
+        "market_code": "MNL",
+        "observed_at_utc": "2026-09-30T13:29:02.881771Z",
+        "snapshot_identity": "5f0b2deffc5ef4cc3904f011987f056134370b531113622a9e731d182ce2fd8e",
+        "source": "TSL_BLOB3RD",
+        "source_identity": {
+          "crosswalk_authority": "P28AB_NEAREST_TEAM_AND_START_WITHIN_3600_SECONDS",
+          "crosswalk_time_delta_seconds": 0,
+          "source_game_time": "2026-10-01T02:00:00+08:00",
+          "source_match_id": "3494795.1",
+          "source_row_fingerprint": "e7651b3634923c5eb7fcd3d3e066606b52d20985791b53af23587f2c7ade4269",
+          "source_row_index": 1
+        }
+      },
+      "reason_code": "EV_BELOW_MIN_NET_EV",
+      "schema_version": "moneyline_paper_decision_v1.decision.v1",
+      "selection": "HOME"
+    },
+    {
+      "data_mode": "PROSPECTIVE",
+      "decimal_odds": "1.48",
+      "decision": "NO_BET",
+      "decision_at_utc": "2026-09-30T13:29:02.883874Z",
+      "decision_id": "22873d5602900a0e088a17ec9391fde6df224620c62ac816bf5f3f20ac834d57",
+      "decision_identity": {
+        "game_pk": 849848,
+        "game_type": "F",
+        "policy_version": "moneyline-paper-decision-v1",
+        "prediction_fingerprint": "5f54533c31d730d92d7f9518b5a519925db4b5c878a9be2d47ae6fb354f779b7",
+        "prediction_run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+        "workflow_prediction_id": "p50c_pred_5f54533c31d730d92d7f9518b5a51992"
+      },
+      "estimated_net_ev": "-0.2138298979689188053050147965",
+      "game_type": "F",
+      "market": "MONEYLINE",
+      "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+      "not_a_real_fill": true,
+      "paper_only": true,
+      "policy_parameters": {
+        "max_quote_age_seconds": 900,
+        "min_net_ev": "0.05",
+        "paper_cost_per_unit": "0.02",
+        "stake_units": "1"
+      },
+      "policy_version": "moneyline-paper-decision-v1",
+      "prediction": {
+        "created_at_utc": "2026-09-30T13:26:37.282152Z",
+        "game_identity": {
+          "away_team": "Boston Red Sox",
+          "away_team_code": "BOS",
+          "game_number": 1,
+          "game_pk": 849848,
+          "game_type": "F",
+          "home_team": "New York Yankees",
+          "home_team_code": "NYY",
+          "official_date": "2026-09-30",
+          "provider_game_id": "849848",
+          "provider_namespace": "MLB_STATS_API",
+          "scheduled_start_utc": "2026-10-01T00:00:00Z"
+        },
+        "game_type": "F",
+        "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+        "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+        "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+        "model_identity": {
+          "confidence_probability": "0.5447095283993791856047197321",
+          "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+          "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+          "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+          "model_probability_source": "calibrated_p_home",
+          "model_role": "CHAMPION",
+          "p_away": "0.4552904716006208143952802679",
+          "p_home": "0.5447095283993791856047197321",
+          "predicted_winner": "New York Yankees",
+          "selection": "HOME"
+        },
+        "model_probability_source": "calibrated_p_home",
+        "p37_prediction_row_id": "a03d6addc90efd094e03a7244e9449e79292d3b196c67ae51c5fe21150111b3f",
+        "prediction_fingerprint": "5f54533c31d730d92d7f9518b5a519925db4b5c878a9be2d47ae6fb354f779b7",
+        "run_classification": "PROSPECTIVE_FORWARD_PREDICTION",
+        "run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+        "workflow_prediction_id": "p50c_pred_5f54533c31d730d92d7f9518b5a51992"
+      },
+      "probability": "0.5447095283993791856047197321",
+      "quote_snapshot": {
+        "away_decimal_odds": "2.05",
+        "game_identity": {
+          "away_team": "Boston Red Sox",
+          "away_team_code": "BOS",
+          "game_number": 1,
+          "game_pk": 849848,
+          "game_type": "F",
+          "home_team": "New York Yankees",
+          "home_team_code": "NYY",
+          "official_date": "2026-09-30",
+          "provider_game_id": "849848",
+          "provider_namespace": "MLB_STATS_API",
+          "scheduled_start_utc": "2026-10-01T00:00:00Z"
+        },
+        "home_decimal_odds": "1.48",
+        "market": "MONEYLINE",
+        "market_code": "MNL",
+        "observed_at_utc": "2026-09-30T13:29:02.881771Z",
+        "snapshot_identity": "be591d7d194f1adbc11cba93d639881f6f89ce126ca838bda58c293d00798908",
+        "source": "TSL_BLOB3RD",
+        "source_identity": {
+          "crosswalk_authority": "P28AB_NEAREST_TEAM_AND_START_WITHIN_3600_SECONDS",
+          "crosswalk_time_delta_seconds": 0,
+          "source_game_time": "2026-10-01T08:00:00+08:00",
+          "source_match_id": "3494830.1",
+          "source_row_fingerprint": "a3bd608a8ac518fb9b82dd896deb3aef1e2cf56535599378648be240cdfc7ecf",
+          "source_row_index": 3
+        }
+      },
+      "reason_code": "EV_BELOW_MIN_NET_EV",
+      "schema_version": "moneyline_paper_decision_v1.decision.v1",
+      "selection": "HOME"
+    },
+    {
+      "data_mode": "PROSPECTIVE",
+      "decimal_odds": "1.53",
+      "decision": "NO_BET",
+      "decision_at_utc": "2026-09-30T13:30:00Z",
+      "decision_id": "460380d5516a16bc016319c91196c1ed5037242e5122846ee842f1c6a39f4a1b",
+      "decision_identity": {
+        "game_pk": 849846,
+        "game_type": "F",
+        "policy_version": "moneyline-paper-decision-v1",
+        "prediction_fingerprint": "0112261ce515b20b33d1237577045ee061cad2467ad6fe320125c84d7c336e41",
+        "prediction_run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+        "workflow_prediction_id": "p50c_pred_0112261ce515b20b33d1237577045ee0"
+      },
+      "estimated_net_ev": "-0.1857163949041047350910372685",
+      "game_type": "F",
+      "market": "MONEYLINE",
+      "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+      "not_a_real_fill": true,
+      "paper_only": true,
+      "policy_parameters": {
+        "max_quote_age_seconds": 900,
+        "min_net_ev": "0.05",
+        "paper_cost_per_unit": "0.02",
+        "stake_units": "1"
+      },
+      "policy_version": "moneyline-paper-decision-v1",
+      "prediction": {
+        "created_at_utc": "2026-09-30T13:26:37.282152Z",
+        "game_identity": {
+          "away_team": "Chicago White Sox",
+          "away_team_code": "CWS",
+          "game_number": 1,
+          "game_pk": 849846,
+          "game_type": "F",
+          "home_team": "Houston Astros",
+          "home_team_code": "HOU",
+          "official_date": "2026-09-30",
+          "provider_game_id": "849846",
+          "provider_namespace": "MLB_STATS_API",
+          "scheduled_start_utc": "2026-09-30T21:00:00Z"
+        },
+        "game_type": "F",
+        "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+        "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+        "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+        "model_identity": {
+          "confidence_probability": "0.5452834020234609574568383866",
+          "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+          "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+          "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+          "model_probability_source": "calibrated_p_home",
+          "model_role": "CHAMPION",
+          "p_away": "0.4547165979765390425431616134",
+          "p_home": "0.5452834020234609574568383866",
+          "predicted_winner": "Houston Astros",
+          "selection": "HOME"
+        },
+        "model_probability_source": "calibrated_p_home",
+        "p37_prediction_row_id": "638cb46ffe9587b526f7da0396f712a0ce494c007d0c20b4623261a8cd534190",
+        "prediction_fingerprint": "0112261ce515b20b33d1237577045ee061cad2467ad6fe320125c84d7c336e41",
+        "run_classification": "PROSPECTIVE_FORWARD_PREDICTION",
+        "run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+        "workflow_prediction_id": "p50c_pred_0112261ce515b20b33d1237577045ee0"
+      },
+      "probability": "0.5452834020234609574568383866",
+      "quote_snapshot": {
+        "away_decimal_odds": "1.97",
+        "game_identity": {
+          "away_team": "Chicago White Sox",
+          "away_team_code": "CWS",
+          "game_number": 1,
+          "game_pk": 849846,
+          "game_type": "F",
+          "home_team": "Houston Astros",
+          "home_team_code": "HOU",
+          "official_date": "2026-09-30",
+          "provider_game_id": "849846",
+          "provider_namespace": "MLB_STATS_API",
+          "scheduled_start_utc": "2026-09-30T21:00:00Z"
+        },
+        "home_decimal_odds": "1.53",
+        "market": "MONEYLINE",
+        "market_code": "MNL",
+        "observed_at_utc": "2026-09-30T13:29:02.881771Z",
+        "snapshot_identity": "f04b728d2cae277453fc7af328e10f6ce2ef077d01b4f0c90ddc648bcb83d484",
+        "source": "TSL_BLOB3RD",
+        "source_identity": {
+          "crosswalk_authority": "P28AB_NEAREST_TEAM_AND_START_WITHIN_3600_SECONDS",
+          "crosswalk_time_delta_seconds": 0,
+          "source_game_time": "2026-10-01T05:00:00+08:00",
+          "source_match_id": "3494800.1",
+          "source_row_fingerprint": "cd3e7780976a8ddf28c7db10f2d67ec16b29eb0e2e5e0dac930c9c9c54ce9ada",
+          "source_row_index": 2
+        }
+      },
+      "reason_code": "EV_BELOW_MIN_NET_EV",
+      "schema_version": "moneyline_paper_decision_v1.decision.v1",
+      "selection": "HOME"
+    },
+    {
+      "data_mode": "PROSPECTIVE",
+      "decimal_odds": "1.53",
+      "decision": "NO_BET",
+      "decision_at_utc": "2026-09-30T13:29:02.883874Z",
+      "decision_id": "a64f193c8f8df43377055a45ae24e995dc5a79941c3da9fd2175229e6d0927b7",
+      "decision_identity": {
+        "game_pk": 849846,
+        "game_type": "F",
+        "policy_version": "moneyline-paper-decision-v1",
+        "prediction_fingerprint": "0112261ce515b20b33d1237577045ee061cad2467ad6fe320125c84d7c336e41",
+        "prediction_run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+        "workflow_prediction_id": "p50c_pred_0112261ce515b20b33d1237577045ee0"
+      },
+      "estimated_net_ev": "-0.1857163949041047350910372685",
+      "game_type": "F",
+      "market": "MONEYLINE",
+      "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+      "not_a_real_fill": true,
+      "paper_only": true,
+      "policy_parameters": {
+        "max_quote_age_seconds": 900,
+        "min_net_ev": "0.05",
+        "paper_cost_per_unit": "0.02",
+        "stake_units": "1"
+      },
+      "policy_version": "moneyline-paper-decision-v1",
+      "prediction": {
+        "created_at_utc": "2026-09-30T13:26:37.282152Z",
+        "game_identity": {
+          "away_team": "Chicago White Sox",
+          "away_team_code": "CWS",
+          "game_number": 1,
+          "game_pk": 849846,
+          "game_type": "F",
+          "home_team": "Houston Astros",
+          "home_team_code": "HOU",
+          "official_date": "2026-09-30",
+          "provider_game_id": "849846",
+          "provider_namespace": "MLB_STATS_API",
+          "scheduled_start_utc": "2026-09-30T21:00:00Z"
+        },
+        "game_type": "F",
+        "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+        "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+        "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+        "model_identity": {
+          "confidence_probability": "0.5452834020234609574568383866",
+          "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+          "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+          "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+          "model_probability_source": "calibrated_p_home",
+          "model_role": "CHAMPION",
+          "p_away": "0.4547165979765390425431616134",
+          "p_home": "0.5452834020234609574568383866",
+          "predicted_winner": "Houston Astros",
+          "selection": "HOME"
+        },
+        "model_probability_source": "calibrated_p_home",
+        "p37_prediction_row_id": "638cb46ffe9587b526f7da0396f712a0ce494c007d0c20b4623261a8cd534190",
+        "prediction_fingerprint": "0112261ce515b20b33d1237577045ee061cad2467ad6fe320125c84d7c336e41",
+        "run_classification": "PROSPECTIVE_FORWARD_PREDICTION",
+        "run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+        "workflow_prediction_id": "p50c_pred_0112261ce515b20b33d1237577045ee0"
+      },
+      "probability": "0.5452834020234609574568383866",
+      "quote_snapshot": {
+        "away_decimal_odds": "1.97",
+        "game_identity": {
+          "away_team": "Chicago White Sox",
+          "away_team_code": "CWS",
+          "game_number": 1,
+          "game_pk": 849846,
+          "game_type": "F",
+          "home_team": "Houston Astros",
+          "home_team_code": "HOU",
+          "official_date": "2026-09-30",
+          "provider_game_id": "849846",
+          "provider_namespace": "MLB_STATS_API",
+          "scheduled_start_utc": "2026-09-30T21:00:00Z"
+        },
+        "home_decimal_odds": "1.53",
+        "market": "MONEYLINE",
+        "market_code": "MNL",
+        "observed_at_utc": "2026-09-30T13:29:02.881771Z",
+        "snapshot_identity": "f04b728d2cae277453fc7af328e10f6ce2ef077d01b4f0c90ddc648bcb83d484",
+        "source": "TSL_BLOB3RD",
+        "source_identity": {
+          "crosswalk_authority": "P28AB_NEAREST_TEAM_AND_START_WITHIN_3600_SECONDS",
+          "crosswalk_time_delta_seconds": 0,
+          "source_game_time": "2026-10-01T05:00:00+08:00",
+          "source_match_id": "3494800.1",
+          "source_row_fingerprint": "cd3e7780976a8ddf28c7db10f2d67ec16b29eb0e2e5e0dac930c9c9c54ce9ada",
+          "source_row_index": 2
+        }
+      },
+      "reason_code": "EV_BELOW_MIN_NET_EV",
+      "schema_version": "moneyline_paper_decision_v1.decision.v1",
+      "selection": "HOME"
+    },
+    {
+      "data_mode": "PROSPECTIVE",
+      "decimal_odds": "1.6",
+      "decision": "NO_BET",
+      "decision_at_utc": "2026-09-30T13:30:00Z",
+      "decision_id": "ae28abc8995a6a0f49e347b8a6bf73647a78d3d87b7ba23c6c64e04f8238fa26",
+      "decision_identity": {
+        "game_pk": 849842,
+        "game_type": "F",
+        "policy_version": "moneyline-paper-decision-v1",
+        "prediction_fingerprint": "81da8f7a02f0360d6da317f990323cce3e9aa81fd093f2b6773141e82a841a5a",
+        "prediction_run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+        "workflow_prediction_id": "p50c_pred_81da8f7a02f0360d6da317f990323cce"
+      },
+      "estimated_net_ev": "-0.0308475172849310025330340125",
+      "game_type": "F",
+      "market": "MONEYLINE",
+      "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+      "not_a_real_fill": true,
+      "paper_only": true,
+      "policy_parameters": {
+        "max_quote_age_seconds": 900,
+        "min_net_ev": "0.05",
+        "paper_cost_per_unit": "0.02",
+        "stake_units": "1"
+      },
+      "policy_version": "moneyline-paper-decision-v1",
+      "prediction": {
+        "created_at_utc": "2026-09-30T13:26:37.282152Z",
+        "game_identity": {
+          "away_team": "Chicago Cubs",
+          "away_team_code": "CHC",
+          "game_number": 1,
+          "game_pk": 849842,
+          "game_type": "F",
+          "home_team": "San Diego Padres",
+          "home_team_code": "SD",
+          "official_date": "2026-09-30",
+          "provider_game_id": "849842",
+          "provider_namespace": "MLB_STATS_API",
+          "scheduled_start_utc": "2026-10-01T02:00:00Z"
+        },
+        "game_type": "F",
+        "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+        "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+        "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+        "model_identity": {
+          "confidence_probability": "0.6182203016969181234168537422",
+          "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+          "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+          "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+          "model_probability_source": "calibrated_p_home",
+          "model_role": "CHAMPION",
+          "p_away": "0.3817796983030818765831462578",
+          "p_home": "0.6182203016969181234168537422",
+          "predicted_winner": "San Diego Padres",
+          "selection": "HOME"
+        },
+        "model_probability_source": "calibrated_p_home",
+        "p37_prediction_row_id": "412a6f332758c6109985c112851fa67f94e1ab097bd4b12c7018dc964ed29be4",
+        "prediction_fingerprint": "81da8f7a02f0360d6da317f990323cce3e9aa81fd093f2b6773141e82a841a5a",
+        "run_classification": "PROSPECTIVE_FORWARD_PREDICTION",
+        "run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+        "workflow_prediction_id": "p50c_pred_81da8f7a02f0360d6da317f990323cce"
+      },
+      "probability": "0.6182203016969181234168537422",
+      "quote_snapshot": {
+        "away_decimal_odds": "1.90",
+        "game_identity": {
+          "away_team": "Chicago Cubs",
+          "away_team_code": "CHC",
+          "game_number": 1,
+          "game_pk": 849842,
+          "game_type": "F",
+          "home_team": "San Diego Padres",
+          "home_team_code": "SD",
+          "official_date": "2026-09-30",
+          "provider_game_id": "849842",
+          "provider_namespace": "MLB_STATS_API",
+          "scheduled_start_utc": "2026-10-01T02:00:00Z"
+        },
+        "home_decimal_odds": "1.60",
+        "market": "MONEYLINE",
+        "market_code": "MNL",
+        "observed_at_utc": "2026-09-30T13:29:02.881771Z",
+        "snapshot_identity": "8f9ba3b4bee85f3fe0b321c4c35fb52f6c7d81019f1e6c9e1ed031feace97ff2",
+        "source": "TSL_BLOB3RD",
+        "source_identity": {
+          "crosswalk_authority": "P28AB_NEAREST_TEAM_AND_START_WITHIN_3600_SECONDS",
+          "crosswalk_time_delta_seconds": 0,
+          "source_game_time": "2026-10-01T10:00:00+08:00",
+          "source_match_id": "3494857.1",
+          "source_row_fingerprint": "5f069400161bc6436fdfafe5c899469c35486310e2a1c7eee5a6fd7364c06ca3",
+          "source_row_index": 4
+        }
+      },
+      "reason_code": "EV_BELOW_MIN_NET_EV",
+      "schema_version": "moneyline_paper_decision_v1.decision.v1",
+      "selection": "HOME"
+    },
+    {
+      "data_mode": "PROSPECTIVE",
+      "decimal_odds": "1.6",
+      "decision": "NO_BET",
+      "decision_at_utc": "2026-09-30T13:29:02.883874Z",
+      "decision_id": "b32c1f48bcf85a3124daf787fa7c60a3b48311c65168d995c74e2d06c0fd6b34",
+      "decision_identity": {
+        "game_pk": 849842,
+        "game_type": "F",
+        "policy_version": "moneyline-paper-decision-v1",
+        "prediction_fingerprint": "81da8f7a02f0360d6da317f990323cce3e9aa81fd093f2b6773141e82a841a5a",
+        "prediction_run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+        "workflow_prediction_id": "p50c_pred_81da8f7a02f0360d6da317f990323cce"
+      },
+      "estimated_net_ev": "-0.0308475172849310025330340125",
+      "game_type": "F",
+      "market": "MONEYLINE",
+      "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+      "not_a_real_fill": true,
+      "paper_only": true,
+      "policy_parameters": {
+        "max_quote_age_seconds": 900,
+        "min_net_ev": "0.05",
+        "paper_cost_per_unit": "0.02",
+        "stake_units": "1"
+      },
+      "policy_version": "moneyline-paper-decision-v1",
+      "prediction": {
+        "created_at_utc": "2026-09-30T13:26:37.282152Z",
+        "game_identity": {
+          "away_team": "Chicago Cubs",
+          "away_team_code": "CHC",
+          "game_number": 1,
+          "game_pk": 849842,
+          "game_type": "F",
+          "home_team": "San Diego Padres",
+          "home_team_code": "SD",
+          "official_date": "2026-09-30",
+          "provider_game_id": "849842",
+          "provider_namespace": "MLB_STATS_API",
+          "scheduled_start_utc": "2026-10-01T02:00:00Z"
+        },
+        "game_type": "F",
+        "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+        "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+        "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+        "model_identity": {
+          "confidence_probability": "0.6182203016969181234168537422",
+          "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+          "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+          "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+          "model_probability_source": "calibrated_p_home",
+          "model_role": "CHAMPION",
+          "p_away": "0.3817796983030818765831462578",
+          "p_home": "0.6182203016969181234168537422",
+          "predicted_winner": "San Diego Padres",
+          "selection": "HOME"
+        },
+        "model_probability_source": "calibrated_p_home",
+        "p37_prediction_row_id": "412a6f332758c6109985c112851fa67f94e1ab097bd4b12c7018dc964ed29be4",
+        "prediction_fingerprint": "81da8f7a02f0360d6da317f990323cce3e9aa81fd093f2b6773141e82a841a5a",
+        "run_classification": "PROSPECTIVE_FORWARD_PREDICTION",
+        "run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+        "workflow_prediction_id": "p50c_pred_81da8f7a02f0360d6da317f990323cce"
+      },
+      "probability": "0.6182203016969181234168537422",
+      "quote_snapshot": {
+        "away_decimal_odds": "1.90",
+        "game_identity": {
+          "away_team": "Chicago Cubs",
+          "away_team_code": "CHC",
+          "game_number": 1,
+          "game_pk": 849842,
+          "game_type": "F",
+          "home_team": "San Diego Padres",
+          "home_team_code": "SD",
+          "official_date": "2026-09-30",
+          "provider_game_id": "849842",
+          "provider_namespace": "MLB_STATS_API",
+          "scheduled_start_utc": "2026-10-01T02:00:00Z"
+        },
+        "home_decimal_odds": "1.60",
+        "market": "MONEYLINE",
+        "market_code": "MNL",
+        "observed_at_utc": "2026-09-30T13:29:02.881771Z",
+        "snapshot_identity": "8f9ba3b4bee85f3fe0b321c4c35fb52f6c7d81019f1e6c9e1ed031feace97ff2",
+        "source": "TSL_BLOB3RD",
+        "source_identity": {
+          "crosswalk_authority": "P28AB_NEAREST_TEAM_AND_START_WITHIN_3600_SECONDS",
+          "crosswalk_time_delta_seconds": 0,
+          "source_game_time": "2026-10-01T10:00:00+08:00",
+          "source_match_id": "3494857.1",
+          "source_row_fingerprint": "5f069400161bc6436fdfafe5c899469c35486310e2a1c7eee5a6fd7364c06ca3",
+          "source_row_index": 4
+        }
+      },
+      "reason_code": "EV_BELOW_MIN_NET_EV",
+      "schema_version": "moneyline_paper_decision_v1.decision.v1",
+      "selection": "HOME"
+    },
+    {
+      "data_mode": "PROSPECTIVE",
+      "decimal_odds": "1.48",
+      "decision": "NO_BET",
+      "decision_at_utc": "2026-09-30T13:30:00Z",
+      "decision_id": "b8483a2938a40c128f84021448d6d89fad8d3033852ff33bd96d0c504814ae5b",
+      "decision_identity": {
+        "game_pk": 849848,
+        "game_type": "F",
+        "policy_version": "moneyline-paper-decision-v1",
+        "prediction_fingerprint": "5f54533c31d730d92d7f9518b5a519925db4b5c878a9be2d47ae6fb354f779b7",
+        "prediction_run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+        "workflow_prediction_id": "p50c_pred_5f54533c31d730d92d7f9518b5a51992"
+      },
+      "estimated_net_ev": "-0.2138298979689188053050147965",
+      "game_type": "F",
+      "market": "MONEYLINE",
+      "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+      "not_a_real_fill": true,
+      "paper_only": true,
+      "policy_parameters": {
+        "max_quote_age_seconds": 900,
+        "min_net_ev": "0.05",
+        "paper_cost_per_unit": "0.02",
+        "stake_units": "1"
+      },
+      "policy_version": "moneyline-paper-decision-v1",
+      "prediction": {
+        "created_at_utc": "2026-09-30T13:26:37.282152Z",
+        "game_identity": {
+          "away_team": "Boston Red Sox",
+          "away_team_code": "BOS",
+          "game_number": 1,
+          "game_pk": 849848,
+          "game_type": "F",
+          "home_team": "New York Yankees",
+          "home_team_code": "NYY",
+          "official_date": "2026-09-30",
+          "provider_game_id": "849848",
+          "provider_namespace": "MLB_STATS_API",
+          "scheduled_start_utc": "2026-10-01T00:00:00Z"
+        },
+        "game_type": "F",
+        "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+        "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+        "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+        "model_identity": {
+          "confidence_probability": "0.5447095283993791856047197321",
+          "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+          "model_fingerprint": "2e260f323e39880335f8d849ee8b83586b91e7bd9d4fa44127f530d6a931bf2e",
+          "model_id": "p22b_moneyline_logistic_challenger_v1_05f9b31c608e1630",
+          "model_probability_source": "calibrated_p_home",
+          "model_role": "CHAMPION",
+          "p_away": "0.4552904716006208143952802679",
+          "p_home": "0.5447095283993791856047197321",
+          "predicted_winner": "New York Yankees",
+          "selection": "HOME"
+        },
+        "model_probability_source": "calibrated_p_home",
+        "p37_prediction_row_id": "a03d6addc90efd094e03a7244e9449e79292d3b196c67ae51c5fe21150111b3f",
+        "prediction_fingerprint": "5f54533c31d730d92d7f9518b5a519925db4b5c878a9be2d47ae6fb354f779b7",
+        "run_classification": "PROSPECTIVE_FORWARD_PREDICTION",
+        "run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+        "workflow_prediction_id": "p50c_pred_5f54533c31d730d92d7f9518b5a51992"
+      },
+      "probability": "0.5447095283993791856047197321",
+      "quote_snapshot": {
+        "away_decimal_odds": "2.05",
+        "game_identity": {
+          "away_team": "Boston Red Sox",
+          "away_team_code": "BOS",
+          "game_number": 1,
+          "game_pk": 849848,
+          "game_type": "F",
+          "home_team": "New York Yankees",
+          "home_team_code": "NYY",
+          "official_date": "2026-09-30",
+          "provider_game_id": "849848",
+          "provider_namespace": "MLB_STATS_API",
+          "scheduled_start_utc": "2026-10-01T00:00:00Z"
+        },
+        "home_decimal_odds": "1.48",
+        "market": "MONEYLINE",
+        "market_code": "MNL",
+        "observed_at_utc": "2026-09-30T13:29:02.881771Z",
+        "snapshot_identity": "be591d7d194f1adbc11cba93d639881f6f89ce126ca838bda58c293d00798908",
+        "source": "TSL_BLOB3RD",
+        "source_identity": {
+          "crosswalk_authority": "P28AB_NEAREST_TEAM_AND_START_WITHIN_3600_SECONDS",
+          "crosswalk_time_delta_seconds": 0,
+          "source_game_time": "2026-10-01T08:00:00+08:00",
+          "source_match_id": "3494830.1",
+          "source_row_fingerprint": "a3bd608a8ac518fb9b82dd896deb3aef1e2cf56535599378648be240cdfc7ecf",
+          "source_row_index": 3
+        }
+      },
+      "reason_code": "EV_BELOW_MIN_NET_EV",
+      "schema_version": "moneyline_paper_decision_v1.decision.v1",
+      "selection": "HOME"
+    }
+  ],
+  "metrics": {
+    "aggregation_scope": "ALL_GAME_TYPES",
+    "brier_all_candidates": {
+      "denominator": 4,
+      "status": "AVAILABLE",
+      "value": "0.2314941882023398516694850218"
+    },
+    "brier_bet_subset": {
+      "denominator": 0,
+      "status": "NOT_ENOUGH_DATA",
+      "value": null
+    },
+    "data_mode": "PROSPECTIVE",
+    "decisions": {
+      "bet": 0,
+      "denominator": 8,
+      "no_bet": 8,
+      "reason_counts": {
+        "EV_BELOW_MIN_NET_EV": 8
+      }
+    },
+    "game_type_cohorts": {
+      "F": {
+        "aggregation_scope": "SINGLE_GAME_TYPE",
+        "brier_all_candidates": {
+          "denominator": 4,
+          "status": "AVAILABLE",
+          "value": "0.2314941882023398516694850218"
+        },
+        "brier_bet_subset": {
+          "denominator": 0,
+          "status": "NOT_ENOUGH_DATA",
+          "value": null
+        },
+        "data_mode": "PROSPECTIVE",
+        "decisions": {
+          "bet": 0,
+          "denominator": 8,
+          "no_bet": 8,
+          "reason_counts": {
+            "EV_BELOW_MIN_NET_EV": 8
+          }
+        },
+        "game_type": "F",
+        "paper_positions": {
+          "denominator": 0,
+          "loss": 0,
+          "pending": 0,
+          "void": 0,
+          "win": 0
+        },
+        "paper_roi": {
+          "denominator": 0,
+          "status": "NOT_ENOUGH_DATA",
+          "value": null
+        },
+        "realized_paper_net_pnl": {
+          "denominator": 0,
+          "status": "NOT_ENOUGH_DATA",
+          "value": null
+        },
+        "schema_version": "moneyline_paper_decision_v1.metrics.v1",
+        "settled_non_void_stake_units": {
+          "denominator": 0,
+          "value": "0"
+        },
+        "unique_candidate_games": {
+          "denominator": 4,
+          "value": 4
+        },
+        "void_support": "NOT_SUPPORTED_BY_CURRENT_OFFICIAL_RESULT_CONTRACT",
+        "win_rate": {
+          "denominator": 0,
+          "status": "NOT_ENOUGH_DATA",
+          "value": null
+        }
+      }
+    },
+    "paper_positions": {
+      "denominator": 0,
+      "loss": 0,
+      "pending": 0,
+      "void": 0,
+      "win": 0
+    },
+    "paper_roi": {
+      "denominator": 0,
+      "status": "NOT_ENOUGH_DATA",
+      "value": null
+    },
+    "realized_paper_net_pnl": {
+      "denominator": 0,
+      "status": "NOT_ENOUGH_DATA",
+      "value": null
+    },
+    "schema_version": "moneyline_paper_decision_v1.metrics.v1",
+    "settled_non_void_stake_units": {
+      "denominator": 0,
+      "value": "0"
+    },
+    "unique_candidate_games": {
+      "denominator": 4,
+      "value": 4
+    },
+    "void_support": "NOT_SUPPORTED_BY_CURRENT_OFFICIAL_RESULT_CONTRACT",
+    "win_rate": {
+      "denominator": 0,
+      "status": "NOT_ENOUGH_DATA",
+      "value": null
+    }
+  },
+  "not_a_real_fill": true,
+  "paper_only": true,
+  "policy_parameters": {
+    "max_quote_age_seconds": 900,
+    "min_net_ev": "0.05",
+    "paper_cost_per_unit": "0.02",
+    "stake_units": "1"
+  },
+  "policy_version": "moneyline-paper-decision-v1",
+  "positions": [],
+  "prediction_evaluations": [
+    {
+      "actual_winner": "AWAY",
+      "brier_component": "0.2755976127203721342530663096",
+      "evaluation_id": "4ba964356805bc85ea7df94de50b5f8a7d483e0069a1cfbad8ec5349c904b405",
+      "game_pk": 849841,
+      "game_type": "F",
+      "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+      "prediction_fingerprint": "e6b9e8691af5961ee63e6e2a665d0e62a20a0916350a17f22e6d3684370fad0d",
+      "prediction_run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+      "probability": "0.5249739162285800026308521317",
+      "result_observed_at_utc": "2026-10-01T02:31:40.499644Z",
+      "schema_version": "moneyline_paper_decision_v1.evaluation.v1",
+      "selection": "HOME",
+      "source_identity": "MLB_STATS_API official v1.1 live feed; url=https://statsapi.mlb.com/api/v1.1/game/849841/feed/live; payload_sha256=9d9b599ba31fcdbe6520e21dc63de658a2865dc3f796711ab98755206e5f3f8e; retrieved_at_utc=2026-10-01T02:31:40.499644Z; home=Atlanta Braves; away=Philadelphia Phillies; status=Final",
+      "status": "AVAILABLE"
+    },
+    {
+      "actual_winner": "AWAY",
+      "brier_component": "0.2973339885222793453930346237",
+      "evaluation_id": "54ecaabe2800c61efb2bac5833b804a1eae7c2eb6a279efb6f5b4702fad8b7b4",
+      "game_pk": 849846,
+      "game_type": "F",
+      "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+      "prediction_fingerprint": "0112261ce515b20b33d1237577045ee061cad2467ad6fe320125c84d7c336e41",
+      "prediction_run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+      "probability": "0.5452834020234609574568383866",
+      "result_observed_at_utc": "2026-10-01T02:31:43.828791Z",
+      "schema_version": "moneyline_paper_decision_v1.evaluation.v1",
+      "selection": "HOME",
+      "source_identity": "MLB_STATS_API official v1.1 live feed; url=https://statsapi.mlb.com/api/v1.1/game/849846/feed/live; payload_sha256=7fa98535e2269a4cff34854b50694fba8a249a6958f6b653c0a63ecf5c8163f8; retrieved_at_utc=2026-10-01T02:31:43.828791Z; home=Houston Astros; away=Chicago White Sox; status=Final",
+      "status": "AVAILABLE"
+    },
+    {
+      "actual_winner": "HOME",
+      "brier_component": "0.2072894135303157083176068294",
+      "evaluation_id": "5bd94dae8d3aa0b9e2c19ffa9cea44d2e78051af6fd64a3822332836ca13c0fd",
+      "game_pk": 849848,
+      "game_type": "F",
+      "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+      "prediction_fingerprint": "5f54533c31d730d92d7f9518b5a519925db4b5c878a9be2d47ae6fb354f779b7",
+      "prediction_run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+      "probability": "0.5447095283993791856047197321",
+      "result_observed_at_utc": "2026-10-01T08:08:41.926194Z",
+      "schema_version": "moneyline_paper_decision_v1.evaluation.v1",
+      "selection": "HOME",
+      "source_identity": "MLB_STATS_API official v1.1 live feed; url=https://statsapi.mlb.com/api/v1.1/game/849848/feed/live; payload_sha256=be38a9a93c8660f386e75b6a90f59f0a0cd44755814fd8e99f435f9f0455cd8b; retrieved_at_utc=2026-10-01T08:08:41.926194Z; home=New York Yankees; away=Boston Red Sox; status=Final",
+      "status": "AVAILABLE"
+    },
+    {
+      "actual_winner": "HOME",
+      "brier_component": "0.1457557380363922187142323243",
+      "evaluation_id": "7ed5e53db3c9df7b68914b823e7c14a3e5c0eba8aeb61ccd7e45ef5eea1b5a7e",
+      "game_pk": 849842,
+      "game_type": "F",
+      "model_domain_status": "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+      "prediction_fingerprint": "81da8f7a02f0360d6da317f990323cce3e9aa81fd093f2b6773141e82a841a5a",
+      "prediction_run_id": "p50c_run_edc0cd782b93d449a1b78aae43d947c9",
+      "probability": "0.6182203016969181234168537422",
+      "result_observed_at_utc": "2026-10-01T08:08:41.926194Z",
+      "schema_version": "moneyline_paper_decision_v1.evaluation.v1",
+      "selection": "HOME",
+      "source_identity": "MLB_STATS_API official v1.1 live feed; url=https://statsapi.mlb.com/api/v1.1/game/849842/feed/live; payload_sha256=41ba81a0fa7e1d9bbe3f5447d8fcbbc06d40e0bde6cdf2a24c7aa12b8749bea1; retrieved_at_utc=2026-10-01T08:08:41.926194Z; home=San Diego Padres; away=Chicago Cubs; status=Final",
+      "status": "AVAILABLE"
+    }
+  ],
+  "schema_version": "moneyline_paper_decision_v1.state.v1",
+  "settlements": [],
+  "source_operations": [
+    {
+      "adapter_call_count": 4,
+      "adapter_calls_observed": [
+        {
+          "completed_at_utc": "2026-09-30T13:29:01.904535Z",
+          "error_type": null,
+          "payload_sha256": "ea08737af46f035570973495b2bc9b2b6247dc6bd7a75bcabf7d96492b830b66",
+          "source": "MLB_STATS_API",
+          "started_at_utc": "2026-09-30T13:29:00.695517Z",
+          "status": "SUCCESS",
+          "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-09-30&endDate=2026-10-07&gameType=F&hydrate=team"
+        },
+        {
+          "completed_at_utc": "2026-09-30T13:29:02.418296Z",
+          "error_type": null,
+          "payload_sha256": "de64e8ad578c004a5a3fc62d202a1495abe27b39d60b422363f89d3439a2c651",
+          "source": "TSL_BLOB3RD",
+          "started_at_utc": "2026-09-30T13:29:01.906729Z",
+          "status": "SUCCESS",
+          "url": "https://blob3rd.sportslottery.com.tw/apidata/Live/Games.zh.json"
+        },
+        {
+          "completed_at_utc": "2026-09-30T13:29:02.638573Z",
+          "error_type": null,
+          "payload_sha256": "4bc2ac20919ee29d2d5ffd628c7bc60fca16c607765e20957860cd4f6444f735",
+          "source": "TSL_BLOB3RD",
+          "started_at_utc": "2026-09-30T13:29:02.418458Z",
+          "status": "SUCCESS",
+          "url": "https://blob3rd.sportslottery.com.tw/apidata/Pre/Sports.zh.json"
+        },
+        {
+          "completed_at_utc": "2026-09-30T13:29:02.879295Z",
+          "error_type": null,
+          "payload_sha256": "56fbf3cee3b6356767f7cff347c8cbfe626a0780a5313294a880d301f2c037cf",
+          "source": "TSL_BLOB3RD",
+          "started_at_utc": "2026-09-30T13:29:02.638619Z",
+          "status": "SUCCESS",
+          "url": "https://blob3rd.sportslottery.com.tw/apidata/Pre/34731.1-Games.zh.json"
+        }
+      ],
+      "completed_at_utc": "2026-09-30T13:29:02.883407Z",
+      "error": null,
+      "error_type": null,
+      "game_type": "F",
+      "http_attempt_count": "UNKNOWN (the existing urllib/curl fallback does not expose attempts)",
+      "operation": "ACQUIRE_TSL_MONEYLINE_SNAPSHOT",
+      "operation_id": "56741233d82ba49ed308c0576bb551b13406664ce8fda1b78fdf3d67cce8cc28",
+      "runtime_capture_paths": [
+        "/Users/kelvin/VibeCoding-WorkSpace/MatchAnalysis/report/moneyline_paper_decision_v1/p52a_f_identity_fix_v1/acquisition/20260930T132900.694325Z/capture/tsl_live_games.json",
+        "/Users/kelvin/VibeCoding-WorkSpace/MatchAnalysis/report/moneyline_paper_decision_v1/p52a_f_identity_fix_v1/acquisition/20260930T132900.694325Z/capture/tsl_sports.json",
+        "/Users/kelvin/VibeCoding-WorkSpace/MatchAnalysis/report/moneyline_paper_decision_v1/p52a_f_identity_fix_v1/acquisition/20260930T132900.694325Z/capture/tsl_pre_games_34731.1_zh.json"
+      ],
+      "source": "MLB_STATS_API + TSL_BLOB3RD",
+      "source_payload_sha256": [
+        {
+          "sha256": "de64e8ad578c004a5a3fc62d202a1495abe27b39d60b422363f89d3439a2c651",
+          "url": "https://blob3rd.sportslottery.com.tw/apidata/Live/Games.zh.json"
+        },
+        {
+          "sha256": "4bc2ac20919ee29d2d5ffd628c7bc60fca16c607765e20957860cd4f6444f735",
+          "url": "https://blob3rd.sportslottery.com.tw/apidata/Pre/Sports.zh.json"
+        },
+        {
+          "sha256": "56fbf3cee3b6356767f7cff347c8cbfe626a0780a5313294a880d301f2c037cf",
+          "url": "https://blob3rd.sportslottery.com.tw/apidata/Pre/34731.1-Games.zh.json"
+        }
+      ],
+      "started_at_utc": "2026-09-30T13:29:00.694325Z",
+      "status": "SUCCESS",
+      "target_source_date": "2026-10-01"
+    }
+  ]
+}

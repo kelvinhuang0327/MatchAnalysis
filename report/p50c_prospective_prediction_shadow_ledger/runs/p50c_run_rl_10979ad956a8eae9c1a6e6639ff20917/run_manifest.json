@@ -1,0 +1,42 @@
+{
+  "claims": {
+    "calibration_fitting": false,
+    "ev_or_bet_pass_selection": false,
+    "kelly": false,
+    "market_id": "run_line",
+    "model_promotion": false,
+    "model_retraining": false,
+    "odds_or_market_dependent": false,
+    "real_betting": false,
+    "threshold_optimization": false,
+    "tsl_access": false
+  },
+  "created_at_utc": "2026-09-10T09:50:41.079076Z",
+  "eligible_prediction_count": 5,
+  "exclusion_count": 0,
+  "lifecycle_state": "SETTLED",
+  "market_id": "run_line",
+  "model_constants": {
+    "default_league_avg_runs": 4.3,
+    "frozen_home_advantage": 1.0115984108834084,
+    "poisson_max_runs": 40,
+    "run_smooth_k": 10.0
+  },
+  "model_role": "CHAMPION",
+  "pending_count": 0,
+  "prediction_bundle_fingerprint": "10979ad956a8eae9c1a6e6639ff20917d0845c53a66bc1b7c4539c4a5abdc1cd",
+  "prediction_count": 5,
+  "prediction_fingerprints": [
+    "2f429af4e259b732ec6221a728117b423282fee79019600dcc154a26091ffec3",
+    "b61eb46d79102c9c28e75293036083a682776b772b34ba2114499c34688e0ecd",
+    "c1c60b6d0594767e7830327e61808cae4d498babca091fbda3f5eb34c5c0ef1b",
+    "e3ae305bfbc44de251490a71acb5c2f2ae76e4057bec39e0f89196247e3f2895",
+    "c6c025cc9329944e7e4f6c0b65f03b5c34fd95e6fd5da0730bde434f5142c657"
+  ],
+  "run_classification": "PROSPECTIVE_FORWARD_PREDICTION",
+  "run_id": "p50c_run_rl_10979ad956a8eae9c1a6e6639ff20917",
+  "schema_version": "p61b.run_line_run_manifest.v1",
+  "settled_total_count": 5,
+  "target_date": "2026-09-10",
+  "task_id": "P65A"
+}

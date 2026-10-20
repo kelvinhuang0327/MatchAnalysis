@@ -1,0 +1,51 @@
+{
+  "claims": {
+    "calibration_fitting": false,
+    "ev_or_bet_pass_selection": false,
+    "kelly": false,
+    "market_id": "run_line",
+    "model_promotion": false,
+    "model_retraining": false,
+    "odds_or_market_dependent": false,
+    "real_betting": false,
+    "threshold_optimization": false,
+    "tsl_access": false
+  },
+  "created_at_utc": "2026-08-21T01:41:23.858411Z",
+  "eligible_prediction_count": 15,
+  "exclusion_count": 0,
+  "lifecycle_state": "FROZEN",
+  "market_id": "run_line",
+  "model_constants": {
+    "default_league_avg_runs": 4.3,
+    "frozen_home_advantage": 1.0115984108834084,
+    "poisson_max_runs": 40,
+    "run_smooth_k": 10.0
+  },
+  "model_role": "CHAMPION",
+  "pending_count": 15,
+  "prediction_bundle_fingerprint": "18c60251de28a01a535b486e04cd576989ae8b1af0f6c273bae59fe7416b8228",
+  "prediction_count": 15,
+  "prediction_fingerprints": [
+    "059b052bba91e02870cdc234f4e55d05711fb953a79c4bf6351ded2f67c95608",
+    "578ff2dae777677dbf5dbc508dcbccb99981600aeb520d118de79110f8b671f6",
+    "17086c710c08332d0adb498a52f316911a0cbee8d852b14aed75c674292ab1ec",
+    "05e7d0dfe179b4bfa963e5a27db5881e67bacc10e2b2ee5ff738bd0a078bc12e",
+    "4f1ec200f8604566b0b41eb8ece89024fb1e8b9cff2aef8c348bbb8cade98c66",
+    "4793871a566bc30f5012cca9e0777d05f8a75364555c5e9a60380721143a9bd9",
+    "fa2878ace9b555b9e5dc62d93ce5cf585ce7b36ecb59321fa709d6b7d73ebfe2",
+    "9f68cca9621bb1500ce089f1a64e5ef700a14f103a058ca9527c475a973911de",
+    "79b69df12076e34d1765111a44c54e77432d019662aa062389182443f9a9f937",
+    "e77c8d6c40d30044064e80f8e7a40bc606773dbefa91904099786908c91d4a71",
+    "a01aaa9009227824d1aed0d2e0cfb677a0dd0783128d268e69ef714d49796521",
+    "c73bc77f007249bd73d27c27593c891f1ec6c720efcb60d5de0ebe92c0ac1dd1",
+    "53d12f624ad528335776a7f36ff1ae098587887f1ad751e3596ba67f0c08c8c9",
+    "dc6a124991d10f9cc90a2cf2e5acd37cead195e32ad51c080304d75e85a434f6",
+    "c6b5744d1b9fd7ceebcd4b4838ca1786917f5a9074968183ae9633bc8858b546"
+  ],
+  "run_classification": "PROSPECTIVE_FORWARD_PREDICTION",
+  "run_id": "p50c_run_rl_18c60251de28a01a535b486e04cd5769",
+  "schema_version": "p61b.run_line_run_manifest.v1",
+  "settled_total_count": 0,
+  "task_id": "P65A"
+}

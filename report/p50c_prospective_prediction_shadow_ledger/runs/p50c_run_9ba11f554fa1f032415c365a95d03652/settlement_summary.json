@@ -1,0 +1,17 @@
+{
+  "accuracy": "0.6363636363636363636363636364",
+  "brier_score": "0.2453294438170327528307473634",
+  "correct_count": 7,
+  "eligible_prediction_count": 11,
+  "expected_calibration_error": "0.12465729",
+  "feedback_row_count": 11,
+  "incorrect_count": 4,
+  "lifecycle_state": "SETTLED",
+  "log_loss": "0.6842221627377272727272727273",
+  "pending_count": 0,
+  "run_classification": "PROSPECTIVE_FORWARD_PREDICTION",
+  "run_id": "p50c_run_9ba11f554fa1f032415c365a95d03652",
+  "schema_version": "p50c.prediction_run_settlement_summary.v1",
+  "settled_total_count": 11,
+  "target_universe_count": 15
+}
