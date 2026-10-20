@@ -1,5 +1,7 @@
 """Immutable provider-participant identity-resolution contracts."""
 
+from __future__ import annotations
+
 from dataclasses import dataclass
 from datetime import date, datetime
 from hashlib import sha256

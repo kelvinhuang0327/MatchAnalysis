@@ -30,6 +30,10 @@ class SettleDailyMoneylinePaperRunCliTests(unittest.TestCase):
         )
         self.assertIsNotNone(replay_args.from_bundle)
 
+    @unittest.skipUnless(
+        P33A_BUNDLE.exists(),
+        "P33A live smoke bundle not present",
+    )
     def test_cli_writes_truthful_empty_daily_sample_from_frozen_results(self) -> None:
         with tempfile.TemporaryDirectory(prefix="p34a-cli-") as temporary:
             root = Path(temporary)

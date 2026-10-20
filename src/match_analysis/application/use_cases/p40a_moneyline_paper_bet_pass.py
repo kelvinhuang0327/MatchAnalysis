@@ -180,6 +180,7 @@ class P40APredictionRow:
     challenger_model_id: str
     challenger_model_fingerprint: str
     challenger_home_probability: Decimal
+    game_type: str | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -442,6 +443,7 @@ def _load_p37_rows(
                     row.get("challenger_home_probability"),
                     field_name="challenger_home_probability",
                 ),
+                game_type=row.get("game_type", row.get("gameType", "R")),
             )
         )
         outcomes.append(

@@ -34,8 +34,25 @@ class TestP52ADailyPredictionFreezeCLI(unittest.TestCase):
         parser = build_parser()
         args = parser.parse_args(["--target-date", "2026-08-18", "--json"])
         self.assertEqual(args.target_date, "2026-08-18")
+        self.assertEqual(args.game_type, "R")
         self.assertTrue(args.json)
         self.assertIsNone(args.as_of_utc)
+        self.assertIsNone(args.intake_path)
+        self.assertEqual(
+            parser.parse_args(["--target-date", "2026-08-18", "--game-type", "P"]).game_type,
+            "P",
+        )
+        self.assertEqual(
+            parser.parse_args(
+                [
+                    "--target-date",
+                    "2026-08-18",
+                    "--intake-path",
+                    "report/p50c_prospective_prediction_shadow_ledger/intake/custom.json",
+                ]
+            ).intake_path,
+            Path("report/p50c_prospective_prediction_shadow_ledger/intake/custom.json"),
+        )
 
     def test_cli_execution_standard_output(self) -> None:
         as_of_utc = "2026-08-18T13:00:00Z"
@@ -78,6 +95,7 @@ class TestP52ADailyPredictionFreezeCLI(unittest.TestCase):
         output = mock_stdout.getvalue()
         self.assertIn("p52a-daily-prediction-freeze=", output)
         self.assertIn("target_date=2026-08-18", output)
+        self.assertIn("game_type=R", output)
         self.assertIn("eligible=1", output)
         self.assertIn("pending_frozen=1", output)
         self.assertIn("settled_prediction_forward_sample_count=0", output)
@@ -86,6 +104,9 @@ class TestP52ADailyPredictionFreezeCLI(unittest.TestCase):
         as_of_utc = "2026-08-18T13:00:00Z"
         target_date = "2026-08-18"
         target_start = "2026-08-18T23:05:00Z"
+        intake_path = Path(
+            "report/p50c_prospective_prediction_shadow_ledger/intake/cli_explicit.json"
+        )
 
         sched = _build_mock_schedule_payload(
             target_date=target_date,
@@ -116,6 +137,8 @@ class TestP52ADailyPredictionFreezeCLI(unittest.TestCase):
                     str(REPOSITORY_ROOT),
                     "--output-root",
                     str(self.output_root),
+                    "--intake-path",
+                    str(intake_path),
                     "--json",
                 ]
             )
@@ -123,9 +146,13 @@ class TestP52ADailyPredictionFreezeCLI(unittest.TestCase):
         self.assertEqual(exit_code, 0)
         parsed = json.loads(mock_stdout.getvalue())
         self.assertEqual(parsed["target_date"], "2026-08-18")
+        self.assertEqual(parsed["game_type"], "R")
         self.assertEqual(parsed["eligible_predictions_count"], 1)
         self.assertEqual(parsed["exclusion_count"], 0)
         self.assertEqual(parsed["pending_count"], 1)
+        self.assertEqual(
+            Path(parsed["pregame_input_path"]), self.output_root / intake_path
+        )
         self.assertEqual(parsed["settled_prediction_forward_sample_count"], 0)
         self.assertEqual(parsed["betting_forward_sample_count"], 0)
         self.assertTrue(parsed["run_id"].startswith("p50c_run_"))

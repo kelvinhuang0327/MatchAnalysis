@@ -59,6 +59,7 @@ class TestP53ADailyFinalSettlementCLI(unittest.TestCase):
                         "provider_namespace": "MLB_STATS_API",
                         "provider_game_id": str(gpk),
                         "game_number": 1,
+                        "game_type": "R",
                         "status": "FINAL",
                         "home_score": 5,
                         "away_score": 2,
@@ -75,6 +76,8 @@ class TestP53ADailyFinalSettlementCLI(unittest.TestCase):
 
     def test_cli_help(self) -> None:
         parser = build_parser()
+        self.assertEqual(parser.parse_args(["--run", self.run_id]).game_type, "R")
+        self.assertEqual(parser.parse_args(["--run", self.run_id, "--game-type", "P"]).game_type, "P")
         with self.assertRaises(SystemExit) as ctx:
             parser.parse_args(["--help"])
         self.assertEqual(ctx.exception.code, 0)
@@ -103,6 +106,7 @@ class TestP53ADailyFinalSettlementCLI(unittest.TestCase):
         self.assertIn("lifecycle_state=SETTLED", output)
         self.assertIn("newly_settled=11", output)
         self.assertIn("total_settled=11", output)
+        self.assertIn("game_type=R", output)
         self.assertIn("pending=0", output)
 
     def test_cli_with_json_flag(self) -> None:
@@ -130,6 +134,7 @@ class TestP53ADailyFinalSettlementCLI(unittest.TestCase):
         self.assertEqual(parsed["schema_version"], "p53a.daily_final_settlement_receipt.v1")
         self.assertEqual(parsed["task_id"], "P53A")
         self.assertEqual(parsed["run_id"], self.run_id)
+        self.assertEqual(parsed["game_type"], "R")
         self.assertEqual(parsed["lifecycle_state"], "SETTLED")
         self.assertEqual(parsed["total_settled_count"], 11)
         self.assertEqual(parsed["pending_count"], 0)

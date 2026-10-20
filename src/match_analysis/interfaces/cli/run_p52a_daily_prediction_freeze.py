@@ -29,6 +29,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="Target slate date in YYYY-MM-DD format (e.g. 2026-08-18).",
     )
     parser.add_argument(
+        "--game-type",
+        default="R",
+        help="Exact MLB provider gameType value. Defaults to R; other values are an explicit diagnostic opt-in.",
+    )
+    parser.add_argument(
         "--as-of-utc",
         default=None,
         help="Explicit freeze timestamp in ISO-8601 UTC format (e.g. 2026-08-18T13:37:42Z). Defaults to current UTC.",
@@ -44,6 +49,12 @@ def build_parser() -> argparse.ArgumentParser:
         type=Path,
         default=None,
         help="Root path for runtime pregame intake and ledger outputs. Defaults to repository-root.",
+    )
+    parser.add_argument(
+        "--intake-path",
+        type=Path,
+        default=None,
+        help="Optional exact intake file under report/p50c_prospective_prediction_shadow_ledger/intake/ (relative paths use output-root).",
     )
     parser.add_argument(
         "--history-start-date",
@@ -72,6 +83,8 @@ def main(argv: list[str] | None = None) -> int:
             repository_root=repo_root,
             output_root=output_root,
             history_start_date=args.history_start_date,
+            game_type=args.game_type,
+            intake_path=args.intake_path,
         )
     except (OSError, RuntimeError, TypeError, ValueError, UnicodeDecodeError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
@@ -83,6 +96,7 @@ def main(argv: list[str] | None = None) -> int:
         print(
             "p52a-daily-prediction-freeze="
             f"target_date={result.target_date} "
+            f"game_type={result.game_type} "
             f"as_of_utc={result.as_of_utc} "
             f"target_games={result.target_games_count} "
             f"eligible={result.eligible_predictions_count} "

@@ -40,7 +40,7 @@
     "p39_summary_sha256": "da63c06d806d9d2d2694354f5a64ee9b49808a3b8fd71b237f37276004138d08",
     "report_path": "report/p40a_moneyline_paper_bet_pass"
   },
-  "repository_root": "/Users/kelvin/VibeCoding-WorkSpace/MatchAnalysis-p41a",
+  "repository_root": "/Users/kelvin/VibeCoding-WorkSpace/MatchAnalysis",
   "schema_version": "p41a.walk_forward_ev_margin_policy_source_manifest.v1",
   "selection_objective": "HIGHEST_CUMULATIVE_PRIOR_NET_PAPER_UNITS",
   "selection_tie_break": "LARGER_EV_THRESHOLD",

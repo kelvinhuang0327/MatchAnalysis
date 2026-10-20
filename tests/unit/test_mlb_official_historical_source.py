@@ -9,10 +9,52 @@ sys.path.insert(0, str(REPOSITORY_ROOT / "src"))
 
 from match_analysis.infrastructure.providers.mlb_official_historical_source import (
     normalize_boxscore_payload,
+    normalize_pitcher_game_log_payload,
+    normalize_schedule_payload,
 )
 
 
 class MlbOfficialHistoricalSourceTests(unittest.TestCase):
+    def test_schedule_preserves_exact_provider_game_type_and_requires_it(self) -> None:
+        game = {
+            "gamePk": 11,
+            "gameNumber": 1,
+            "gameType": "P",
+            "officialDate": "2026-10-01",
+            "gameDate": "2026-10-01T23:00:00Z",
+            "status": {"abstractGameState": "Preview", "detailedState": "Scheduled"},
+            "teams": {
+                "home": {"team": {"id": 1, "name": "Home", "abbreviation": "H"}},
+                "away": {"team": {"id": 2, "name": "Away", "abbreviation": "A"}},
+            },
+        }
+        payload = {"dates": [{"date": "2026-10-01", "games": [game]}]}
+
+        self.assertEqual(normalize_schedule_payload(payload)[0]["game_type"], "P")
+        with self.assertRaisesRegex(ValueError, "provider gameType"):
+            normalize_schedule_payload(
+                {"dates": [{"date": "2026-10-01", "games": [{k: v for k, v in game.items() if k != "gameType"}]}]}
+            )
+
+    def test_pitcher_game_log_preserves_exact_type_and_requires_it(self) -> None:
+        split = {
+            "date": "2026-10-01",
+            "gameType": "P",
+            "game": {"gamePk": 11, "gameNumber": 1},
+            "stat": {"gamesStarted": 1, "outs": 18, "earnedRuns": 2},
+        }
+        payload = {"stats": [{"splits": [split]}]}
+
+        self.assertEqual(
+            normalize_pitcher_game_log_payload(payload, player_id=5)[0]["game_type"],
+            "P",
+        )
+        with self.assertRaisesRegex(ValueError, "provider gameType"):
+            normalize_pitcher_game_log_payload(
+                {"stats": [{"splits": [{k: v for k, v in split.items() if k != "gameType"}]}]},
+                player_id=5,
+            )
+
     def test_starter_team_identity_falls_back_to_boxscore_team(self) -> None:
         game = {
             "provider_game_id": "1",

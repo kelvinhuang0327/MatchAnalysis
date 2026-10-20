@@ -52,6 +52,7 @@ def _make_prediction_row(
         challenger_model_id="challenger_v1",
         challenger_model_fingerprint="c" * 64,
         challenger_home_probability=p_home,
+        game_type="R",
     )
 
 
@@ -70,6 +71,15 @@ def _make_cli_pregame_fixture() -> NormalizedPregameInput:
             "official_dates_by_prediction_row_id": {
                 pred1.p37_prediction_row_id: "2026-08-18",
                 pred2.p37_prediction_row_id: "2026-08-18",
+            },
+            "team_identities_by_prediction_row_id": {
+                prediction.p37_prediction_row_id: {
+                    "home_team": "New York Yankees",
+                    "away_team": "Los Angeles Dodgers",
+                    "home_team_code": "NYY",
+                    "away_team_code": "LAD",
+                }
+                for prediction in (pred1, pred2)
             },
         },
         authority_hashes={},
@@ -103,6 +113,7 @@ class P50CPredictionLifecycleCliTests(unittest.TestCase):
             away_score=2,
             result_observed_at_utc="2026-08-18T23:00:00Z",
             source_identity="MLB_OFFICIAL_RESULTS",
+            game_type="R",
         )
         res2 = NormalizedResultRecord(
             prediction_row_id="b" * 64,
@@ -114,6 +125,7 @@ class P50CPredictionLifecycleCliTests(unittest.TestCase):
             away_score=4,
             result_observed_at_utc="2026-08-18T23:00:00Z",
             source_identity="MLB_OFFICIAL_RESULTS",
+            game_type="R",
         )
 
         with tempfile.TemporaryDirectory() as temp_dir:

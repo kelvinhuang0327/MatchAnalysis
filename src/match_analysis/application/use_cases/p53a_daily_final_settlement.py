@@ -36,9 +36,11 @@ from .p44a_normalized_workflow_input import (
 from .p45a_paper_run_ledger import get_p45a_forward_summary
 from .p50c_prediction_run_ledger import (
     P50C_REPORT_RELATIVE_PATH,
+    REGULAR_SEASON_GAME_TYPE,
     STATE_FROZEN,
     STATE_PARTIALLY_SETTLED,
     STATE_SETTLED,
+    effective_game_type,
     get_p50c_forward_summary,
     get_p50c_run_status,
     read_json_object,
@@ -65,6 +67,7 @@ class DailyFinalSettlementResult:
     run_id: str
     run_dir: Path
     target_date: str
+    game_type: str
     lifecycle_state: str
     eligible_prediction_count: int
     newly_settled_count: int
@@ -89,6 +92,7 @@ class DailyFinalSettlementResult:
             "run_id": self.run_id,
             "run_dir": str(self.run_dir),
             "target_date": self.target_date,
+            "game_type": self.game_type,
             "lifecycle_state": self.lifecycle_state,
             "eligible_prediction_count": self.eligible_prediction_count,
             "newly_settled_count": self.newly_settled_count,
@@ -197,17 +201,23 @@ def acquire_official_final_results_for_run(
     opener: JsonOpener | None = None,
     observed_at_utc: str | None = None,
     source_identity: str = P53A_SOURCE_IDENTITY,
+    game_type: str = REGULAR_SEASON_GAME_TYPE,
 ) -> tuple[tuple[NormalizedResultRecord, ...], dict[str, int]]:
     """Fetch and filter official MLB game status for games in the frozen run only."""
+    if not isinstance(game_type, str) or not game_type.strip():
+        raise ValueError("P53A_GAME_TYPE_REQUIRED: game_type must be an exact provider code")
     if not frozen_predictions:
         return (), {}
+    frozen_game_types = {effective_game_type(prediction) for prediction in frozen_predictions}
+    if len(frozen_game_types) != 1 or frozen_game_types != {game_type}:
+        raise RuntimeError("P53A_GAME_TYPE_MISMATCH: settlement game_type must match the frozen run")
 
     actual_opener = opener if opener is not None else _default_opener
     actual_observed = observed_at_utc or _now_utc()
 
     # Collect official dates and game identities present in the frozen run
     official_dates: set[str] = set()
-    target_by_game_key: dict[tuple[str, int], Mapping[str, Any]] = {}
+    target_by_game_key: dict[tuple[str, int, str], Mapping[str, Any]] = {}
     target_by_pk: dict[int, Mapping[str, Any]] = {}
 
     for pred in frozen_predictions:
@@ -223,7 +233,7 @@ def acquire_official_final_results_for_run(
                 "P53A_CANONICAL_OFFICIAL_DATE_REQUIRED: frozen prediction is missing provider official_date"
             )
 
-        target_by_game_key[(gid, gnum)] = pred
+        target_by_game_key[(gid, gnum, effective_game_type(pred))] = pred
         target_by_pk[gpk] = pred
 
     if not official_dates:
@@ -240,6 +250,7 @@ def acquire_official_final_results_for_run(
         "startDate": start_date,
         "endDate": end_date,
         "hydrate": "team",
+        "gameType": game_type,
     }
     raw_bytes, req_url = fetch_json_bytes(url, query=query, opener=actual_opener, timeout=60)
     parsed_payload = json.loads(raw_bytes.decode("utf-8"))
@@ -252,10 +263,15 @@ def acquire_official_final_results_for_run(
         gpk = int(sched_row["game_pk"])
         gid = str(sched_row["provider_game_id"])
         gnum = int(sched_row["game_number"])
+        row_game_type = str(sched_row["game_type"])
+        if row_game_type != game_type:
+            continue
 
-        matching_pred = target_by_game_key.get((gid, gnum))
+        matching_pred = target_by_game_key.get((gid, gnum, row_game_type))
         if matching_pred is None:
             matching_pred = target_by_pk.get(gpk)
+            if matching_pred is not None and effective_game_type(matching_pred) != row_game_type:
+                matching_pred = None
 
         if matching_pred is None:
             # Game was not in frozen predictions; ignore
@@ -296,6 +312,7 @@ def acquire_official_final_results_for_run(
                 away_score=away_score,
                 result_observed_at_utc=actual_observed,
                 source_identity=source_identity,
+                game_type=row_game_type,
             )
             final_records.append(record)
 
@@ -312,6 +329,7 @@ def execute_daily_moneyline_final_settlement(
     result_input: Sequence[NormalizedResultRecord] | str | Path | None = None,
     observed_at_utc: str | None = None,
     opener: JsonOpener | None = None,
+    game_type: str = REGULAR_SEASON_GAME_TYPE,
 ) -> DailyFinalSettlementResult:
     """Execute daily Moneyline prospective prediction FINAL settlement."""
     repo_root = Path(repository_root or Path.cwd()).resolve()
@@ -342,6 +360,11 @@ def execute_daily_moneyline_final_settlement(
     frozen_predictions = read_jsonl_objects(predictions_path)
     if not frozen_predictions:
         raise RuntimeError("P53A_EMPTY_FROZEN_PREDICTIONS: run contains no frozen predictions")
+    if not isinstance(game_type, str) or not game_type.strip():
+        raise ValueError("P53A_GAME_TYPE_REQUIRED: game_type must be an exact provider code")
+    frozen_game_types = {effective_game_type(prediction) for prediction in frozen_predictions}
+    if len(frozen_game_types) != 1 or frozen_game_types != {game_type}:
+        raise RuntimeError("P53A_GAME_TYPE_MISMATCH: settlement game_type must match the frozen run")
 
     # Prefer explicit manifest authority; legacy manifests fall back to frozen dates.
     dates = [
@@ -376,6 +399,7 @@ def execute_daily_moneyline_final_settlement(
                 str(p["game_identity"]["provider_namespace"]),
                 str(p["game_identity"]["provider_game_id"]),
                 int(p["game_identity"].get("game_number", 1)),
+                effective_game_type(p),
             ): p
             for p in frozen_predictions
         }
@@ -387,8 +411,11 @@ def execute_daily_moneyline_final_settlement(
 
         final_records: list[NormalizedResultRecord] = []
         for r in all_input_results:
-            key = (r.provider_namespace, r.provider_game_id, r.game_number)
-            if key in target_game_keys or r.prediction_row_id in target_pred_ids:
+            key = (r.provider_namespace, r.provider_game_id, r.game_number, r.game_type)
+            prediction_for_id = target_pred_ids.get(r.prediction_row_id)
+            if prediction_for_id is not None and effective_game_type(prediction_for_id) != r.game_type:
+                raise RuntimeError("P53A_GAME_TYPE_MISMATCH: result type disagrees with frozen prediction")
+            if key in target_game_keys or prediction_for_id is not None:
                 final_records.append(r)
 
         non_final_count = eligible_count - len(final_records)
@@ -397,6 +424,7 @@ def execute_daily_moneyline_final_settlement(
             frozen_predictions,
             opener=opener,
             observed_at_utc=actual_observed,
+            game_type=game_type,
         )
         final_records = list(final_tuple)
         non_final_count = eligible_count - len(final_records)
@@ -439,6 +467,7 @@ def execute_daily_moneyline_final_settlement(
         "run_id": run_id,
         "run_dir": str(run_dir),
         "target_date": slate_target_date,
+        "game_type": game_type,
         "lifecycle_state": settle_res.lifecycle_state,
         "settled_at_utc": actual_observed,
         "eligible_prediction_count": eligible_count,
@@ -466,6 +495,7 @@ def execute_daily_moneyline_final_settlement(
         run_id=run_id,
         run_dir=run_dir,
         target_date=slate_target_date,
+        game_type=game_type,
         lifecycle_state=settle_res.lifecycle_state,
         eligible_prediction_count=eligible_count,
         newly_settled_count=settle_res.newly_settled_count,

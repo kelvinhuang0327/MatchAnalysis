@@ -117,6 +117,7 @@ def _make_prospective_result_fixture() -> NormalizedResultRecord:
         away_score=3,
         result_observed_at_utc="2026-08-18T23:00:00Z",
         source_identity="MLB_OFFICIAL_RESULTS",
+        game_type="R",
     )
 
 
@@ -589,4 +590,3 @@ class P45AProspectivePaperRunLedgerTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

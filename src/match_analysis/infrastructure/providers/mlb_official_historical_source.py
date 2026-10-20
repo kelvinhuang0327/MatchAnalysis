@@ -113,6 +113,9 @@ def normalize_schedule_payload(payload: Mapping[str, Any]) -> tuple[dict[str, An
             game_number = game.get("gameNumber")
             official_date = game.get("officialDate")
             scheduled = game.get("gameDate")
+            game_type = game.get("gameType")
+            if not isinstance(game_type, str) or not game_type.strip():
+                raise ValueError("schedule game is missing provider gameType")
             if (
                 not isinstance(game_pk, int)
                 or not isinstance(game_number, int)
@@ -138,6 +141,7 @@ def normalize_schedule_payload(payload: Mapping[str, Any]) -> tuple[dict[str, An
                     "provider_game_id": str(game_pk),
                     "game_pk": game_pk,
                     "game_number": game_number,
+                    "game_type": game_type,
                     "official_date": official_date,
                     "scheduled_start_utc": format_utc(start),
                     "status": status_name,
@@ -244,6 +248,9 @@ def normalize_pitcher_game_log_payload(
         game_pk = game.get("gamePk")
         if not isinstance(game_pk, int):
             raise ValueError("pitcher split has invalid game identity")
+        game_type = split.get("gameType")
+        if not isinstance(game_type, str) or not game_type.strip():
+            raise ValueError("pitcher split is missing provider gameType")
         rows.append(
             {
                 "schema_version": NORMALIZED_SCHEMA_VERSION,
@@ -251,7 +258,7 @@ def normalize_pitcher_game_log_payload(
                 "date": split_date,
                 "game_pk": game_pk,
                 "game_number": game.get("gameNumber", 1),
-                "game_type": split.get("gameType", "R"),
+                "game_type": game_type,
                 "games_started": stat.get("gamesStarted", 0),
                 "earned_runs": stat.get("earnedRuns", 0),
                 "outs": stat.get("outs", 0),

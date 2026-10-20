@@ -104,6 +104,7 @@ def _sample_p35a_pregame_bundle() -> tuple[list[dict[str, object]], list[dict[st
     schedule_rows: list[dict[str, object]] = [
         {
             "schema_version": "mlb.schedule_game.v1",
+            "game_type": "R",
             "provider_game_id": "824192",
             "game_pk": 824192,
             "game_number": 1,
@@ -117,6 +118,7 @@ def _sample_p35a_pregame_bundle() -> tuple[list[dict[str, object]], list[dict[st
         },
         {
             "schema_version": "mlb.schedule_game.v1",
+            "game_type": "R",
             "provider_game_id": "824114",
             "game_pk": 824114,
             "game_number": 1,
@@ -156,6 +158,7 @@ def _sample_final_result_bundle() -> tuple[list[dict[str, object]], dict[str, ob
             "provider_namespace": "MLB_STATS_API",
             "provider_game_id": "824192",
             "game_number": 1,
+            "game_type": "R",
             "status": "FINAL",
             "home_score": 6,
             "away_score": 3,
@@ -166,6 +169,7 @@ def _sample_final_result_bundle() -> tuple[list[dict[str, object]], dict[str, ob
             "provider_namespace": "MLB_STATS_API",
             "provider_game_id": "824114",
             "game_number": 1,
+            "game_type": "R",
             "status": "FINAL",
             "home_score": 2,
             "away_score": 5,
@@ -283,6 +287,22 @@ class P49AAtomicProspectivePostgameIntakeTests(unittest.TestCase):
             self.assertEqual(records[0].home_score, 6)
             self.assertEqual(records[0].away_score, 3)
             self.assertEqual(records[0].actual_winner, "HOME")
+
+    def test_missing_provider_game_type_fails_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            bundle_dir = temp_path / "external_results_20260818"
+            results, source_manifest, result_manifest = _sample_final_result_bundle()
+            results[0].pop("game_type")
+            _write_result_bundle_to_dir(
+                bundle_dir, results, source_manifest, result_manifest
+            )
+            with self.assertRaisesRegex(ValueError, "missing exact provider game_type"):
+                admit_external_final_result_bundle(
+                    bundle_dir,
+                    admission_root=temp_path / "admissions",
+                    admitted_at_utc="2026-08-19T03:00:00Z",
+                )
 
     def test_admit_bundle_stable_two_read_check(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

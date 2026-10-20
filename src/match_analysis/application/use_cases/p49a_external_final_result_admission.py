@@ -222,7 +222,7 @@ def admit_external_final_result_bundle(
         raise ValueError("result_manifest.json is missing non-blank target_date")
 
     # 3. Validate every final result record strictly
-    seen_identities: set[tuple[str, str, int]] = set()
+    seen_identities: set[tuple[str, str, int, str]] = set()
     normalized_records: list[NormalizedResultRecord] = []
 
     # Map pregame decisions by game identity if provided
@@ -267,7 +267,11 @@ def admit_external_final_result_bundle(
         except (ValueError, TypeError):
             gnum = 1
 
-        game_key = (ns, gid, gnum)
+        game_type = row.get("game_type", row.get("gameType"))
+        if not isinstance(game_type, str) or not game_type.strip():
+            raise ValueError(f"result row {idx} is missing exact provider game_type")
+
+        game_key = (ns, gid, gnum, game_type)
         if game_key in seen_identities:
             raise RuntimeError("P43A_CONFLICTING_RESULT_REJECTED: duplicate game identity in final results")
         seen_identities.add(game_key)
@@ -302,6 +306,7 @@ def admit_external_final_result_bundle(
             away_score=away_score,
             result_observed_at_utc=observed_at,
             source_identity=row_source_identity,
+            game_type=game_type,
         )
         normalized_records.append(record)
 
@@ -317,7 +322,12 @@ def admit_external_final_result_bundle(
     # 5. Deterministic fingerprinting
     canonical_sorted_results = sorted(
         [r.to_payload() for r in normalized_records],
-        key=lambda r: (r["provider_namespace"], r["provider_game_id"], r["game_number"]),
+        key=lambda r: (
+            r["provider_namespace"],
+            r["provider_game_id"],
+            r["game_number"],
+            r["game_type"],
+        ),
     )
     results_fp = _sha256_bytes(_canonical_json_bytes(canonical_sorted_results))
 

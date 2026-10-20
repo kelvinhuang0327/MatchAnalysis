@@ -8,9 +8,11 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 from urllib.parse import parse_qs, urlparse
 from urllib.request import Request
 
+import match_analysis.application.use_cases.p52a_daily_prediction_freeze as p52a_use_case
 from match_analysis.application.use_cases.p50c_prediction_run_ledger import (
     FORBIDDEN_PREGAME_BETTING_FIELDS,
     FORBIDDEN_PREGAME_RESULT_FIELDS,
@@ -27,6 +29,7 @@ from match_analysis.application.use_cases.p52a_daily_prediction_freeze import (
     compute_starter_era,
     compute_team_recent_win_rate_delta,
     execute_daily_moneyline_prediction_freeze,
+    fetch_pitcher_game_logs,
     load_champion_model_parameters,
     parse_schedule_rows,
 )
@@ -40,6 +43,7 @@ def _build_mock_schedule_payload(
     home_starter_id: int | None = 101,
     away_starter_id: int | None = 201,
     include_extra_past_games: int = 15,
+    target_game_type: str = "R",
 ) -> dict:
     """Build mock MLB schedule payload with completed past games and future target game."""
     dates = []
@@ -54,6 +58,7 @@ def _build_mock_schedule_payload(
                     {
                         "gamePk": 1000 + i,
                         "gameNumber": 1,
+                        "gameType": "R",
                         "officialDate": day_str,
                         "gameDate": f"{day_str}T19:00:00Z",
                         "status": {"abstractGameState": "Final", "detailedState": "Final"},
@@ -71,6 +76,7 @@ def _build_mock_schedule_payload(
                     {
                         "gamePk": 2000 + i,
                         "gameNumber": 1,
+                        "gameType": "R",
                         "officialDate": day_str,
                         "gameDate": f"{day_str}T19:05:00Z",
                         "status": {"abstractGameState": "Final", "detailedState": "Final"},
@@ -94,6 +100,7 @@ def _build_mock_schedule_payload(
         {
             "gamePk": 999001,
             "gameNumber": 1,
+            "gameType": target_game_type,
             "officialDate": target_date,
             "gameDate": target_start_utc,
             "status": {"abstractGameState": "Preview", "detailedState": "Scheduled"},
@@ -213,6 +220,11 @@ class TestP52ADailyMoneylinePredictionFreeze(unittest.TestCase):
         )
 
         self.assertEqual(result.target_date, target_date)
+        self.assertEqual(
+            result.pregame_input_path,
+            self.output_root
+            / "report/p50c_prospective_prediction_shadow_ledger/intake/prospective_pregame_20260821.json",
+        )
         self.assertEqual(result.as_of_utc, as_of_utc)
         self.assertEqual(result.target_games_count, 1)
         self.assertEqual(result.eligible_predictions_count, 1)
@@ -255,11 +267,301 @@ class TestP52ADailyMoneylinePredictionFreeze(unittest.TestCase):
             "2026-08-22T00:10:00Z",
         )
 
+    def test_single_game_selector_preserves_identity_and_default_full_slate(self) -> None:
+        target_date = "2026-08-21"
+        target_start = "2026-08-22T00:10:00Z"
+        schedule = _build_mock_schedule_payload(
+            target_date=target_date,
+            target_start_utc=target_start,
+            home_starter_id=101,
+            away_starter_id=201,
+        )
+        second_game = json.loads(json.dumps(schedule["dates"][-1]["games"][0]))
+        second_game.update(
+            {
+                "gamePk": 999002,
+                "gameNumber": 2,
+                "gameDate": "2026-08-22T01:30:00Z",
+            }
+        )
+        second_game["teams"]["home"]["probablePitcher"] = {
+            "id": 303,
+            "fullName": "Changed Starter",
+        }
+        schedule["dates"][-1]["games"].append(second_game)
+        opener = MockMLBOpener(
+            schedule,
+            {
+                101: _build_mock_pitcher_log_payload(101, start_count=5),
+                201: _build_mock_pitcher_log_payload(201, start_count=5),
+                303: _build_mock_pitcher_log_payload(303, start_count=5),
+            },
+        )
+
+        full_slate = execute_daily_moneyline_prediction_freeze(
+            target_date=target_date,
+            as_of_utc="2026-08-21T13:00:00Z",
+            repository_root=REPOSITORY_ROOT,
+            output_root=self.output_root / "full-slate",
+            opener=opener,
+        )
+        self.assertEqual(full_slate.target_games_count, 2)
+        self.assertEqual(full_slate.eligible_predictions_count, 2)
+
+        selected_row = next(
+            row for row in parse_schedule_rows(schedule) if row["provider_game_id"] == "999002"
+        )
+        selected_identity = p52a_use_case._p52a_game_identity(selected_row)
+        with patch.object(
+            p52a_use_case,
+            "compute_starter_era",
+            wraps=p52a_use_case.compute_starter_era,
+        ) as starter_era:
+            selected = execute_daily_moneyline_prediction_freeze(
+                target_date=target_date,
+                as_of_utc="2026-08-21T13:00:00Z",
+                repository_root=REPOSITORY_ROOT,
+                output_root=self.output_root / "single-game",
+                intake_path=(
+                    "report/p50c_prospective_prediction_shadow_ledger/intake/"
+                    "signal-keyed.json"
+                ),
+                target_game_identity=selected_identity,
+                expected_probable_pitcher_state={"HOME": "303", "AWAY": "201"},
+                opener=opener,
+            )
+
+        self.assertEqual(selected.target_games_count, 1)
+        self.assertEqual(selected.eligible_predictions_count, 1)
+        self.assertEqual(selected.predictions[0]["provider_game_id"], "999002")
+        self.assertEqual(
+            read_jsonl_objects(selected.run_dir / "frozen_predictions.jsonl")[0]["game_identity"],
+            selected_identity,
+        )
+        self.assertTrue(
+            any(call.args[0] == 303 for call in starter_era.call_args_list)
+        )
+
     def test_missing_provider_official_date_fails_closed(self) -> None:
         sched = _build_mock_schedule_payload()
         del sched["dates"][-1]["games"][0]["officialDate"]
         with self.assertRaisesRegex(ValueError, "P52A_CANONICAL_OFFICIAL_DATE_REQUIRED"):
             parse_schedule_rows(sched)
+
+    def test_real_team_identity_survives_f_prediction_and_freeze(self) -> None:
+        sched = _build_mock_schedule_payload(target_game_type="F")
+        intake_path = Path(
+            "report/p50c_prospective_prediction_shadow_ledger/intake/"
+            "prospective_pregame_20260818_f_identity_fix_v1.json"
+        )
+        with patch.object(
+            p52a_use_case,
+            "create_p50c_prediction_run",
+            wraps=p52a_use_case.create_p50c_prediction_run,
+        ) as p50c_create:
+            result = execute_daily_moneyline_prediction_freeze(
+                target_date="2026-08-18",
+                as_of_utc="2026-08-18T13:00:00Z",
+                repository_root=REPOSITORY_ROOT,
+                output_root=self.output_root,
+                opener=MockMLBOpener(sched),
+                game_type="F",
+                intake_path=intake_path,
+            )
+
+        expected_intake_path = self.output_root / intake_path
+        self.assertEqual(result.pregame_input_path, expected_intake_path)
+        self.assertTrue(expected_intake_path.is_file())
+        self.assertEqual(p50c_create.call_args.kwargs["pregame_input"], expected_intake_path)
+        self.assertEqual(
+            result.run_dir.parent,
+            self.output_root / "report/p50c_prospective_prediction_shadow_ledger/runs",
+        )
+        expected = {
+            "home_team": "New York Yankees",
+            "away_team": "Los Angeles Dodgers",
+            "home_team_code": "NYY",
+            "away_team_code": "LAD",
+        }
+        frozen = read_jsonl_objects(result.run_dir / "frozen_predictions.jsonl")[0]
+        for field, value in expected.items():
+            self.assertEqual(result.predictions[0][field], value)
+            self.assertEqual(frozen["game_identity"][field], value)
+        self.assertEqual(frozen["game_identity"]["game_type"], "F")
+
+    def test_explicit_intake_path_rejects_traversal_and_outside_paths(self) -> None:
+        invalid_paths = (
+            "report/p50c_prospective_prediction_shadow_ledger/intake/../../outside.json",
+            "report/other_intake.json",
+            self.output_root / "outside.json",
+        )
+        for intake_path in invalid_paths:
+            with self.subTest(intake_path=intake_path):
+                with self.assertRaisesRegex(ValueError, "P52A_INTAKE_PATH_"):
+                    p52a_use_case._resolve_explicit_intake_path(self.output_root, intake_path)
+
+    def test_explicit_intake_path_rejects_directory_target(self) -> None:
+        target = (
+            self.output_root
+            / "report/p50c_prospective_prediction_shadow_ledger/intake/existing-directory"
+        )
+        target.mkdir(parents=True)
+        with self.assertRaisesRegex(ValueError, "P52A_INTAKE_PATH_DIRECTORY_TARGET_REJECTED"):
+            p52a_use_case._resolve_explicit_intake_path(self.output_root, target)
+
+    def test_explicit_intake_path_does_not_overwrite_existing_artifact(self) -> None:
+        target = (
+            self.output_root
+            / "report/p50c_prospective_prediction_shadow_ledger/intake/existing.json"
+        )
+        target.parent.mkdir(parents=True)
+        target.write_bytes(b"historical intake evidence")
+
+        def unexpected_opener(_request: Request, timeout: int = 30) -> bytes:
+            self.fail("existing explicit target must be rejected before provider access")
+
+        with self.assertRaisesRegex(RuntimeError, "P52A_EXPLICIT_INTAKE_TARGET_EXISTS"):
+            execute_daily_moneyline_prediction_freeze(
+                target_date="2026-08-18",
+                as_of_utc="2026-08-18T13:00:00Z",
+                repository_root=REPOSITORY_ROOT,
+                output_root=self.output_root,
+                intake_path=target,
+                opener=unexpected_opener,
+            )
+        self.assertEqual(target.read_bytes(), b"historical intake evidence")
+
+    def test_placeholder_provider_team_identity_cannot_be_frozen(self) -> None:
+        sched = _build_mock_schedule_payload(target_game_type="F")
+        sched["dates"][-1]["games"][0]["teams"]["home"]["team"]["abbreviation"] = "HOME"
+        with self.assertRaisesRegex(ValueError, "P50C_FRESH_TEAM_IDENTITY_REQUIRED"):
+            execute_daily_moneyline_prediction_freeze(
+                target_date="2026-08-18",
+                as_of_utc="2026-08-18T13:00:00Z",
+                repository_root=REPOSITORY_ROOT,
+                output_root=self.output_root,
+                opener=MockMLBOpener(sched),
+                game_type="F",
+            )
+        self.assertFalse((self.output_root / "report").exists())
+
+    def test_existing_intake_is_idempotent_or_rejected_without_overwrite(self) -> None:
+        kwargs = dict(
+            target_date="2026-08-18",
+            as_of_utc="2026-08-18T13:00:00Z",
+            repository_root=REPOSITORY_ROOT,
+            output_root=self.output_root,
+            opener=MockMLBOpener(_build_mock_schedule_payload()),
+        )
+        first = execute_daily_moneyline_prediction_freeze(**kwargs)
+        original = first.pregame_input_path.read_bytes()
+        replay = execute_daily_moneyline_prediction_freeze(**kwargs)
+        self.assertEqual(replay.run_id, first.run_id)
+        self.assertEqual(replay.freeze_status, "RECOGNIZED_IDENTICAL")
+        kwargs["as_of_utc"] = "2026-08-18T13:01:00Z"
+        with self.assertRaisesRegex(RuntimeError, "P52A_INTAKE_AUTHORITY_CONFLICT"):
+            execute_daily_moneyline_prediction_freeze(**kwargs)
+        self.assertEqual(first.pregame_input_path.read_bytes(), original)
+        self.assertEqual(len(list(first.run_dir.parent.iterdir())), 1)
+
+    def test_missing_provider_game_type_fails_closed(self) -> None:
+        sched = _build_mock_schedule_payload()
+        del sched["dates"][-1]["games"][0]["gameType"]
+        with self.assertRaisesRegex(ValueError, "P52A_PROVIDER_GAME_TYPE_REQUIRED"):
+            parse_schedule_rows(sched)
+
+    def test_pitcher_log_requires_and_preserves_provider_game_type(self) -> None:
+        payload = {
+            "stats": [
+                {
+                    "splits": [
+                        {
+                            "date": "2026-10-01",
+                            "gameType": "P",
+                            "stat": {"gamesStarted": 1, "outs": 18, "earnedRuns": 2},
+                        }
+                    ]
+                }
+            ]
+        }
+        returned: list[str] = []
+
+        def opener(request: Request, timeout: int = 30) -> bytes:
+            returned.append(request.full_url)
+            return json.dumps(payload).encode("utf-8")
+
+        logs, _sources = fetch_pitcher_game_logs([101], "2026", opener=opener)
+        self.assertEqual(logs[101][0]["game_type"], "P")
+        self.assertEqual(parse_qs(urlparse(returned[0]).query)["gameType"], ["R"])
+
+        missing_type = json.loads(json.dumps(payload))
+        del missing_type["stats"][0]["splits"][0]["gameType"]
+
+        def missing_type_opener(request: Request, timeout: int = 30) -> bytes:
+            return json.dumps(missing_type).encode("utf-8")
+
+        with self.assertRaisesRegex(ValueError, "P52A_PROVIDER_GAME_TYPE_REQUIRED"):
+            fetch_pitcher_game_logs([101], "2026", opener=missing_type_opener)
+
+    def test_postseason_freeze_uses_regular_season_features_and_exact_target_query(self) -> None:
+        target_date = "2026-08-18"
+        sched = _build_mock_schedule_payload(
+            target_date=target_date,
+            target_start_utc="2026-08-18T23:05:00Z",
+            target_game_type="P",
+        )
+        mock_opener = MockMLBOpener(
+            sched,
+            {
+                101: _build_mock_pitcher_log_payload(101, start_count=5),
+                201: _build_mock_pitcher_log_payload(201, start_count=5),
+            },
+        )
+        result = execute_daily_moneyline_prediction_freeze(
+            target_date=target_date,
+            as_of_utc="2026-08-18T13:00:00Z",
+            repository_root=REPOSITORY_ROOT,
+            output_root=self.output_root,
+            opener=mock_opener,
+            game_type="P",
+        )
+
+        query_types = [
+            parse_qs(urlparse(url).query)["gameType"][0]
+            for url in mock_opener.calls
+            if urlparse(url).path.endswith("/schedule")
+        ]
+        self.assertEqual(query_types, ["R", "P"])
+        self.assertEqual(result.game_type, "P")
+        self.assertEqual(result.eligible_predictions_count, 1)
+        prediction = result.predictions[0]
+        self.assertEqual(prediction["game_type"], "P")
+        self.assertEqual(prediction["model_domain_status"], "POSTSEASON_OR_NON_R_DIAGNOSTIC")
+        manifest = read_json_object(result.run_dir / "run_manifest.json")
+        self.assertEqual(manifest["game_type"], "P")
+        self.assertEqual(manifest["model_domain_status"], "POSTSEASON_OR_NON_R_DIAGNOSTIC")
+        frozen = read_jsonl_objects(result.run_dir / "frozen_predictions.jsonl")
+        self.assertEqual(frozen[0]["game_identity"]["game_type"], "P")
+        self.assertEqual(
+            frozen[0]["model_identity"]["model_domain_status"],
+            "POSTSEASON_OR_NON_R_DIAGNOSTIC",
+        )
+
+    def test_regular_default_does_not_select_postseason_target(self) -> None:
+        sched = _build_mock_schedule_payload(target_game_type="P")
+        mock_opener = MockMLBOpener(sched)
+        result = execute_daily_moneyline_prediction_freeze(
+            target_date="2026-08-18",
+            as_of_utc="2026-08-18T13:00:00Z",
+            repository_root=REPOSITORY_ROOT,
+            output_root=self.output_root,
+            opener=mock_opener,
+        )
+        self.assertEqual(result.game_type, "R")
+        self.assertEqual(result.target_games_count, 0)
+        self.assertEqual(result.predictions, ())
+        self.assertIsNone(result.run_id)
+        self.assertEqual(result.freeze_status, "NO_ELIGIBLE_PREDICTIONS")
 
     def test_past_cutoff_game_exclusion(self) -> None:
         """Target game whose scheduled start is <= as_of_utc must be excluded."""
@@ -533,6 +835,7 @@ class TestP52ADailyMoneylinePredictionFreeze(unittest.TestCase):
             {
                 "gamePk": 999002,
                 "gameNumber": 1,
+                "gameType": "R",
                 "officialDate": target_date,
                 "gameDate": "2026-08-19T23:05:00Z",
                 "status": {"abstractGameState": "Preview", "detailedState": "Scheduled"},

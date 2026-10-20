@@ -74,6 +74,7 @@ _PREDICTION_REQUIRED = (
     "challenger_model_id",
     "challenger_model_fingerprint",
     "challenger_home_probability",
+    "game_type",
 )
 _MARKET_REQUIRED = (
     "p37_fold_id",
@@ -106,6 +107,7 @@ _RESULT_REQUIRED = (
     "away_score",
     "result_observed_at_utc",
     "source_identity",
+    "game_type",
 )
 
 
@@ -201,7 +203,17 @@ def _require_object_list(value: Any, *, field_name: str) -> list[dict[str, Any]]
     return rows
 
 
+def _reject_conflicting_game_type_alias(row: Mapping[str, Any], *, field_name: str) -> None:
+    if (
+        "game_type" in row
+        and "gameType" in row
+        and row["game_type"] != row["gameType"]
+    ):
+        raise ValueError(f"{field_name} game_type and gameType disagree")
+
+
 def _parse_prediction_row(row: Mapping[str, Any]) -> P40APredictionRow:
+    _reject_conflicting_game_type_alias(row, field_name="normalized pregame prediction")
     missing = [key for key in _PREDICTION_REQUIRED if key not in row]
     if missing:
         raise ValueError(f"normalized pregame prediction missing keys: {missing}")
@@ -219,6 +231,9 @@ def _parse_prediction_row(row: Mapping[str, Any]) -> P40APredictionRow:
         row.get("scheduled_start_utc"), field_name="scheduled_start_utc"
     )
     parse_canonical_utc(scheduled_start_utc)
+    game_type = row.get("game_type")
+    if not isinstance(game_type, str) or not game_type.strip():
+        raise ValueError("normalized pregame game_type must be a non-empty provider value")
     return P40APredictionRow(
         p37_fold_id=_text(row.get("p37_fold_id"), field_name="p37_fold_id"),
         p37_window=_text(row.get("p37_window"), field_name="p37_window"),
@@ -250,6 +265,7 @@ def _parse_prediction_row(row: Mapping[str, Any]) -> P40APredictionRow:
             field_name="challenger_model_fingerprint",
         ),
         challenger_home_probability=challenger_probability,
+        game_type=game_type,
     )
 
 
@@ -379,6 +395,7 @@ def prediction_row_to_payload(row: P40APredictionRow) -> dict[str, Any]:
         "challenger_model_id": row.challenger_model_id,
         "challenger_model_fingerprint": row.challenger_model_fingerprint,
         "challenger_home_probability": _decimal_text(row.challenger_home_probability),
+        "game_type": row.game_type,
     }
 
 
@@ -550,6 +567,7 @@ class NormalizedResultRecord:
     away_score: int
     result_observed_at_utc: str
     source_identity: str
+    game_type: str | None = None
 
     @property
     def actual_winner(self) -> str:
@@ -573,6 +591,7 @@ class NormalizedResultRecord:
             "away_score": self.away_score,
             "result_observed_at_utc": self.result_observed_at_utc,
             "source_identity": self.source_identity,
+            "game_type": self.game_type,
         }
 
     def to_p40_outcome(self) -> P40AOutcomeRow:
@@ -593,6 +612,7 @@ def _require_score(value: Any, *, field_name: str) -> int:
 
 
 def parse_normalized_result_payload(row: Mapping[str, Any]) -> NormalizedResultRecord:
+    _reject_conflicting_game_type_alias(row, field_name="normalized result row")
     missing = [key for key in _RESULT_REQUIRED if key not in row]
     if missing:
         raise ValueError(f"normalized result row missing keys: {missing}")
@@ -612,6 +632,9 @@ def parse_normalized_result_payload(row: Mapping[str, Any]) -> NormalizedResultR
         row.get("result_observed_at_utc"), field_name="result_observed_at_utc"
     )
     parse_canonical_utc(observed_at)
+    game_type = row.get("game_type")
+    if not isinstance(game_type, str) or not game_type.strip():
+        raise ValueError("normalized result game_type must be a non-empty provider value")
     return NormalizedResultRecord(
         prediction_row_id=_sha(row.get("prediction_row_id"), field_name="prediction_row_id"),
         provider_namespace=_text(
@@ -626,6 +649,7 @@ def parse_normalized_result_payload(row: Mapping[str, Any]) -> NormalizedResultR
         away_score=away_score,
         result_observed_at_utc=observed_at,
         source_identity=_text(row.get("source_identity"), field_name="source_identity"),
+        game_type=game_type,
     )
 
 
