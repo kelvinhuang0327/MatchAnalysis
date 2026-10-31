@@ -1,0 +1,2294 @@
+{
+  "audit_opened": true,
+  "bet_count": 0,
+  "champion_vs_market": {
+    "champion_metrics": {
+      "accuracy": null,
+      "accuracy_wilson95": null,
+      "brier_score": null,
+      "classification_rule": "HOME iff p_home >= 0.5; AWAY otherwise",
+      "correct_count": 0,
+      "log_loss": null,
+      "sample_count": 0
+    },
+    "market_metrics": {
+      "accuracy": null,
+      "accuracy_wilson95": null,
+      "brier_score": null,
+      "classification_rule": "HOME iff p_home >= 0.5; AWAY otherwise",
+      "correct_count": 0,
+      "log_loss": null,
+      "sample_count": 0
+    },
+    "sample_count": 0
+  },
+  "clv": "UNKNOWN",
+  "constant_role": "UNINFORMATIVE_0.5_REFERENCE; NOT_CHAMPION_OR_NEW_FITTED_MODEL",
+  "data_status": "HISTORICAL_DEVELOPMENT_ONLY; PUBLIC_OUTCOMES_AND_PAST_RESEARCH_EXIST; NOT_UNSEEN",
+  "denominators": {
+    "champion_market_paired_games": 0,
+    "development_games": 69,
+    "historical_audit_games": 33,
+    "missing_evidence_counts": {
+      "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED": 102,
+      "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED": 102,
+      "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND": 102,
+      "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET": 102,
+      "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE": 102
+    },
+    "price_eligible_games": 102
+  },
+  "existing_policy": {
+    "max_quote_age_seconds": 120,
+    "min_net_ev": "0.02",
+    "paper_cost_per_unit": "0.02",
+    "stake_units": "1"
+  },
+  "freshness": {
+    "decision_freshness_status": "UNKNOWN",
+    "verified_decision_time_games": 0,
+    "warning": "Scheduled-start proxy is descriptive only; it never replaces actual freeze/decision timestamps.",
+    "within_age_limit_at_scheduled_start_proxy_games": 0
+  },
+  "historical_reference_scores": {
+    "all_opened": {
+      "constant": {
+        "accuracy": "0.5588235294117647058823529412",
+        "accuracy_wilson95": [
+          "0.4620704483428018124961486920",
+          "0.6513066737576142832344942736"
+        ],
+        "brier_score": "0.25",
+        "classification_rule": "HOME iff p_home >= 0.5; AWAY otherwise",
+        "correct_count": 57,
+        "log_loss": "0.69314718056",
+        "sample_count": 102
+      },
+      "market": {
+        "accuracy": "0.5490196078431372549019607843",
+        "accuracy_wilson95": [
+          "0.4524271345292305423536289214",
+          "0.6420538005544495374219068832"
+        ],
+        "brier_score": "0.2444657681026357663423014993",
+        "classification_rule": "HOME iff p_home >= 0.5; AWAY otherwise",
+        "correct_count": 56,
+        "log_loss": "0.6822351093625196078431372549",
+        "sample_count": 102
+      }
+    },
+    "development": {
+      "constant": {
+        "accuracy": "0.6231884057971014492753623188",
+        "accuracy_wilson95": [
+          "0.5052188643395577058339012404",
+          "0.7281647097298063626554154460"
+        ],
+        "brier_score": "0.25",
+        "classification_rule": "HOME iff p_home >= 0.5; AWAY otherwise",
+        "correct_count": 43,
+        "log_loss": "0.69314718056",
+        "sample_count": 69
+      },
+      "market": {
+        "accuracy": "0.6086956521739130434782608696",
+        "accuracy_wilson95": [
+          "0.4907399184297276514305245543",
+          "0.7151867645726524090012254631"
+        ],
+        "brier_score": "0.2320803352749261582475923197",
+        "classification_rule": "HOME iff p_home >= 0.5; AWAY otherwise",
+        "correct_count": 42,
+        "log_loss": "0.6563279704444347826086956522",
+        "sample_count": 69
+      }
+    },
+    "historical_audit": {
+      "constant": {
+        "accuracy": "0.4242424242424242424242424242",
+        "accuracy_wilson95": [
+          "0.2723559663341020391386253205",
+          "0.5919273666268755450892701577"
+        ],
+        "brier_score": "0.25",
+        "classification_rule": "HOME iff p_home >= 0.5; AWAY otherwise",
+        "correct_count": 14,
+        "log_loss": "0.69314718056",
+        "sample_count": 33
+      },
+      "market": {
+        "accuracy": "0.4242424242424242424242424242",
+        "accuracy_wilson95": [
+          "0.2723559663341020391386253205",
+          "0.5919273666268755450892701577"
+        ],
+        "brier_score": "0.2703625821969376741766934197",
+        "classification_rule": "HOME iff p_home >= 0.5; AWAY otherwise",
+        "correct_count": 14,
+        "log_loss": "0.7364045816457878787878787879",
+        "sample_count": 33
+      }
+    }
+  },
+  "market_minus_constant_reference": {
+    "bootstrap_replicates": 1000,
+    "bootstrap_seed": 20261007,
+    "brier_date_block_bootstrap95": [
+      -0.025068168753139726,
+      0.0176524527603265
+    ],
+    "brier_delta": -0.005534231897364236,
+    "logloss_delta": -0.01091207119740851,
+    "n": 102,
+    "official_date_blocks": 9,
+    "uncertainty_limit": "Descriptive only: few dates, correlated teams and prior trials; no efficacy inference."
+  },
+  "optimization_trials_this_batch": 0,
+  "profitability_claim": false,
+  "protocol_sha256": "0aada78dadcd41ab12cfaadeac034e94dc092e8a32d2d64d188e12954974047b",
+  "rows": [
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-14",
+      "provider_game_id": "823368",
+      "quote_age_at_scheduled_start_seconds": 4820.226452,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-14",
+      "provider_game_id": "822722",
+      "quote_age_at_scheduled_start_seconds": 1019.294027,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-14",
+      "provider_game_id": "824823",
+      "quote_age_at_scheduled_start_seconds": 1019.294027,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-14",
+      "provider_game_id": "822801",
+      "quote_age_at_scheduled_start_seconds": 1139.294027,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-14",
+      "provider_game_id": "823615",
+      "quote_age_at_scheduled_start_seconds": 1319.294027,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-14",
+      "provider_game_id": "824506",
+      "quote_age_at_scheduled_start_seconds": 1319.294027,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-14",
+      "provider_game_id": "823693",
+      "quote_age_at_scheduled_start_seconds": 3119.294027,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-14",
+      "provider_game_id": "823777",
+      "quote_age_at_scheduled_start_seconds": 3119.294027,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-14",
+      "provider_game_id": "824099",
+      "quote_age_at_scheduled_start_seconds": 3119.294027,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-14",
+      "provider_game_id": "824586",
+      "quote_age_at_scheduled_start_seconds": 3119.294027,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-14",
+      "provider_game_id": "823212",
+      "quote_age_at_scheduled_start_seconds": 6719.294027,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-14",
+      "provider_game_id": "824021",
+      "quote_age_at_scheduled_start_seconds": 10139.294027,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-14",
+      "provider_game_id": "824751",
+      "quote_age_at_scheduled_start_seconds": 3138.374029,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-15",
+      "provider_game_id": "823452",
+      "quote_age_at_scheduled_start_seconds": 33112.838356,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-15",
+      "provider_game_id": "822724",
+      "quote_age_at_scheduled_start_seconds": 33412.838356,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-15",
+      "provider_game_id": "824505",
+      "quote_age_at_scheduled_start_seconds": 32205.213966,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-15",
+      "provider_game_id": "823046",
+      "quote_age_at_scheduled_start_seconds": 34305.213966,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-15",
+      "provider_game_id": "822887",
+      "quote_age_at_scheduled_start_seconds": 38212.838356,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-15",
+      "provider_game_id": "824181",
+      "quote_age_at_scheduled_start_seconds": 70719.047585,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-15",
+      "provider_game_id": "824993",
+      "quote_age_at_scheduled_start_seconds": 42107.598521,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-15",
+      "provider_game_id": "825071",
+      "quote_age_at_scheduled_start_seconds": 76119.047585,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-15",
+      "provider_game_id": "823938",
+      "quote_age_at_scheduled_start_seconds": 43005.213966,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-16",
+      "provider_game_id": "823451",
+      "quote_age_at_scheduled_start_seconds": 32571.476492,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-16",
+      "provider_game_id": "822723",
+      "quote_age_at_scheduled_start_seconds": 29097.458338,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-16",
+      "provider_game_id": "824750",
+      "quote_age_at_scheduled_start_seconds": 32871.476492,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-16",
+      "provider_game_id": "823535",
+      "quote_age_at_scheduled_start_seconds": 34071.476492,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-16",
+      "provider_game_id": "824504",
+      "quote_age_at_scheduled_start_seconds": 34371.476492,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-16",
+      "provider_game_id": "823775",
+      "quote_age_at_scheduled_start_seconds": 36171.476492,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-16",
+      "provider_game_id": "823045",
+      "quote_age_at_scheduled_start_seconds": 36471.476492,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-16",
+      "provider_game_id": "822888",
+      "quote_age_at_scheduled_start_seconds": 34799.988417,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-16",
+      "provider_game_id": "824182",
+      "quote_age_at_scheduled_start_seconds": 35099.988417,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-16",
+      "provider_game_id": "823128",
+      "quote_age_at_scheduled_start_seconds": 43371.476492,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-16",
+      "provider_game_id": "824991",
+      "quote_age_at_scheduled_start_seconds": 43371.476492,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-16",
+      "provider_game_id": "825070",
+      "quote_age_at_scheduled_start_seconds": 40499.988417,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-16",
+      "provider_game_id": "823939",
+      "quote_age_at_scheduled_start_seconds": 45171.476492,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-17",
+      "provider_game_id": "824503",
+      "quote_age_at_scheduled_start_seconds": 15063.39023,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-17",
+      "provider_game_id": "822721",
+      "quote_age_at_scheduled_start_seconds": 14757.601953,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-17",
+      "provider_game_id": "823450",
+      "quote_age_at_scheduled_start_seconds": 14757.601953,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-17",
+      "provider_game_id": "824178",
+      "quote_age_at_scheduled_start_seconds": 20463.39023,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-17",
+      "provider_game_id": "823044",
+      "quote_age_at_scheduled_start_seconds": 18055.030311,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-17",
+      "provider_game_id": "823940",
+      "quote_age_at_scheduled_start_seconds": 18178.316313,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-17",
+      "provider_game_id": "825072",
+      "quote_age_at_scheduled_start_seconds": 23155.030311,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-17",
+      "provider_game_id": "824746",
+      "quote_age_at_scheduled_start_seconds": 36963.39023,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-17",
+      "provider_game_id": "823536",
+      "quote_age_at_scheduled_start_seconds": 32278.316313,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-17",
+      "provider_game_id": "824913",
+      "quote_age_at_scheduled_start_seconds": 38763.39023,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-17",
+      "provider_game_id": "823774",
+      "quote_age_at_scheduled_start_seconds": 40263.39023,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-17",
+      "provider_game_id": "823127",
+      "quote_age_at_scheduled_start_seconds": 47463.39023,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-17",
+      "provider_game_id": "824992",
+      "quote_age_at_scheduled_start_seconds": 47463.39023,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-18",
+      "provider_game_id": "824748",
+      "quote_age_at_scheduled_start_seconds": 321.698127,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-18",
+      "provider_game_id": "823772",
+      "quote_age_at_scheduled_start_seconds": 615.876489,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-18",
+      "provider_game_id": "822889",
+      "quote_age_at_scheduled_start_seconds": 311.437748,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-18",
+      "provider_game_id": "823125",
+      "quote_age_at_scheduled_start_seconds": 597.173944,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-18",
+      "provider_game_id": "823448",
+      "quote_age_at_scheduled_start_seconds": 572.784897,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-18",
+      "provider_game_id": "823533",
+      "quote_age_at_scheduled_start_seconds": 267.592456,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-18",
+      "provider_game_id": "824098",
+      "quote_age_at_scheduled_start_seconds": 562.450473,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-18",
+      "provider_game_id": "824989",
+      "quote_age_at_scheduled_start_seconds": 540.397074,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-19",
+      "provider_game_id": "824663",
+      "quote_age_at_scheduled_start_seconds": 258.026486,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-19",
+      "provider_game_id": "824264",
+      "quote_age_at_scheduled_start_seconds": 515.232193,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-19",
+      "provider_game_id": "823534",
+      "quote_age_at_scheduled_start_seconds": 210.49291,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-19",
+      "provider_game_id": "822966",
+      "quote_age_at_scheduled_start_seconds": 510.49291,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-19",
+      "provider_game_id": "823853",
+      "quote_age_at_scheduled_start_seconds": 510.49291,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-19",
+      "provider_game_id": "824910",
+      "quote_age_at_scheduled_start_seconds": 810.49291,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-19",
+      "provider_game_id": "822886",
+      "quote_age_at_scheduled_start_seconds": 199.770715,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-19",
+      "provider_game_id": "824179",
+      "quote_age_at_scheduled_start_seconds": 499.770715,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-19",
+      "provider_game_id": "824097",
+      "quote_age_at_scheduled_start_seconds": 799.770715,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-19",
+      "provider_game_id": "824990",
+      "quote_age_at_scheduled_start_seconds": 484.120909,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-19",
+      "provider_game_id": "825069",
+      "quote_age_at_scheduled_start_seconds": 784.120909,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-19",
+      "provider_game_id": "823124",
+      "quote_age_at_scheduled_start_seconds": 479.054953,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-19",
+      "provider_game_id": "823936",
+      "quote_age_at_scheduled_start_seconds": 479.054953,
+      "role": "development",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-20",
+      "provider_game_id": "824263",
+      "quote_age_at_scheduled_start_seconds": 899.241027,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-20",
+      "provider_game_id": "823532",
+      "quote_age_at_scheduled_start_seconds": 593.328981,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-20",
+      "provider_game_id": "824665",
+      "quote_age_at_scheduled_start_seconds": 585.624058,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-20",
+      "provider_game_id": "822885",
+      "quote_age_at_scheduled_start_seconds": 567.223449,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-20",
+      "provider_game_id": "822967",
+      "quote_age_at_scheduled_start_seconds": 867.223449,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-20",
+      "provider_game_id": "823854",
+      "quote_age_at_scheduled_start_seconds": 867.223449,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-20",
+      "provider_game_id": "824909",
+      "quote_age_at_scheduled_start_seconds": 867.223449,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-20",
+      "provider_game_id": "823447",
+      "quote_age_at_scheduled_start_seconds": 234.402374,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-20",
+      "provider_game_id": "824180",
+      "quote_age_at_scheduled_start_seconds": 234.402374,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-20",
+      "provider_game_id": "824988",
+      "quote_age_at_scheduled_start_seconds": 506.198932,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-20",
+      "provider_game_id": "823126",
+      "quote_age_at_scheduled_start_seconds": 806.198932,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-20",
+      "provider_game_id": "823937",
+      "quote_age_at_scheduled_start_seconds": 806.198932,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-20",
+      "provider_game_id": "825068",
+      "quote_age_at_scheduled_start_seconds": 806.198932,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-21",
+      "provider_game_id": "823531",
+      "quote_age_at_scheduled_start_seconds": 236.108765,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-21",
+      "provider_game_id": "824908",
+      "quote_age_at_scheduled_start_seconds": 236.108765,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-21",
+      "provider_game_id": "822968",
+      "quote_age_at_scheduled_start_seconds": 536.108765,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-21",
+      "provider_game_id": "823852",
+      "quote_age_at_scheduled_start_seconds": 536.108765,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-21",
+      "provider_game_id": "824260",
+      "quote_age_at_scheduled_start_seconds": 536.108765,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-21",
+      "provider_game_id": "824095",
+      "quote_age_at_scheduled_start_seconds": 530.318347,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-21",
+      "provider_game_id": "824177",
+      "quote_age_at_scheduled_start_seconds": 530.318347,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-21",
+      "provider_game_id": "822883",
+      "quote_age_at_scheduled_start_seconds": 225.067666,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-21",
+      "provider_game_id": "825067",
+      "quote_age_at_scheduled_start_seconds": 820.133241,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-21",
+      "provider_game_id": "824987",
+      "quote_age_at_scheduled_start_seconds": 209.993152,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-21",
+      "provider_game_id": "823123",
+      "quote_age_at_scheduled_start_seconds": 509.993152,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-21",
+      "provider_game_id": "823934",
+      "quote_age_at_scheduled_start_seconds": 509.993152,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-21",
+      "provider_game_id": "823449",
+      "quote_age_at_scheduled_start_seconds": 176.844902,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-22",
+      "provider_game_id": "824261",
+      "quote_age_at_scheduled_start_seconds": 80571.849938,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-22",
+      "provider_game_id": "822964",
+      "quote_age_at_scheduled_start_seconds": 82371.849938,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-22",
+      "provider_game_id": "823851",
+      "quote_age_at_scheduled_start_seconds": 82371.849938,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-22",
+      "provider_game_id": "822800",
+      "quote_age_at_scheduled_start_seconds": 83991.849938,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-22",
+      "provider_game_id": "824502",
+      "quote_age_at_scheduled_start_seconds": 84171.849938,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 0,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-22",
+      "provider_game_id": "823692",
+      "quote_age_at_scheduled_start_seconds": 85971.849938,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    },
+    {
+      "actual_home_win": 1,
+      "age_proxy_is_admission": false,
+      "blockers": [
+        "CHAMPION_FULL_IDENTITY_PREGAME_FREEZE_NOT_FOUND",
+        "STARTER_IDENTITIES_ABSENT_FROM_CACHED_SCHEDULE",
+        "OFFICIAL_SCHEDULE_CAPTURE_AFTER_TARGET",
+        "CHAMPION_FEATURE_CAPTURE_BEFORE_CUTOFF_NOT_ESTABLISHED",
+        "ACTUAL_MODEL_DECISION_TIME_NOT_ESTABLISHED"
+      ],
+      "decision_freshness": "UNKNOWN_NO_VERIFIED_MODEL_DECISION_TIME",
+      "game_number": 1,
+      "market_reference_scored": true,
+      "model_pair_status": "NOT_EVALUABLE",
+      "official_date": "2026-06-22",
+      "provider_game_id": "824585",
+      "quote_age_at_scheduled_start_seconds": 85971.849938,
+      "role": "historical_audit",
+      "verified_pregame_freeze_matches": 0,
+      "within_existing_age_limit_at_start_proxy": false
+    }
+  ],
+  "schema_version": "historical_price_readiness_result.v1"
+}

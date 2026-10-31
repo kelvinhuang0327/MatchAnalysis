@@ -1,0 +1,22 @@
+{
+  "official_schedule": {
+    "path": "data/fixtures/p23f2_official_2026_history/raw/schedule_2026-03-25_2026-06-30.json",
+    "sha256": "6950ed55ff1ddeb9b90f90138847ed7ebe79ce39d37614268d344af96eb65e55"
+  },
+  "outputs_sha256": {
+    "eligible_games.jsonl": "5389381c25bde604ae6dc0c22baf806d59afb3ff3d68c9aae07545829dd4b434",
+    "row_decisions.jsonl": "14490707aaf21e5d5cf5ccd3974894914e873751bdac9f9c252eb11e965c075c",
+    "summary.json": "899e6db0783cc1d1f6ac12f46fd1ebc0c896115700ba103f1cb71442b6e14b7a"
+  },
+  "prior_scope": {
+    "path": "report/p37a_rolling_walk_forward_oos/summary.json",
+    "sha256": "f8fe76adbadbccd81ff19d7edcfe1c5ff0ac1107678db53021ba248a00249e75",
+    "use": "IDENTITY_OVERLAP_ANNOTATION_ONLY; NEVER_OUTCOME_FILTER"
+  },
+  "schema_version": "tsl.archive_eligibility_sources.v1",
+  "source_portability": "Original TSL archive is reused in place; not duplicated into this research artifact. Supply the same hash-bound file for replay.",
+  "tsl_source": {
+    "path": "/Users/kelvin/Kelvin-WorkSpace/Betting-pool/data/tsl_odds_history.jsonl",
+    "sha256": "5604e41f817f87617956b54c4b664bbf562d496eb1c8618bd174888ef87c8efc"
+  }
+}
